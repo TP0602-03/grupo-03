@@ -1,12 +1,17 @@
-package com.company;
+package ar.fiuba.tdd.template;
+
 
 public class Cell {
-    private CellValue value = new CellValue(1);
-    public CellValue getValue(){
-        return value;
+
+    public void setValue(int newValue) throws InvalidValueTypeException {
+
+        throw new InvalidValueTypeException("This cell does not accept numbers");
     }
 
-    public void setValue(CellValue value) {
-        this.value = value;
+    public int getValue() throws InvalidValueTypeException {
+         throw new InvalidValueTypeException("Not a numeric Cell");
     }
+
+
+
 }
