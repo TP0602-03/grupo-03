@@ -35,3 +35,7 @@ configurations.all {
         force 'xml-apis:xml-apis:1.4.01'
     }
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
