@@ -9,7 +9,7 @@ public class Cell {
     }
 
     public int getValue() throws InvalidValueTypeException {
-         throw new InvalidValueTypeException("Not a numeric Cell");
+        throw new InvalidValueTypeException("Not a numeric Cell");
     }
 
 
