@@ -7,9 +7,9 @@ public class SquareIterator extends SectionIterator{
     }
 
     @Override
-    public ArrayList<CellValue> getCells(int row, int column) {
+    public ArrayList<Cell> getCells(int row, int column) {
         // Sudoku 3x3 squares
-        ArrayList<CellValue> array = new ArrayList<>();
+        ArrayList<Cell> array = new ArrayList<>();
         int topLeftRow = row/3;
         int topLeftColumn = column/3;
         for (int i = 0; i < 3; i++) {

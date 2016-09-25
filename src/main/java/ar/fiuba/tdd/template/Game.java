@@ -15,7 +15,7 @@ public class Game {
         ArrayList<SectionIterator> iterators = rules.get(rule);
         iterators.add(iterator);
     }
-    public boolean setCell(int row, int column, CellValue value){
+    public boolean setCell(int row, int column, int value) throws InvalidValueTypeException{
         boolean allRulesValid = true;
         grid.set(row,column,value);
         grid.print();

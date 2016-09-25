@@ -8,7 +8,7 @@ public abstract class SectionIterator {
         this.grid = grid;
     }
 
-    public abstract ArrayList<CellValue> getCells(int row, int column);
+    public abstract ArrayList<Cell> getCells(int row, int column);
 
 
     public abstract String print();

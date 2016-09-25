@@ -7,8 +7,8 @@ public class RowIterator extends SectionIterator{
     }
 
     @Override
-    public ArrayList<CellValue> getCells(int row, int column) {
-        ArrayList<CellValue> array = new ArrayList<>();
+    public ArrayList<Cell> getCells(int row, int column) {
+        ArrayList<Cell> array = new ArrayList<>();
         for (int i = 0; i < grid.getWidth(); i++) {
             array.add(grid.get(row,i));
         }

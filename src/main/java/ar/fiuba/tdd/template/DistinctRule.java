@@ -9,8 +9,8 @@ public class DistinctRule extends Rule {
 
     @Override
     public boolean check(SectionIterator iterator, int row, int column) {
-        ArrayList<CellValue> cells = iterator.getCells(row, column);
-        Set<CellValue> values = new HashSet<>();
+        ArrayList<Cell> cells = iterator.getCells(row, column);
+        Set<Cell> values = new HashSet<>();
         values.addAll(cells);
         return cells.size() == values.size();
     }

@@ -8,7 +8,7 @@ public class Grid {
         for (int i = 0; i < h; i++) {
             grid.add(new ArrayList<>());
             for (int j = 0; j < w; j++) {
-                grid.get(i).add(new Cell());
+                grid.get(i).add(new NumericalCell(1));
             }
         }
 
@@ -20,22 +20,23 @@ public class Grid {
     public int getHeight(){
         return grid.size();
     }
-    public CellValue get(int row, int column){
-        return (grid.get(row).get(column)).getValue();
+    public Cell get(int row, int column){
+        return (grid.get(row).get(column));
     }
 
-    public void set(int row, int column, CellValue v){
-        (grid.get(row).get(column)).setValue(v);
+    public void set(int row, int column,int v) throws InvalidValueTypeException{
+            (grid.get(row).get(column)).setValue(v);
+
     }
 
-    public void print(){
+    public void print() throws  InvalidValueTypeException{
         for (int i = 0; i < grid.get(0).size(); i++) {
             System.out.print("--");
         }
         System.out.println();
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid.get(i).size(); j++) {
-                System.out.print(grid.get(i).get(j).getValue().print() + " ");
+                System.out.print(grid.get(i).get(j).getValue() + " ");
             }
             System.out.println();
         }
