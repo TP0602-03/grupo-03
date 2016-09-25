@@ -7,7 +7,6 @@ package ar.fiuba.tdd.tp.cell;
 public class OneDigitCell extends NumericalCell{
 
     public OneDigitCell() {
-        super(1);
     }
 
     public void setValue(int newValue) {

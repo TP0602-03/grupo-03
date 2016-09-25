@@ -5,10 +5,10 @@ package ar.fiuba.tdd.tp.cell;
  */
 public class NumericalCell extends Cell {
 
-    protected int value;
+    protected Integer value = null ; //So that an empty cell can be recognised
 
-    public NumericalCell(int newValue) {
-        this.value = newValue;
+    public NumericalCell() {
+
     }
 
     public void setValue(int newValue) {
@@ -17,8 +17,11 @@ public class NumericalCell extends Cell {
 
     }
 
-
     public int getValue() {
         return this.value;
+    }
+
+    public Boolean isEmpty() {
+        return this.value == null;
     }
 }
