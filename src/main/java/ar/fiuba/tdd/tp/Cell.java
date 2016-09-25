@@ -1,8 +1,9 @@
-package com.company;
+package ar.fiuba.tdd.tp;
 
 public class Cell {
     private CellValue value = new CellValue(1);
-    public CellValue getValue(){
+
+    public CellValue getValue() {
         return value;
     }
 
