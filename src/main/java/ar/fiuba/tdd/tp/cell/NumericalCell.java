@@ -5,7 +5,7 @@ package ar.fiuba.tdd.tp.cell;
  */
 public class NumericalCell extends Cell {
 
-    private int value;
+    protected int value;
 
     public NumericalCell(int newValue) {
         this.value = newValue;
