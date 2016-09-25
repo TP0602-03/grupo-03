@@ -1,5 +1,4 @@
-package com.company;
-
+package ar.fiuba.tdd.template;
 import java.util.ArrayList;
 
 public class Grid {

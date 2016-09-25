@@ -1,5 +1,4 @@
-package com.company;
-
+package ar.fiuba.tdd.template;
 public class Main {
 
     public static void main(String[] args) {

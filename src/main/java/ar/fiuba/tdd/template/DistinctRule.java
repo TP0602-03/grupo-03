@@ -1,4 +1,4 @@
-package com.company;
+package ar.fiuba.tdd.template;
 
 import java.util.ArrayList;
 import java.util.HashMap;

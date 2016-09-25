@@ -1,5 +1,4 @@
-package com.company;
-
+package ar.fiuba.tdd.template;
 public abstract class Rule {
 
     public Rule() {
