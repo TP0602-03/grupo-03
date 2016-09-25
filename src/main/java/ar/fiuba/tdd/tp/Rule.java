@@ -1,4 +1,5 @@
-package ar.fiuba.tdd.template;
+package ar.fiuba.tdd.tp;
+
 public abstract class Rule {
 
     public Rule() {

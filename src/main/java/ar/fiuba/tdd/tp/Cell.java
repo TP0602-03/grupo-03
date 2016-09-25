@@ -1,11 +1,15 @@
-package ar.fiuba.tdd.template;
+package ar.fiuba.tdd.tp;
 
 
 public class Cell {
 
+
     public void setValue(int newValue) throws InvalidValueTypeException {
 
         throw new InvalidValueTypeException("This cell does not accept numbers");
+
+
+
     }
 
     public int getValue() throws InvalidValueTypeException {
