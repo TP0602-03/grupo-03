@@ -1,5 +1,7 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.celltest;
 
+import ar.fiuba.tdd.tp.cell.Cell;
+import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

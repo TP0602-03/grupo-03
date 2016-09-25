@@ -1,5 +1,9 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.cell.Cell;
+import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
+import ar.fiuba.tdd.tp.cell.NumericalCell;
+
 import java.util.ArrayList;
 
 public class Grid {
@@ -44,7 +48,7 @@ public class Grid {
     }
 
 
-    public void print() throws InvalidValueTypeException{
+    public void print() throws InvalidValueTypeException {
         System.out.println("-------------------");
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid.get(i).size(); j++) {

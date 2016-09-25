@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.cell;
 
 /**
  * Created by luciano on 24/09/16.

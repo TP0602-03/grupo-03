@@ -1,7 +1,9 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.rule;
+
+import ar.fiuba.tdd.tp.cell.Cell;
+import ar.fiuba.tdd.tp.iterator.SectionIterator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 

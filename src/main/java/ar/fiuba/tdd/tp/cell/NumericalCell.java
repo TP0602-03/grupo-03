@@ -1,9 +1,9 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.cell;
 
 /**
  * Created by luciano on 24/09/16.
  */
-public class NumericalCell extends Cell{
+public class NumericalCell extends Cell {
 
     private int value;
 

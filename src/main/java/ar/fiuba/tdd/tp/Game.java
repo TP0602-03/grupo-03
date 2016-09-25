@@ -1,5 +1,9 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
+import ar.fiuba.tdd.tp.iterator.SectionIterator;
+import ar.fiuba.tdd.tp.rule.Rule;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,7 +20,7 @@ public class Game {
         ArrayList<SectionIterator> iterators = rules.get(rule);
         iterators.add(iterator);
     }
-    public boolean setCell(int row, int column, int value) throws InvalidValueTypeException{
+    public boolean setCell(int row, int column, int value) throws InvalidValueTypeException {
         boolean allRulesValid = true;
         grid.get(row,column).setValue(value);
 

@@ -1,4 +1,6 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.rule;
+
+import ar.fiuba.tdd.tp.iterator.SectionIterator;
 
 public abstract class Rule {
 
