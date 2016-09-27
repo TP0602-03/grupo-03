@@ -15,7 +15,7 @@ public class FileGridLoader extends GridLoader {
     private String filename;
     private File file;
 
-    public FileGridLoader(String newFilename) throws FileNotFoundException{
+    public FileGridLoader(String newFilename) throws FileNotFoundException {
 
         this.filename = newFilename;
         this.file = new File(this.filename);
@@ -25,9 +25,9 @@ public class FileGridLoader extends GridLoader {
     public void fillGrid(Grid grid) throws InvalidFileLayoutException,FileNotFoundException {
 
 
-        Scanner fileScanner = new Scanner(this.file);
+        Scanner fileScanner = new Scanner(this.file,"UTF-8");
 
-        while(fileScanner.hasNextLine()) {
+        while (fileScanner.hasNextLine()) {
             String cellInfo = fileScanner.nextLine();
             String[] parameters = cellInfo.split(" ");
             int row = Integer.parseInt(parameters[0]);
@@ -35,7 +35,7 @@ public class FileGridLoader extends GridLoader {
             int value = Integer.parseInt(parameters[2]);
             try {
                 grid.getCell(row, column).setValue(value);
-            }catch(InvalidValueTypeException e){
+            } catch (InvalidValueTypeException e) {
                 throw new InvalidFileLayoutException("Invalid layout or value");
             }
         }

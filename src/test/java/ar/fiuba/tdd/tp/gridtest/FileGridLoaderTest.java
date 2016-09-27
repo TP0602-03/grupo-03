@@ -23,13 +23,13 @@ public class FileGridLoaderTest {
 
 
     @Test
-    public void NotExistentFileThrowsExceptionTest() {
+    public void notExistentFileThrowsExceptionTest() {
 
-        SudokuGridFactory sFactory = new SudokuGridFactory();
-        Grid grid = sFactory.createGrid();
+        SudokuGridFactory sudokuFactory = new SudokuGridFactory();
+        Grid grid = sudokuFactory.createGrid();
         try {
             FileGridLoader gridLoader = new FileGridLoader("inexistentFile");
-        }catch(Exception catchedException){
+        } catch (Exception catchedException) {
 
             assertTrue(catchedException instanceof FileNotFoundException);
         }
@@ -39,7 +39,8 @@ public class FileGridLoaderTest {
     }
 
     @Test
-    public void CorrectGridLoad()  throws FileNotFoundException,UnsupportedEncodingException,InvalidFileLayoutException,InvalidValueTypeException{
+    public void norrectGridLoad()  throws FileNotFoundException,UnsupportedEncodingException,InvalidFileLayoutException,
+            InvalidValueTypeException {
 
         //Create a file to load from
         PrintWriter writer = new PrintWriter("correctFile", "UTF-8");
@@ -51,8 +52,8 @@ public class FileGridLoaderTest {
         writer.close();
 
 
-        SudokuGridFactory sFactory = new SudokuGridFactory();
-        Grid grid = sFactory.createGrid();
+        SudokuGridFactory sudokuFactory = new SudokuGridFactory();
+        Grid grid = sudokuFactory.createGrid();
         FileGridLoader gridLoader = new FileGridLoader("correctFile");
 
 
