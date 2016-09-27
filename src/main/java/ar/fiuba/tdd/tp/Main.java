@@ -14,13 +14,13 @@ public class Main {
         grid.print();
         game.addRule(new DistinctRule(), new SquareIterator(grid));
         game.addRule(new DistinctRule(), new ColumnIterator(grid));
-        grid.get(1, 1).setValue(1);
-        grid.get(2, 1).setValue(2);
-        grid.get(3, 1).setValue(3);
-        grid.get(4, 1).setValue(4);
-        grid.get(5, 1).setValue(5);
-        grid.get(6, 1).setValue(6);
-        grid.get(7, 1).setValue(7);
+        grid.getCell(1, 1).setValue(1);
+        grid.getCell(2, 1).setValue(2);
+        grid.getCell(3, 1).setValue(3);
+        grid.getCell(4, 1).setValue(4);
+        grid.getCell(5, 1).setValue(5);
+        grid.getCell(6, 1).setValue(6);
+        grid.getCell(7, 1).setValue(7);
         game.setCell(8, 1, 9);
         grid.print();
     }

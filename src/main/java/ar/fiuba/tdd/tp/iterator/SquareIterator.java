@@ -19,7 +19,7 @@ public class SquareIterator extends SectionIterator {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                array.add(grid.get(topLeftRow + i, topLeftColumn + j));
+                array.add(grid.getCell(topLeftRow + i, topLeftColumn + j));
             }
         }
         return array;

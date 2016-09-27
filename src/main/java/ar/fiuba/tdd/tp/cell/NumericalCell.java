@@ -18,7 +18,7 @@ public class NumericalCell extends Cell {
     }
 
     public int getValue() {
-        return this.value;
+        return this.value.intValue();
     }
 
     public Boolean isEmpty() {

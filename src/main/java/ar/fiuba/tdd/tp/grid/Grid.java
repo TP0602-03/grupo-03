@@ -34,7 +34,7 @@ public class Grid {
         return grid.size();
     }
 
-    public Cell get(int row, int column) {
+    public Cell getCell(int row, int column) {
         return (grid.get(row).get(column));
     }
 

@@ -15,6 +15,7 @@ public class SudokuGridFactory extends GridFactory{
 
     public SudokuGridFactory(){}
 
+
     public Grid createGrid() {
 
         int height = 9;

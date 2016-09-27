@@ -30,8 +30,8 @@ public class SodokuFactoryTest {
 
         for (int i = 0;i < 9;i++) {
             for (int j = 0; j < 9 ; j++) {
-                grid.get(i, j).setValue(5);
-                assertEquals(grid.get(i,j).getValue(),5);
+                grid.getCell(i, j).setValue(5);
+                assertEquals(grid.getCell(i,j).getValue(),5);
             }
         }
 
