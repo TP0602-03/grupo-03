@@ -1,10 +1,7 @@
 package ar.fiuba.tdd.tp.gridtest;
 
 import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
-import ar.fiuba.tdd.tp.grid.FileGridLoader;
-import ar.fiuba.tdd.tp.grid.Grid;
-import ar.fiuba.tdd.tp.grid.InvalidFileLayoutException;
-import ar.fiuba.tdd.tp.grid.SudokuGridFactory;
+import ar.fiuba.tdd.tp.grid.*;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -19,14 +16,14 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by luciano on 26/09/16.
  */
-public class FileGridLoaderTest {
+public class SudokuFileGridLoaderTest {
 
 
     @Test
     public void notExistentFileThrowsExceptionTest() {
 
         try {
-            FileGridLoader gridLoader = new FileGridLoader("inexistentFile");
+            FileGridLoader gridLoader = new SudokuFileGridLoader("inexistentFile");
         } catch (Exception catchedException) {
 
             assertTrue(catchedException instanceof FileNotFoundException);
@@ -51,7 +48,7 @@ public class FileGridLoaderTest {
 
 
         SudokuGridFactory sudokuFactory = new SudokuGridFactory();
-        FileGridLoader gridLoader = new FileGridLoader("correctFile");
+        FileGridLoader gridLoader = new SudokuFileGridLoader("correctFile");
         sudokuFactory.setLoader(gridLoader);
         Grid grid = sudokuFactory.createGrid();
 
