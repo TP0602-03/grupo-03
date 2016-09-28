@@ -13,7 +13,8 @@ public class GridVerticalIterator extends GridIterator {
     }
 
     public Cell getUpperNeighbour (int row, int column) {
-        return grid.getCell(row + 1, column);
+        row++;
+        return super.getCurrentCell();
     }
 
     public Boolean hasBottomNeighbour(int row, int column) {
@@ -21,6 +22,7 @@ public class GridVerticalIterator extends GridIterator {
     }
 
     public Cell getBottomNeighbour (int row, int column) {
-        return grid.getCell(row - 1, column);
+        row--;
+        return super.getCurrentCell();
     }
 }
