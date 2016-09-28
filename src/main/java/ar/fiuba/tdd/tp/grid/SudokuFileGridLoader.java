@@ -22,7 +22,9 @@ public class SudokuFileGridLoader extends FileGridLoader {
 
         while (fileScanner.hasNextLine()) {
             String cellInfo = fileScanner.nextLine();
-            System.out.print(cellInfo);
+            if(this.isComment(cellInfo)) {
+                continue;
+            }
             String[] parameters = cellInfo.split(" ");
             int row = Integer.parseInt(parameters[0]);
             int column = Integer.parseInt(parameters[1]);

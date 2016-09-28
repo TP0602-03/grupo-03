@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.grid;
 
+import ar.fiuba.tdd.tp.cell.BarredCell;
 import ar.fiuba.tdd.tp.cell.OneDigitCell;
 
 import java.io.FileNotFoundException;
@@ -21,12 +22,27 @@ public class KakuroFileGridLoader extends FileGridLoader {
 
         while (fileScanner.hasNextLine()) {
             String cellInfo = fileScanner.nextLine();
-            System.out.print(cellInfo);
+            if(this.isComment(cellInfo)) {
+                continue;
+            }
             String[] parameters = cellInfo.split(" ");
+
+            //Values should be row column value1 value2 (0 if null)
+
             int row = Integer.parseInt(parameters[0]);
             int column = Integer.parseInt(parameters[1]);
-            int value = Integer.parseInt(parameters[2]);
-            grid.setCell(row,column,new OneDigitCell(value));
+            Integer value1 = Integer.parseInt(parameters[2]);
+            Integer value2 = Integer.parseInt(parameters[3]);
+            if(value1 == 0) {
+                value1 = null;
+            }
+            if(value2 == 0) {
+                value2 = null;
+            }
+
+            BarredCell cell =  new BarredCell();
+            cell.setValue(new Integer[]{value1,value2});
+            grid.setCell(row,column,cell);
 
         }
 
