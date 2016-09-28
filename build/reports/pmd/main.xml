@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2016-09-27T00:08:09.048">
-<error filename="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/Game.java" msg="Error while parsing /home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/Game.java"/>
-<error filename="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/Grid.java" msg="Error while parsing /home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/Grid.java"/>
-<error filename="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/ColumnIterator.java" msg="Error while parsing /home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/ColumnIterator.java"/>
-<error filename="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SectionIterator.java" msg="Error while parsing /home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SectionIterator.java"/>
-<error filename="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SquareIterator.java" msg="Error while parsing /home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SquareIterator.java"/>
-<error filename="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/rule/DistinctRule.java" msg="Error while parsing /home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/rule/DistinctRule.java"/>
-</pmd>
