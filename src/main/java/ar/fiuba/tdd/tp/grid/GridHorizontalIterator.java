@@ -8,19 +8,21 @@ public class GridHorizontalIterator extends GridIterator {
         super(grid, row, column);
     }
 
-    public Boolean hasRightNeighbour(int row, int column) {
+    public Boolean hasRightNeighbour() {
         return column == grid.getWidth();
     }
 
-    public Cell getRightNeighbour (int row, int column) {
-        return grid.getCell(row, column + 1);
+    public Cell getRightNeighbour() {
+        column++;
+        return super.getCurrentCell();
     }
 
-    public Boolean hasLeftNeighbour(int row, int column) {
+    public Boolean hasLeftNeighbour() {
         return column == 0;
     }
 
-    public Cell getLeftNeighbour (int row, int column) {
-        return grid.getCell(row, column - 1);
+    public Cell getLeftNeighbour() {
+        column -= 1;
+        return super.getCurrentCell();
     }
 }

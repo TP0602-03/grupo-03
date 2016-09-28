@@ -21,6 +21,4 @@ public abstract class GridFactory {
     }
 
     protected abstract void loadGrid();
-
-
 }

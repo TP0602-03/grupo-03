@@ -2,25 +2,26 @@ package ar.fiuba.tdd.tp.iterator;
 
 import ar.fiuba.tdd.tp.cell.Cell;
 import ar.fiuba.tdd.tp.grid.Grid;
+import ar.fiuba.tdd.tp.grid.GridHorizontalIterator;
+import ar.fiuba.tdd.tp.grid.GridIterator;
 
 import java.util.ArrayList;
 
-public class HorizontalIterator extends SectionIterator {
+public class HorizontalIterator extends KakuroIterator {
     public HorizontalIterator(Grid grid) {
         super(grid);
     }
 
     @Override
-    public ArrayList<Cell> getCells(int row, int column) {
-        ArrayList<Cell> rowCells = grid.getRow(column);
+    protected void iterateUntilDelimeter(){
 
-        Cell currentCell = rowCells.get(column);
-        ArrayList<Cell> cells = new ArrayList<Cell>();
-
-        cells.add(currentCell);
-
-        return null;
     }
+
+    @Override
+    protected ArrayList<Cell> getSectionCells(int row, int column){
+        return  null;
+    }
+
 
     @Override
     public String print() {
