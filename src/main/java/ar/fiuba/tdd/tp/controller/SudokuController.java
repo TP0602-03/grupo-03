@@ -43,7 +43,7 @@ public class SudokuController {
         System.out.print("ingresó: ");
         System.out.println(userInput);
 
-        // here we should call the modell
+        // here we should call the model
         // we mock it for the moment
         if (userInput==4){
             view.won();
