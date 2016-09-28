@@ -17,10 +17,16 @@ public class BoardView extends JPanel {
                 gridBagConstraints.gridx = col;
                 gridBagConstraints.gridy = row;
 
-                CellView cellView = new CellView();
+                JPanel cellView = new JPanel();
+
+
 
                 // TODO: SET CUSTOM VALUES FROM FILE
-                JLabel label = new JLabel();
+                TextField label = new TextField();
+                //Label label = new Label();
+
+                // FIXME Componente generico
+
                 label.setText("1");
                 cellView.add(label, 0);
                 // END TODO
