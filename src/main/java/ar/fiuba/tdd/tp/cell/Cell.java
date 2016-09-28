@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.cell;
 
 
-public class Cell {
+public abstract class Cell {
 
 
     public void setValue(int newValue) throws InvalidValueTypeException {
@@ -12,9 +12,11 @@ public class Cell {
 
     }
 
-    public int getValue() throws InvalidValueTypeException {
+    public Object getValue() throws InvalidValueTypeException {
         throw new InvalidValueTypeException("Not a numeric Cell");
     }
 
-
+    public Boolean isWritable(){
+        return true;
+    }
 }

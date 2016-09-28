@@ -9,7 +9,7 @@ public class OneDigitCell extends NumericalCell{
     public OneDigitCell() {
     }
 
-    public void setValue(int newValue) {
+    public void setValue(Integer newValue) {
         if (this.checkValue(newValue)) {
             super.setValue(newValue);
         }

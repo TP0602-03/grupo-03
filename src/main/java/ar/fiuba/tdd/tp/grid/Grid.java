@@ -15,7 +15,7 @@ public class Grid {
         for (int i = 0; i < height; i++) {
             grid.add(new ArrayList<>());
             for (int j = 0; j < width; j++) {
-                grid.get(i).add(new Cell());
+                grid.get(i).add(new NumericalCell());
             }
         }
 
