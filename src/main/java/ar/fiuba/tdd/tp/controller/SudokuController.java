@@ -27,7 +27,6 @@ public class SudokuController {
                 // the right cell
                 // and also the default value (Sudoku we only have one kind of cell)
                 SudokuCell cell = new SudokuCell(this, 1);
-                Component componentToDisplay = cell;
                 cell.setPosition(indexR, indexC );
                 view.set(indexR, indexC, cell);
             }
