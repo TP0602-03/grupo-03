@@ -37,6 +37,9 @@ public class SudokuCell extends TextField implements KeyListener, CellDisplay{
     @Override
     public void keyReleased(KeyEvent keyEvent) {
         //controller.notifyModel(1,2, Integer.parseInt(this.getText()));
+
+        // if this raises an exception, we should restore the default value in the cell
+        // because the model didn't get updated
         controller.notifyModel(this.x, this.y, Integer.parseInt(this.getText()));
     }
 
