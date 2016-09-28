@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.cell.Cell;
 import ar.fiuba.tdd.tp.cell.NumericalCell;
 import ar.fiuba.tdd.tp.cell.OneDigitCell;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +16,15 @@ public class SudokuGridFactory extends GridFactory{
 
     public SudokuGridFactory(){}
 
-    public Grid createGrid() {
+
+    @Override
+    protected void loadGrid() {
+        if (this.loader != null) {
+            this.loader.fillGrid(this.grid);
+        }
+    }
+
+    private void createEmptySudokuGrid() {
 
         int height = 9;
         int width = 9;
@@ -24,10 +33,15 @@ public class SudokuGridFactory extends GridFactory{
         //Has to turn every cell in the grid to a numerical one
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                grid.setCell(i,j,new OneDigitCell());
+                this.grid.setCell(i,j,new OneDigitCell());
             }
         }
+    }
 
+    public Grid createGrid() {
+
+        this.createEmptySudokuGrid();
+        this.loadGrid();
         return this.grid;
     }
 

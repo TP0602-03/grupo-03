@@ -12,7 +12,13 @@ package ar.fiuba.tdd.tp.grid;
 public abstract class GridFactory {
 
     protected Grid grid;
+    protected GridLoader loader;
 
     public abstract Grid createGrid();
 
+    public void setLoader(GridLoader newLoader) {
+        this.loader = newLoader;
+    }
+
+    protected abstract void loadGrid();
 }

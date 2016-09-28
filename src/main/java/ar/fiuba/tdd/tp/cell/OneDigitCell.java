@@ -6,16 +6,19 @@ package ar.fiuba.tdd.tp.cell;
  */
 public class OneDigitCell extends NumericalCell{
 
-    public OneDigitCell() {
+    public OneDigitCell() { }
+
+    public OneDigitCell(Integer value) {
+        this.value = value;
     }
 
-    public void setValue(int newValue) {
+    public void setValue(Integer newValue) {
         if (this.checkValue(newValue)) {
             super.setValue(newValue);
         }
     }
 
-    private Boolean checkValue(int newValue) {
+    private Boolean checkValue(Integer newValue) {
         return  (newValue >= 1 && newValue <= 9);
     }
 

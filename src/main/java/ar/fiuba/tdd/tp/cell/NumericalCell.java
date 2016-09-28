@@ -9,19 +9,20 @@ public class NumericalCell extends Cell {
 
     public NumericalCell() {
 
+        super();
     }
 
-    public void setValue(int newValue) {
-
+    public void setValue(Integer newValue) {
         this.value = newValue;
-
     }
 
-    public int getValue() {
+    @Override
+    public Integer getValue() {
         return this.value;
     }
 
     public Boolean isEmpty() {
         return this.value == null;
     }
+
 }

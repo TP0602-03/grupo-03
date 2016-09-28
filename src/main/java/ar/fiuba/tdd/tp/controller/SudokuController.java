@@ -1,11 +1,7 @@
 package ar.fiuba.tdd.tp.controller;
 
-import ar.fiuba.tdd.tp.GameView;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.SudokuCell;
-
-import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by martin on 9/28/16.
@@ -43,7 +39,7 @@ public class SudokuController {
         System.out.print("ingresó: ");
         System.out.println(userInput);
 
-        // here we should call the modell
+        // here we should call the model
         // we mock it for the moment
         if (userInput==4){
             view.won();

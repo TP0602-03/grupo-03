@@ -1,25 +1,37 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
+import ar.fiuba.tdd.tp.controller.SudokuController;
 
-import javax.swing.*;
+import java.awt.EventQueue;
 
-public class Main extends JFrame {
+public class Main {
 
-    private JLabel text;
+    public static void main(String[] args) {
+        new Main();
+    }
 
     public Main() {
-        setLayout(null);
-        text = new JLabel("Hello World !");
-        text.setBounds(100,100,200,40);
-        add(text);
-    }
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                /*JFrame frame = new JFrame("Grid Game - TP1");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setLayout(new BorderLayout());
+                frame.add(new BoardView(9, 9));
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);*/
 
-    public static void main(String[] args) throws InvalidValueTypeException {
-        Main mainWindow = new Main();
-        mainWindow.setBounds(500,250,300,250);
-        mainWindow.setVisible(true);
-        mainWindow.setResizable(false);
+                // Here we shoud give the model as parameter
+                // new ModelSudoku
+                //(new SudokuController(ModeloSudoku)).setView();
+                (new SudokuController()).setView();
+
+                // For Kakuro it'd be:
+                // new ModelKukuru
+                // (new KukuruController()).setView();
+
+            }
+        });
     }
 }
-
