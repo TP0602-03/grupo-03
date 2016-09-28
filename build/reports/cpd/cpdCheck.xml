@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <duplication lines="15" tokens="54">
+      <file line="8"
+            path="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/ColumnIterator.java"/>
+      <file line="8"
+            path="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/RowIterator.java"/>
+      <codefragment><![CDATA[public class ColumnIterator extends SectionIterator {
+    public ColumnIterator(Grid grid) {
+        super(grid);
+    }
+
+    @Override
+    public ArrayList<Cell> getCells(int row, int column) {
+        return grid.getColumn(column);
+    }
+
+    @Override
+    public String print() {
+        return "Column";
+    }
+}]]></codefragment>
+   </duplication>
+</pmd-cpd>

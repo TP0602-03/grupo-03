@@ -24,6 +24,6 @@ public class HorizontalIterator extends SectionIterator {
 
     @Override
     public String print() {
-        return "Row";
+        return "Section";
     }
 }

@@ -15,7 +15,7 @@ public class OneDigitCellTests {
     @Test
     public void checkSetGetValue() {
         OneDigitCell ncell = new OneDigitCell();
-        ncell.setValue(1);
+        ncell.setValue(new Integer(1));
         int returnedValue = ncell.getValue();
         assertEquals(returnedValue, 1);
     }
@@ -29,9 +29,9 @@ public class OneDigitCellTests {
     @Test
     public void checkCellRefusesNotOneDigitNumbers() {
         OneDigitCell ncell = new OneDigitCell();
-        ncell.setValue(5);
-        ncell.setValue(20);
-        assertEquals(5, ncell.getValue());
+        ncell.setValue(new Integer(5));
+        ncell.setValue(new Integer(20));
+        assertEquals(5, (int) ncell.getValue());
 
     }
 

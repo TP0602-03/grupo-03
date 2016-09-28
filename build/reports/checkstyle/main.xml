@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.7">
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/Game.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/Main.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/BarredCell.java">
+<error line="24" column="32" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/Cell.java">
+<error line="19" column="32" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/InvalidValueTypeException.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/NumericalCell.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/OneDigitCell.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/UnreachableCell.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/FileGridLoader.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/Grid.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/GridFactory.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/GridHorizontalIterator.java">
+<error line="7" column="35" severity="warning" message="&apos;(&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="7" column="75" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="11" column="58" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="15" column="35" severity="warning" message="&apos;(&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="19" column="57" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="23" column="34" severity="warning" message="&apos;(&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/GridIterator.java">
+<error line="10" column="64" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/GridLoader.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/InvalidFileLayoutException.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/SudokuGridFactory.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/ColumnIterator.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/HorizontalIterator.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/RowIterator.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SectionIterator.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SquareIterator.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/rule/DistinctRule.java">
+</file>
+<file name="/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/rule/Rule.java">
+</file>
+</checkstyle>

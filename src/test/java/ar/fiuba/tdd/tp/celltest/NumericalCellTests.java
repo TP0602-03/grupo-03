@@ -18,7 +18,7 @@ public class NumericalCellTests {
     @Test
     public void checkSetGetValue() {
         NumericalCell ncell = new NumericalCell();
-        ncell.setValue(11);
+        ncell.setValue(new Integer(11));
         int returnedValue = ncell.getValue();
         assertEquals(returnedValue, 11);
     }

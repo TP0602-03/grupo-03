@@ -2,7 +2,7 @@ package ar.fiuba.tdd.tp.grid;
 
 public abstract class GridIterator {
 
-    private Grid grid;
+    protected Grid grid;
     protected Integer row;
     protected Integer column;
 
@@ -13,5 +13,4 @@ public abstract class GridIterator {
         this.row = row;
     }
 
-    public abstract Boolean hasNext();
 }

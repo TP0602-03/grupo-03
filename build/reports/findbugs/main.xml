@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.0" sequence="0" timestamp="1474945664411" analysisTimestamp="1474945664738" release="">
+  <Project projectName="">
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/Game.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/iterator/SquareIterator.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/iterator/ColumnIterator.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/iterator/SectionIterator.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/rule/DistinctRule.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/rule/Rule.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/cell/OneDigitCell.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/cell/NumericalCell.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/cell/Cell.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/cell/InvalidValueTypeException.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/Main.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/grid/FileGridLoader.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/grid/SudokuGridFactory.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/grid/GridFactory.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/grid/InvalidFileLayoutException.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/grid/Grid.class</Jar>
+    <Jar>/home/joni/Facu/TDD/grupo-03/build/classes/main/ar/fiuba/tdd/tp/grid/GridLoader.class</Jar>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/ColumnIterator.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SectionIterator.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/iterator/SquareIterator.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/rule/DistinctRule.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/rule/Rule.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/Game.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/Main.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/NumericalCell.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/InvalidValueTypeException.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/OneDigitCell.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/cell/Cell.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/GridLoader.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/GridFactory.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/SudokuGridFactory.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/InvalidFileLayoutException.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/Grid.java</SrcDir>
+    <SrcDir>/home/joni/Facu/TDD/grupo-03/src/main/java/ar/fiuba/tdd/tp/grid/FileGridLoader.java</SrcDir>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Tue, 27 Sep 2016 00:07:44 -0300" total_classes="17" referenced_classes="58" total_bugs="0" total_size="205" num_packages="5" java_version="1.8.0_45" vm_version="25.45-b02" cpu_seconds="15.28" clock_seconds="10.63" peak_mbytes="112.34" alloc_mbytes="853.50" gc_seconds="0.06">
+    <PackageStats package="ar.fiuba.tdd.tp" total_bugs="0" total_types="2" total_size="42">
+      <ClassStats class="ar.fiuba.tdd.tp.Game" sourceFile="Game.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.Main" sourceFile="Main.java" interface="false" size="19" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="ar.fiuba.tdd.tp.cell" total_bugs="0" total_types="4" total_size="34">
+      <ClassStats class="ar.fiuba.tdd.tp.cell.Cell" sourceFile="Cell.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.cell.InvalidValueTypeException" sourceFile="InvalidValueTypeException.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.cell.NumericalCell" sourceFile="NumericalCell.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.cell.OneDigitCell" sourceFile="OneDigitCell.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="ar.fiuba.tdd.tp.grid" total_bugs="0" total_types="6" total_size="83">
+      <ClassStats class="ar.fiuba.tdd.tp.grid.FileGridLoader" sourceFile="FileGridLoader.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.grid.Grid" sourceFile="Grid.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.grid.GridFactory" sourceFile="GridFactory.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.grid.GridLoader" sourceFile="GridLoader.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.grid.InvalidFileLayoutException" sourceFile="InvalidFileLayoutException.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.grid.SudokuGridFactory" sourceFile="SudokuGridFactory.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="ar.fiuba.tdd.tp.iterator" total_bugs="0" total_types="3" total_size="30">
+      <ClassStats class="ar.fiuba.tdd.tp.iterator.ColumnIterator" sourceFile="ColumnIterator.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.iterator.SectionIterator" sourceFile="SectionIterator.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.iterator.SquareIterator" sourceFile="SquareIterator.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="ar.fiuba.tdd.tp.rule" total_bugs="0" total_types="2" total_size="16">
+      <ClassStats class="ar.fiuba.tdd.tp.rule.DistinctRule" sourceFile="DistinctRule.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="ar.fiuba.tdd.tp.rule.Rule" sourceFile="Rule.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="6381" invocations="526" avgMicrosecondsPerInvocation="12132" maxMicrosecondsPerInvocation="671461" standardDeviationMircosecondsPerInvocation="53719"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
