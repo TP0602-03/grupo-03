@@ -1,10 +1,5 @@
 package ar.fiuba.tdd.tp.iterator;
 
-import ar.fiuba.tdd.tp.cell.Cell;
-import ar.fiuba.tdd.tp.cell.NumericalCell;
-import ar.fiuba.tdd.tp.grid.Grid;
-import ar.fiuba.tdd.tp.grid.GridHorizontalIterator;
-
 import java.util.ArrayList;
 
 /**

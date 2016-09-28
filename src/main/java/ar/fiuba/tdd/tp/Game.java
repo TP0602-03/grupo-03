@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
-import ar.fiuba.tdd.tp.grid.Grid;
 import ar.fiuba.tdd.tp.iterator.SectionIterator;
 import ar.fiuba.tdd.tp.rule.Rule;
 

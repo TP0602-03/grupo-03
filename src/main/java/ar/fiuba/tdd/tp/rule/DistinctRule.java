@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.rule;
 
-import ar.fiuba.tdd.tp.cell.Cell;
 import ar.fiuba.tdd.tp.iterator.SectionIterator;
 
 import java.util.ArrayList;
