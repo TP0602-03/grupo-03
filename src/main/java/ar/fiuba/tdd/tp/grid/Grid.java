@@ -6,20 +6,8 @@ import ar.fiuba.tdd.tp.cell.NumericalCell;
 
 import java.util.ArrayList;
 
-public class Grid {
-    private ArrayList<ArrayList<Cell>> grid = new ArrayList<ArrayList<Cell>>();
-
-
-    //Creates a generic grid of width*height Cells
-    public Grid(int width, int height) {
-        for (int i = 0; i < height; i++) {
-            grid.add(new ArrayList<>());
-            for (int j = 0; j < width; j++) {
-                grid.get(i).add(new NumericalCell());
-            }
-        }
-
-    }
+public abstract class Grid {
+    protected ArrayList<ArrayList<Cell>> grid = new ArrayList<ArrayList<Cell>>();
 
     //Sets a new cell in the grid to change it's behaviour. If for example an int value is wanted, then a NumericalCell should be added
     public void setCell(int row,int column,Cell newCell) {

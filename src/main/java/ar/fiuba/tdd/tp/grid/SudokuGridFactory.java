@@ -24,23 +24,8 @@ public class SudokuGridFactory extends GridFactory{
         }
     }
 
-    private void createEmptySudokuGrid() {
-
-        int height = 9;
-        int width = 9;
-        this.grid = new Grid(height,width); //A sudoku grid has 9x9 elements
-
-        //Has to turn every cell in the grid to a numerical one
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                this.grid.setCell(i,j,new OneDigitCell());
-            }
-        }
-    }
-
     public Grid createGrid() {
-
-        this.createEmptySudokuGrid();
+        this.grid = new SudokuGrid(9,9);
         this.loadGrid();
         return this.grid;
     }
