@@ -16,11 +16,11 @@ public class GridVerticalIterator extends GridIterator {
         return grid.getCell(row + 1, column);
     }
 
-    public Boolean hasNeighbour(int row, int column){
-        return column == 0;
+    public Boolean hasBottomNeighbour(int row, int column){
+        return row == 0;
     }
 
-    public Cell getLeftNeighbour (int row, int column) {
-        return grid.getCell(row, column - 1);
+    public Cell getBottomNeighbour (int row, int column) {
+        return grid.getCell(row - 1, column);
     }
 }
