@@ -4,11 +4,11 @@ import ar.fiuba.tdd.tp.cell.Cell;
 
 public class GridVerticalIterator extends GridIterator {
 
-    public GridVerticalIterator(Grid grid, Integer row, Integer column){
+    public GridVerticalIterator(Grid grid, Integer row, Integer column) {
         super(grid, row, column);
     }
 
-    public Boolean hasUpperNeighbour(int row, int column){
+    public Boolean hasUpperNeighbour(int row, int column) {
         return row == grid.getHeight();
     }
 
@@ -16,7 +16,7 @@ public class GridVerticalIterator extends GridIterator {
         return grid.getCell(row + 1, column);
     }
 
-    public Boolean hasBottomNeighbour(int row, int column){
+    public Boolean hasBottomNeighbour(int row, int column) {
         return row == 0;
     }
 
