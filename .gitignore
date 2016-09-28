@@ -5,6 +5,7 @@
 
 # Package Files #
 src/*.jar
+.idea/*
 *.war
 *.ear
 
