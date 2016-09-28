@@ -7,9 +7,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
- * Created by martin on 9/28/16.
- */
+// Maybe here composition of TextField is a better solution than this...
+// but it doesn't hurt for the moment
 public class SudokuCell extends TextField implements KeyListener, CellDisplay{
 
     private int x,y;
@@ -39,7 +38,7 @@ public class SudokuCell extends TextField implements KeyListener, CellDisplay{
         //controller.notifyModel(1,2, Integer.parseInt(this.getText()));
 
         // if this raises an exception, we should restore the default value in the cell
-        // because the model didn't get updated
+        // because the model didn't get updated //FIXME
         controller.notifyModel(this.x, this.y, Integer.parseInt(this.getText()));
     }
 
