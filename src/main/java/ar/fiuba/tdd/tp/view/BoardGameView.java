@@ -29,13 +29,14 @@ public class BoardGameView {
     }
 
 
-    public void set(int indexR, int indexC, Component sudokuCell) {
+    public void set(int indexR, int indexC, Component cell) {
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = indexC;
         gridBagConstraints.gridy = indexR;
 
-        JPanel cellView = new JPanel();
+        //JPanel cellView = new JPanel();
+        //cellView.setBackground(Color.black);
 
         // TODO: SET CUSTOM VALUES FROM FILE
         //Label label = new Label();
@@ -43,12 +44,12 @@ public class BoardGameView {
         // FIXME Componente generico
 
 
-        cellView.add(sudokuCell, 0);
+        //cellView.add(sudokuCell, 0);
 
-        Border border = new MatteBorder(1, 1, 0, 0, Color.GRAY);
-        cellView.setBorder(border);
+        //Border border = new MatteBorder(1, 1, 0, 0, Color.GRAY);
+        //cellView.setBorder(border);
 
-        cellContainer.add(cellView, gridBagConstraints);
+        cellContainer.add(cell, gridBagConstraints);
 
 
         frame.pack();
