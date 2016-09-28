@@ -25,8 +25,6 @@ public class FileGridLoaderTest {
     @Test
     public void notExistentFileThrowsExceptionTest() {
 
-        SudokuGridFactory sudokuFactory = new SudokuGridFactory();
-        Grid grid = sudokuFactory.createGrid();
         try {
             FileGridLoader gridLoader = new FileGridLoader("inexistentFile");
         } catch (Exception catchedException) {
@@ -39,7 +37,7 @@ public class FileGridLoaderTest {
     }
 
     @Test
-    public void norrectGridLoad()  throws FileNotFoundException,UnsupportedEncodingException,InvalidFileLayoutException,
+    public void correctGridLoadTest()  throws FileNotFoundException,UnsupportedEncodingException,InvalidFileLayoutException,
             InvalidValueTypeException {
 
         //Create a file to load from
@@ -53,11 +51,10 @@ public class FileGridLoaderTest {
 
 
         SudokuGridFactory sudokuFactory = new SudokuGridFactory();
-        Grid grid = sudokuFactory.createGrid();
         FileGridLoader gridLoader = new FileGridLoader("correctFile");
+        sudokuFactory.setLoader(gridLoader);
+        Grid grid = sudokuFactory.createGrid();
 
-
-        gridLoader.fillGrid(grid);
 
         assertEquals(grid.getCell(1,2).getValue(),3);
         assertEquals(grid.getCell(4,5).getValue(),6);
