@@ -13,22 +13,23 @@ public class GridParser {
     private String path;
     private FillerResolver fillerResolver;
     private JSONObject jsonGame;
+    private String gameName;
 
     public GridParser(String filePath) throws ParseException, IOException {
         this.path = filePath;
         this.fillerResolver = new FillerResolver();
         JSONParser parser = new JSONParser();
         this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(this.path), "UTF-8"));
+        this.gameName = (String) this.jsonGame.get("name");
     }
 
-    public String loadGridFromFile(Grid grid) throws ParseException {
+    public String getGameName() {
+        return this.gameName;
+    }
 
-        String gameName = (String) this.jsonGame.get("name");
-        IFiller filler = this.fillerResolver.getFiller(gameName);
-
+    public void loadGridFromFile(Grid grid) throws ParseException {
+        IFiller filler = this.fillerResolver.getFiller(this.gameName);
         filler.fill(grid, this.jsonGame);
-
-        return gameName;
     }
 
     public int getRowsCount() {

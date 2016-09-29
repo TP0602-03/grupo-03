@@ -9,5 +9,4 @@ import ar.fiuba.tdd.tp.grid.Grid;
 public abstract class GameManager {
 
     public abstract Boolean isGameWon();
-
 }
