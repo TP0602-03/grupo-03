@@ -35,4 +35,18 @@ public class Grid<T> {
     public int getHeight() {
         return this.values.size();
     }
+
+    public ArrayList<T> getRow(int row){
+        return this.values.get(row);
+    }
+
+    public ArrayList<T> getColumn(int column){
+        ArrayList<T> cells = new ArrayList<T>();
+        for (ArrayList<T> row:
+             values) {
+            cells.add(row.get(column));
+        }
+        return cells;
+    }
+
 }
