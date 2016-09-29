@@ -27,7 +27,7 @@ public class KakuroController extends AbstractController {
 
     @Override
     public void notifyModel(int column, int row, int userInput) {
-        manager.setValueOnGrid(column, row,userInput);
+        manager.setValueOnGrid(column, row, userInput);
     }
 
     protected void setViewCoordinates(int indexR, int indexC) {

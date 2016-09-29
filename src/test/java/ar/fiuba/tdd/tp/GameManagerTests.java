@@ -16,33 +16,33 @@ public class GameManagerTests {
     @Test
     public void testKakuroGameManagerReturnsTrueWhenGameIsWon() {
         //First form a valid kakuro grid
-        Grid<KakuroCell> grid = new Grid<>(1,6);
+        Grid<KakuroCell> grid = new Grid<>(1, 6);
 
-        grid.setValue(0,0,new KakuroCell(10,null,null));
-        grid.setValue(0,1,new KakuroCell(null,null,1));
-        grid.setValue(0,2,new KakuroCell(null,null,2));
-        grid.setValue(0,3,new KakuroCell(null,null,3));
-        grid.setValue(0,4,new KakuroCell(null,null,4));
-        grid.setValue(0,5,new KakuroCell(null,null,null));
+        grid.setValue(0, 0, new KakuroCell(10, null, null));
+        grid.setValue(0, 1, new KakuroCell(null, null, 1));
+        grid.setValue(0, 2, new KakuroCell(null, null, 2));
+        grid.setValue(0, 3, new KakuroCell(null, null, 3));
+        grid.setValue(0, 4, new KakuroCell(null, null, 4));
+        grid.setValue(0, 5, new KakuroCell(null, null, null));
 
         KakuroGameManager manager = new KakuroGameManager(grid);
 
         assertTrue(manager.isGameWon());
-        
+
     }
 
 
     @Test
     public void testKakuroGameManagerReturnsFalseWhenGameIsNotWon() {
         //First form a valid kakuro grid
-        Grid<KakuroCell> grid = new Grid<>(1,6);
+        Grid<KakuroCell> grid = new Grid<>(1, 6);
 
-        grid.setValue(0,0,new KakuroCell(10,null,null));
-        grid.setValue(0,1,new KakuroCell(null,null,1));
-        grid.setValue(0,2,new KakuroCell(null,null,2));
-        grid.setValue(0,3,new KakuroCell(null,null,5));
-        grid.setValue(0,4,new KakuroCell(null,null,4));
-        grid.setValue(0,5,new KakuroCell(null,null,null));
+        grid.setValue(0, 0, new KakuroCell(10, null, null));
+        grid.setValue(0, 1, new KakuroCell(null, null, 1));
+        grid.setValue(0, 2, new KakuroCell(null, null, 2));
+        grid.setValue(0, 3, new KakuroCell(null, null, 5));
+        grid.setValue(0, 4, new KakuroCell(null, null, 4));
+        grid.setValue(0, 5, new KakuroCell(null, null, null));
 
         KakuroGameManager manager = new KakuroGameManager(grid);
 
@@ -77,17 +77,17 @@ public class GameManagerTests {
     @Test
     public void testKakuroGameManagerReturnsTrueWhenGameIsWonWithMultipleDirections() {
         //First form a valid kakuro grid
-        Grid<KakuroCell> grid = new Grid<>(3,3);
+        Grid<KakuroCell> grid = new Grid<>(3, 3);
 
-        grid.setValue(0,0,new KakuroCell(1,1,null));
-        grid.setValue(0,1,new KakuroCell(null,null,1));
-        grid.setValue(0,2,new KakuroCell(null,1,null));
-        grid.setValue(1,0,new KakuroCell(null,null,1));
-        grid.setValue(1,1,new KakuroCell(null,null,null));
-        grid.setValue(1,2,new KakuroCell(null,null,1));
-        grid.setValue(2,0,new KakuroCell(1,null,null));
-        grid.setValue(2,1,new KakuroCell(null,null,1));
-        grid.setValue(2,2,new KakuroCell(null,null,null));
+        grid.setValue(0, 0, new KakuroCell(1, 1, null));
+        grid.setValue(0, 1, new KakuroCell(null, null, 1));
+        grid.setValue(0, 2, new KakuroCell(null, 1, null));
+        grid.setValue(1, 0, new KakuroCell(null, null, 1));
+        grid.setValue(1, 1, new KakuroCell(null, null, null));
+        grid.setValue(1, 2, new KakuroCell(null, null, 1));
+        grid.setValue(2, 0, new KakuroCell(1, null, null));
+        grid.setValue(2, 1, new KakuroCell(null, null, 1));
+        grid.setValue(2, 2, new KakuroCell(null, null, null));
 
         /* 1\1  1  1\0
          *  1  0\0  1
@@ -103,17 +103,17 @@ public class GameManagerTests {
     @Test
     public void testKakuroGameManagerReturnsFalseWhenOneDirectionIsWrong() {
         //First form a valid kakuro grid
-        Grid<KakuroCell> grid = new Grid<>(3,3);
+        Grid<KakuroCell> grid = new Grid<>(3, 3);
 
-        grid.setValue(0,0,new KakuroCell(1,1,null));
-        grid.setValue(0,1,new KakuroCell(null,null,1));
-        grid.setValue(0,2,new KakuroCell(null,1,null));
-        grid.setValue(1,0,new KakuroCell(null,null,1));
-        grid.setValue(1,1,new KakuroCell(null,null,null));
-        grid.setValue(1,2,new KakuroCell(null,null,1));
-        grid.setValue(2,0,new KakuroCell(1,null,null));
-        grid.setValue(2,1,new KakuroCell(null,null,5));
-        grid.setValue(2,2,new KakuroCell(null,null,null));
+        grid.setValue(0, 0, new KakuroCell(1, 1, null));
+        grid.setValue(0, 1, new KakuroCell(null, null, 1));
+        grid.setValue(0, 2, new KakuroCell(null, 1, null));
+        grid.setValue(1, 0, new KakuroCell(null, null, 1));
+        grid.setValue(1, 1, new KakuroCell(null, null, null));
+        grid.setValue(1, 2, new KakuroCell(null, null, 1));
+        grid.setValue(2, 0, new KakuroCell(1, null, null));
+        grid.setValue(2, 1, new KakuroCell(null, null, 5));
+        grid.setValue(2, 2, new KakuroCell(null, null, null));
 
         /* 1\1  1  1\0
          *  1  0\0  1
@@ -125,7 +125,6 @@ public class GameManagerTests {
         assertFalse(manager.isGameWon());
 
     }
-
 
 
 }

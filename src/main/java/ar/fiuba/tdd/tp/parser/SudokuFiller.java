@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.parser;
 
-import ar.fiuba.tdd.tp.grid.Grid;
 import ar.fiuba.tdd.tp.cell.SudokuCell;
+import ar.fiuba.tdd.tp.grid.Grid;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

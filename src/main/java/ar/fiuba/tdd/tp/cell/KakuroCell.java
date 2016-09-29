@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.cell;
 
 public class KakuroCell {
+    private boolean writable = false;
     private Integer upperRight = null;
     private Integer lowerLeft = null;
     private Integer center = null;
@@ -9,6 +10,9 @@ public class KakuroCell {
         this.upperRight = upperRight;
         this.lowerLeft = lowerLeft;
         this.center = center;
+    }
+
+    public KakuroCell() {
     }
 
     public Integer getUpperRight() {
@@ -36,10 +40,14 @@ public class KakuroCell {
     }
 
     public boolean isWritable() {
-        return ( upperRight == null && lowerLeft == null);
+        return (upperRight == null && lowerLeft == null);
     }
 
-    public boolean isHorizontalDelimeter()  {
+    public void setWritable(boolean writable) {
+        this.writable = writable;
+    }
+
+    public boolean isHorizontalDelimiter() {
         return upperRight != null && !isWritable();
     }
 

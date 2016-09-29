@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.cell.SudokuCell;
-import ar.fiuba.tdd.tp.cells.KakuroCell;
+import ar.fiuba.tdd.tp.cell.KakuroCell;
 import ar.fiuba.tdd.tp.grid.Grid;
 import ar.fiuba.tdd.tp.parser.GridParser;
 import org.junit.Assert;
@@ -19,13 +19,14 @@ public class ParserTests {
         GridParser gridParser = new GridParser("gameFiles/sudokuGame.json");
 
         Grid<SudokuCell> grid = new Grid<>(gridParser.getRowsCount(), gridParser.getColumnsCount());
-        String gameName = gridParser.loadGridFromFile(grid);
+        gridParser.loadGridFromFile(grid);
+        String gameName = gridParser.getGameName();
 
         Assert.assertEquals(gameName, "sudoku");
 
-        SudokuCell cell = grid.getValue(1,1);
+        SudokuCell cell = grid.getValue(1, 1);
 
-        Assert.assertEquals(1, cell.getValue());
+        Assert.assertEquals(new Integer(1), cell.getValue());
     }
 
     @Test
@@ -33,11 +34,13 @@ public class ParserTests {
         GridParser gridParser = new GridParser("gameFiles/kakuroGame.json");
 
         Grid<KakuroCell> grid = new Grid<>(gridParser.getRowsCount(), gridParser.getColumnsCount());
-        String gameName = gridParser.loadGridFromFile(grid);
+        gridParser.loadGridFromFile(grid);
+
+        String gameName = gridParser.getGameName();
 
         Assert.assertEquals(gameName, "kakuro");
 
-        KakuroCell cell = grid.getValue(1,1);
+        KakuroCell cell = grid.getValue(1, 1);
 
         Assert.assertEquals(new Integer(1), cell.getCenter());
     }

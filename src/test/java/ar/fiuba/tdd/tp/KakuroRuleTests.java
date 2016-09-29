@@ -17,7 +17,7 @@ public class KakuroRuleTests {
     @Test
     public void testPassesWhenAllElementsAddToTheSumValue() {
 
-        ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+        ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
         KakuroRule rule = new KakuroRule();
 
         //assertTrue(rule.check(elements,45));
@@ -27,7 +27,7 @@ public class KakuroRuleTests {
     @Test
     public void testFailsWhenAllElementsDontAddToTheSumValue() {
 
-        ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+        ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
         KakuroRule rule = new KakuroRule();
 
         //assertFalse(rule.check(elements,28));

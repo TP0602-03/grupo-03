@@ -2,6 +2,9 @@ package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.cell.KakuroCell;
 import ar.fiuba.tdd.tp.cell.SudokuCell;
+import ar.fiuba.tdd.tp.controller.Controller;
+import ar.fiuba.tdd.tp.controller.KakuroController;
+import ar.fiuba.tdd.tp.controller.SudokuController;
 import ar.fiuba.tdd.tp.gamemanager.GameManager;
 import ar.fiuba.tdd.tp.gamemanager.KakuroGameManager;
 import ar.fiuba.tdd.tp.gamemanager.SudokuGameManager;
@@ -17,24 +20,26 @@ import java.util.HashMap;
 public class GameParser {
     private GridParser gridParser;
 
-    public GameParser() {    }
+    public GameParser() {
+    }
 
-    public GameManager getGameFromFile(String pathToFile) throws ParseException, java.text.ParseException, IOException {
+    public Controller getGameFromFile(String pathToFile) throws ParseException, java.text.ParseException, IOException {
         this.gridParser = new GridParser(pathToFile);
         String gameName = this.gridParser.getGameName();
         // TODO: Delete repeated code !
         if (gameName.equals("kakuro")) {
-            KakuroGameManager kakuroGameManager = new KakuroGameManager();
+
             Grid<KakuroCell> kakuroCellGrid = new Grid<>(this.gridParser.getRowsCount(), this.gridParser.getColumnsCount());
             this.gridParser.loadGridFromFile(kakuroCellGrid);
-            kakuroGameManager.setGrid(kakuroCellGrid);
-            return kakuroGameManager;
-        } else if(gameName.equals("sudoku")) {
-            SudokuGameManager sudokuGameManager = new SudokuGameManager();
+            KakuroGameManager kakuroGameManager = new KakuroGameManager(kakuroCellGrid);
+            return new KakuroController(kakuroGameManager);
+        } else if (gameName.equals("sudoku")) {
+
             Grid<SudokuCell> sudokuCellGrid = new Grid<>(this.gridParser.getRowsCount(), this.gridParser.getColumnsCount());
             this.gridParser.loadGridFromFile(sudokuCellGrid);
-            sudokuGameManager.setGrid(sudokuCellGrid);
-            return sudokuGameManager;
+            SudokuGameManager sudokuGameManager = new SudokuGameManager(sudokuCellGrid);
+
+            return new SudokuController(sudokuGameManager);
         }
         throw new java.text.ParseException("Game Name is invalid to create a GameManager", 0);
     }

@@ -26,11 +26,11 @@ public class KakuroGameManager extends GameManager {
 
     private boolean checkHorizontalSections() {
         ArrayList<Integer[]> horizontalDelimeters = obtainer.getAllHorizontalDelimetersPosition();
-        for (Integer[] delimeterPosition:
+        for (Integer[] delimeterPosition :
                 horizontalDelimeters) {
             int delimeter = obtainer.getHorizontalSectionDelimeter(delimeterPosition[0], delimeterPosition[1] + 1);
             ArrayList<KakuroCell> sectionCells = obtainer.getHorizontalSection(delimeterPosition[0], delimeterPosition[1] + 1);
-            if (!rule.check(sectionCells,delimeter)) {
+            if (!rule.check(sectionCells, delimeter)) {
                 return false;
             }
         }
@@ -39,11 +39,11 @@ public class KakuroGameManager extends GameManager {
 
     private boolean checkVerticalSections() {
         ArrayList<Integer[]> verticalDelimeters = obtainer.getAllVerticalDelimetersPosition();
-        for (Integer[] delimeterPosition:
+        for (Integer[] delimeterPosition :
                 verticalDelimeters) {
             int delimeter = obtainer.getVerticalSectionDelimeter(delimeterPosition[0] + 1, delimeterPosition[1]);
             ArrayList<KakuroCell> sectionCells = obtainer.getVericalSection(delimeterPosition[0] + 1, delimeterPosition[1]);
-            if (!rule.check(sectionCells,delimeter)) {
+            if (!rule.check(sectionCells, delimeter)) {
                 return false;
             }
         }
@@ -62,11 +62,11 @@ public class KakuroGameManager extends GameManager {
     }
 
     public void setValueOnGrid(int row, int column, int newValue) {
-        this.grid.getValue(row,column).setCenter(newValue);
+        this.grid.getValue(row, column).setCenter(newValue);
     }
 
-    public int getValueFromGrid(int row,int column) {
-        return this.grid.getValue(row,column).getCenter();
+    public int getValueFromGrid(int row, int column) {
+        return this.grid.getValue(row, column).getCenter();
     }
 
 }

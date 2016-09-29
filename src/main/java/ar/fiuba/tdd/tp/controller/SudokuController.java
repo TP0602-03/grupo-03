@@ -35,23 +35,21 @@ public class SudokuController extends AbstractController {
         System.out.println(userInput);
 
 
-
         // here we should call the model
         // we mock it for the moment
         if (userInput == 4) {
-        //    view.won();
+            //    view.won();
         }
 
-        sudokuGameManager.setValueOnGrid(collumn,raw,userInput);
+        sudokuGameManager.setValueOnGrid(collumn, raw, userInput);
         if (sudokuGameManager.isGameWon()) {
             view.won();
         }
 
 
-
     }
 
-    protected void setViewCoordenade(int indexR, int indexC) {
+    protected void setViewCoordinates(int indexR, int indexC) {
         // Here we ask the model and we instance
         // the right cell
         // and also the default value (Sudoku we only have one kind of cell)
