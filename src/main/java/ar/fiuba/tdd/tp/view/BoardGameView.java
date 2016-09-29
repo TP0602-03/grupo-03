@@ -29,7 +29,7 @@ public class BoardGameView {
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = indexC;
         gridBagConstraints.gridy = indexR;
-        
+
         cellContainer.add(cell, gridBagConstraints);
 
 
