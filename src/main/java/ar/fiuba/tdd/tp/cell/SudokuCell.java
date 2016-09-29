@@ -1,10 +1,14 @@
 package ar.fiuba.tdd.tp.cell;
 
 public class SudokuCell {
-    private Integer value;
+    private Integer value = null;
 
     public SudokuCell(int i) {
         value = i;
+    }
+
+    public SudokuCell() {
+
     }
 
     public Integer getValue() {

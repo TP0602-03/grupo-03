@@ -23,22 +23,22 @@ public class KakuroGameManager extends GameManager {
     }
 
     public Boolean isGameWon(){
-        ArrayList<Integer[]> horizontalDelimeters = obtainer.getAllHorizontalDelimetersPosition();
-        for (Integer[] delimeterPosition:
-             horizontalDelimeters) {
-            int delimeter = obtainer.getHorizontalSectionDelimeter(delimeterPosition[0], delimeterPosition[1] + 1);
-            ArrayList<KakuroCell> sectionCells = obtainer.getHorizontalSection(delimeterPosition[0], delimeterPosition[1] + 1);
-            if (!rule.check(sectionCells,delimeter)){
+        ArrayList<Integer[]> horizontalDelimiters = obtainer.getAllHorizontalDelimitersPosition();
+        for (Integer[] delimiterPosition:
+             horizontalDelimiters) {
+            int delimiter = obtainer.getHorizontalSectionDelimiter(delimiterPosition[0], delimiterPosition[1] + 1);
+            ArrayList<KakuroCell> sectionCells = obtainer.getHorizontalSection(delimiterPosition[0], delimiterPosition[1] + 1);
+            if (!rule.check(sectionCells,delimiter)){
                 return false;
             }
         }
 
-        ArrayList<Integer[]> verticalDelimeters = obtainer.getAllVerticalDelimetersPosition();
-        for (Integer[] delimeterPosition:
-                verticalDelimeters) {
-            int delimeter = obtainer.getVerticalSectionDelimeter(delimeterPosition[0] + 1, delimeterPosition[1]);
-            ArrayList<KakuroCell> sectionCells = obtainer.getVericalSection(delimeterPosition[0] + 1, delimeterPosition[1]);
-            if (!rule.check(sectionCells,delimeter)){
+        ArrayList<Integer[]> verticalDelimiters = obtainer.getAllVerticalDelimitersPosition();
+        for (Integer[] delimiterPosition:
+                verticalDelimiters) {
+            int delimiter = obtainer.getVerticalSectionDelimiter(delimiterPosition[0] + 1, delimiterPosition[1]);
+            ArrayList<KakuroCell> sectionCells = obtainer.getVerticalSection(delimiterPosition[0] + 1, delimiterPosition[1]);
+            if (!rule.check(sectionCells,delimiter)){
                 return false;
             }
         }

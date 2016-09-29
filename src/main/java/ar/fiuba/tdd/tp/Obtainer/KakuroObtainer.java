@@ -18,10 +18,10 @@ public class KakuroObtainer {
     }
 
     private ArrayList<KakuroCell> getSection(ArrayList<KakuroCell> cells, int positionToStart){
-        int delimeterPosition = iterateUntilDelimeter(cells, positionToStart);
+        int delimiterPosition = iterateUntilDelimiter(cells, positionToStart);
         ArrayList<KakuroCell> cellsToReturn = new ArrayList<>();
 
-        int currentPosition = delimeterPosition + 1;
+        int currentPosition = delimiterPosition + 1;
         KakuroCell current = cells.get(currentPosition);
         while (current.isWritable() && currentPosition < cells.size() - 1){
             cellsToReturn.add(current);
@@ -32,11 +32,11 @@ public class KakuroObtainer {
         return cellsToReturn;
     }
 
-    private KakuroCell getDelimeter(ArrayList<KakuroCell> cells, int positionToStart){
-        return cells.get(iterateUntilDelimeter(cells, positionToStart));
+    private KakuroCell getDelimiter(ArrayList<KakuroCell> cells, int positionToStart){
+        return cells.get(iterateUntilDelimiter(cells, positionToStart));
     }
 
-    private int iterateUntilDelimeter(ArrayList<KakuroCell> cells, int currentPosition) {
+    private int iterateUntilDelimiter(ArrayList<KakuroCell> cells, int currentPosition) {
         KakuroCell current = cells.get(currentPosition);
         while (currentPosition > 0 && current.isWritable()){
             currentPosition--;
@@ -45,45 +45,45 @@ public class KakuroObtainer {
         return currentPosition;
     }
 
-    public int getHorizontalSectionDelimeter(int row, int column){
-        return getDelimeter(grid.getRow(row), column).getUpperRight();
+    public int getHorizontalSectionDelimiter(int row, int column){
+        return getDelimiter(grid.getRow(row), column).getUpperRight();
     }
 
     public ArrayList<KakuroCell> getHorizontalSection(int row, int column){
         return getSection(grid.getRow(row), column);
     }
 
-    public int getVerticalSectionDelimeter(int row, int column){
-        return getDelimeter(grid.getColumn(column), row).getLowerLeft();
+    public int getVerticalSectionDelimiter(int row, int column){
+        return getDelimiter(grid.getColumn(column), row).getLowerLeft();
     }
 
-    public ArrayList<KakuroCell> getVericalSection(int row, int column){
+    public ArrayList<KakuroCell> getVerticalSection(int row, int column){
         return getSection(grid.getColumn(column), row);
     }
 
-    public ArrayList<Integer[]> getAllHorizontalDelimetersPosition(){
-        ArrayList<Integer[]> delimeters = new ArrayList<>();
+    public ArrayList<Integer[]> getAllHorizontalDelimitersPosition(){
+        ArrayList<Integer[]> delimiters = new ArrayList<>();
 
         for (int i = 0; i < grid.getHeight(); i++){
             for (int j = 0; j < grid.getWidth(); j++){
-                if (this.grid.getValue(i,j).isHorizontalDelimeter()){
-                    delimeters.add(new Integer[]{i,j});
+                if (this.grid.getValue(i,j).isHorizontalDelimiter()){
+                    delimiters.add(new Integer[]{i,j});
                 }
             }
         }
-        return delimeters;
+        return delimiters;
     }
 
-    public ArrayList<Integer[]> getAllVerticalDelimetersPosition(){
-        ArrayList<Integer[]> delimeters = new ArrayList<>();
+    public ArrayList<Integer[]> getAllVerticalDelimitersPosition(){
+        ArrayList<Integer[]> delimiters = new ArrayList<>();
 
         for (int i = 0; i < grid.getHeight(); i++){
             for (int j = 0; j < grid.getWidth(); j++){
                 if (this.grid.getValue(i,j).isVerticalDelimiter()){
-                    delimeters.add(new Integer[]{i,j});
+                    delimiters.add(new Integer[]{i,j});
                 }
             }
         }
-        return delimeters;
+        return delimiters;
     }
 }

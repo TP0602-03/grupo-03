@@ -21,7 +21,7 @@ public class SudokuRuleTest {
 
         ArrayList<SudokuCell> elements = new ArrayList<>();
         for(int i = 1; i < 10 ; i++) {
-            SudokuCell cell = new SudokuCell();
+            SudokuCell cell = new SudokuCell(0);
             cell.setValue(i);
             elements.add(cell);
         }
@@ -36,7 +36,7 @@ public class SudokuRuleTest {
     public void testRuleFailsWithTwoEqualElements() {
         ArrayList<SudokuCell> elements = new ArrayList<>();
         for(int i = 1; i < 10 ; i++) {
-            SudokuCell cell = new SudokuCell();
+            SudokuCell cell = new SudokuCell(0);
             cell.setValue(i%2); //So that equal elements appear
             elements.add(cell);
         }

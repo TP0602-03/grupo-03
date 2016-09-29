@@ -9,8 +9,8 @@ import java.awt.*;
 // but it doesn't hurt for the moment
 public abstract class SingleValueCell extends CellView {
 
-    protected int raw;
-    protected int collumn;
+    protected int row;
+    protected int column;
 
     Controller controller;
 

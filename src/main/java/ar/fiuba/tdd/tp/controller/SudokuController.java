@@ -24,12 +24,12 @@ public class SudokuController extends AbstractController {
     }
 
     @Override
-    public void notifyModel(int collumn, int raw, int userInput) {
+    public void notifyModel(int column, int row, int userInput) {
         // Here we notify the model
         System.out.print("fila: ");
-        System.out.println(collumn);
+        System.out.println(column);
         System.out.print("columna: ");
-        System.out.println(raw);
+        System.out.println(row);
         System.out.print("ingresó: ");
         System.out.println(userInput);
 
@@ -41,7 +41,7 @@ public class SudokuController extends AbstractController {
         //    view.won();
         }
 
-        sudokuGameManager.setValueOnGrid(collumn,raw,userInput);
+        sudokuGameManager.setValueOnGrid(column,row,userInput);
         if(sudokuGameManager.isGameWon()){
             view.won();
         }
@@ -50,7 +50,7 @@ public class SudokuController extends AbstractController {
 
     }
 
-    protected void setViewCoordenade(int indexR, int indexC) {
+    protected void setViewCoordinates(int indexR, int indexC) {
         // Here we ask the model and we instance
         // the right cell
         // and also the default value (Sudoku we only have one kind of cell)

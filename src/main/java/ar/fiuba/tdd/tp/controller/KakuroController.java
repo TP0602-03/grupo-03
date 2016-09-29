@@ -26,11 +26,11 @@ public class KakuroController extends AbstractController {
 
 
     @Override
-    public void notifyModel(int collumn, int raw, int userInput) {
-        manager.setValueOnGrid(collumn,raw,userInput);
+    public void notifyModel(int column, int row, int userInput) {
+        manager.setValueOnGrid(column, row,userInput);
     }
 
-    protected void setViewCoordenade(int indexR, int indexC) {
+    protected void setViewCoordinates(int indexR, int indexC) {
         if (indexC % 3 == 0) {
             KakuroEmptyCell cell = new KakuroEmptyCell();
             view.set(indexR, indexC, cell);

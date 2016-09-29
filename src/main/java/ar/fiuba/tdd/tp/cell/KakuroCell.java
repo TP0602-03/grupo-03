@@ -39,7 +39,7 @@ public class KakuroCell {
         return (upperRight == null && lowerLeft == null);
     }
 
-    public boolean isHorizontalDelimeter(){
+    public boolean isHorizontalDelimiter(){
         return upperRight != null && !isWritable();
     }
 
