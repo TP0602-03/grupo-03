@@ -2,18 +2,18 @@ package ar.fiuba.tdd.tp.cell;
 
 public class BarredCell extends Cell {
 
-    protected Integer[] value = null ; //So that an empty cell can be recognised
+    protected Integer[] value = null; //So that an empty cell can be recognised
 
     public BarredCell() {
         super();
     }
 
-    public void setValue(Integer[] newValue) {
-        this.value = newValue;
-    }
-
     public Integer[] getValue() {
         return this.value;
+    }
+
+    public void setValue(Integer[] newValue) {
+        this.value = newValue;
     }
 
     public Boolean isEmpty() {
@@ -21,7 +21,7 @@ public class BarredCell extends Cell {
     }
 
     @Override
-    public Boolean isWritable(){
+    public Boolean isWritable() {
         return false;
     }
 

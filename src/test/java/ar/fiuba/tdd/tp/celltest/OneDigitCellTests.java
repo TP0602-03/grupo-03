@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.celltest;
 
-import ar.fiuba.tdd.tp.cell.NumericalCell;
 import ar.fiuba.tdd.tp.cell.OneDigitCell;
 import org.junit.Test;
 

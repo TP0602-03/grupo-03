@@ -22,8 +22,8 @@ public class Grid {
     }
 
     //Sets a new cell in the grid to change it's behaviour. If for example an int value is wanted, then a NumericalCell should be added
-    public void setCell(int row,int column,Cell newCell) {
-        this.grid.get(row).set(column,newCell); //set replaces the last elemnt with the new one
+    public void setCell(int row, int column, Cell newCell) {
+        this.grid.get(row).set(column, newCell); //set replaces the last elemnt with the new one
     }
 
     public int getWidth() {

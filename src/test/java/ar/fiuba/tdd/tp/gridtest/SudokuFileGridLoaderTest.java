@@ -7,8 +7,6 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -30,11 +28,10 @@ public class SudokuFileGridLoaderTest {
         }
 
 
-
     }
 
     @Test
-    public void correctGridLoadTest()  throws FileNotFoundException,UnsupportedEncodingException,InvalidFileLayoutException,
+    public void correctGridLoadTest() throws FileNotFoundException, UnsupportedEncodingException, InvalidFileLayoutException,
             InvalidValueTypeException {
 
         //Create a file to load from
@@ -53,9 +50,9 @@ public class SudokuFileGridLoaderTest {
         Grid grid = sudokuFactory.createGrid();
 
 
-        assertEquals(grid.getCell(1,2).getValue(),3);
-        assertEquals(grid.getCell(4,5).getValue(),6);
-        assertEquals(grid.getCell(7,8).getValue(),9);
+        assertEquals(grid.getCell(1, 2).getValue(), 3);
+        assertEquals(grid.getCell(4, 5).getValue(), 6);
+        assertEquals(grid.getCell(7, 8).getValue(), 9);
 
 
     }

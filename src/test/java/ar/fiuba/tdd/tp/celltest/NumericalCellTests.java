@@ -12,9 +12,6 @@ import static org.junit.Assert.assertTrue;
 public class NumericalCellTests {
 
 
-
-
-
     @Test
     public void checkSetGetValue() {
         NumericalCell ncell = new NumericalCell();
@@ -28,9 +25,6 @@ public class NumericalCellTests {
         NumericalCell ncell = new NumericalCell();
         assertTrue(ncell.isEmpty());
     }
-
-
-
 
 
 }

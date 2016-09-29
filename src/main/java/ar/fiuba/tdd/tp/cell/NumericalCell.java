@@ -5,20 +5,20 @@ package ar.fiuba.tdd.tp.cell;
  */
 public class NumericalCell extends Cell {
 
-    protected Integer value = null ; //So that an empty cell can be recognised
+    protected Integer value = null; //So that an empty cell can be recognised
 
     public NumericalCell() {
 
         super();
     }
 
-    public void setValue(Integer newValue) {
-        this.value = newValue;
-    }
-
     @Override
     public Integer getValue() {
         return this.value;
+    }
+
+    public void setValue(Integer newValue) {
+        this.value = newValue;
     }
 
     public Boolean isEmpty() {

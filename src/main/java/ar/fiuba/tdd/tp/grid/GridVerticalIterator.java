@@ -12,7 +12,7 @@ public class GridVerticalIterator extends GridIterator {
         return row == grid.getHeight();
     }
 
-    public Cell getUpperNeighbour (int row, int column) {
+    public Cell getUpperNeighbour(int row, int column) {
         row++;
         return super.getCurrentCell();
     }
@@ -21,7 +21,7 @@ public class GridVerticalIterator extends GridIterator {
         return row == 0;
     }
 
-    public Cell getBottomNeighbour (int row, int column) {
+    public Cell getBottomNeighbour(int row, int column) {
         row--;
         return super.getCurrentCell();
     }

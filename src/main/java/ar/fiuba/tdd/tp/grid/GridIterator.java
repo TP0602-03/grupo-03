@@ -9,13 +9,13 @@ public abstract class GridIterator {
     protected Integer column;
 
 
-    public GridIterator(Grid grid, Integer row, Integer column){
+    public GridIterator(Grid grid, Integer row, Integer column) {
         this.grid = grid;
         this.column = column;
         this.row = row;
     }
 
-    protected Cell getCurrentCell(){
+    protected Cell getCurrentCell() {
         return grid.getCell(row, column);
     }
 

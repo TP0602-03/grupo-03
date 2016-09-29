@@ -3,41 +3,41 @@ package ar.fiuba.tdd.tp.controller;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.KakuroDefaultCell;
 import ar.fiuba.tdd.tp.view.KakuroEmptyCell;
+import ar.fiuba.tdd.tp.view.KakuroValueCell;
 
 /**
  * Created by martin on 9/28/16.
  */
-public class KakuroController implements Controller {
+public class KakuroController extends AbstractController {
 
     BoardGameView view = new BoardGameView();
 
 
     @Override
     public void setView() {
-        int rows = 9;
-        int columns = 9;
-
-        // we ask the model for the size
+        this.createView();
+    }
 
 
-        for (int indexR = 1 ; indexR <= rows; indexR++){
-            for (int indexC = 1; indexC <= columns; indexC++){
-                // Here we ask the model and we instance
-                // the right cell
-                // and also the default value (Sudoku we only have one kind of cell)
+    @Override
+    public void notifyModel(int collumn, int raw, int userInput) {
+    }
 
-                //KakuroEmptyCell cell = new KakuroEmptyCell(this);
-                KakuroDefaultCell cell = new KakuroDefaultCell(this);
-                cell.setFirstNumber(1);
-                cell.setSecondNumber(2);
-                // cell.setPosition(indexR, indexC );
-                view.set(indexR, indexC, cell);
-            }
+    protected void setViewCoordenade(int indexR, int indexC) {
+        if (indexC % 3 == 0) {
+            KakuroEmptyCell cell = new KakuroEmptyCell(this);
+            view.set(indexR, indexC, cell);
+        } else if (indexC % 3 == 1) {
+            KakuroDefaultCell cell = new KakuroDefaultCell(this);
+            cell.setFirstNumber(1);
+            cell.setSecondNumber(2);
+            view.set(indexR, indexC, cell);
+        } else {
+            KakuroValueCell cell = new KakuroValueCell(this);
+            cell.setPosition(indexR, indexC);
+            cell.setDefault(0);
+            view.set(indexR, indexC, cell);
         }
     }
 
-    @Override
-    public void notifyModel(int x, int y, int userInput) {
-
-    }
 }

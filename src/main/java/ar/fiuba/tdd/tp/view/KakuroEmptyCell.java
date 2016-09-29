@@ -2,41 +2,19 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.controller.Controller;
 
-import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.MatteBorder;
 
 
-public class KakuroEmptyCell extends JPanel implements KeyListener, CellDisplay {
+
+public class KakuroEmptyCell extends JPanel {
 
 
-    public KakuroEmptyCell(Controller controller){
+    public KakuroEmptyCell(Controller controller) {
         this.setBackground(Color.black);
         Border border = new MatteBorder(1, 1, 0, 0, Color.WHITE);
         this.setBorder(border);
     }
-
-    @Override
-    public void setPosition(int x, int y) {
-    }
-
-    @Override
-    public void keyTyped(KeyEvent keyEvent) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent keyEvent) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent keyEvent) {
-
-    }
-
-
 }

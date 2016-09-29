@@ -24,7 +24,7 @@ public class Game {
 
     public boolean setCell(int row, int column, int value) throws InvalidValueTypeException {
         boolean allRulesValid = true;
-        grid.getCell(row,column).setValue(value);
+        grid.getCell(row, column).setValue(value);
 
         grid.print();
         for (Rule rule :

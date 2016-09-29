@@ -1,8 +1,5 @@
 package ar.fiuba.tdd.tp.grid;
 
-import ar.fiuba.tdd.tp.cell.InvalidValueTypeException;
-import ar.fiuba.tdd.tp.cell.OneDigitCell;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -17,10 +14,9 @@ public abstract class FileGridLoader extends GridLoader {
 
     public FileGridLoader(String newFilename) throws FileNotFoundException {
 
-        this.fileScanner = new Scanner(new File(newFilename),"UTF-8");
+        this.fileScanner = new Scanner(new File(newFilename), "UTF-8");
 
     }
-
 
 
 }

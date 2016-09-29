@@ -27,7 +27,7 @@ public class SudokuFileGridLoader extends FileGridLoader {
             int row = Integer.parseInt(parameters[0]);
             int column = Integer.parseInt(parameters[1]);
             int value = Integer.parseInt(parameters[2]);
-            grid.setCell(row,column,new OneDigitCell(value));
+            grid.setCell(row, column, new OneDigitCell(value));
 
         }
 

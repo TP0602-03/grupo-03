@@ -1,20 +1,15 @@
 package ar.fiuba.tdd.tp.view;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
+import javax.swing.*;
 
-/**
- * Created by martin on 9/28/16.
- */
 public class BoardGameView {
 
     //private board
     JPanel cellContainer;
     JFrame frame;
 
-    public BoardGameView(){
+    public BoardGameView() {
         cellContainer = new JPanel();
 
         frame = new JFrame("Grid Game - TP1");

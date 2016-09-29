@@ -9,5 +9,5 @@ import java.io.Serializable;
  */
 public interface CellDisplay extends ImageObserver, MenuContainer, Serializable {
 
-    public void setPosition(int x, int y);
+    public void setPosition(int raw, int collumn);
 }

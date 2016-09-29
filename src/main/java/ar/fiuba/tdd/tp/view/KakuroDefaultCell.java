@@ -2,9 +2,10 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.controller.Controller;
 
-public class KakuroDefaultCell extends SingleValueCell{
+public class KakuroDefaultCell extends SingleValueCell {
 
-    String firstNumber, secondNumber;
+    String firstNumber;
+    String secondNumber;
 
     public KakuroDefaultCell(Controller controller) {
         super(controller);
@@ -12,19 +13,21 @@ public class KakuroDefaultCell extends SingleValueCell{
         this.textView.setFocusable(false);
     }
 
-    public void setFirstNumber(int number){
+    public void setFirstNumber(int number) {
 
         firstNumber = String.valueOf(number);
         update();
     }
 
-    public void setSecondNumber(int number){
+    public void setSecondNumber(int number) {
 
         secondNumber = String.valueOf(number);
         update();
     }
 
-    private void update(){
+    private void update() {
         this.textView.setText(firstNumber + "/" + secondNumber);
-    };
+    }
+
+    ;
 }
