@@ -1,0 +1,98 @@
+{
+  "name": "kakuro",
+  "rows": 4,
+  "columns": 4,
+  "values": [
+    {
+      "x":0,
+      "y":0,
+      "isWritable": false,
+      "upperRight":null,
+      "lowerLeft":null
+    },
+    {
+      "x":1,
+      "y":0,
+      "isWritable": false,
+      "upperRight":null,
+      "lowerLeft":20
+    } ,{
+      "x":2,
+      "y":0,
+      "isWritable": false,
+      "upperRight":null,
+      "lowerLeft":14
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "isWritable": false,
+      "upperRight": null,
+      "lowerLeft": 11
+    },{
+      "x": 0,
+      "y": 1,
+      "isWritable": false,
+      "upperRight": 23,
+      "lowerLeft": null
+    },{
+      "x": 0,
+      "y": 2,
+      "isWritable": false,
+      "upperRight": 15,
+      "lowerLeft": null
+    },{
+      "x": 0,
+      "y": 3,
+      "isWritable": false,
+      "upperRight": 7,
+      "lowerLeft": null
+
+    },{
+      "x": 1,
+      "y": 1,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 1,
+      "y": 2,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 1,
+      "y": 3,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 2,
+      "y": 1,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 2,
+      "y": 2,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 2,
+      "y": 3,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 3,
+      "y": 1,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 3,
+      "y": 2,
+      "isWritable": true,
+      "content":0
+    },{
+      "x": 3,
+      "y": 3,
+      "isWritable": true,
+      "content":0
+    }
+  ]
+}
