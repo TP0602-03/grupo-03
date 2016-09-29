@@ -22,11 +22,16 @@ public class KakuroObtainer {
         ArrayList<KakuroCell> cellsToReturn = new ArrayList<>();
 
         int currentPosition = delimeterPosition + 1;
-        KakuroCell current = cells.get(currentPosition);
-        while (current.isWritable() && currentPosition < cells.size() - 1) {
-            cellsToReturn.add(current);
+
+        while (currentPosition < cells.size() && cells.get(currentPosition).isWritable()) {
+            System.out.print(currentPosition);
+            System.out.print(cells.get(currentPosition).getCenter());
+            System.out.println();
+
+
+
+            cellsToReturn.add(cells.get(currentPosition));
             currentPosition++;
-            current = cells.get(currentPosition);
         }
 
         return cellsToReturn;

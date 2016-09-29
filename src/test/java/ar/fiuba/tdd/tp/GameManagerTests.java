@@ -51,10 +51,10 @@ public class GameManagerTests {
     }
 
 
-    /*@Test
+    @Test
     public void testKakuroGameManagerReturnsTrueWhenGameIsWonWithMultipleDelimiters(){
         //First form a valid kakuro grid
-        Grid<KakuroCell> grid = new Grid<>(1,10);
+        Grid<KakuroCell> grid = new Grid<>(1,9);
 
         grid.setValue(0,0,new KakuroCell(4,null,null));
         grid.setValue(0,1,new KakuroCell(null,null,2));
@@ -66,13 +66,14 @@ public class GameManagerTests {
         grid.setValue(0,7,new KakuroCell(null,null,2));
         grid.setValue(0,8,new KakuroCell(null,null,2));
 
-
+        /* 0\4  2   2  0\4  2  2  0\4  2  2
+         */
 
         KakuroGameManager manager = new KakuroGameManager(grid);
 
         assertTrue(manager.isGameWon());
 
-    }*/
+    }
 
     @Test
     public void testKakuroGameManagerReturnsTrueWhenGameIsWonWithMultipleDirections() {
