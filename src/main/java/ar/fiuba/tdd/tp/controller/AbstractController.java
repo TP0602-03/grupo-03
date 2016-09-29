@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.controller;
 
-import ar.fiuba.tdd.tp.view.SudokuCell;
-
 public abstract class AbstractController implements Controller {
 
     // model here
@@ -19,12 +17,12 @@ public abstract class AbstractController implements Controller {
 
         for (int indexR = 0; indexR < rows; indexR++) {
             for (int indexC = 0; indexC < columns; indexC++) {
-                this.setViewCoordenade(indexR, indexC);
+                this.setViewCoordinates(indexR, indexC);
             }
         }
 
     }
 
-    protected abstract void setViewCoordenade(int indexR, int indexC);
+    protected abstract void setViewCoordinates(int indexR, int indexC);
 
 }

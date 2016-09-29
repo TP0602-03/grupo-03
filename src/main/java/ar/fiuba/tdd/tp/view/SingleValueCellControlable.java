@@ -24,7 +24,7 @@ public abstract class SingleValueCellControlable extends SingleValueCell impleme
         try {
             String textInWidget = this.textView.getText();
             if (!textInWidget.isEmpty()) {
-                controller.notifyModel(this.raw, this.collumn, Integer.parseInt(textInWidget));
+                controller.notifyModel(this.row, this.column, Integer.parseInt(textInWidget));
             }
             lastValue = textInWidget;
         } catch (java.lang.NumberFormatException e) {
@@ -35,9 +35,9 @@ public abstract class SingleValueCellControlable extends SingleValueCell impleme
     }
 
     @Override
-    public void setPosition(int raw, int collumn) {
-        this.raw = raw;
-        this.collumn = collumn;
+    public void setPosition(int row, int column) {
+        this.row = row;
+        this.column = column;
     }
 
     @Override

@@ -9,8 +9,12 @@ import ar.fiuba.tdd.tp.gamemanager.GameManager;
 import ar.fiuba.tdd.tp.gamemanager.KakuroGameManager;
 import ar.fiuba.tdd.tp.gamemanager.SudokuGameManager;
 import ar.fiuba.tdd.tp.grid.Grid;
+import ar.fiuba.tdd.tp.parser.GameParser;
+import ar.fiuba.tdd.tp.parser.GridParser;
+import org.json.simple.parser.ParseException;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class Main {
 
@@ -26,39 +30,41 @@ public class Main {
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);*/
 
-                // Here we shoud give the model as parameter
-                // new ModelSudoku
-                //(new SudokuController(ModeloSudoku)).setView();
-                //(new SudokuController()).setView();
-
-                // For Kakuro it'd be:
-                // new ModelKukuru
-                Grid<SudokuCell> grid = new Grid<>(9,9);
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 9; j++) {
-                        grid.setValue(i,j,new SudokuCell((j + 3 * i) % 9 + 1));
-                    }
+/*                GridParser gridParser = null;
+                try {
+                    gridParser = new GridParser("gameFiles/sudoku2.json");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
-                for (int i = 3; i < 9; i++) {
-                    for (int j = 0; j < 9; j++) {
-                        grid.setValue(i,j,new SudokuCell((j + 3 * i + 1) % 9 + 1));
-                    }
+                Grid<SudokuCell> grid = new Grid<>(gridParser.getRowsCount(), gridParser.getColumnsCount());
+                try {
+                    gridParser.loadGridFromFile(grid);
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
+                String gameName = gridParser.getGameName();
 
-                for (int i = 6; i < 9; i++) {
-                    for (int j = 0; j < 9; j++) {
-                        grid.setValue(i,j,new SudokuCell((j + 3 * i + 2 ) % 9 + 1));
-                    }
-                }
-
-                for (int i = 0; i < 9; i++) {
-                    grid.setValue(i,i,new SudokuCell(0));
-                }
+                SudokuCell cell = grid.getValue(1,1);
 
                 SudokuGameManager gameManager = new SudokuGameManager(grid);
                 SudokuController sudokuController = new SudokuController(gameManager);
-                sudokuController.setView();
+                sudokuController.setView();*/
+
+
+                GameParser parser = new GameParser();
+                try {
+                    Controller controller = parser.getGameFromFile("gameFiles/sudoku2.json");
+                    controller.setView();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } catch (java.text.ParseException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         });

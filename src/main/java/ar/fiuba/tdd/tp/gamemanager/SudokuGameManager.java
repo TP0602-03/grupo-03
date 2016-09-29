@@ -22,7 +22,7 @@ public class SudokuGameManager extends GameManager {
     }
 
     private boolean checkRows() {
-        for (int i = 0; i < this.grid.getHeight() ; i++) {
+        for (int i = 0; i < this.grid.getHeight(); i++) {
             if (!this.rule.check(this.obtainer.getRow(i))) {
                 return false;
             }
@@ -31,7 +31,7 @@ public class SudokuGameManager extends GameManager {
     }
 
     private boolean checkColumns() {
-        for (int i = 0; i < this.grid.getWidth() ; i++) {
+        for (int i = 0; i < this.grid.getWidth(); i++) {
             if (!this.rule.check(this.obtainer.getColumn(i))) {
                 return false;
             }
@@ -40,7 +40,7 @@ public class SudokuGameManager extends GameManager {
     }
 
     public boolean checkSquares() {
-        for (int i = 0; i < this.grid.getWidth() ; i += 3) {
+        for (int i = 0; i < this.grid.getWidth(); i += 3) {
             for (int j = 0; i < this.grid.getHeight(); i += 3) {
                 if (!this.rule.check(this.obtainer.getSquare(i, j))) {
                     return false;
@@ -58,10 +58,10 @@ public class SudokuGameManager extends GameManager {
 
 
     public void setValueOnGrid(int row, int column, int newValue) {
-        this.grid.getValue(row,column).setValue(newValue);
+        this.grid.getValue(row, column).setValue(newValue);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(grid.getValue(i,j).getValue() + " ");
+                System.out.print(grid.getValue(i, j).getValue() + " ");
             }
             System.out.println();
         }
@@ -71,9 +71,9 @@ public class SudokuGameManager extends GameManager {
         this.grid = newGrid;
         this.obtainer = new SudokuObtainer(this.grid);
     }
-    
-    public int getValueFromGrid(int row,int column) {
-        return this.grid.getValue(row,column).getValue();
+
+    public int getValueFromGrid(int row, int column) {
+        return this.grid.getValue(row, column).getValue();
     }
 
 }

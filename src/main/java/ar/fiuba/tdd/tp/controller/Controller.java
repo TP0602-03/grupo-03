@@ -4,6 +4,6 @@ public interface Controller {
 
     void setView();
 
-    void notifyModel(int collumn, int raw, int userInput);
+    void notifyModel(int column, int row, int userInput);
 
 }
