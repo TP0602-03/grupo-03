@@ -36,19 +36,19 @@ public class Main {
                 Grid<SudokuCell> grid = new Grid<>(9,9);
                 for (int i = 0; i < 3; i++) {
                     for (int j = 0; j < 9; j++) {
-                        grid.setValue(i,j,new SudokuCell((j+3*i)%9+1));
+                        grid.setValue(i,j,new SudokuCell((j + 3 * i) % 9 + 1));
                     }
                 }
 
                 for (int i = 3; i < 9; i++) {
                     for (int j = 0; j < 9; j++) {
-                        grid.setValue(i,j,new SudokuCell((j+3*i+1)%9+1));
+                        grid.setValue(i,j,new SudokuCell((j + 3 * i + 1) % 9 + 1));
                     }
                 }
 
                 for (int i = 6; i < 9; i++) {
                     for (int j = 0; j < 9; j++) {
-                        grid.setValue(i,j,new SudokuCell((j+3*i+2)%9+1));
+                        grid.setValue(i,j,new SudokuCell((j + 3 * i + 2 ) % 9 + 1));
                     }
                 }
 

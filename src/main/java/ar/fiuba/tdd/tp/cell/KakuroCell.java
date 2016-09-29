@@ -35,11 +35,11 @@ public class KakuroCell {
         this.center = center;
     }
 
-    public boolean isWritable(){
-        return (upperRight == null && lowerLeft == null);
+    public boolean isWritable() {
+        return ( upperRight == null && lowerLeft == null);
     }
 
-    public boolean isHorizontalDelimiter(){
+    public boolean isHorizontalDelimeter()  {
         return upperRight != null && !isWritable();
     }
 
