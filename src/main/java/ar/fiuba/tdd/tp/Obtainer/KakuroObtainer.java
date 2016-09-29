@@ -25,7 +25,7 @@ public class KakuroObtainer {
 
         int currentPosition = delimeterPosition + 1;
         current = cells.get(currentPosition);
-        while (current.isWrittable() && currentPosition < cells.size() - 1){
+        while (current.isWritable() && currentPosition < cells.size() - 1){
             cellsToReturn.add(current);
             currentPosition++;
             current = cells.get(currentPosition);
@@ -35,7 +35,7 @@ public class KakuroObtainer {
     }
 
     private int iterateUntilDelimeter(ArrayList<KakuroCell> cells, KakuroCell current, int currentPosition) {
-        while (currentPosition > 0 && current.isWrittable()){
+        while (currentPosition > 0 && current.isWritable()){
             currentPosition--;
             current = cells.get(currentPosition);
         }

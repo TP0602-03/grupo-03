@@ -1,16 +1,41 @@
 package ar.fiuba.tdd.tp.cell;
 
-/**
- * Created by luciano on 28/09/16.
- */
-public class KakuroCell extends Cell {
+public class KakuroCell {
+    private Integer upperRight = null;
+    private Integer lowerLeft = null;
+    private Integer center = null;
 
-    public Boolean isWrittable(){ return true;}
-    public void setCenter(int value) {}
-    public int getCenter() {return 1;}
-    public int getLowerLeft(){return 1;}
-    public int getUpperRight() {return 1;}
-    public void setLowerLeft(int value){}
-    public void setUpperRight(int value){}
+    public KakuroCell(Integer upperRight, Integer lowerLeft, Integer center) {
+        this.upperRight = upperRight;
+        this.lowerLeft = lowerLeft;
+        this.center = center;
+    }
 
+    public Integer getUpperRight() {
+        return upperRight;
+    }
+
+    public void setUpperRight(Integer upperRight) {
+        this.upperRight = upperRight;
+    }
+
+    public Integer getLowerLeft() {
+        return lowerLeft;
+    }
+
+    public void setLowerLeft(Integer lowerLeft) {
+        this.lowerLeft = lowerLeft;
+    }
+
+    public Integer getCenter() {
+        return center;
+    }
+
+    public void setCenter(Integer center) {
+        this.center = center;
+    }
+
+    public boolean isWritable(){
+        return (upperRight == null && lowerLeft == null);
+    }
 }

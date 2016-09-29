@@ -1,9 +1,5 @@
 package ar.fiuba.tdd.tp.Obtainer;
 
-import ar.fiuba.tdd.tp.cell.Cell;
-
-import java.util.ArrayList;
-
 /**
  * Created by joni on 9/29/16.
  */

@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.Obtainer;
 
-import ar.fiuba.tdd.tp.cell.Cell;
 import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.grid.Grid;
 

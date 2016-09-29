@@ -1,10 +1,13 @@
 package ar.fiuba.tdd.tp.cell;
 
-/**
- * Created by luciano on 28/09/16.
- */
-public class SudokuCell extends Cell{
+public class SudokuCell {
+    private Integer value;
 
-    public void setValue(int value){}
-    public int getValue(){ return 1;};
+    public Integer getValue() {
+        return value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
 }

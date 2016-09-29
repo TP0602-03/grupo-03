@@ -1,8 +1,11 @@
 package ar.fiuba.tdd.tp.gamemanager;
 
+import ar.fiuba.tdd.tp.Obtainer.KakuroObtainer;
 import ar.fiuba.tdd.tp.cell.KakuroCell;
-import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.grid.Grid;
+import ar.fiuba.tdd.tp.rule.KakuroRule;
+
+import java.util.ArrayList;
 
 /**
  * Created by luciano on 29/09/16.
@@ -10,9 +13,18 @@ import ar.fiuba.tdd.tp.grid.Grid;
 public class KakuroGameManager extends GameManager {
 
     private Grid<KakuroCell> grid;
+    private KakuroRule rule;
+    private KakuroObtainer obtainer;
+
+    public KakuroGameManager(Grid<KakuroCell> grid){
+        this.grid = grid;
+        rule = new KakuroRule();
+        obtainer = new KakuroObtainer(grid);
+    }
 
     public Boolean isGameWon(){
-        return true;
+        ArrayList<KakuroCell> cells = obtainer.getHorizontalSection(2,2);
+        return rule.check(cells,3);
     }
 
     public void setGrid(Grid<KakuroCell> newGrid) {

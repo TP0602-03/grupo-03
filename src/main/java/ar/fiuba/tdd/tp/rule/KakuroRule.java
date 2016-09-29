@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.rule;
 
+import ar.fiuba.tdd.tp.cell.KakuroCell;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,11 +10,11 @@ import java.util.HashMap;
  */
 public class KakuroRule {
 
-    public Boolean check(ArrayList<Integer> values,int sumValue) {
+    public Boolean check(ArrayList<KakuroCell> values, int sumValue) {
 
         int sum = 0;
         for ( int i = 0;i < values.size();i++) {
-            sum += values.get(i);
+            sum += values.get(i).getCenter();
         }
         return (sum == sumValue);
     }
