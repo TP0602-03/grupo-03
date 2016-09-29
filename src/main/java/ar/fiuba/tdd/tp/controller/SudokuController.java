@@ -41,6 +41,7 @@ public class SudokuController {
 
         // here we should call the model
         // we mock it for the moment
+
         if (userInput==4){
             view.won();
         }
