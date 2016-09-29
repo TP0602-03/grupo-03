@@ -18,13 +18,11 @@ public class KakuroObtainer {
     }
 
     private ArrayList<KakuroCell> getSection(ArrayList<KakuroCell> cells, int positionToStart){
-        KakuroCell current = cells.get(positionToStart);
-
-        int delimeterPosition = iterateUntilDelimeter(cells, current, positionToStart);
+        int delimeterPosition = iterateUntilDelimeter(cells, positionToStart);
         ArrayList<KakuroCell> cellsToReturn = new ArrayList<>();
 
         int currentPosition = delimeterPosition + 1;
-        current = cells.get(currentPosition);
+        KakuroCell current = cells.get(currentPosition);
         while (current.isWritable() && currentPosition < cells.size() - 1){
             cellsToReturn.add(current);
             currentPosition++;
@@ -34,7 +32,12 @@ public class KakuroObtainer {
         return cellsToReturn;
     }
 
-    private int iterateUntilDelimeter(ArrayList<KakuroCell> cells, KakuroCell current, int currentPosition) {
+    private KakuroCell getDelimeter(ArrayList<KakuroCell> cells, int positionToStart){
+        return cells.get(iterateUntilDelimeter(cells, positionToStart));
+    }
+
+    private int iterateUntilDelimeter(ArrayList<KakuroCell> cells, int currentPosition) {
+        KakuroCell current = cells.get(currentPosition);
         while (currentPosition > 0 && current.isWritable()){
             currentPosition--;
             current = cells.get(currentPosition);
@@ -42,11 +45,32 @@ public class KakuroObtainer {
         return currentPosition;
     }
 
+    public int getHorizontalSectionDelimeter(int row, int column){
+        return getDelimeter(grid.getRow(row), column).getUpperRight();
+    }
+
     public ArrayList<KakuroCell> getHorizontalSection(int row, int column){
         return getSection(grid.getRow(row), column);
     }
 
+    public int getVerticalSectionDelimeter(int row, int column){
+        return getDelimeter(grid.getColumn(column), row).getLowerLeft();
+    }
+
     public ArrayList<KakuroCell> getVericalSection(int row, int column){
         return getSection(grid.getColumn(column), row);
+    }
+
+    public ArrayList<Integer[]> getAllHorizontalDelimetersPosition(){
+        ArrayList<Integer[]> delimeters = new ArrayList<>();
+
+        for (int i = 0; i < grid.getWidth(); i++){
+            for (int j = 0; j < grid.getHeight(); j++){
+                if (grid.getValue(i,j).isHorizontalDelimeter()){
+                    delimeters.add(new Integer[]{i,j});
+                }
+            }
+        }
+        return delimeters;
     }
 }
