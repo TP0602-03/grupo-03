@@ -26,16 +26,4 @@ public class CellTests {
         assertTrue(exception instanceof InvalidValueTypeException);
     }
 
-    @Test
-    public void checkgetValueRaiseException() {
-        Cell testedCell = new NumericalCell();
-        Throwable exception = null;
-        try {
-            Object returnedValue = testedCell.getValue();
-        } catch (Exception ex) {
-            exception = ex;
-        }
-        assertTrue(exception instanceof InvalidValueTypeException);
-    }
-
 }

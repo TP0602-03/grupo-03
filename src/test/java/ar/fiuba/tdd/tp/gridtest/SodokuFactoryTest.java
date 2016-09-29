@@ -22,19 +22,4 @@ public class SodokuFactoryTest {
         assertEquals(9,grid.getHeight());
 
     }
-
-    @Test
-    public void testGettingCorrectTypeOfCell() throws InvalidValueTypeException {
-        SudokuGridFactory factory = new SudokuGridFactory();
-        Grid grid = factory.createGrid();
-
-        for (int i = 0;i < 9;i++) {
-            for (int j = 0; j < 9 ; j++) {
-                grid.getCell(i, j).setValue(5);
-                assertEquals(grid.getCell(i,j).getValue(),5);
-            }
-        }
-
-    }
-
 }
