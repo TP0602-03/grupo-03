@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.rule.SudokuRule;
 import org.junit.Test;
 
@@ -18,7 +19,12 @@ public class SudokuRuleTest {
     @Test
     public void testRulePassesWithAllDifferentElements() {
 
-        ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9));
+        ArrayList<SudokuCell> elements = new ArrayList<>();
+        for(int i = 1; i < 10 ; i++) {
+            SudokuCell cell = new SudokuCell();
+            cell.setValue(i);
+            elements.add(cell);
+        }
 
         SudokuRule rule = new SudokuRule();
 
@@ -28,7 +34,12 @@ public class SudokuRuleTest {
 
     @Test
     public void testRuleFailsWithTwoEqualElements() {
-        ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1,2,3,4,5,5,7,8,9));
+        ArrayList<SudokuCell> elements = new ArrayList<>();
+        for(int i = 1; i < 10 ; i++) {
+            SudokuCell cell = new SudokuCell();
+            cell.setValue(i%2); //So that equal elements appear
+            elements.add(cell);
+        }
 
         SudokuRule rule = new SudokuRule();
 
