@@ -12,7 +12,7 @@ import javax.swing.border.MatteBorder;
 public class KakuroEmptyCell extends JPanel {
 
 
-    public KakuroEmptyCell(Controller controller) {
+    public KakuroEmptyCell() {
         this.setBackground(Color.black);
         Border border = new MatteBorder(1, 1, 0, 0, Color.WHITE);
         this.setBorder(border);
