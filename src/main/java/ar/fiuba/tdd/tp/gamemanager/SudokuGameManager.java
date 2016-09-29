@@ -6,9 +6,6 @@ import ar.fiuba.tdd.tp.grid.Grid;
 import ar.fiuba.tdd.tp.obtainer.SudokuObtainer;
 import ar.fiuba.tdd.tp.rule.SudokuRule;
 
-/**
- * Created by luciano on 28/09/16.
- */
 public class SudokuGameManager extends GameManager {
 
     private Grid<SudokuCell> grid;
@@ -39,7 +36,7 @@ public class SudokuGameManager extends GameManager {
         return true;
     }
 
-    public boolean checkSquares() {
+    private boolean checkSquares() {
         for (int i = 0; i < this.grid.getWidth(); i += 3) {
             for (int j = 0; i < this.grid.getHeight(); i += 3) {
                 if (!this.rule.check(this.obtainer.getSquare(i, j))) {
@@ -58,6 +55,7 @@ public class SudokuGameManager extends GameManager {
 
 
     public void setValueOnGrid(int row, int column, int newValue) {
+        //TODO aca no deberia usar grid.setValue()? en vez de grid.getValue().setValue()?
         this.grid.getValue(row, column).setValue(newValue);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {

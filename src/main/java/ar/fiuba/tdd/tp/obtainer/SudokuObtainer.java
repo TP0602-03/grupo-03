@@ -6,9 +6,6 @@ import ar.fiuba.tdd.tp.grid.Grid;
 
 import java.util.ArrayList;
 
-/**
- * Created by joni on 9/29/16.
- */
 public class SudokuObtainer {
 
     private Grid<SudokuCell> grid;
