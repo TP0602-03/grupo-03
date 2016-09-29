@@ -26,7 +26,6 @@ public class KakuroGameManager extends GameManager {
         ArrayList<Integer[]> horizontalDelimeters = obtainer.getAllHorizontalDelimetersPosition();
         for (Integer[] delimeterPosition:
              horizontalDelimeters) {
-            //TODO: this should work without having to add +1 at the end, didn't have time to check it
             int delimeter = obtainer.getHorizontalSectionDelimeter(delimeterPosition[0], delimeterPosition[1] + 1);
             ArrayList<KakuroCell> sectionCells = obtainer.getHorizontalSection(delimeterPosition[0], delimeterPosition[1] + 1);
             if (!rule.check(sectionCells,delimeter)){
@@ -34,7 +33,15 @@ public class KakuroGameManager extends GameManager {
             }
         }
 
-        //TODO: HACER LO MISMO PARA VERTICAL
+        ArrayList<Integer[]> verticalDelimeters = obtainer.getAllVerticalDelimetersPosition();
+        for (Integer[] delimeterPosition:
+                verticalDelimeters) {
+            int delimeter = obtainer.getVerticalSectionDelimeter(delimeterPosition[0] + 1, delimeterPosition[1]);
+            ArrayList<KakuroCell> sectionCells = obtainer.getVericalSection(delimeterPosition[0] + 1, delimeterPosition[1]);
+            if (!rule.check(sectionCells,delimeter)){
+                return false;
+            }
+        }
         return true;
     }
 

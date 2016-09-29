@@ -66,7 +66,7 @@ public class GameManagerTests {
         grid.setValue(0,6,new KakuroCell(4,null,null));
         grid.setValue(0,7,new KakuroCell(null,null,2));
         grid.setValue(0,8,new KakuroCell(null,null,2));
-        
+
 
 
         KakuroGameManager manager = new KakuroGameManager(grid);
@@ -74,6 +74,61 @@ public class GameManagerTests {
         assertTrue(manager.isGameWon());
 
     }
+
+    @Test
+    public void testKakuroGameManagerReturnsTrueWhenGameIsWonWithMultipleDirections(){
+        //First form a valid kakuro grid
+        Grid<KakuroCell> grid = new Grid<>(3,3);
+
+        grid.setValue(0,0,new KakuroCell(1,1,null));
+        grid.setValue(0,1,new KakuroCell(null,null,1));
+        grid.setValue(0,2,new KakuroCell(null,1,null));
+        grid.setValue(1,0,new KakuroCell(null,null,1));
+        grid.setValue(1,1,new KakuroCell(null,null,null));
+        grid.setValue(1,2,new KakuroCell(null,null,1));
+        grid.setValue(2,0,new KakuroCell(1,null,null));
+        grid.setValue(2,1,new KakuroCell(null,null,1));
+        grid.setValue(2,2,new KakuroCell(null,null,null));
+
+        /**
+         * 1\1  1  1\0
+         *  1  0\0  1
+         * 0\1  1  0/0
+         */
+
+        KakuroGameManager manager = new KakuroGameManager(grid);
+
+        assertTrue(manager.isGameWon());
+
+    }
+
+    @Test
+    public void testKakuroGameManagerReturnsFalseWhenOneDirectionIsWrong(){
+        //First form a valid kakuro grid
+        Grid<KakuroCell> grid = new Grid<>(3,3);
+
+        grid.setValue(0,0,new KakuroCell(1,1,null));
+        grid.setValue(0,1,new KakuroCell(null,null,1));
+        grid.setValue(0,2,new KakuroCell(null,1,null));
+        grid.setValue(1,0,new KakuroCell(null,null,1));
+        grid.setValue(1,1,new KakuroCell(null,null,null));
+        grid.setValue(1,2,new KakuroCell(null,null,1));
+        grid.setValue(2,0,new KakuroCell(1,null,null));
+        grid.setValue(2,1,new KakuroCell(null,null,5));
+        grid.setValue(2,2,new KakuroCell(null,null,null));
+
+        /**
+         * 1\1  1  1\0
+         *  1  0\0  1
+         * 0\1  5  0/0
+         */
+
+        KakuroGameManager manager = new KakuroGameManager(grid);
+
+        assertFalse(manager.isGameWon());
+
+    }
+
 
 
 }

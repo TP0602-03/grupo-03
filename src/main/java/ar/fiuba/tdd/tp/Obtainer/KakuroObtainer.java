@@ -66,7 +66,20 @@ public class KakuroObtainer {
 
         for (int i = 0; i < grid.getHeight(); i++){
             for (int j = 0; j < grid.getWidth(); j++){
-                if (grid.getValue(i,j).isHorizontalDelimeter()){
+                if (this.grid.getValue(i,j).isHorizontalDelimeter()){
+                    delimeters.add(new Integer[]{i,j});
+                }
+            }
+        }
+        return delimeters;
+    }
+
+    public ArrayList<Integer[]> getAllVerticalDelimetersPosition(){
+        ArrayList<Integer[]> delimeters = new ArrayList<>();
+
+        for (int i = 0; i < grid.getHeight(); i++){
+            for (int j = 0; j < grid.getWidth(); j++){
+                if (this.grid.getValue(i,j).isVerticalDelimiter()){
                     delimeters.add(new Integer[]{i,j});
                 }
             }
