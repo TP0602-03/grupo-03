@@ -1,4 +1,4 @@
-package ar.fiuba.tdd.tp.Obtainer;
+package ar.fiuba.tdd.tp.obtainer;
 
 /**
  * Created by joni on 9/29/16.

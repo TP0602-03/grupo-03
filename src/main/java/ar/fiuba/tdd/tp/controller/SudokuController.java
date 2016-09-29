@@ -9,8 +9,9 @@ import ar.fiuba.tdd.tp.view.SudokuCell;
  */
 public class SudokuController extends AbstractController {
 
-    BoardGameView view = new BoardGameView();
+
     SudokuGameManager sudokuGameManager;
+    BoardGameView view = new BoardGameView();
 
     public SudokuController(SudokuGameManager sudokuGameManager) {
         this.sudokuGameManager = sudokuGameManager;
@@ -42,7 +43,7 @@ public class SudokuController extends AbstractController {
         }
 
         sudokuGameManager.setValueOnGrid(collumn,raw,userInput);
-        if(sudokuGameManager.isGameWon()){
+        if (sudokuGameManager.isGameWon()) {
             view.won();
         }
 
@@ -54,10 +55,10 @@ public class SudokuController extends AbstractController {
         // Here we ask the model and we instance
         // the right cell
         // and also the default value (Sudoku we only have one kind of cell)
-        int v = sudokuGameManager.getValueFromGrid(indexR, indexC);
+        int obtainedValue = sudokuGameManager.getValueFromGrid(indexR, indexC);
         SudokuCell cell = new SudokuCell(this);
-        cell.setDefault(v);
-        if (v == 0){
+        cell.setDefault(obtainedValue);
+        if (obtainedValue == 0) {
             cell.setNotWritable();
         }
         cell.setPosition(indexR, indexC);

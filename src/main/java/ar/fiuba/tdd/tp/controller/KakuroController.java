@@ -15,7 +15,7 @@ public class KakuroController extends AbstractController {
     KakuroGameManager manager;
 
 
-    public KakuroController(KakuroGameManager manager){
+    public KakuroController(KakuroGameManager manager) {
         this.manager = manager;
     }
 

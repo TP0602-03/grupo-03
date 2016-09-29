@@ -20,7 +20,7 @@ public class SudokuRuleTest {
     public void testRulePassesWithAllDifferentElements() {
 
         ArrayList<SudokuCell> elements = new ArrayList<>();
-        for(int i = 1; i < 10 ; i++) {
+        for (int i = 1; i < 10 ; i++) {
             SudokuCell cell = new SudokuCell();
             cell.setValue(i);
             elements.add(cell);
@@ -35,9 +35,9 @@ public class SudokuRuleTest {
     @Test
     public void testRuleFailsWithTwoEqualElements() {
         ArrayList<SudokuCell> elements = new ArrayList<>();
-        for(int i = 1; i < 10 ; i++) {
+        for (int i = 1; i < 10 ; i++) {
             SudokuCell cell = new SudokuCell();
-            cell.setValue(i%2); //So that equal elements appear
+            cell.setValue( i % 2); //So that equal elements appear
             elements.add(cell);
         }
 

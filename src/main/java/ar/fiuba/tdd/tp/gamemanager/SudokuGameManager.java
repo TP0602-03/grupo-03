@@ -1,10 +1,9 @@
 package ar.fiuba.tdd.tp.gamemanager;
 
-import ar.fiuba.tdd.tp.Obtainer.KakuroObtainer;
-import ar.fiuba.tdd.tp.Obtainer.SudokuObtainer;
+
 import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.grid.Grid;
-import ar.fiuba.tdd.tp.rule.KakuroRule;
+import ar.fiuba.tdd.tp.obtainer.SudokuObtainer;
 import ar.fiuba.tdd.tp.rule.SudokuRule;
 
 /**
@@ -16,25 +15,32 @@ public class SudokuGameManager extends GameManager {
     private SudokuRule rule;
     private SudokuObtainer obtainer;
 
-    public SudokuGameManager(Grid<SudokuCell> newGrid){
+    public SudokuGameManager(Grid<SudokuCell> newGrid) {
         this.grid = newGrid;
         this.obtainer = new SudokuObtainer(this.grid);
         this.rule = new SudokuRule();
     }
 
-    public Boolean isGameWon(){
-        //Has to check the rule for every column,row and square.
-        for(int i = 0; i < this.grid.getHeight() ; i++){
-            if(!this.rule.check(this.obtainer.getRow(i))) {
+    private boolean checkRows() {
+        for (int i = 0; i < this.grid.getHeight() ; i++) {
+            if (!this.rule.check(this.obtainer.getRow(i))) {
                 return false;
             }
         }
-        for(int i = 0; i < this.grid.getWidth() ; i++){
-            if(!this.rule.check(this.obtainer.getColumn(i))) {
+        return true;
+    }
+
+    private boolean checkColumns() {
+        for (int i = 0; i < this.grid.getWidth() ; i++) {
+            if (!this.rule.check(this.obtainer.getColumn(i))) {
                 return false;
             }
         }
-        for(int i = 0; i < this.grid.getWidth() ; i+=3) {
+        return true;
+    }
+
+    public boolean checkSquares() {
+        for (int i = 0; i < this.grid.getWidth() ; i += 3) {
             for (int j = 0; i < this.grid.getHeight(); i += 3) {
                 if (!this.rule.check(this.obtainer.getSquare(i, j))) {
                     return false;
@@ -45,8 +51,13 @@ public class SudokuGameManager extends GameManager {
 
     }
 
+    public Boolean isGameWon() {
+        return this.checkColumns() && this.checkRows() && this.checkSquares();
 
-    public void setValueOnGrid(int row, int column, int newValue){
+    }
+
+
+    public void setValueOnGrid(int row, int column, int newValue) {
         this.grid.getValue(row,column).setValue(newValue);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -61,7 +72,7 @@ public class SudokuGameManager extends GameManager {
         this.obtainer = new SudokuObtainer(this.grid);
     }
     
-    public int getValueFromGrid(int row,int column){
+    public int getValueFromGrid(int row,int column) {
         return this.grid.getValue(row,column).getValue();
     }
 
