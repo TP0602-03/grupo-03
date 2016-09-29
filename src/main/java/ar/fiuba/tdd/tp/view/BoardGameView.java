@@ -1,20 +1,15 @@
 package ar.fiuba.tdd.tp.view;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
+import javax.swing.*;
 
-/**
- * Created by martin on 9/28/16.
- */
 public class BoardGameView {
 
     //private board
     JPanel cellContainer;
     JFrame frame;
 
-    public BoardGameView(){
+    public BoardGameView() {
         cellContainer = new JPanel();
 
         frame = new JFrame("Grid Game - TP1");
@@ -29,26 +24,13 @@ public class BoardGameView {
     }
 
 
-    public void set(int indexR, int indexC, Component sudokuCell) {
+    public void set(int indexR, int indexC, Component cell) {
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = indexC;
         gridBagConstraints.gridy = indexR;
-
-        JPanel cellView = new JPanel();
-
-        // TODO: SET CUSTOM VALUES FROM FILE
-        //Label label = new Label();
-
-        // FIXME Componente generico
-
-
-        cellView.add(sudokuCell, 0);
-
-        Border border = new MatteBorder(1, 1, 0, 0, Color.GRAY);
-        cellView.setBorder(border);
-
-        cellContainer.add(cellView, gridBagConstraints);
+        
+        cellContainer.add(cell, gridBagConstraints);
 
 
         frame.pack();

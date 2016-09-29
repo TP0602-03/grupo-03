@@ -11,17 +11,19 @@ public class SudokuGameManager extends GameManager {
     private Grid<SudokuCell> grid;
 
     public Boolean isGameWon(){
-        return true;
+        return false;
     }
 
-    public void setGrid(Grid<SudokuCell> newGrid) {
-        this.grid = newGrid;
-    }
+
 
     public void setValueOnGrid(int row, int column, int newValue){
         this.grid.getValue(row,column).setValue(newValue);
     }
 
+    public void setGrid(Grid<SudokuCell> newGrid) {
+        this.grid = newGrid;
+    }
+    
     public int getValueFromGrid(int row,int column){
         return this.grid.getValue(row,column).getValue();
     }

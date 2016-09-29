@@ -1,14 +1,11 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.controller.KakuroController;
 import ar.fiuba.tdd.tp.controller.SudokuController;
 
-import java.awt.EventQueue;
+import java.awt.*;
 
 public class Main {
-
-    public static void main(String[] args) {
-        new Main();
-    }
 
     public Main() {
         EventQueue.invokeLater(new Runnable() {
@@ -25,13 +22,17 @@ public class Main {
                 // Here we shoud give the model as parameter
                 // new ModelSudoku
                 //(new SudokuController(ModeloSudoku)).setView();
-                (new SudokuController()).setView();
+                //(new SudokuController()).setView();
 
                 // For Kakuro it'd be:
                 // new ModelKukuru
-                // (new KukuruController()).setView();
+                (new KakuroController()).setView();
 
             }
         });
+    }
+
+    public static void main(String[] args) {
+        new Main();
     }
 }
