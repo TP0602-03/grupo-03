@@ -26,7 +26,7 @@ public class KakuroDefaultCell extends SingleValueCell {
     }
 
     private void update() {
-        this.textView.setText(firstNumber + "\\" + secondNumber);
+        this.textView.setText(secondNumber + "\\" + firstNumber);
     }
 
     ;

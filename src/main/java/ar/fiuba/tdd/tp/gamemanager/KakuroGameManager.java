@@ -80,6 +80,14 @@ public class KakuroGameManager extends GameManager {
         return this.grid.getValue(row, column).getLowerLeft();
     }
 
+    public Integer getGridWidth() {
+        return this.grid.getWidth();
+    }
+
+    public Integer getGridHeight() {
+        return this.grid.getHeight();
+    }
+
     public int getValueFromGrid(int row, int column) {
         return this.grid.getValue(row, column).getCenter();
     }

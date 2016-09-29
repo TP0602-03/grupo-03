@@ -17,7 +17,7 @@ public class SudokuController extends AbstractController {
     @Override
     public void setView() {
 
-        this.createView();
+        this.createView(9,9);
 
     }
 

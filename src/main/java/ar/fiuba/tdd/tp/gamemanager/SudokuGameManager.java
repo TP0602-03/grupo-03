@@ -65,6 +65,10 @@ public class SudokuGameManager extends GameManager {
         }
     }
 
+    public Integer getGridWidth() {
+        return this.grid.getWidth();
+    }
+
     public void setGrid(Grid<SudokuCell> newGrid) {
         this.grid = newGrid;
         this.obtainer = new SudokuObtainer(this.grid);
@@ -73,5 +77,13 @@ public class SudokuGameManager extends GameManager {
     public int getValueFromGrid(int row, int column) {
         return this.grid.getValue(row, column).getValue();
     }
+
+
+
+
+    public Integer getGridHeight() {
+        return this.grid.getHeight();
+    }
+
 
 }

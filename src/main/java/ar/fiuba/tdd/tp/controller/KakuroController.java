@@ -17,7 +17,7 @@ public class KakuroController extends AbstractController {
 
     @Override
     public void setView() {
-        this.createView();
+        this.createView(manager.getGridHeight(),manager.getGridWidth());
     }
 
     @Override
