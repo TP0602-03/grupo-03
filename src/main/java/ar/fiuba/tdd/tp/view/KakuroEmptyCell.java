@@ -9,11 +9,12 @@ import javax.swing.border.MatteBorder;
 
 
 
-public class KakuroEmptyCell extends JPanel {
+public class KakuroEmptyCell extends CellView {
 
 
     public KakuroEmptyCell(Controller controller) {
-        this.setBackground(Color.black);
+        defaultBackground = Color.BLACK;
+        this.setBackground(defaultBackground );
         Border border = new MatteBorder(1, 1, 0, 0, Color.WHITE);
         this.setBorder(border);
     }
