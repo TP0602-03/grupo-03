@@ -23,8 +23,19 @@ public class KakuroGameManager extends GameManager {
     }
 
     public Boolean isGameWon(){
-        ArrayList<KakuroCell> cells = obtainer.getHorizontalSection(2,2);
-        return rule.check(cells,3);
+        ArrayList<Integer[]> horizontalDelimeters = obtainer.getAllHorizontalDelimetersPosition();
+        for (Integer[] delimeterPosition:
+             horizontalDelimeters) {
+            //TODO: this should work without having to add +1 at the end, didn't have time to check it
+            int delimeter = obtainer.getHorizontalSectionDelimeter(delimeterPosition[0], delimeterPosition[1] + 1);
+            ArrayList<KakuroCell> sectionCells = obtainer.getHorizontalSection(delimeterPosition[0], delimeterPosition[1] + 1);
+            if (!rule.check(sectionCells,delimeter)){
+                return false;
+            }
+        }
+
+        //TODO: HACER LO MISMO PARA VERTICAL
+        return true;
     }
 
     public void setGrid(Grid<KakuroCell> newGrid) {
