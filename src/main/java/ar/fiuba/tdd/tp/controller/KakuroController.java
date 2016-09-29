@@ -6,14 +6,10 @@ import ar.fiuba.tdd.tp.view.KakuroDefaultCell;
 import ar.fiuba.tdd.tp.view.KakuroEmptyCell;
 import ar.fiuba.tdd.tp.view.KakuroValueCell;
 
-/**
- * Created by martin on 9/28/16.
- */
 public class KakuroController extends AbstractController {
 
-    BoardGameView view = new BoardGameView();
-    KakuroGameManager manager;
-
+    private BoardGameView view = new BoardGameView();
+    private KakuroGameManager manager;
 
     public KakuroController(KakuroGameManager manager) {
         this.manager = manager;
@@ -23,7 +19,6 @@ public class KakuroController extends AbstractController {
     public void setView() {
         this.createView();
     }
-
 
     @Override
     public void notifyModel(int column, int row, int userInput) {

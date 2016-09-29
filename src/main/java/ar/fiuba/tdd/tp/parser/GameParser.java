@@ -14,9 +14,6 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.HashMap;
 
-/**
- * Created by mvbattan on 29/09/16.
- */
 public class GameParser {
     private GridParser gridParser;
 

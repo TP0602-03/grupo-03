@@ -9,9 +9,6 @@ import ar.fiuba.tdd.tp.rule.KakuroRule;
 
 import java.util.ArrayList;
 
-/**
- * Created by luciano on 29/09/16.
- */
 public class KakuroGameManager extends GameManager {
 
     private Grid<KakuroCell> grid;

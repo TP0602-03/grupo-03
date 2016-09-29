@@ -5,9 +5,6 @@ import ar.fiuba.tdd.tp.grid.Grid;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-/**
- * Created by mvbattan on 29/09/16.
- */
 public class SudokuFiller implements IFiller {
 
     @Override

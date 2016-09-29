@@ -4,14 +4,11 @@ import ar.fiuba.tdd.tp.gamemanager.SudokuGameManager;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.SudokuCell;
 
-/**
- * Created by martin on 9/28/16.
- */
 public class SudokuController extends AbstractController {
 
 
-    SudokuGameManager sudokuGameManager;
-    BoardGameView view = new BoardGameView();
+    private SudokuGameManager sudokuGameManager;
+    private BoardGameView view = new BoardGameView();
 
     public SudokuController(SudokuGameManager sudokuGameManager) {
         this.sudokuGameManager = sudokuGameManager;
@@ -34,18 +31,16 @@ public class SudokuController extends AbstractController {
         System.out.print("ingresó: ");
         System.out.println(userInput);
 
-
         // here we should call the model
         // we mock it for the moment
-        if (userInput == 4) {
-            //    view.won();
-        }
+        /*if (userInput == 4) {
+            view.won();
+        }*/
 
         sudokuGameManager.setValueOnGrid(collumn, raw, userInput);
         if (sudokuGameManager.isGameWon()) {
             view.won();
         }
-
 
     }
 

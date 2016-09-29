@@ -1,12 +1,7 @@
 package ar.fiuba.tdd.tp.parser;
 
-import java.text.ParseException;
 import java.util.HashMap;
-import java.util.Map;
 
-/**
- * Created by mvbattan on 29/09/16.
- */
 public class FillerResolver {
 
     private HashMap<String, IFiller> fillerHashMap;

@@ -1,13 +1,9 @@
 package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.cell.SudokuCell;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by luciano on 28/09/16.
- */
 public class SudokuRule {
 
 
