@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.controller;
 
+import ar.fiuba.tdd.tp.gamemanager.KakuroGameManager;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.KakuroDefaultCell;
 import ar.fiuba.tdd.tp.view.KakuroEmptyCell;
@@ -11,7 +12,12 @@ import ar.fiuba.tdd.tp.view.KakuroValueCell;
 public class KakuroController extends AbstractController {
 
     BoardGameView view = new BoardGameView();
+    KakuroGameManager manager;
 
+
+    public KakuroController(KakuroGameManager manager){
+        this.manager = manager;
+    }
 
     @Override
     public void setView() {
@@ -21,6 +27,7 @@ public class KakuroController extends AbstractController {
 
     @Override
     public void notifyModel(int collumn, int raw, int userInput) {
+        manager.setValueOnGrid(collumn,raw,userInput);
     }
 
     protected void setViewCoordenade(int indexR, int indexC) {
