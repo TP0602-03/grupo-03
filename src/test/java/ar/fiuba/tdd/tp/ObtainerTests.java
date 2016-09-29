@@ -1,6 +1,8 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.Obtainer.KakuroObtainer;
 import ar.fiuba.tdd.tp.Obtainer.SudokuObtainer;
+import ar.fiuba.tdd.tp.cell.KakuroCell;
 import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.grid.Grid;
 import org.junit.Test;
@@ -16,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 public class ObtainerTests {
 
     @Test
-    public void testSquareObtainer(){
+    public void testSudokuSquareObtainer(){
         Grid<SudokuCell> grid = new Grid<>(9,9);
 
         for(int i = 0; i < 9; i++) {
@@ -40,6 +42,51 @@ public class ObtainerTests {
 
 
     }
+
+    @Test
+    public void testKakuroHorizontalObtainerWithOneCell() {
+
+        //First form a valid kakuro grid
+        Grid<KakuroCell> grid = new Grid<>(3,3); //3x3 should be enough
+
+        grid.setValue(0,0,new KakuroCell(1,null,null));
+        grid.setValue(0,1,new KakuroCell(null,null,1));
+        grid.setValue(0,2,new KakuroCell(null,null,null));
+
+        KakuroObtainer obtainer = new KakuroObtainer(grid);
+
+        ArrayList<KakuroCell>  cells = obtainer.getHorizontalSection(0,1);
+
+        assertTrue(cells.size() == 1);
+        assertTrue(cells.get(0).getCenter() == 1);
+
+    }
+
+    @Test
+    public void testKakuroHorizontalObtainerWith5Cells() {
+
+        //First form a valid kakuro grid
+        Grid<KakuroCell> grid = new Grid<>(6,6);
+
+        grid.setValue(0,0,new KakuroCell(10,null,null));
+        grid.setValue(0,1,new KakuroCell(null,null,1));
+        grid.setValue(0,2,new KakuroCell(null,null,2));
+        grid.setValue(0,3,new KakuroCell(null,null,3));
+        grid.setValue(0,4,new KakuroCell(null,null,4));
+        grid.setValue(0,5,new KakuroCell(null,null,null));
+
+        KakuroObtainer obtainer = new KakuroObtainer(grid);
+
+        ArrayList<KakuroCell>  cells = obtainer.getHorizontalSection(0,1);
+
+        assertTrue(cells.size() == 4);
+
+        for(int i = 0 ;i < cells.size() ; i++) {
+            assertTrue(cells.get(i).getCenter() == i+1);
+        }
+
+    }
+
 
 
 }
