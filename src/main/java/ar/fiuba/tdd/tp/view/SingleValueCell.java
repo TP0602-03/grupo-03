@@ -18,10 +18,6 @@ public abstract class SingleValueCell extends CellView {
 
     public SingleValueCell(Controller controller) {
         this.textView = new TextField();
-        //textView.setText(String.valueOf(defaultValue));
-
-
-        // here we can add borders //TODO
 
         this.controller = controller;
         this.add(textView, 0);

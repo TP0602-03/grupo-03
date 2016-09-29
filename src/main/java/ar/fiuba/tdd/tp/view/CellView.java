@@ -14,7 +14,6 @@ public class CellView extends JPanel {
     public CellView() {
         addMouseListener(new CellController(this));
 
-        // TODO: Move this to another controller
         addKeyListener(new KeyAdapter() {
 
             @Override

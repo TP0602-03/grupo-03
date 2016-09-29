@@ -29,21 +29,7 @@ public class BoardGameView {
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = indexC;
         gridBagConstraints.gridy = indexR;
-
-        //JPanel cellView = new JPanel();
-        //cellView.setBackground(Color.black);
-
-        // TODO: SET CUSTOM VALUES FROM FILE
-        //Label label = new Label();
-
-        // FIXME Componente generico
-
-
-        //cellView.add(sudokuCell, 0);
-
-        //Border border = new MatteBorder(1, 1, 0, 0, Color.GRAY);
-        //cellView.setBorder(border);
-
+        
         cellContainer.add(cell, gridBagConstraints);
 
 
