@@ -47,7 +47,7 @@ public class Main {
 
                 GameParser parser = new GameParser();
                 try {
-                    Controller controller = parser.getGameFromFile("gameFiles/sudoku2.json");
+                    Controller controller = parser.getGameFromFile("gameFiles/kakuroGame2.json");
                     controller.setView();
                 } catch (ParseException e) {
                     e.printStackTrace();

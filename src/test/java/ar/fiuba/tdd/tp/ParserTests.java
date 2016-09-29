@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.cell.KakuroCell;
+import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.grid.Grid;
 import ar.fiuba.tdd.tp.parser.GridParser;
 import org.junit.Assert;

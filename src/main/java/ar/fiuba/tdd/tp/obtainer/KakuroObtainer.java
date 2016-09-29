@@ -20,12 +20,6 @@ public class KakuroObtainer {
         int currentPosition = delimeterPosition + 1;
 
         while (currentPosition < cells.size() && cells.get(currentPosition).isWritable()) {
-            System.out.print(currentPosition);
-            System.out.print(cells.get(currentPosition).getCenter());
-            System.out.println();
-
-
-
             cellsToReturn.add(cells.get(currentPosition));
             currentPosition++;
         }

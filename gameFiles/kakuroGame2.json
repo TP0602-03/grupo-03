@@ -1,0 +1,25 @@
+{
+  "name": "kakuro",
+  "rows": 1,
+  "columns": 3,
+  "values": [
+    {
+      "x":0,
+      "y":0,
+      "isWritable": false,
+      "upperRight":1,
+      "lowerLeft":null
+    },{
+      "x":1,
+      "y":0,
+      "isWritable": true,
+      "content": 0
+    },{
+      "x":2,
+      "y":0,
+      "isWritable": false,
+      "upperRight":null,
+      "lowerLeft":null
+    }
+  ]
+}
