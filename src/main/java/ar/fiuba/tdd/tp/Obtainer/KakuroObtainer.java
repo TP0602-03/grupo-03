@@ -13,6 +13,10 @@ public class KakuroObtainer {
 
     private Grid<KakuroCell> grid;
 
+    public KakuroObtainer(Grid<KakuroCell> grid){
+        this.grid = grid;
+    }
+
     private ArrayList<KakuroCell> getSection(ArrayList<KakuroCell> cells, int positionToStart){
         KakuroCell current = cells.get(positionToStart);
 
