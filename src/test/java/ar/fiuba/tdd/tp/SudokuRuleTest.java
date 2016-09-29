@@ -16,7 +16,7 @@ public class SudokuRuleTest {
 
 
     @Test
-    public void testRulePassesWithAllDifferentElements(){
+    public void testRulePassesWithAllDifferentElements() {
 
         ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9));
 
@@ -27,7 +27,7 @@ public class SudokuRuleTest {
     }
 
     @Test
-    public void testRuleFailsWithTwoEqualElements(){
+    public void testRuleFailsWithTwoEqualElements() {
         ArrayList<Integer> elements = new ArrayList<>(Arrays.asList(1,2,3,4,5,5,7,8,9));
 
         SudokuRule rule = new SudokuRule();

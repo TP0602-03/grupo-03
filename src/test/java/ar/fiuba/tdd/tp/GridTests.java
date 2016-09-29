@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class GridTests {
 
     @Test
-    public void testGridCreation(){
+    public void testGridCreation() {
         Grid<Integer> grid = new Grid<Integer>(5,10);
 
         assertEquals(grid.getHeight(),5);
@@ -20,7 +20,7 @@ public class GridTests {
     }
 
     @Test
-    public void testSetGetValue(){
+    public void testSetGetValue() {
         Grid<Integer> grid = new Grid<Integer>(5,10);
 
         grid.setValue(4,2,20);
@@ -32,7 +32,7 @@ public class GridTests {
 
 
     @Test
-    public void testCorrectWidthAndHeight(){
+    public void testCorrectWidthAndHeight() {
 
         int width = 5;
         int height = 10;

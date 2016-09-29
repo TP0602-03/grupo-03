@@ -5,18 +5,15 @@ import ar.fiuba.tdd.tp.controller.CellController;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class CellView extends JPanel {
 
-    private Color defaultBackground = Color.WHITE;
+    protected Color defaultBackground = Color.WHITE;
 
     public CellView() {
         addMouseListener(new CellController(this));
 
-        // TODO: Move this to another controller
         addKeyListener(new KeyAdapter() {
 
             @Override
