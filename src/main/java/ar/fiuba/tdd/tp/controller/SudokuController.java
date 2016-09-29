@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.controller;
 
+import ar.fiuba.tdd.tp.gamemanager.SudokuGameManager;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.SudokuCell;
 
@@ -9,6 +10,11 @@ import ar.fiuba.tdd.tp.view.SudokuCell;
 public class SudokuController extends AbstractController {
 
     BoardGameView view = new BoardGameView();
+    SudokuGameManager sudokuGameManager;
+
+    public SudokuController(SudokuGameManager sudokuGameManager) {
+        this.sudokuGameManager = sudokuGameManager;
+    }
 
     @Override
     public void setView() {
@@ -27,19 +33,33 @@ public class SudokuController extends AbstractController {
         System.out.print("ingresó: ");
         System.out.println(userInput);
 
+
+
         // here we should call the model
         // we mock it for the moment
         if (userInput == 4) {
+        //    view.won();
+        }
+
+        sudokuGameManager.setValueOnGrid(collumn,raw,userInput);
+        if(sudokuGameManager.isGameWon()){
             view.won();
         }
+
+
+
     }
 
     protected void setViewCoordenade(int indexR, int indexC) {
         // Here we ask the model and we instance
         // the right cell
         // and also the default value (Sudoku we only have one kind of cell)
+        int v = sudokuGameManager.getValueFromGrid(indexR, indexC);
         SudokuCell cell = new SudokuCell(this);
-        cell.setDefault(1);
+        cell.setDefault(v);
+        if (v == 0){
+            cell.setNotWritable();
+        }
         cell.setPosition(indexR, indexC);
         view.set(indexR, indexC, cell);
     }

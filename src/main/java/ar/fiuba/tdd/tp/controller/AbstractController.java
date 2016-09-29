@@ -17,8 +17,8 @@ public abstract class AbstractController implements Controller {
         // we ask the model for the size
 
 
-        for (int indexR = 1; indexR <= rows; indexR++) {
-            for (int indexC = 1; indexC <= columns; indexC++) {
+        for (int indexR = 0; indexR < rows; indexR++) {
+            for (int indexC = 0; indexC < columns; indexC++) {
                 this.setViewCoordenade(indexR, indexC);
             }
         }

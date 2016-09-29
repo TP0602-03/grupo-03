@@ -20,7 +20,6 @@ public class SudokuGameManager extends GameManager {
         this.grid = newGrid;
         this.obtainer = new SudokuObtainer(this.grid);
         this.rule = new SudokuRule();
-
     }
 
     public Boolean isGameWon(){
@@ -44,14 +43,17 @@ public class SudokuGameManager extends GameManager {
         }
         return true;
 
-
-
     }
-
 
 
     public void setValueOnGrid(int row, int column, int newValue){
         this.grid.getValue(row,column).setValue(newValue);
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(grid.getValue(i,j).getValue() + " ");
+            }
+            System.out.println();
+        }
     }
 
     public void setGrid(Grid<SudokuCell> newGrid) {
