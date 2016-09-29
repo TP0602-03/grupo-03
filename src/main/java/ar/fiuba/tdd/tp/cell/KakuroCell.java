@@ -40,7 +40,7 @@ public class KakuroCell {
     }
 
     public boolean isWritable() {
-       return this.writable;
+        return this.writable;
     }
 
     public void setWritable(boolean writable) {

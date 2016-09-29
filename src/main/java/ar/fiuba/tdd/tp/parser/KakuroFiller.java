@@ -10,6 +10,33 @@ import org.json.simple.JSONObject;
  */
 public class KakuroFiller implements IFiller {
 
+
+
+    private void setCenter(KakuroCell cell,Long value) {
+        cell.setCenter(value.intValue());
+    }
+
+    private void setUR(KakuroCell cell,Long value) {
+
+        if (value == null) {
+            cell.setUpperRight(null);
+        } else {
+            cell.setUpperRight(value.intValue());
+        }
+    }
+
+    private void setLL(KakuroCell cell,Long value) {
+        if (value == null) {
+            cell.setLowerLeft(null);
+        } else {
+            cell.setLowerLeft(value.intValue());
+        }
+    }
+
+
+
+
+
     @Override
     public void fill(Grid grid, JSONObject jsonGame) {
         JSONArray values = (JSONArray) jsonGame.get("values");
@@ -17,36 +44,21 @@ public class KakuroFiller implements IFiller {
         for (Object obj : values) {
             JSONObject value = (JSONObject) obj;
             boolean isWritable = (boolean) value.get("isWritable");
-
             KakuroCell cell = new KakuroCell();
-
             if (isWritable) {
-                Integer content = ((Long) value.get("content")).intValue();
-                cell.setCenter(content);
+                this.setCenter(cell,(Long)value.get("content"));
             } else {
                 Long readedUpperRight = (Long) value.get("upperRight");
-                Integer upperRight;
 
-                if (readedUpperRight == null) {
-                    upperRight = null;
-                } else {
-                    upperRight = readedUpperRight.intValue();
-                }
+                this.setUR(cell,readedUpperRight);
 
                 Long readedLowerLeft = (Long) value.get("lowerLeft");
-                Integer lowerLeft;
-                if (readedLowerLeft == null) {
-                    lowerLeft = null;
-                } else {
-                    lowerLeft = (readedLowerLeft).intValue();
-                }
 
-                cell.setLowerLeft(lowerLeft);
-                cell.setUpperRight(upperRight);
+                this.setLL(cell,readedLowerLeft);
+
             }
-
-            int row = ((Long) value.get("x")).intValue();
-            int column = ((Long) value.get("y")).intValue();
+            int row = ((Long) value.get("y")).intValue();
+            int column = ((Long) value.get("x")).intValue();
             cell.setWritable(isWritable);
             grid.setValue(row, column, cell);
         }

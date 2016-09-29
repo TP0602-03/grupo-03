@@ -23,23 +23,32 @@ public class GameParser {
     public GameParser() {
     }
 
+
+    private Controller getKakuro() throws ParseException, java.text.ParseException, IOException {
+        Grid<KakuroCell> kakuroCellGrid = new Grid<>(this.gridParser.getRowsCount(), this.gridParser.getColumnsCount());
+        this.gridParser.loadGridFromFile(kakuroCellGrid);
+        KakuroGameManager kakuroGameManager = new KakuroGameManager(kakuroCellGrid);
+        return new KakuroController(kakuroGameManager);
+    }
+
+    private Controller getSudoku() throws ParseException, java.text.ParseException, IOException {
+        Grid<SudokuCell> sudokuCellGrid = new Grid<>(this.gridParser.getRowsCount(), this.gridParser.getColumnsCount());
+        this.gridParser.loadGridFromFile(sudokuCellGrid);
+        SudokuGameManager sudokuGameManager = new SudokuGameManager(sudokuCellGrid);
+
+        return new SudokuController(sudokuGameManager);
+    }
+
     public Controller getGameFromFile(String pathToFile) throws ParseException, java.text.ParseException, IOException {
         this.gridParser = new GridParser(pathToFile);
         String gameName = this.gridParser.getGameName();
         // TODO: Delete repeated code !
         if (gameName.equals("kakuro")) {
+            return this.getKakuro();
 
-            Grid<KakuroCell> kakuroCellGrid = new Grid<>(this.gridParser.getRowsCount(), this.gridParser.getColumnsCount());
-            this.gridParser.loadGridFromFile(kakuroCellGrid);
-            KakuroGameManager kakuroGameManager = new KakuroGameManager(kakuroCellGrid);
-            return new KakuroController(kakuroGameManager);
         } else if (gameName.equals("sudoku")) {
+            return this.getSudoku();
 
-            Grid<SudokuCell> sudokuCellGrid = new Grid<>(this.gridParser.getRowsCount(), this.gridParser.getColumnsCount());
-            this.gridParser.loadGridFromFile(sudokuCellGrid);
-            SudokuGameManager sudokuGameManager = new SudokuGameManager(sudokuCellGrid);
-
-            return new SudokuController(sudokuGameManager);
         }
         throw new java.text.ParseException("Game Name is invalid to create a GameManager", 0);
     }
