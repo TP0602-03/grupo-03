@@ -11,8 +11,7 @@ import javax.swing.border.MatteBorder;
 
 public class KakuroEmptyCell extends CellView {
 
-
-    public KakuroEmptyCell(Controller controller) {
+    public KakuroEmptyCell() {
         defaultBackground = Color.BLACK;
         this.setBackground(defaultBackground );
         Border border = new MatteBorder(1, 1, 0, 0, Color.WHITE);

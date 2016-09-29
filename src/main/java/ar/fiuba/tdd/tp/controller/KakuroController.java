@@ -25,7 +25,7 @@ public class KakuroController extends AbstractController {
 
     protected void setViewCoordenade(int indexR, int indexC) {
         if (indexC % 3 == 0) {
-            KakuroEmptyCell cell = new KakuroEmptyCell(this);
+            KakuroEmptyCell cell = new KakuroEmptyCell();
             view.set(indexR, indexC, cell);
         } else if (indexC % 3 == 1) {
             KakuroDefaultCell cell = new KakuroDefaultCell(this);
