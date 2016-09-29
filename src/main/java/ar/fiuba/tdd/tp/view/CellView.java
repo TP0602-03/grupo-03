@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class CellView extends JPanel {
 
-    private Color defaultBackground = Color.WHITE;
+    protected Color defaultBackground = Color.WHITE;
 
     public CellView() {
         addMouseListener(new CellController(this));
