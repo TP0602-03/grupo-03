@@ -51,7 +51,7 @@ public class ObtainerTests {
 
         grid.setValue(0, 0, new KakuroCell(1, null, null));
         grid.setValue(0, 1, new KakuroCell(null, null, 1));
-        grid.getValue(0,1).setWritable(true);
+        grid.getValue(0, 1).setWritable(true);
         grid.setValue(0, 2, new KakuroCell(null, null, null));
 
         KakuroObtainer obtainer = new KakuroObtainer(grid);
@@ -71,13 +71,13 @@ public class ObtainerTests {
 
         grid.setValue(0, 0, new KakuroCell(10, null, null));
         grid.setValue(0, 1, new KakuroCell(null, null, 1));
-        grid.getValue(0,1).setWritable(true);
+        grid.getValue(0, 1).setWritable(true);
         grid.setValue(0, 2, new KakuroCell(null, null, 2));
-        grid.getValue(0,2).setWritable(true);
+        grid.getValue(0, 2).setWritable(true);
         grid.setValue(0, 3, new KakuroCell(null, null, 3));
-        grid.getValue(0,3).setWritable(true);
+        grid.getValue(0, 3).setWritable(true);
         grid.setValue(0, 4, new KakuroCell(null, null, 4));
-        grid.getValue(0,4).setWritable(true);
+        grid.getValue(0, 4).setWritable(true);
         grid.setValue(0, 5, new KakuroCell(null, null, null));
 
         KakuroObtainer obtainer = new KakuroObtainer(grid);

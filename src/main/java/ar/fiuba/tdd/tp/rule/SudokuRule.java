@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.cell.SudokuCell;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

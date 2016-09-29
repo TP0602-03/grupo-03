@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.cell.KakuroCell;
+
 import java.util.ArrayList;
 
 public class KakuroRule {

@@ -11,12 +11,11 @@ import org.json.simple.JSONObject;
 public class KakuroFiller implements IFiller {
 
 
-
-    private void setCenter(KakuroCell cell,Long value) {
+    private void setCenter(KakuroCell cell, Long value) {
         cell.setCenter(value.intValue());
     }
 
-    private void setUR(KakuroCell cell,Long value) {
+    private void setUR(KakuroCell cell, Long value) {
 
         if (value == null) {
             cell.setUpperRight(null);
@@ -25,16 +24,13 @@ public class KakuroFiller implements IFiller {
         }
     }
 
-    private void setLL(KakuroCell cell,Long value) {
+    private void setLL(KakuroCell cell, Long value) {
         if (value == null) {
             cell.setLowerLeft(null);
         } else {
             cell.setLowerLeft(value.intValue());
         }
     }
-
-
-
 
 
     @Override
@@ -46,15 +42,15 @@ public class KakuroFiller implements IFiller {
             boolean isWritable = (boolean) value.get("isWritable");
             KakuroCell cell = new KakuroCell();
             if (isWritable) {
-                this.setCenter(cell,(Long)value.get("content"));
+                this.setCenter(cell, (Long) value.get("content"));
             } else {
                 Long readedUpperRight = (Long) value.get("upperRight");
 
-                this.setUR(cell,readedUpperRight);
+                this.setUR(cell, readedUpperRight);
 
                 Long readedLowerLeft = (Long) value.get("lowerLeft");
 
-                this.setLL(cell,readedLowerLeft);
+                this.setLL(cell, readedLowerLeft);
 
             }
             int row = ((Long) value.get("y")).intValue();
@@ -62,5 +58,6 @@ public class KakuroFiller implements IFiller {
             cell.setWritable(isWritable);
             grid.setValue(row, column, cell);
         }
+
     }
 }

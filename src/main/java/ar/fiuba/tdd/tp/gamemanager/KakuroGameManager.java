@@ -60,6 +60,24 @@ public class KakuroGameManager extends GameManager {
 
     public void setValueOnGrid(int row, int column, int newValue) {
         this.grid.getValue(row, column).setCenter(newValue);
+//        for (int i = 0; i < 9; i++) {
+//            for (int j = 0; j < 9; j++) {
+//                System.out.print(grid.getValue(i, j).getCenter() + " ");
+//            }
+//            System.out.println();
+//        }
+    }
+
+    public Integer getCenter(int row, int column) {
+        return this.grid.getValue(row, column).getCenter();
+    }
+
+    public Integer getUpperRight(int row, int column) {
+        return this.grid.getValue(row, column).getUpperRight();
+    }
+
+    public Integer getLowerLeft(int row, int column) {
+        return this.grid.getValue(row, column).getLowerLeft();
     }
 
     public int getValueFromGrid(int row, int column) {

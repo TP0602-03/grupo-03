@@ -13,13 +13,13 @@ public class KakuroDefaultCell extends SingleValueCell {
         this.textView.setFocusable(false);
     }
 
-    public void setFirstNumber(int number) {
+    public void setFirstNumber(Integer number) {
 
         firstNumber = String.valueOf(number);
         update();
     }
 
-    public void setSecondNumber(int number) {
+    public void setSecondNumber(Integer number) {
 
         secondNumber = String.valueOf(number);
         update();
