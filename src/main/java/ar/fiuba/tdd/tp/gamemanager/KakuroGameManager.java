@@ -29,6 +29,7 @@ public class KakuroGameManager extends GameManager {
 
     public void setGrid(Grid<KakuroCell> newGrid) {
         this.grid = newGrid;
+        obtainer = new KakuroObtainer(newGrid);
     }
 
     public void setValueOnGrid(int row, int column, int newValue){
