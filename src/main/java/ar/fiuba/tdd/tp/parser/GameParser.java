@@ -5,14 +5,12 @@ import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.controller.Controller;
 import ar.fiuba.tdd.tp.controller.KakuroController;
 import ar.fiuba.tdd.tp.controller.SudokuController;
-import ar.fiuba.tdd.tp.gamemanager.GameManager;
 import ar.fiuba.tdd.tp.gamemanager.KakuroGameManager;
 import ar.fiuba.tdd.tp.gamemanager.SudokuGameManager;
 import ar.fiuba.tdd.tp.grid.Grid;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class GameParser {
     private GridParser gridParser;

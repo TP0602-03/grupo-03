@@ -1,18 +1,7 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.cell.KakuroCell;
-import ar.fiuba.tdd.tp.cell.SudokuCell;
 import ar.fiuba.tdd.tp.controller.Controller;
-import ar.fiuba.tdd.tp.controller.KakuroController;
-import ar.fiuba.tdd.tp.controller.MagicSquareController;
-import ar.fiuba.tdd.tp.controller.SudokuController;
-import ar.fiuba.tdd.tp.gamemanager.GameManager;
-import ar.fiuba.tdd.tp.gamemanager.KakuroGameManager;
-import ar.fiuba.tdd.tp.gamemanager.MagicSquareGameManager;
-import ar.fiuba.tdd.tp.gamemanager.SudokuGameManager;
-import ar.fiuba.tdd.tp.grid.Grid;
 import ar.fiuba.tdd.tp.parser.GameParser;
-import ar.fiuba.tdd.tp.parser.GridParser;
 import org.json.simple.parser.ParseException;
 
 import java.awt.*;
@@ -57,9 +46,9 @@ public class Main {
 
 
                 GameParser parser = new GameParser();
-                /*try {
-                    //Controller controller = parser.getGameFromFile("gameFiles/sudoku2.json");
-                    Controller controller = new MagicSquareController();
+                try {
+                    Controller controller = parser.getGameFromFile("gameFiles/sudoku2.json");
+
                     controller.setView();
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -67,9 +56,9 @@ public class Main {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }*/
-                Controller controller = new MagicSquareController(new MagicSquareGameManager());
-                controller.setView();
+                }
+                /*Controller controller = new MagicSquareController(new MagicSquareGameManager());
+                controller.setView();*/
 
             }
         });
