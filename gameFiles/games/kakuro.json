@@ -1,0 +1,62 @@
+{
+	"game" : {
+		"name": "Kakuro",
+		"size" : {
+				"columns" : 8,
+				"rows"    : 8
+			},
+
+		"default_cells_range": "1-9",
+		"defaut_cell" : "single_value",
+		"sections" : [
+			{
+				"shape"    : "column",
+				"starts"   : "all",
+				// whit this we for a new colum after break
+				"size"     : "until_cell_change",
+				// here we make the section include one
+				// value of the custom one
+				"include"  : "top",
+				"ignore_type"   : "back"
+			},
+			{
+				"shape"    : "row",
+				"starts"   : "all",
+				// whit this we for a new colum after break
+				"size"     : "until_cell_change",
+				"include"  : "top",
+				"ignore_type"   : "back"
+			}
+		],
+
+		"rulles": [
+			{
+				"type"        : "unique",
+				"applied_to"  : "all"
+			},
+			{
+				"type"        : "checksum",
+				"applied_to"  : "all",
+				"sum_value"  :  "first",
+			}
+		],
+		"custom_cells" : [
+			{
+				"type" : "2_valuediagonal_cell",
+			},
+			{
+				"type" : "black",
+			}
+		]
+	},
+	"default_values" : [
+		["black", {"type":"2_valuediagonal_cell", "values" : [23,"back"]}, {"type":"2_valuediagonal_cell", "values" : [30,"back"]}, "black", "black", {"type":"2_valuediagonal_cell", "values" : [27,"back"]},{"type":"2_valuediagonal_cell", "values" : [12,"back"]},{"type":"2_valuediagonal_cell", "values" : [16,"back"]}],
+		[{"type":"2_valuediagonal_cell", "values" : [16,"back"]}, null, null, "black", {"type":"2_valuediagonal_cell", "values" : [17,24]}, null, null, null],
+		[{"type":"2_valuediagonal_cell", "values" : [17,"back"]}, null, null, {"type":"2_valuediagonal_cell", "values" : [15,29]},null,null,null,null],
+		[{"type":"2_valuediagonal_cell", "values" : [35,"back"]}, null, null,null, null,null,{"type":"2_valuediagonal_cell", "values" : [12,"back"]},"black"],
+		["black",{"type":"2_valuediagonal_cell", "values" : ["black",7]}, null,null,{"type":"2_valuediagonal_cell", "values" : [7,8]},null,null,{"type":"2_valuediagonal_cell", "values" : [7,"back"]}]
+		["black", {"type":"2_valuediagonal_cell", "values" : [11,"back"]}, {"type":"2_valuediagonal_cell", "values" : [10,16]},null,null,null,null,null],
+		[{"type":"2_valuediagonal_cell", "values" : [21,"back"]},null,null,null,null,{"type":"2_valuediagonal_cell", "values" : ["black",5]},null,null],
+		[{"type":"2_valuediagonal_cell", "values" : [6,"back"]},null,null,null,"black",{"type":"2_valuediagonal_cell", "values" : ["black",3]},null,null]
+	]	
+}

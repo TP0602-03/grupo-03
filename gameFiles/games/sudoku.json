@@ -1,0 +1,53 @@
+{
+	"game" : {
+		"name" : "Sudoku",
+		"size" : {
+			"columns" : 9,
+			"rows"    : 9
+		},
+
+		"default_cells_range": "1-9",
+		"defaut_cell" : "single_value",
+		"sections" : [
+			{
+				"shape"    : "cube",
+				"columns"  : 3,
+				"rows"     : 3,
+				"starts"   : [
+					[1,1], [1,4], [1,7],
+					[4,1], [4,4], [4,7],
+					[7,1], [7,4], [7,7]
+				]
+			},
+			{
+				"shape"    : "column",
+				"starts"   : "all",
+				"size"     : "full"
+			},
+			{
+				"shape"    : "row",
+				"starts"   : "all",
+				"size"     : "full"
+			}
+		],
+		
+		"rulles" : [
+			{
+				"type"        : "unique",
+				"applied_to"  : "all"
+			}
+		],
+		"custom_cells" : []
+	},
+	"default_values" : [
+		[null,null,null,null,null,null,7,3,0],
+		[null,9,4,null,null,null,null,null,null],
+		[null,null,null,null,null,7,8,null,1],
+		[5,3,9,null,null,null,6,null,null],
+		[null,null,null,4,null,5,2,null,null],
+		[1,null,null,null,null,9,null,null,null],
+		[3,7,null,null,5,6,null,null,null],
+		[null,null,6,null,null,null,null,null,null],
+		[null,null,null,1,null,null,null,null,3]
+	]
+}
