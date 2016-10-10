@@ -86,13 +86,13 @@ public class Parser {
 
     private void loadRectangleRegion(Game game, JSONObject region, Region reg) {
         JSONObject rectangle = (JSONObject) region.get("rectangle");
-        int x_min = (int) rectangle.get("x_min");
-        int x_max = (int) rectangle.get("x_max");
-        int y_min = (int) rectangle.get("y_min");
-        int y_max = (int) rectangle.get("y_max");
+        int row_min = (int) rectangle.get("x_min");
+        int row_max = (int) rectangle.get("x_max");
+        int col_min = (int) rectangle.get("y_min");
+        int col_max = (int) rectangle.get("y_max");
 
-        for (int i = x_min; i <= x_max; i++) {
-            for (int j = y_min; j <= y_max; j++) {
+        for (int i = row_min; i <= row_max; i++) {
+            for (int j = col_min; j <= col_max; j++) {
                 GraphVertex vertex = game.getCell(i, j);
                 reg.addVertex(vertex);
             }
@@ -122,9 +122,9 @@ public class Parser {
         for (Object o :
                 cells) {
             JSONObject cell = (JSONObject) o;
-            int x = (int) cell.get("x");
-            int y = (int) cell.get("y");
-            GraphVertex vertex = game.getCell(x, y);
+            int row = (int) cell.get("x");
+            int col = (int) cell.get("y");
+            GraphVertex vertex = game.getCell(row, col);
             JSONArray attributes = (JSONArray) cell.get("attributes");
             for (Object e :
                     attributes) {

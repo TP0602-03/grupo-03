@@ -23,7 +23,9 @@ public class Region {
         for (Rule rule :
                 rules) {
             result = rule.check(vertices);
-            if (!result) return false;
+            if (!result) {
+                return false;
+            }
         }
         return true;
     }

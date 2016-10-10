@@ -21,12 +21,12 @@ public class Game {
         regions.add(region);
     }
 
-    public GraphVertex getCell(int i, int j) {
-        return cells.getVertex(i, j);
+    public GraphVertex getCell(int row, int col) {
+        return cells.getVertex(row, col);
     }
 
-    public GraphVertex getNode(int i, int j) {
-        return nodes.getVertex(i, j);
+    public GraphVertex getNode(int row, int col) {
+        return nodes.getVertex(row, col);
     }
 
     public void validateRules() {
@@ -39,12 +39,12 @@ public class Game {
         }
     }
 
-    public void playCell(int i, int j, String num, Object value) {
-        cells.getVertex(i, j).setAttribute(num, value);
+    public void playCell(int row, int col, String num, Object value) {
+        cells.getVertex(row, col).setAttribute(num, value);
     }
 
-    public void playNode(int i, int j, String num, int value) {
-        nodes.getVertex(i, j).setAttribute(num, value);
+    public void playNode(int row, int col, String num, int value) {
+        nodes.getVertex(row, col).setAttribute(num, value);
     }
 
     public void addNodeEdge(Coord nodeA, Coord nodeB) {

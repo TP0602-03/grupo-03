@@ -10,9 +10,9 @@ import java.util.List;
 
 public class Main {
 
-    public static void setDefaultAttribute(Game game, int w, int h, String attribute, Object value) {
-        for (int i = 0; i < w; i++) {
-            for (int j = 0; j < h; j++) {
+    public static void setDefaultAttribute(Game game, int width, int height, String attribute, Object value) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
                 game.getCell(i, j).setAttribute(attribute, value);
             }
         }
@@ -157,14 +157,14 @@ public class Main {
         graph.addEdge(new Coord(0, 1), new Coord(1, 0));
         graph.addEdge(new Coord(0, 0), new Coord(1, 0));
         Rule rule = new RuleGraphHasNoCycles();
-        List<GraphVertex> v = new ArrayList<>();
+        List<GraphVertex> vert = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                v.add(graph.getVertex(i, j));
+                vert.add(graph.getVertex(i, j));
             }
         }
 
-        System.out.println(rule.check(v));
+        System.out.println(rule.check(vert));
 
 
         Rule ruleCountEdges = new RuleCountVertexEdges("max_edges");
