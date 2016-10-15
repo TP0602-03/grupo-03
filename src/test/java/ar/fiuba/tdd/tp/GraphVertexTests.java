@@ -4,6 +4,8 @@ import ar.fiuba.tdd.tp.graph.GraphVertex;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -54,4 +56,16 @@ public class GraphVertexTests {
         assert (list.contains(neighbour));
     }
 
+    @Test
+    public void graphVertex(){
+        GraphVertex vertex = new GraphVertex();
+        vertex.setAttribute("number",1);
+        vertex.setAttribute("color","white");
+        Set<Map.Entry<String, Object>> setKV = vertex.getKeysValues();
+        for (Map.Entry<String, Object> entry : setKV){
+            if (entry.getKey()=="number"){
+                assertEquals(entry.getValue(),1);
+            }
+        }
+    }
 }
