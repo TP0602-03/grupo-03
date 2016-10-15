@@ -39,7 +39,7 @@ public class Game {
 
             result = region.validate();
             //System.out.println("Region is " + (result ? "OK" : "NOT OK"));
-            if (!result){
+            if (!result) {
                 return false;
             }
         }

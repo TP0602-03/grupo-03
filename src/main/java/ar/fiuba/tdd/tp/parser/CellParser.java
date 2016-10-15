@@ -19,8 +19,8 @@ public class CellParser {
                 JSONObject attribute = (JSONObject) e;
                 String name = (String) attribute.get("name");
                 Object value = attribute.get("value");
-                if(value.getClass() == Long.class){
-                    value = ((Long)value).intValue();
+                if (value.getClass() == Long.class) {
+                    value = ((Long) value).intValue();
                 }
                 vertex.setAttribute(name, value);
             }

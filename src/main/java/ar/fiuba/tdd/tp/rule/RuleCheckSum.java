@@ -18,11 +18,11 @@ public class RuleCheckSum extends Rule {
     public boolean check(List<GraphVertex> vertices) {
         Integer total = 0;
         for (GraphVertex vertex :
-                vertices){
+                vertices) {
             Integer num = (Integer) vertex.getAttribute(attribute);
             if (num != null) {
                 total += num;
-            } else if (num == null && total >= expected.intValue()){
+            } else if (num == null && total >= expected.intValue()) {
                 return false;
             }
             //vertex.print();
