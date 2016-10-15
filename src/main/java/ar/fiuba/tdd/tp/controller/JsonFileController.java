@@ -1,16 +1,14 @@
 package ar.fiuba.tdd.tp.controller;
 
-import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
-import ar.fiuba.tdd.tp.parser.CellParser;
-import ar.fiuba.tdd.tp.parser.RegionParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import java.io.*;
-import java.text.ParseException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -26,10 +24,11 @@ public class JsonFileController {
         this.factory = newFactory;
     }
 
-    public void readFile(String fileName) throws FileNotFoundException,UnsupportedEncodingException,org.json.simple.parser.ParseException,IOException {
+    public void readFile(String fileName) throws org.json.simple.parser.ParseException, IOException {
         JSONParser parser = new JSONParser();
         JSONObject jsonFile = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
         JSONArray jsonPlays = (JSONArray) jsonFile.get("plays");
+        this.moves = new ArrayList<>();
 
         JSONObject jsonMove;
         JSONArray jsonPoint;
@@ -45,15 +44,14 @@ public class JsonFileController {
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
             newValue = (String) jsonMove.get("value");
-            this.moves.add(this.factory.createMove(newId,newX,newY,newValue));
+            this.moves.add(this.factory.createMove(newId, newX, newY, newValue));
         }
 
     }
 
-    public ArrayList<Move> getMoves(){
+    public ArrayList<Move> getMoves() {
         return this.moves;
     }
-
 
 
 }
