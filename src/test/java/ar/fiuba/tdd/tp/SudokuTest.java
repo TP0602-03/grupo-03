@@ -7,7 +7,7 @@ public class SudokuTest {
     public void printBoard(Game game) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                Object number = game.getCell(i,j).getAttribute("num");
+                Object number = game.getCell(i, j).getAttribute("num");
                 if (number != null) {
                     System.out.print(" " + number + " |");
                 } else {
