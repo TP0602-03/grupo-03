@@ -9,6 +9,9 @@ import javax.swing.*;
 
 public class CellView extends JPanel {
 
+    protected int row;
+    protected int column;
+
     protected Color defaultBackground = Color.WHITE;
 
     public CellView() {

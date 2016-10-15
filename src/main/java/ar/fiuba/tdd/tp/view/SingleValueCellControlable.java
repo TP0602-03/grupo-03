@@ -30,8 +30,6 @@ public abstract class SingleValueCellControlable extends SingleValueCell impleme
         } catch (java.lang.NumberFormatException e) {
             this.textView.setText(lastValue);
         }
-
-
     }
 
     @Override
