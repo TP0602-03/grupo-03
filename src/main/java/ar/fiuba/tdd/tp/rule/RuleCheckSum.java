@@ -17,19 +17,23 @@ public class RuleCheckSum extends Rule {
     @Override
     public boolean check(List<GraphVertex> vertices) {
         Integer total = 0;
+//        System.out.println("vertices size: " +  vertices.size());
         for (GraphVertex vertex :
-                vertices){
+                vertices) {
             Integer num = (Integer) vertex.getAttribute(attribute);
+//            System.out.println("num = " + num);
+//            System.out.println("total: " + total);
             if (num != null) {
                 total += num;
-            } else if (num == null && total >= expected.intValue()){
+            } else if (total >= expected) {
+//                System.out.println("asddad");
                 return false;
             }
             //vertex.print();
-            System.out.print(num + " ");
+            //  System.out.print(num + " ");
 
         }
-        System.out.println("total: " + total + "exp: " + expected);
+        //System.out.println("total: " + total + "exp: " + expected);
         return total.intValue() == expected.intValue();
     }
 }
