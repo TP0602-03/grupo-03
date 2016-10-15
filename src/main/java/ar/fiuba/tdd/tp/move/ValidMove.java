@@ -5,28 +5,28 @@ package ar.fiuba.tdd.tp.move;
  */
 public class ValidMove extends Move {
 
-    private int x;
-    private int y;
+    private int coordinateX;
+    private int coordinateY;
     private String value;
 
-    public ValidMove(int newId,int newX,int newY,String newValue){
+    public ValidMove(int newId, int newX, int newY, String newValue) {
 
         this.id = newId;
         this.value = newValue;
-        this.x = newX;
-        this.y = newY;
+        this.coordinateX = newX;
+        this.coordinateY = newY;
 
     }
 
-    public int getX(){
-        return this.x;
+    public int getX() {
+        return this.coordinateX;
     }
 
-    public int getY(){
-        return this.y;
+    public int getY() {
+        return this.coordinateY;
     }
 
-    public String getValue(){
+    public String getValue() {
         return this.value;
     }
 

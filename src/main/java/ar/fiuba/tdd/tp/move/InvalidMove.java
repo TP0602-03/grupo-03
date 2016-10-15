@@ -3,14 +3,14 @@ package ar.fiuba.tdd.tp.move;
 /**
  * Created by luciano on 15/10/16.
  */
-public class InvalidMove extends Move{
+public class InvalidMove extends Move {
 
 
-    public InvalidMove(int newId){
+    public InvalidMove(int newId) {
         this.id = newId;
     }
 
-    public int getX() throws InvalidMoveException{
+    public int getX() throws InvalidMoveException {
         throw new InvalidMoveException();
     }
 
