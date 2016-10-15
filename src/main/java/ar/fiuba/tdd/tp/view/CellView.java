@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 public class CellView extends JPanel {
 
@@ -16,7 +17,7 @@ public class CellView extends JPanel {
     private ArrayList<String> contents;
     protected Color defaultBackground = Color.WHITE;
 
-    public CellView(ArrayList<String> contents) {
+    public CellView(ArrayList<String> contents, MouseListener mouseListener) {
         this.contents = contents;
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setLayout(new OverlayLayout(this));
@@ -24,37 +25,13 @@ public class CellView extends JPanel {
         for (String content: contents){
             this.add(new JLabel(this.imageGetter.getImage(content)));
         }
-        setHandlers();
+        setHandlers(mouseListener);
 
     }
 
-    private void setHandlers() {
-        this.addMouseListener(new MouseListener() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println(contents.get(0));
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+    private void setHandlers(MouseListener mouseListener) {
+        this.addMouseListener(mouseListener);
     }
+
+
 }

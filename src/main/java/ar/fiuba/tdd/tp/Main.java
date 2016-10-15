@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.parser.Parser;
+import ar.fiuba.tdd.tp.view.BoardViewCreator;
 
 import java.awt.*;
 

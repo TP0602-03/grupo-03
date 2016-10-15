@@ -1,5 +1,7 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.view;
 
+import ar.fiuba.tdd.tp.Game;
+import ar.fiuba.tdd.tp.controller.MouseCellHandler;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.parser.*;
 import ar.fiuba.tdd.tp.parser.Parser;
@@ -34,7 +36,7 @@ public class BoardViewCreator {
                         }
                         contents.add(content);
                     }
-                    CellView panel = new CellView(contents);
+                    CellView panel = new CellView(contents, new MouseCellHandler(contents));
                     board.set(i, j, 50, 50, panel);
                 }
             }
