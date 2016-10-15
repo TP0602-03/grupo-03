@@ -11,6 +11,8 @@ public class Game {
     private GridGraph cells;
     private GridGraph nodes;
     private List<Region> regions = new ArrayList<>();
+    private int width;
+    private int height;
 
     public Game(int width, int height) {
         cells = new GridGraph(width, height);
@@ -29,14 +31,19 @@ public class Game {
         return nodes.getVertex(row, col);
     }
 
-    public void validateRules() {
+    public boolean validateRules() {
         boolean result = false;
+        System.out.println("regions: " + regions.size());
         for (Region region :
                 regions) {
 
             result = region.validate();
-            System.out.println("Region is " + (result ? "OK" : "NOT OK"));
+            //System.out.println("Region is " + (result ? "OK" : "NOT OK"));
+            if (!result){
+                return false;
+            }
         }
+        return true;
     }
 
     public void playCell(int row, int col, String num, Object value) {
@@ -55,5 +62,13 @@ public class Game {
     public void addCellEdge(Coord cellA, Coord cellB) {
         cells.addEdge(cellA, cellB);
         //validateRules();
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }
