@@ -36,7 +36,7 @@ public class BoardViewCreator {
                         }
                         contents.add(content);
                     }
-                    CellView panel = new CellView(contents, new MouseCellHandler(contents));
+                    CellView panel = new CellView(contents, new MouseCellHandler("1"));
                     board.set(i, j, 50, 50, panel);
                 }
             }
