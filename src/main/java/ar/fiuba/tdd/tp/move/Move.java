@@ -5,7 +5,7 @@ package ar.fiuba.tdd.tp.move;
  */
 public abstract class Move {
 
-    int id;
+    protected int id;
 
     public abstract String getValue() throws InvalidMoveException;
     public abstract int getX() throws InvalidMoveException;

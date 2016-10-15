@@ -5,13 +5,13 @@ package ar.fiuba.tdd.tp.move;
  */
 public class ValidMove extends Move {
 
-    int x;
-    int y;
-    String value;
+    private int x;
+    private int y;
+    private String value;
 
     public ValidMove(int newId,int newX,int newY,String newValue){
 
-        this.id = id;
+        this.id = newId;
         this.value = newValue;
         this.x = newX;
         this.y = newY;
