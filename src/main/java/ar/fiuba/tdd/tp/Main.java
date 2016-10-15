@@ -19,7 +19,7 @@ public class Main {
                 Parser parser = new Parser("gameFiles/sudoku.json");
                 Game game = parser.getGame();
 
-                BoardGameView board = new BoardGameView();
+                BoardGameView board = new BoardGameView(5, 5);
 
             }catch (Exception ex){
 
