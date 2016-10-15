@@ -54,13 +54,13 @@ public class RegionParser {
 
     private void loadRectangleRegion(Game game, JSONObject region, Region reg) {
         JSONObject rectangle = (JSONObject) region.get("rectangle");
-        int row_min = ((Long) rectangle.get("x_min")).intValue();
-        int row_max = ((Long) rectangle.get("x_max")).intValue();
-        int col_min = ((Long) rectangle.get("y_min")).intValue();
-        int col_max = ((Long) rectangle.get("y_max")).intValue();
+        int rowMin = ((Long) rectangle.get("x_min")).intValue();
+        int rowMax = ((Long) rectangle.get("x_max")).intValue();
+        int colMin = ((Long) rectangle.get("y_min")).intValue();
+        int colMax = ((Long) rectangle.get("y_max")).intValue();
 
-        for (int i = row_min; i <= row_max; i++) {
-            for (int j = col_min; j <= col_max; j++) {
+        for (int i = rowMin; i <= rowMax; i++) {
+            for (int j = colMin; j <= colMax; j++) {
                 GraphVertex vertex = game.getCell(i, j);
                 reg.addVertex(vertex);
             }

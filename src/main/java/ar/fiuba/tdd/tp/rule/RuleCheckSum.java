@@ -17,12 +17,9 @@ public class RuleCheckSum extends Rule {
     @Override
     public boolean check(List<GraphVertex> vertices) {
         Integer total = 0;
-//        System.out.println("vertices size: " +  vertices.size());
         for (GraphVertex vertex :
                 vertices) {
             Integer num = (Integer) vertex.getAttribute(attribute);
-//            System.out.println("num = " + num);
-//            System.out.println("total: " + total);
             if (num != null) {
                 total += num;
             } else if (total >= expected) {

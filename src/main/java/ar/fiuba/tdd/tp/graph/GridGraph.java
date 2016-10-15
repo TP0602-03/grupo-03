@@ -7,30 +7,30 @@ public class GridGraph {
     protected List<List<GraphVertex>> vertices = new ArrayList<>();
 
     public GridGraph(Integer width, Integer height) {
-        for (int i = 0; i < height; i++) {
+        for (int row = 0; row < height; row++) {
             vertices.add(new ArrayList<>());
         }
 
-        for (int i = 0; i < height; i++) {
-            List<GraphVertex> row = vertices.get(i);
-            for (int j = 0; j < width; j++) {
-                GraphVertex v = new GraphVertex();
-                v.setAttribute("pos", "(" + Integer.toString(i) + "," + Integer.toString(j) + ")");
-                row.add(v);
+        for (int row = 0; row < height; row++) {
+            List<GraphVertex> newRow = vertices.get(row);
+            for (int column = 0; column < width; column++) {
+                GraphVertex vertex = new GraphVertex();
+                vertex.setAttribute("pos", "(" + Integer.toString(row) + "," + Integer.toString(column) + ")");
+                newRow.add(vertex);
             }
         }
     }
 
-    public GraphVertex getVertex(int i, int j) {
-        return vertices.get(i).get(j);
+    public GraphVertex getVertex(int row, int column) {
+        return vertices.get(row).get(column);
     }
 
     public void addEdge(Coord nodeA, Coord nodeB) {
-        int i = nodeA.getX();
-        int j = nodeA.getY();
-        int k = nodeB.getX();
-        int l = nodeB.getY();
-        vertices.get(i).get(j).addEdge(vertices.get(k).get(l));
-        vertices.get(k).get(l).addEdge(vertices.get(i).get(j));
+        int nodeACoordinateX = nodeA.getCoordinateX();
+        int nodeACoordinateY = nodeA.getCoordinateY();
+        int nodeBCoordinateX = nodeB.getCoordinateX();
+        int nodeBCoordinateY = nodeB.getCoordinateY();
+        vertices.get(nodeACoordinateX).get(nodeACoordinateY).addEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
+        vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).addEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
     }
 }
