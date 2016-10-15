@@ -20,6 +20,7 @@ public class Region {
 
     public boolean validate() {
         boolean result = false;
+        System.out.println("rules: " +  rules.size());
         for (Rule rule :
                 rules) {
             result = rule.check(vertices);
