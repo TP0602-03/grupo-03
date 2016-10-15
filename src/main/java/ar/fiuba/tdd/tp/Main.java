@@ -20,13 +20,17 @@ public class Main {
                 Game game = parser.getGame();
 
                 BoardGameView board = new BoardGameView();
+                System.out.println(game.getWidth());
 
-
-                for (int i = 0; i < 4; i ++) {
-                    for (int j = 0; j < 4; j ++) {
+                for (int i = 0; i < game.getWidth(); i ++) {
+                    for (int j = 0; j < game.getHeight(); j ++) {
                         JPanel panel = new JPanel();
                         panel.setBorder(BorderFactory.createLineBorder(Color.black));
-                        panel.add(new JLabel("Hola"));
+                        try {
+                            panel.add(new JLabel(game.getCell(i, j).getAttribute("num").toString()));
+                        }catch (Exception ex){
+                            panel.add(new JLabel("  "));
+                        }
                         board.set(i, j,50, 50, panel);
                     }
                 }
