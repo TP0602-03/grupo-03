@@ -14,36 +14,9 @@ public class CellView extends JPanel {
 
     protected Color defaultBackground = Color.WHITE;
 
-    public CellView() {
-        addMouseListener(new CellController(this));
-
-        addKeyListener(new KeyAdapter() {
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-                setCellText(keyEvent);
-            }
-
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                setCellText(keyEvent);
-            }
-        });
-
-        this.setBackground(defaultBackground);
+    public CellView(String content) {
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.add(new JLabel(content));
     }
 
-    private void setCellText(KeyEvent keyEvent) {
-        JLabel label = (JLabel) this.getComponent(0);
-        label.setText("" + keyEvent.getKeyChar());
-    }
-
-    public void setDefaultBackground() {
-        this.setBackground(defaultBackground);
-    }
-
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(50, 50);
-    }
 }

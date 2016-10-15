@@ -20,11 +20,6 @@ public class CellController extends MouseAdapter {
     }
 
     @Override
-    public void mouseExited(MouseEvent mouseEvent) {
-        cellView.setDefaultBackground();
-    }
-
-    @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         cellView.setBackground(Color.RED);
     }
