@@ -17,7 +17,7 @@ import java.util.Objects;
 public class Parser {
     private String path;
     private JSONObject jsonGame;
-    private String gameName;
+    // private String gameName;
     private int width;
     private int height;
 
@@ -25,7 +25,7 @@ public class Parser {
         this.path = filePath;
         JSONParser parser = new JSONParser();
         this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(this.path), "UTF-8"));
-        this.gameName = (String) this.jsonGame.get("name");
+        // this.gameName = (String) this.jsonGame.get("name");
         JSONObject size = (JSONObject) this.jsonGame.get("size");
         width = (int) size.get("width");
         height = (int) size.get("height");
