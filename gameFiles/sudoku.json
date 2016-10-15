@@ -96,7 +96,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -117,7 +117,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -138,7 +138,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -159,7 +159,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -180,7 +180,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -201,7 +201,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -222,7 +222,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -243,7 +243,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -269,7 +269,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -295,7 +295,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -321,7 +321,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {
@@ -347,7 +347,7 @@
             "rule": {
               "name": "RuleCheckSum",
               "attribute": "num",
-              "expected": 45
+              "expected": 10
             }
           },
           {

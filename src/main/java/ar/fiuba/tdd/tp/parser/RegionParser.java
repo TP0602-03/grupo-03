@@ -18,12 +18,16 @@ public class RegionParser {
             String type = (String) region.get("type");
             if (Objects.equals(type, "rectangle")) {
                 loadRectangleRegion(game, region, reg);
+//                System.out.println("rectangle region");
             } else if (Objects.equals(type, "column")) {
                 loadColumnRegion(game, region, reg);
+//                System.out.println("column region");
             } else if (Objects.equals(type, "row")) {
                 loadRowRegion(game, region, reg);
+//                System.out.println("row region");
             } else if (Objects.equals(type, "custom")) {
                 loadCustomRegion(game, region, reg);
+//                System.out.println("custom region");
             }
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
@@ -40,7 +44,7 @@ public class RegionParser {
         RuleParser ruleParser = new RuleParser();
         for (Object o :
                 rules) {
-            JSONObject jsonRule = (JSONObject)((JSONObject) o).get("rule");
+            JSONObject jsonRule = (JSONObject) ((JSONObject) o).get("rule");
             Rule rule = ruleParser.loadRule(jsonRule);
 
             reg.addRule(rule);
@@ -66,7 +70,7 @@ public class RegionParser {
     private void loadRowRegion(Game game, JSONObject region, Region reg) {
         int row = ((Long) region.get("row")).intValue();
         int width = game.getWidth();
-        for (int i = 0; i <= width; i++) {
+        for (int i = 0; i < width; i++) {
             GraphVertex vertex = game.getCell(row, i);
             reg.addVertex(vertex);
         }
@@ -75,7 +79,7 @@ public class RegionParser {
     private void loadColumnRegion(Game game, JSONObject region, Region reg) {
         int column = ((Long) region.get("column")).intValue();
         int height = game.getHeight();
-        for (int i = 0; i <= height; i++) {
+        for (int i = 0; i < height; i++) {
             GraphVertex vertex = game.getCell(i, column);
             reg.addVertex(vertex);
         }

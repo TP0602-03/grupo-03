@@ -15,6 +15,8 @@ public class Game {
     private int height;
 
     public Game(int width, int height) {
+        this.width = width;
+        this.height = height;
         cells = new GridGraph(width, height);
         nodes = new GridGraph(width + 1, height + 1);
     }
@@ -33,7 +35,7 @@ public class Game {
 
     public boolean validateRules() {
         boolean result = false;
-        System.out.println("regions: " + regions.size());
+        //System.out.println("regions: " + regions.size());
         for (Region region :
                 regions) {
 
@@ -47,6 +49,7 @@ public class Game {
     }
 
     public void playCell(int row, int col, String num, Object value) {
+        System.out.println("play cell: " + "(" + row + "," + col + ")" + " att: " + num + "  value: " + value);
         cells.getVertex(row, col).setAttribute(num, value);
     }
 
