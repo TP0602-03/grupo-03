@@ -4,12 +4,12 @@ import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Test;
 
 public class SudokuTest {
-    public void printBoard(Game game) {
+    private void printBoard(Game game) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                Object number = game.getCell(i, j).getAttribute("num");
-                if (number != null) {
-                    System.out.print(" " + number + " |");
+                Object num = game.getCell(i, j).getAttribute("num");
+                if (num != null) {
+                    System.out.print(" " + num + " |");
                 } else {
                     System.out.print("   |");
                 }
