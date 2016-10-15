@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public class MoveFactoryTest {
 
+
     HashMap<String, Boolean> valuesMap = new HashMap<String, Boolean>() {
         {
             put("1", Boolean.TRUE);

@@ -6,6 +6,8 @@ import ar.fiuba.tdd.tp.graph.GridGraph;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Game {
     private GridGraph cells;
@@ -73,5 +75,9 @@ public class Game {
 
     public int getHeight() {
         return height;
+    }
+
+    public Set<Map.Entry<String,Object>> getCellKeysValues(int row, int col){
+        return cells.getVertex(row, col).getKeysValues();
     }
 }
