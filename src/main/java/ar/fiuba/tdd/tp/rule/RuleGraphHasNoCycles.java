@@ -2,40 +2,44 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class RuleGraphHasNoCycles extends Rule {
     @Override
     public boolean check(List<GraphVertex> vertices) {
         Stack<GraphVertex> stack = new Stack<>();
-        Map<GraphVertex, Boolean> visited = new HashMap<>();
+        List<GraphVertex> visited = new ArrayList<>();
         Map<GraphVertex, GraphVertex> parent = new HashMap<>();
-        for (GraphVertex vertex :
-                vertices) {
-            visited.put(vertex, false);
-        }
 
         stack.push(vertices.get(0));
-        while (!stack.empty()) {
+        while (visited.size() != vertices.size()) {
             GraphVertex current = stack.pop();
-            visited.put(current, true);
-            //System.out.println("visited " + (String) current.getAttribute("pos"));
+            visited.add(current);
+
             List<GraphVertex> adjacent = current.getAdjacencyList();
             for (GraphVertex vertex :
                     adjacent) {
-
-                if (parent.get(current) != vertex && !visited.get(vertex)) {
+                if (parent.get(current) != vertex && !visited.contains(vertex)) {
                     parent.put(vertex, current);
                     stack.push(vertex);
-                } else if (parent.get(current) != vertex && visited.get(vertex)) {
+                } else if (parent.get(current) != vertex && visited.contains(vertex)) {
                     return false;
                 }
             }
+
+            if (stack.empty()) {
+                for (GraphVertex vertex :
+                        vertices) {
+                    if (!visited.contains(vertex)) {
+                        stack.push(vertex);
+                        break;
+                    }
+                }
+                // Agrego un vertice que no haya sido visitado para seguir...
+            }
+
         }
-        // Falla si el vertice 0 no tiene aristas
+        // Falla si el vertice 0 no tiene aristas?
         return true;
     }
 }
