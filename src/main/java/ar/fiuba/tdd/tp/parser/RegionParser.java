@@ -46,7 +46,7 @@ public class RegionParser {
                 rules) {
             JSONObject jsonRule = (JSONObject) ((JSONObject) o).get("rule");
             Rule rule = ruleParser.loadRule(jsonRule);
-
+            System.out.println("added rule: " + rule);
             reg.addRule(rule);
         }
     }

@@ -1,9 +1,6 @@
 package ar.fiuba.tdd.tp.graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GraphVertex {
     private List<GraphVertex> adjacencyList = new ArrayList<>();
@@ -31,6 +28,10 @@ public class GraphVertex {
 
     public List<GraphVertex> getAdjacencyList() {
         return adjacencyList;
+    }
+
+    public Set<Map.Entry<String,Object>> getKeysValues(){
+        return attributes.entrySet();
     }
 
     /**

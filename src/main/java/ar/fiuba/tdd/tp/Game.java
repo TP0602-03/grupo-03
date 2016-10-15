@@ -6,6 +6,8 @@ import ar.fiuba.tdd.tp.graph.GridGraph;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Game {
     private GridGraph cells;
@@ -48,13 +50,13 @@ public class Game {
         return true;
     }
 
-    public void playCell(int row, int col, String num, Object value) {
-        System.out.println("play cell: " + "(" + row + "," + col + ")" + " att: " + num + "  value: " + value);
-        cells.getVertex(row, col).setAttribute(num, value);
+    public void playCell(int row, int col, String att, Object value) {
+        System.out.println("play cell: " + "(" + row + "," + col + ")" + " att: " + att + "  value: " + value);
+        cells.getVertex(row, col).setAttribute(att, value);
     }
 
-    public void playNode(int row, int col, String num, int value) {
-        nodes.getVertex(row, col).setAttribute(num, value);
+    public void playNode(int row, int col, String att, int value) {
+        nodes.getVertex(row, col).setAttribute(att, value);
     }
 
     public void addNodeEdge(Coord nodeA, Coord nodeB) {
@@ -73,5 +75,9 @@ public class Game {
 
     public int getHeight() {
         return height;
+    }
+
+    public Set<Map.Entry<String,Object>> getCellKeysValues(int row, int col){
+        return cells.getVertex(row, col).getKeysValues();
     }
 }
