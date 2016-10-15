@@ -9,7 +9,7 @@ public class BoardGameView extends JPanel {
     JPanel cellContainer;
     JFrame frame;
 
-    public BoardGameView(int rows, int columns) {
+    public BoardGameView() {
         cellContainer = new JPanel();
 
         frame = new JFrame("Grid Game - TP1");
@@ -21,14 +21,6 @@ public class BoardGameView extends JPanel {
 
         cellContainer.setLayout(new GridBagLayout());
 
-        for (int i = 0; i < 4; i ++) {
-            for (int j = 0; j < 4; j ++) {
-                JPanel panel = new JPanel();
-                panel.setBorder(BorderFactory.createLineBorder(Color.black));
-                panel.add(new JLabel("Hola"));
-                set(i, j,50, 50, panel);
-            }
-        }
     }
 
 

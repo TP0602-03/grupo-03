@@ -19,8 +19,17 @@ public class Main {
                 Parser parser = new Parser("gameFiles/sudoku.json");
                 Game game = parser.getGame();
 
-                BoardGameView board = new BoardGameView(5, 5);
+                BoardGameView board = new BoardGameView();
 
+
+                for (int i = 0; i < 4; i ++) {
+                    for (int j = 0; j < 4; j ++) {
+                        JPanel panel = new JPanel();
+                        panel.setBorder(BorderFactory.createLineBorder(Color.black));
+                        panel.add(new JLabel("Hola"));
+                        board.set(i, j,50, 50, panel);
+                    }
+                }
             }catch (Exception ex){
 
             }

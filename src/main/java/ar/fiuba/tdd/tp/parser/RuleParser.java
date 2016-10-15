@@ -1,4 +1,5 @@
 package ar.fiuba.tdd.tp.parser;
+
 import ar.fiuba.tdd.tp.rule.Rule;
 import ar.fiuba.tdd.tp.rule.RuleCheckSum;
 import ar.fiuba.tdd.tp.rule.RuleDistinctElements;

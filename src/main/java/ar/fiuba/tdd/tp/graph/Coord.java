@@ -1,20 +1,20 @@
 package ar.fiuba.tdd.tp.graph;
 
 public class Coord {
-    private final Integer x;
-    private final Integer y;
+    private final Integer coordinateX;
+    private final Integer coordinateY;
 
-    public Coord(Integer x, Integer y) {
+    public Coord(Integer coordinateX, Integer coordinateY) {
 
-        this.x = x;
-        this.y = y;
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
     }
 
-    public Integer getY() {
-        return y;
+    public Integer getCoordinateY() {
+        return coordinateY;
     }
 
-    public Integer getX() {
-        return x;
+    public Integer getCoordinateX() {
+        return coordinateX;
     }
 }
