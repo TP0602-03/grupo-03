@@ -7,19 +7,25 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class CellView extends JPanel {
 
     protected ImageGetter imageGetter = new ImageGetter("gameFiles/images");
-    private String content;
+    private ArrayList<String> contents;
     protected Color defaultBackground = Color.WHITE;
 
-    public CellView(String content) {
-        this.content = content;
+    public CellView(ArrayList<String> contents) {
+        this.contents = contents;
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        this.add(new JLabel(this.imageGetter.getImage(content)));
+        this.setLayout(new OverlayLayout(this));
+        this.add(new JLabel(this.imageGetter.getImage("  ")));
+        for (String content: contents){
+            this.add(new JLabel(this.imageGetter.getImage(content)));
+        }
         setHandlers();
+
     }
 
     private void setHandlers() {
@@ -27,7 +33,7 @@ public class CellView extends JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(content);
+                System.out.println(contents.get(0));
             }
 
             @Override
