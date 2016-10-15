@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Test;
-import org.junit.Assert;
 
 public class SudokuTest {
     @Test
@@ -12,9 +11,9 @@ public class SudokuTest {
         Game game = parser.getGame();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                Object a = game.getCell(i,j).getAttribute("num");
-                if (a != null) {
-                    System.out.print(" " + a + " |");
+                Object number = game.getCell(i,j).getAttribute("num");
+                if (number != null) {
+                    System.out.print(" " + number + " |");
                 } else {
                     System.out.print("   |");
                 }
