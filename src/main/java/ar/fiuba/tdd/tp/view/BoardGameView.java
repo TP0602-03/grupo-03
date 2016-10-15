@@ -9,7 +9,7 @@ public class BoardGameView extends JPanel {
     JPanel cellContainer;
     JFrame frame;
 
-    public BoardGameView() {
+    public BoardGameView(int rows, int columns) {
         cellContainer = new JPanel();
 
         frame = new JFrame("Grid Game - TP1");
@@ -29,7 +29,6 @@ public class BoardGameView extends JPanel {
                 set(i, j,50, 50, panel);
             }
         }
-
     }
 
 
