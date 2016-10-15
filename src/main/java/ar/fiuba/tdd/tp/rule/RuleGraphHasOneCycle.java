@@ -8,6 +8,7 @@ public class RuleGraphHasOneCycle extends Rule {
     @Override
     public boolean check(List<GraphVertex> vertices) {
         // Algoritmo para esto?
+
         return true;
     }
 }
