@@ -19,6 +19,7 @@ public class MoveTests {
         assertEquals(move.getValue(), "value");
         assertEquals(move.getX(), 0);
         assertEquals(move.getY(), 0);
+        assertEquals(move.getAttribute(),"attribute");
 
     }
 
@@ -61,6 +62,18 @@ public class MoveTests {
 
         try {
             move.getY();
+        } catch (Exception exception) {
+            assertTrue(exception.getClass() == InvalidMoveException.class);
+        }
+    }
+
+    @Test
+    public void invalidMoveGetAttributeRaisesException() throws InvalidMoveException {
+
+        InvalidMove move = new InvalidMove(1);
+
+        try {
+            move.getAttribute();
         } catch (Exception exception) {
             assertTrue(exception.getClass() == InvalidMoveException.class);
         }
