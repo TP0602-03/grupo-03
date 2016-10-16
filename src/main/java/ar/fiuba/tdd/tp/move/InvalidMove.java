@@ -27,4 +27,8 @@ public class InvalidMove extends Move {
         throw new InvalidMoveException();
     }
 
+    public Boolean isValid() {
+        return Boolean.FALSE;
+    }
+
 }

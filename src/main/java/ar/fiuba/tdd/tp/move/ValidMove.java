@@ -36,5 +36,7 @@ public class ValidMove extends Move {
         return this.value;
     }
 
-
+    public Boolean isValid() {
+        return Boolean.TRUE;
+    }
 }
