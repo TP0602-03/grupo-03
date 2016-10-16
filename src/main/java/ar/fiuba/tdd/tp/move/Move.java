@@ -13,6 +13,8 @@ public abstract class Move {
 
     public abstract int getY() throws InvalidMoveException;
 
+    public abstract String getAttribute() throws InvalidMoveException;
+
     public int getId() {
         return this.id;
     }

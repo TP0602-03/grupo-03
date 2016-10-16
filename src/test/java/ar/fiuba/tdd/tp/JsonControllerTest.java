@@ -24,11 +24,11 @@ public class JsonControllerTest {
     String allInvalidMoves = folder + "JsonInvalidMoves.json";
     String everyOtherValidMoves = folder + "JsonEveryOtherValidMove.json";
 
-    HashMap<String, Boolean> valuesMap = new HashMap<String, Boolean>() {
+    HashMap<String, String> valuesMap = new HashMap<String, String>() {
         {
-            put("1", Boolean.TRUE);
-            put("2", Boolean.TRUE);
-            put("3", Boolean.TRUE);
+            put("1", "num");
+            put("2", "num");
+            put("3", "num");
         }
     };
 

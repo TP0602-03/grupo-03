@@ -15,11 +15,11 @@ import static org.junit.Assert.assertTrue;
 public class MoveFactoryTest {
 
 
-    HashMap<String, Boolean> valuesMap = new HashMap<String, Boolean>() {
+    HashMap<String, String> valuesMap = new HashMap<String, String>() {
         {
-            put("1", Boolean.TRUE);
-            put("2", Boolean.TRUE);
-            put("3", Boolean.TRUE);
+            put("1", "num");
+            put("2", "num");
+            put("3", "num");
         }
     };
 
@@ -56,7 +56,7 @@ public class MoveFactoryTest {
 
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move move = factory.createMove(1, 0, 0, "1");
+        Move move = factory.createMove(1, 0, 0,"1");
 
         assertTrue(move.getClass() == ValidMove.class);
 
@@ -68,35 +68,12 @@ public class MoveFactoryTest {
 
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move move = factory.createMove(1, 0, 0, "50");
+        Move move = factory.createMove(1, 0, 0,"50");
 
         assertTrue(move.getClass() == InvalidMove.class);
 
 
     }
 
-    @Test
-    public void validMoveCreationWithListAsFactoryCreationParameter() {
-
-        MoveFactory factory = new MoveFactory(valuesList, positionsList);
-
-        Move move = factory.createMove(1, 0, 0, "1");
-
-        assertTrue(move.getClass() == ValidMove.class);
-
-
-    }
-
-    @Test
-    public void invalidMoveCreationWithListAsFactoryCreationParameter() {
-
-        MoveFactory factory = new MoveFactory(valuesList, positionsList);
-
-        Move move = factory.createMove(1, 0, 0, "50");
-
-        assertTrue(move.getClass() == InvalidMove.class);
-
-
-    }
 }
 
