@@ -1,5 +1,7 @@
-package ar.fiuba.tdd.tp;
+package ar.fiuba.tdd.tp.games;
 
+import ar.fiuba.tdd.tp.Game;
+import ar.fiuba.tdd.tp.Region;
 import ar.fiuba.tdd.tp.graph.Coord;
 import ar.fiuba.tdd.tp.rule.RuleGraphHasOneCycle;
 import ar.fiuba.tdd.tp.rule.RuleOneEntryOneExit;
