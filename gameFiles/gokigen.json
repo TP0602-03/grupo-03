@@ -1,0 +1,91 @@
+{
+  "name": "gogiken naname",
+  "size": {
+    "width": 2,
+    "height": 2
+  },
+  "vertices": [
+    {
+      "x": 0,
+      "y": 0,
+      "attributes": [
+        {
+          "name": "max_edges",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "attributes": [
+        {
+          "name": "max_edges",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "attributes": [
+        {
+          "name": "max_edges",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "attributes": [
+        {
+          "name": "max_edges",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "attributes": [
+        {
+          "name": "max_edges",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "attributes": [
+        {
+          "name": "max_edges",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "all",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

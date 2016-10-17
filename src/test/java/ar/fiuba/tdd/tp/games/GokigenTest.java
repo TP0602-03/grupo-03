@@ -7,11 +7,11 @@ import ar.fiuba.tdd.tp.rule.RuleCountVertexEdges;
 import ar.fiuba.tdd.tp.rule.RuleGraphHasNoCycles;
 import org.junit.Test;
 
-public class GogikenTest {
+public class GokigenTest {
     @Test
     public void dummy() {
         Game gogiken = new Game(2, 2);
-        // Jugada
+
         Region fullGraph = new Region();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
