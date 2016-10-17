@@ -22,7 +22,8 @@ public class MouseCellHandler implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        mainValuePicker.GetValuePicker((JPanel) e.getSource());
+        Object newValue = mainValuePicker.GetValuePicker((JPanel) e.getSource());
+
     }
 
     @Override
