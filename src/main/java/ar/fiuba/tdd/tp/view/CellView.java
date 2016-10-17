@@ -1,9 +1,9 @@
 package ar.fiuba.tdd.tp.view;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import javax.swing.*;
 
 public class CellView extends JPanel {
 
@@ -16,7 +16,7 @@ public class CellView extends JPanel {
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setLayout(new OverlayLayout(this));
         this.add(new JLabel(this.imageGetter.getImage("  ")));
-        for (String content: contents){
+        for (String content : contents) {
             this.add(new JLabel(this.imageGetter.getImage(content)));
         }
         setHandlers(mouseListener);

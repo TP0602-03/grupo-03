@@ -20,7 +20,7 @@ public class Main {
                 Parser parser = new Parser("gameFiles/sudoku.json");
                 boardViewCreator.CreateBoard(parser.getGame());
 
-            }catch (Exception ex){
+            } catch (Exception ex) {
 
             }
         }

@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.tp.view;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class BoardGameView extends JPanel {
 

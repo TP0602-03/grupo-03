@@ -1,7 +1,5 @@
 package ar.fiuba.tdd.tp.move;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 /**
  * Created by luciano on 15/10/16.
  */

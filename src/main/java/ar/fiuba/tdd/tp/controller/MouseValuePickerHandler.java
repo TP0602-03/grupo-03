@@ -10,7 +10,7 @@ public class MouseValuePickerHandler implements MouseListener {
 
     String content;
 
-    public MouseValuePickerHandler(String content){
+    public MouseValuePickerHandler(String content) {
         this.content = content;
     }
 

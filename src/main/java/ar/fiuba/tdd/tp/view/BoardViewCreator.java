@@ -3,7 +3,6 @@ package ar.fiuba.tdd.tp.view;
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.controller.MouseCellHandler;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -20,7 +19,7 @@ public class BoardViewCreator {
             for (int i = 0; i < game.getWidth(); i++) {
                 for (int j = 0; j < game.getHeight(); j++) {
                     ArrayList<String> contents = new ArrayList<String>();
-                    for (Map.Entry<String, Object> key: game.getCellKeysValues(i,j)) {
+                    for (Map.Entry<String, Object> key : game.getCellKeysValues(i, j)) {
                         String content;
                         try {
                             content = key.getValue().toString();

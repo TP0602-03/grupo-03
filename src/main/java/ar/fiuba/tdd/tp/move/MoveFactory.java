@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp.move;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -24,13 +23,12 @@ public class MoveFactory {
     }
 
 
-
     public Move createMove(int newId, int newX, int newY, String newValue) {
 
 
         if (this.possibleValues.containsKey(newValue) && possiblePositions.containsKey(new Pair<>(newX, newY))) {
             String newAttribute = this.possibleValues.get(newValue);
-            return new ValidMove(newId, newX, newY,newAttribute, newValue);
+            return new ValidMove(newId, newX, newY, newAttribute, newValue);
         }
 
         return new InvalidMove(newId);
