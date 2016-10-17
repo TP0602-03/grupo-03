@@ -1,24 +1,27 @@
 package ar.fiuba.tdd.tp.controller;
 
+import ar.fiuba.tdd.tp.view.MainValuePicker;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.StringJoiner;
+import javax.swing.*;
 
 /**
  * Created by ms0359 on 10/15/16.
  */
 public class MouseCellHandler implements MouseListener {
+    Icon[] content;
 
-    String content;
-
-    public MouseCellHandler(String content){
+    public MouseCellHandler(Icon[] content){
         this.content = content;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        //TODO: ABRIR PANEL
+        MainValuePicker mainValuePicker = new MainValuePicker(content);
+        mainValuePicker.GetValuePicker((JPanel) e.getSource());
     }
 
     @Override

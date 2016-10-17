@@ -36,7 +36,11 @@ public class BoardViewCreator {
                         }
                         contents.add(content);
                     }
-                    CellView panel = new CellView(contents, new MouseCellHandler("1"));
+                    ImageGetter imageGetter = new ImageGetter("gameFiles/images");
+                    Icon[] icons = new Icon[1];
+                    icons[0] = imageGetter.getImage("0");
+
+                    CellView panel = new CellView(contents, new MouseCellHandler(icons));
                     board.set(i, j, 50, 50, panel);
                 }
             }
