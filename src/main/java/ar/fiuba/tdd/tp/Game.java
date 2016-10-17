@@ -77,7 +77,7 @@ public class Game {
         return height;
     }
 
-    public Set<Map.Entry<String,Object>> getCellKeysValues(int row, int col){
+    public Set<Map.Entry<String, Object>> getCellKeysValues(int row, int col) {
         return cells.getVertex(row, col).getKeysValues();
     }
 }

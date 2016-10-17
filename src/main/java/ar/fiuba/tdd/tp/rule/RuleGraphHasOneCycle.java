@@ -35,7 +35,7 @@ public class RuleGraphHasOneCycle extends Rule {
                 if (parent.get(current) != vertex && !visited.contains(vertex)) {
                     parent.put(vertex, current);
                     stack.push(vertex);
-                }  else if (parent.get(current) != vertex && visited.contains(vertex)) {
+                } else if (parent.get(current) != vertex && visited.contains(vertex)) {
                     return visited.size() == verticesWithEdges.size();
                 }
             }
