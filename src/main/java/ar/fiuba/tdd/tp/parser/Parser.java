@@ -29,9 +29,8 @@ public class Parser {
 
         game = new Game(width, height);
 
-        CellParser cellParser = new CellParser();
-        JSONArray jsonCells = (JSONArray) jsonGame.get("cells");
-        cellParser.loadCells(game, jsonCells);
+        GraphVertexParser gridParser = new GraphVertexParser();
+        gridParser.loadGrid(game, this.jsonGame);
 
         RegionParser regionParser = new RegionParser();
         JSONArray jsonRegions = (JSONArray) jsonGame.get("regions");

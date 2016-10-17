@@ -1,9 +1,6 @@
 package ar.fiuba.tdd.tp.parser;
 
-import ar.fiuba.tdd.tp.rule.Rule;
-import ar.fiuba.tdd.tp.rule.RuleCheckProduct;
-import ar.fiuba.tdd.tp.rule.RuleCheckSum;
-import ar.fiuba.tdd.tp.rule.RuleDistinctElements;
+import ar.fiuba.tdd.tp.rule.*;
 import org.json.simple.JSONObject;
 
 import java.util.Objects;
@@ -24,6 +21,15 @@ public class RuleParser {
         } else if (Objects.equals(ruleName, "RuleDistinctValues")) {
             String att = (String) ruleJson.get("attribute");
             rule = new RuleDistinctElements(att);
+        } else if (Objects.equals(ruleName, "RuleCountVertexEdges")) {
+            String att = (String) ruleJson.get("attribute");
+            rule = new RuleCountVertexEdges(att);
+        } else if (Objects.equals(ruleName, "RuleGraphHasNoCycles")) {
+            String att = (String) ruleJson.get("attribute");
+            rule = new RuleGraphHasNoCycles();
+        } else if (Objects.equals(ruleName, "RuleAllVerticesHaveAttribute")) {
+            String att = (String) ruleJson.get("attribute");
+            rule = new RuleAllVerticesHaveAttribute(att);
         }
         return rule;
     }

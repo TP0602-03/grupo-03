@@ -3,52 +3,59 @@ package ar.fiuba.tdd.tp.games;
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.Region;
 import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.parser.Parser;
 import ar.fiuba.tdd.tp.rule.RuleCountVertexEdges;
 import ar.fiuba.tdd.tp.rule.RuleGraphHasNoCycles;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 import static org.junit.Assert.assertTrue;
 
 public class GokigenTest {
+
     @Test
-    public void dummy() {
-        Game gogiken = new Game(2, 2);
-
-        Region fullGraph = new Region();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                fullGraph.addVertex((gogiken.getNode(i, j)));
-            }
-        }
-        fullGraph.addRule(new RuleCountVertexEdges("max_edges"));
-        fullGraph.addRule(new RuleGraphHasNoCycles());
-
-        gogiken.addRegion(fullGraph);
-
-        gogiken.getNode(0, 0).setAttribute("max_edges", 1);
-        gogiken.getNode(0, 1).setAttribute("max_edges", -1);
-        gogiken.getNode(0, 2).setAttribute("max_edges", 0);
-        gogiken.getNode(1, 0).setAttribute("max_edges", 1);
-        gogiken.getNode(1, 1).setAttribute("max_edges", 1);
-        gogiken.getNode(1, 2).setAttribute("max_edges", 2);
-        gogiken.getNode(2, 0).setAttribute("max_edges", -1);
-        gogiken.getNode(2, 1).setAttribute("max_edges", 2);
-        gogiken.getNode(2, 2).setAttribute("max_edges", -1);
+    public void test1() throws Exception {
+        Parser parser = new Parser("gameFiles/gokigen.json");
+        Game gogiken = parser.getGame();
 
         gogiken.playCell(0, 0, "diagonal", "\\");
         gogiken.addNodeEdge(new Coord(0, 0), new Coord(1, 1));
-        gogiken.validateRules();
+        System.out.println("gogiken = " + gogiken.validateRules());
+
+        gogiken.playCell(0, 1, "diagonal", "/");
+        gogiken.addNodeEdge(new Coord(1, 1), new Coord(0, 2));
+        System.out.println("gogiken = " + gogiken.validateRules());
+
+        gogiken.playCell(0, 2, "diagonal", "/");
+        gogiken.addNodeEdge(new Coord(1, 2), new Coord(0, 3));
+        System.out.println("gogiken = " + gogiken.validateRules());
 
         gogiken.playCell(1, 0, "diagonal", "\\");
         gogiken.addNodeEdge(new Coord(1, 0), new Coord(2, 1));
-        gogiken.validateRules();
+        System.out.println("gogiken = " + gogiken.validateRules());
 
-        gogiken.playCell(1, 0, "diagonal", "\\");
-        gogiken.addNodeEdge(new Coord(0, 1), new Coord(1, 2));
-        gogiken.validateRules();
-
-        gogiken.playCell(1, 0, "diagonal", "/");
+        gogiken.playCell(1, 1, "diagonal", "/");
         gogiken.addNodeEdge(new Coord(2, 1), new Coord(1, 2));
+        System.out.println("gogiken = " + gogiken.validateRules());
+
+        gogiken.playCell(1, 2, "diagonal", "/");
+        gogiken.addNodeEdge(new Coord(2, 2), new Coord(1, 3));
+        System.out.println("gogiken = " + gogiken.validateRules());
+
+        gogiken.playCell(2, 0, "diagonal", "/");
+        gogiken.addNodeEdge(new Coord(2, 0), new Coord(3, 1));
+        System.out.println("gogiken = " + gogiken.validateRules());
+
+        gogiken.playCell(2, 1, "diagonal", "/");
+        gogiken.addNodeEdge(new Coord(2, 1), new Coord(3, 2));
+        System.out.println("gogiken = " + gogiken.validateRules());
+
+        gogiken.playCell(2, 2, "diagonal", "/");
+        gogiken.addNodeEdge(new Coord(2, 2), new Coord(3, 3));
+        System.out.println("gogiken = " + gogiken.validateRules());
         assertTrue(gogiken.validateRules());
     }
+
 }

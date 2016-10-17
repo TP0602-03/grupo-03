@@ -15,7 +15,7 @@ public class RuleCountVertexEdges extends Rule {
     public boolean check(List<GraphVertex> vertices) {
         for (GraphVertex vertex :
                 vertices) {
-            if ((Integer) vertex.getAttribute(attribute) != -1 && vertex.getAdjacencyList().size() != (Integer) vertex.getAttribute(attribute)) {
+            if ((Integer) vertex.getAttribute(attribute) != null && vertex.getAdjacencyList().size() != (Integer) vertex.getAttribute(attribute)) {
                 return false;
             }
         }
