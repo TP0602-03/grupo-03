@@ -1,19 +1,13 @@
 package ar.fiuba.tdd.tp.view;
 
-import ar.fiuba.tdd.tp.controller.CellController;
-
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 public class CellView extends JPanel {
 
-    protected ImageGetter imageGetter = new ImageGetter("gameFiles/images");
+    protected ImageManager imageGetter = new ImageManager("gameFiles/images");
     private ArrayList<String> contents;
     protected Color defaultBackground = Color.WHITE;
 
@@ -26,7 +20,6 @@ public class CellView extends JPanel {
             this.add(new JLabel(this.imageGetter.getImage(content)));
         }
         setHandlers(mouseListener);
-
     }
 
     private void setHandlers(MouseListener mouseListener) {

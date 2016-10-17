@@ -5,16 +5,17 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import java.util.Objects;
 
 
 public class MainValuePicker {
 
-    Icon[] options;
-    public  MainValuePicker(Icon[] options){
+    IconValue[] options;
+    public  MainValuePicker(IconValue[] options){
         this.options = options;
     }
 
-    public void GetValuePicker(JPanel panel){
+    public Object GetValuePicker(JPanel panel){
         JOptionPane jOptionPane = new JOptionPane();
         jOptionPane.setOptions(GetOptions(jOptionPane));
         jOptionPane.setMessage("Choose a move");
@@ -22,6 +23,7 @@ public class MainValuePicker {
 
         JDialog jDialog = jOptionPane.createDialog(jFrame,"Move");
         jDialog.setVisible(true);
+        return jOptionPane.getValue();
     }
 
     private JButton[] GetOptions(JOptionPane optionPane){
@@ -32,19 +34,19 @@ public class MainValuePicker {
         return buttons;
     }
 
-    private JButton GetButton(Icon icon, JOptionPane optionPane){
-        JButton button = new JButton("hola", icon);
-        ActionListener actionListener = GetAction(button, optionPane);
+    private JButton GetButton(IconValue icon, JOptionPane optionPane){
+        JButton button = new JButton("", icon.getIcon());
+        ActionListener actionListener = GetAction(icon.getValue(), optionPane);
         button.addActionListener(actionListener);
         return button;
     }
 
-    private ActionListener GetAction(JButton button, JOptionPane optionPane){
+    private ActionListener GetAction(String returnValue, JOptionPane optionPane){
         return new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 // Return current text label, instead of argument to method
-                optionPane.setValue(button.getText());
-                System.out.println(button.getText());
+                optionPane.setValue(returnValue);
+                System.out.println(returnValue);
             }
         };
     }

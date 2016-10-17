@@ -2,17 +2,10 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.controller.MouseCellHandler;
-import ar.fiuba.tdd.tp.graph.GraphVertex;
-import ar.fiuba.tdd.tp.parser.*;
-import ar.fiuba.tdd.tp.parser.Parser;
-import ar.fiuba.tdd.tp.view.BoardGameView;
-import ar.fiuba.tdd.tp.view.CellView;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Objects;
 
 public class BoardViewCreator {
 
@@ -36,9 +29,9 @@ public class BoardViewCreator {
                         }
                         contents.add(content);
                     }
-                    ImageGetter imageGetter = new ImageGetter("gameFiles/images");
-                    Icon[] icons = new Icon[1];
-                    icons[0] = imageGetter.getImage("0");
+                    ImageManager imageGetter = new ImageManager("gameFiles/images");
+                    IconValue[] icons = new IconValue[1];
+                    icons[0] = new IconValue(imageGetter.getImage("0"), "0");
 
                     CellView panel = new CellView(contents, new MouseCellHandler(icons));
                     board.set(i, j, 50, 50, panel);

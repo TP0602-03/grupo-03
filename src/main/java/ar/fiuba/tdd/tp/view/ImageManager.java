@@ -5,11 +5,11 @@ import javax.swing.*;
 /**
  * Created by mvbattan on 15/10/16.
  */
-public class ImageGetter {
+public class ImageManager {
 
     private String relativePath;
 
-    public ImageGetter(String pathToImages) {
+    public ImageManager(String pathToImages) {
         this.relativePath = pathToImages;
     }
 

@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.controller;
 
+import ar.fiuba.tdd.tp.view.IconValue;
 import ar.fiuba.tdd.tp.view.MainValuePicker;
 
 import java.awt.event.MouseEvent;
@@ -12,9 +13,9 @@ import javax.swing.*;
  * Created by ms0359 on 10/15/16.
  */
 public class MouseCellHandler implements MouseListener {
-    Icon[] content;
+    IconValue[] content;
 
-    public MouseCellHandler(Icon[] content){
+    public MouseCellHandler(IconValue[] content){
         this.content = content;
     }
 
