@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp.move;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.util.Comparator;
+
 /**
  * Created by luciano on 15/10/16.
  */
@@ -22,5 +24,6 @@ public abstract class Move {
     }
 
     public abstract Boolean isValid();
+
 
 }
