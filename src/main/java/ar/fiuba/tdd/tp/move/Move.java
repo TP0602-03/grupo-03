@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.move;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 /**
  * Created by luciano on 15/10/16.
  */
@@ -13,8 +15,12 @@ public abstract class Move {
 
     public abstract int getY() throws InvalidMoveException;
 
+    public abstract String getAttribute() throws InvalidMoveException;
+
     public int getId() {
         return this.id;
     }
+
+    public abstract Boolean isValid();
 
 }
