@@ -30,7 +30,7 @@ public class GraphVertex {
         return adjacencyList;
     }
 
-    public Set<Map.Entry<String,Object>> getKeysValues(){
+    public Set<Map.Entry<String, Object>> getKeysValues() {
         return attributes.entrySet();
     }
 

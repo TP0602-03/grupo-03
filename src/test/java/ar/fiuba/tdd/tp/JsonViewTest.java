@@ -1,9 +1,7 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.move.InvalidMoveException;
 import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
-import ar.fiuba.tdd.tp.move.ValidMove;
 import ar.fiuba.tdd.tp.view.JsonFileView;
 import javafx.util.Pair;
 import org.json.simple.JSONObject;
@@ -11,13 +9,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -48,14 +42,14 @@ public class JsonViewTest {
     };
 
     @Test
-    public void testCorrectFileCreatiion() throws IOException,ParseException{
+    public void testCorrectFileCreatiion() throws IOException, ParseException {
 
         String newFile = "testFiles/jsonViewTestFile.json";
         JsonFileView view = new JsonFileView(newFile);
-        MoveFactory factory = new MoveFactory(valuesMap,positionsMap);
+        MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move validMove = factory.createMove(1,0,0,"1");
-        Move invalidMove = factory.createMove(2,0,1,"38");
+        Move validMove = factory.createMove(1, 0, 0, "1");
+        Move invalidMove = factory.createMove(2, 0, 1, "38");
 
         view.add(validMove);
         view.add(invalidMove);
@@ -66,7 +60,7 @@ public class JsonViewTest {
         JSONObject jsonFile1 = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(alreadyPrintedFile), "UTF-8"));
         JSONObject jsonFile2 = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(newFile), "UTF-8"));
 
-        assertEquals(jsonFile1,jsonFile2);
+        assertEquals(jsonFile1, jsonFile2);
     }
 
 

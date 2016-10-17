@@ -20,7 +20,11 @@ public class RuleCheckProduct extends Rule {
         for (GraphVertex vertex :
                 vertices) {
             Integer num = (Integer) vertex.getAttribute(attribute);
-            total *= num;
+            if (num != null) {
+                total *= num;
+            } else if (total >= expected) {
+                return false;
+            }
         }
         return total.intValue() == expected.intValue();
     }

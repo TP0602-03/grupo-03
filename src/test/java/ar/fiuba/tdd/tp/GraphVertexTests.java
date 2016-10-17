@@ -57,14 +57,14 @@ public class GraphVertexTests {
     }
 
     @Test
-    public void graphVertex(){
+    public void graphVertex() {
         GraphVertex vertex = new GraphVertex();
-        vertex.setAttribute("number",1);
-        vertex.setAttribute("color","white");
+        vertex.setAttribute("number", 1);
+        vertex.setAttribute("color", "white");
         Set<Map.Entry<String, Object>> setKV = vertex.getKeysValues();
-        for (Map.Entry<String, Object> entry : setKV){
-            if (entry.getKey()=="number"){
-                assertEquals(entry.getValue(),1);
+        for (Map.Entry<String, Object> entry : setKV) {
+            if (entry.getKey() == "number") {
+                assertEquals(entry.getValue(), 1);
             }
         }
     }

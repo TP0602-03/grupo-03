@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.games;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.parser.Parser;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class SudokuTest {
@@ -64,6 +65,7 @@ public class SudokuTest {
         game.playCell(3, 0, "num", 2);
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
+        Assert.assertTrue(game.validateRules());
 
 
 /*        Parser parser = null;

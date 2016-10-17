@@ -56,7 +56,7 @@ public class MoveFactoryTest {
 
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move move = factory.createMove(1, 0, 0,"1");
+        Move move = factory.createMove(1, 0, 0, "1");
 
         assertTrue(move.getClass() == ValidMove.class);
 
@@ -68,7 +68,7 @@ public class MoveFactoryTest {
 
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move move = factory.createMove(1, 0, 0,"50");
+        Move move = factory.createMove(1, 0, 0, "50");
 
         assertTrue(move.getClass() == InvalidMove.class);
 

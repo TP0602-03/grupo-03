@@ -10,7 +10,7 @@ public class ValidMove extends Move {
     private String value;
     private String attribute;
 
-    public ValidMove(int newId, int newX, int newY,String newAttribute, String newValue) {
+    public ValidMove(int newId, int newX, int newY, String newAttribute, String newValue) {
 
         this.id = newId;
         this.attribute = newAttribute;

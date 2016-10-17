@@ -13,13 +13,13 @@ public class MoveTests {
     @Test
     public void validMoveCreationGetSetOK() {
 
-        ValidMove move = new ValidMove(1, 0, 0,"attribute","value");
+        ValidMove move = new ValidMove(1, 0, 0, "attribute", "value");
 
         assertEquals(move.getId(), 1);
         assertEquals(move.getValue(), "value");
         assertEquals(move.getX(), 0);
         assertEquals(move.getY(), 0);
-        assertEquals(move.getAttribute(),"attribute");
+        assertEquals(move.getAttribute(), "attribute");
 
     }
 
