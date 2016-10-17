@@ -1,69 +1,100 @@
 {
-  "name": "gogiken naname",
+  "name": "gokigen naname",
   "size": {
-    "width": 2,
-    "height": 2
+    "width": 3,
+    "height": 3
   },
   "vertices": [
     {
       "x": 0,
       "y": 0,
-      "attributes": [
-        {
-          "name": "max_edges",
-          "value": 1
-        }
-      ]
+      "attributes": {
+        "max_edges": 1
+      }
     },
     {
       "x": 0,
-      "y": 1,
-      "attributes": [
-        {
-          "name": "max_edges",
-          "value": 2
-        }
-      ]
+      "y": 2,
+      "attributes": {
+        "max_edges": 1
+      }
     },
     {
       "x": 0,
       "y": 3,
-      "attributes": [
-        {
-          "name": "max_edges",
-          "value": 1
-        }
-      ]
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "attributes": {
+        "max_edges": 1
+      }
     },
     {
       "x": 1,
       "y": 1,
-      "attributes": [
-        {
-          "name": "max_edges",
-          "value": 0
-        }
-      ]
+      "attributes": {
+        "max_edges": 2
+      }
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "attributes": {
+        "max_edges": 2
+      }
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "attributes": {
+        "max_edges": 1
+      }
     },
     {
       "x": 2,
       "y": 0,
-      "attributes": [
-        {
-          "name": "max_edges",
-          "value": 1
-        }
-      ]
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "attributes": {
+        "max_edges": 3
+      }
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "attributes": {
+        "max_edges": 2
+      }
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "attributes": {
+        "max_edges": 1
+      }
     },
     {
       "x": 3,
       "y": 3,
-      "attributes": [
-        {
-          "name": "max_edges",
-          "value": 1
-        }
-      ]
+      "attributes": {
+        "max_edges": 1
+      }
     }
   ],
   "regions": [
@@ -73,15 +104,13 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
-              "attribute": "num",
-              "expected": 10
+              "name": "RuleGraphHasNoCycles",
             }
           },
           {
             "rule": {
-              "name": "RuleDistinctValues",
-              "attribute": "num"
+              "name": "RuleCountVertexEdges",
+              "attribute": "max_edges"
             }
           }
         ]

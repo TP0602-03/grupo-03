@@ -5,6 +5,8 @@ import ar.fiuba.tdd.tp.graph.GraphVertex;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.Set;
+
 public class CellParser {
     public void loadCells(Game game, JSONArray cells) {
         for (Object o :
@@ -13,16 +15,17 @@ public class CellParser {
             int row = ((Long) cell.get("x")).intValue();
             int col = ((Long) cell.get("y")).intValue();
             GraphVertex vertex = game.getCell(row, col);
-            JSONArray attributes = (JSONArray) cell.get("attributes");
-            for (Object e :
+            JSONObject attributesJson = (JSONObject) cell.get("attributes");
+            Set attributes = attributesJson.keySet();
+
+            for (Object attribute :
                     attributes) {
-                JSONObject attribute = (JSONObject) e;
-                String name = (String) attribute.get("name");
-                Object value = attribute.get("value");
+                String attributeName = (String) attribute;
+                Object value = attributesJson.get(attributeName);
                 if (value.getClass() == Long.class) {
                     value = ((Long) value).intValue();
                 }
-                vertex.setAttribute(name, value);
+                vertex.setAttribute(attributeName, value);
             }
         }
     }

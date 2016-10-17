@@ -8,62 +8,44 @@
     {
       "x": 0,
       "y": 0,
-      "attributes": [
-        {
-          "name": "small_num",
-          "value": 6
-        }
-      ]
+      "attributes": {
+        "small_num": 6
+      }
     },
     {
       "x": 0,
       "y": 1,
-      "attributes": [
-        {
-          "name": "small_num",
-          "value": 8
-        }
-      ]
+      "attributes": {
+        "small_num": 8
+      }
     },
     {
       "x": 0,
       "y": 3,
-      "attributes": [
-        {
-          "name": "small_num",
-          "value": 24
-        }
-      ]
+      "attributes": {
+        "small_num": 24
+      }
     },
     {
       "x": 1,
       "y": 1,
-      "attributes": [
-        {
-          "name": "small_num",
-          "value": 4
-        }
-      ]
+      "attributes": {
+        "small_num": 4
+      }
     },
     {
       "x": 2,
       "y": 0,
-      "attributes": [
-        {
-          "name": "small_num",
-          "value": 6
-        }
-      ]
+      "attributes": {
+        "small_num": 6
+      }
     },
     {
       "x": 3,
       "y": 3,
-      "attributes": [
-        {
-          "name": "small_num",
-          "value": 12
-        }
-      ]
+      "attributes": {
+        "small_num": 12
+      }
     }
   ],
   "regions": [

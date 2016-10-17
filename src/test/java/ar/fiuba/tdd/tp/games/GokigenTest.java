@@ -7,6 +7,8 @@ import ar.fiuba.tdd.tp.rule.RuleCountVertexEdges;
 import ar.fiuba.tdd.tp.rule.RuleGraphHasNoCycles;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 public class GokigenTest {
     @Test
     public void dummy() {
@@ -47,6 +49,6 @@ public class GokigenTest {
 
         gogiken.playCell(1, 0, "diagonal", "/");
         gogiken.addNodeEdge(new Coord(2, 1), new Coord(1, 2));
-        gogiken.validateRules();
+        assertTrue(gogiken.validateRules());
     }
 }
