@@ -1,0 +1,280 @@
+{
+  "name": "gokigen naname",
+  "size": {
+    "width": 3,
+    "height": 3
+  },
+  "editables": {
+    "cells": [
+      {
+        "attribute": "left",
+        "values": [
+          true,
+          false
+        ],
+        "actions": [
+          [
+            {
+              "graph": "cells",
+              "type": "del_edge",
+              "cell1": "this",
+              "cell2": "left"
+            },
+            {
+              "affects": {
+                "cell": "left",
+                "attribute": "right",
+                "value": true
+              }
+            }
+          ],
+          [
+            {
+              "graph": "cells",
+              "type": "add_edge",
+              "cell1": "this",
+              "cell2": "left"
+            },
+            {
+              "affects": {
+                "cell": "left",
+                "attribute": "right",
+                "value": false
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "attribute": "right",
+        "values": [
+          true,
+          false
+        ],
+        "actions": [
+          [
+            {
+              "graph": "cells",
+              "type": "del_edge",
+              "cell1": "this",
+              "cell2": "right"
+            },
+            {
+              "affects": {
+                "cell": "right",
+                "attribute": "left",
+                "value": true
+              }
+            }
+          ],
+          [
+            {
+              "graph": "cells",
+              "type": "add_edge",
+              "cell1": "this",
+              "cell2": "right"
+            },
+            {
+              "affects": {
+                "cell": "right",
+                "attribute": "left",
+                "value": false
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "attribute": "top",
+        "values": [
+          true,
+          false
+        ],
+        "actions": [
+          [
+            {
+              "graph": "cells",
+              "type": "del_edge",
+              "cell1": "this",
+              "cell2": "top"
+            },
+            {
+              "affects": {
+                "cell": "top",
+                "attribute": "bottom",
+                "value": true
+              }
+            }
+          ],
+          [
+            {
+              "graph": "cells",
+              "type": "add_edge",
+              "cell1": "this",
+              "cell2": "top"
+            },
+            {
+              "affects": {
+                "cell": "top",
+                "attribute": "bottom",
+                "value": false
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "attribute": "bottom",
+        "values": [
+          true,
+          false
+        ],
+        "actions": [
+          [
+            {
+              "graph": "cells",
+              "type": "del_edge",
+              "cell1": "this",
+              "cell2": "bottom"
+            },
+            {
+              "affects": {
+                "cell": "bottom",
+                "attribute": "top",
+                "value": true
+              }
+            }
+          ],
+          [
+            {
+              "graph": "cells",
+              "type": "add_edge",
+              "cell1": "this",
+              "cell2": "bottom"
+            },
+            {
+              "affects": {
+                "cell": "bottom",
+                "attribute": "top",
+                "value": false
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "vertices": [
+    {
+      "x": 0,
+      "y": 0,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "attributes": {
+        "max_edges": 2
+      }
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "attributes": {
+        "max_edges": 2
+      }
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "attributes": {
+        "max_edges": 3
+      }
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "attributes": {
+        "max_edges": 2
+      }
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "attributes": {
+        "max_edges": 1
+      }
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "attributes": {
+        "max_edges": 1
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "all",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleGraphHasOneCycle"
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleCountVertexEdges",
+              "attribute": "max_edges"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

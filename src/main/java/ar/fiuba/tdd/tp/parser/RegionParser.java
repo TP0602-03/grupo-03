@@ -46,7 +46,15 @@ public class RegionParser {
     }
 
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
-
+        JSONArray cells = (JSONArray) region.get("cell");
+        for (Object obj :
+                cells) {
+            JSONObject cellPos = (JSONObject) obj;
+            int x = ((Long) cellPos.get("x")).intValue();
+            int y = ((Long) cellPos.get("y")).intValue();
+            GraphVertex vertex = game.getCell(x, y);
+            reg.addVertex(vertex);
+        }
     }
 
     private void loadRules(JSONArray rules, Region reg) {

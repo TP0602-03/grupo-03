@@ -4,6 +4,31 @@
     "width": 3,
     "height": 3
   },
+  "editables": {
+    "cells": [
+      {
+        "attribute": "diagonal",
+        "values": [
+          "/",
+          "\\"
+        ],
+        "actions": [
+          {
+            "graph": "vertices",
+            "type": "add_edge",
+            "vertex1": "bottomLeft",
+            "vertex2": "topRight"
+          },
+          {
+            "graph": "vertices",
+            "type": "add_edge",
+            "vertex1": "bottomRight",
+            "vertex2": "topLeft"
+          }
+        ]
+      }
+    ]
+  },
   "vertices": [
     {
       "x": 0,
@@ -104,7 +129,7 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleGraphHasNoCycles",
+              "name": "RuleGraphHasNoCycles"
             }
           },
           {
