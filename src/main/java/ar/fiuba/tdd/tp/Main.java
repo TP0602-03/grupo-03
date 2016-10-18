@@ -31,15 +31,15 @@ public class Main {
             }
         };
 
-        MoveFactory factory = new MoveFactory(valuesMap,positionsMap);
+        MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
         ConsoleController controller = new ConsoleController(factory);
 
-        while(true) {
+        while (true) {
 
             Move move = controller.getMove();
-            try{
+            try {
                 System.out.println(Integer.toString(move.getId()) + Integer.toString(move.getX()) + Integer.toString(move.getY()) + move.getValue());
-            }catch (InvalidMoveException e) {
+            } catch (InvalidMoveException e) {
                 //
             }
 

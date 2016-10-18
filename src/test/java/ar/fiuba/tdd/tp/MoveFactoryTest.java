@@ -7,7 +7,6 @@ import ar.fiuba.tdd.tp.move.ValidMove;
 import javafx.util.Pair;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
@@ -32,8 +31,6 @@ public class MoveFactoryTest {
             put(new Pair<>(1, 1), Boolean.TRUE);
         }
     };
-
-
 
 
     @Test

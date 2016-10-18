@@ -1,15 +1,9 @@
 package ar.fiuba.tdd.tp.games;
 
 import ar.fiuba.tdd.tp.Game;
-import ar.fiuba.tdd.tp.Region;
 import ar.fiuba.tdd.tp.graph.Coord;
 import ar.fiuba.tdd.tp.parser.Parser;
-import ar.fiuba.tdd.tp.rule.RuleCountVertexEdges;
-import ar.fiuba.tdd.tp.rule.RuleGraphHasNoCycles;
 import org.junit.Test;
-
-import java.io.IOException;
-import java.text.ParseException;
 
 import static org.junit.Assert.assertTrue;
 

@@ -9,7 +9,6 @@ import javafx.util.Pair;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
@@ -54,9 +53,9 @@ public class JsonControllerTest {
 
         Move move;
 
-        while(true) {
+        while (true) {
             move = controller.getMove();
-            if( move == null) {
+            if (move == null) {
                 break;
             }
             assertTrue(move.getClass() == ValidMove.class);
@@ -73,9 +72,9 @@ public class JsonControllerTest {
 
         Move move;
 
-        while(true) {
+        while (true) {
             move = controller.getMove();
-            if( move == null) {
+            if (move == null) {
                 break;
             }
             assertTrue(move.getClass() == InvalidMove.class);
@@ -93,9 +92,9 @@ public class JsonControllerTest {
 
         int index = 0;
         Move move;
-        while(true) {
+        while (true) {
             move = controller.getMove();
-            if (move == null ) {
+            if (move == null) {
                 break;
             }
             if (index % 2 == 0) {
