@@ -4,7 +4,7 @@
     "width": 3,
     "height": 3
   },
-  "vertices": [
+  "corners": [
     {
       "x": 0,
       "y": 0,

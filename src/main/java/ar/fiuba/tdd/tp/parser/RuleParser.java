@@ -25,8 +25,9 @@ public class RuleParser {
             String att = (String) ruleJson.get("attribute");
             rule = new RuleCountVertexEdges(att);
         } else if (Objects.equals(ruleName, "RuleGraphHasNoCycles")) {
-            String att = (String) ruleJson.get("attribute");
             rule = new RuleGraphHasNoCycles();
+        } else if (Objects.equals(ruleName, "RuleGraphHasOneCycle")) {
+            rule = new RuleGraphHasOneCycle();
         } else if (Objects.equals(ruleName, "RuleAllVerticesHaveAttribute")) {
             String att = (String) ruleJson.get("attribute");
             rule = new RuleAllVerticesHaveAttribute(att);

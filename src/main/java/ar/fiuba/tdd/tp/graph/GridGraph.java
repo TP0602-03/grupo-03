@@ -5,8 +5,12 @@ import java.util.List;
 
 public class GridGraph {
     protected List<List<GraphVertex>> vertices = new ArrayList<>();
+    private Integer width;
+    private Integer height;
 
     public GridGraph(Integer width, Integer height) {
+        this.width = width;
+        this.height = height;
         for (int row = 0; row < height; row++) {
             vertices.add(new ArrayList<>());
         }
@@ -32,5 +36,22 @@ public class GridGraph {
         int nodeBCoordinateY = nodeB.getCoordinateY();
         vertices.get(nodeACoordinateX).get(nodeACoordinateY).addEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
         vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).addEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
+    }
+
+    public void removeEdge(Coord src, Coord dst) {
+        int nodeACoordinateX = src.getCoordinateX();
+        int nodeACoordinateY = src.getCoordinateY();
+        int nodeBCoordinateX = dst.getCoordinateX();
+        int nodeBCoordinateY = dst.getCoordinateY();
+        vertices.get(nodeACoordinateX).get(nodeACoordinateY).removeEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
+        vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).removeEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public Integer getHeight() {
+        return height;
     }
 }

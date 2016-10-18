@@ -5,6 +5,8 @@ import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Scanner;
+
 public class SudokuTest {
     private void printBoard(Game game) {
         for (int i = 0; i < 4; i++) {
@@ -27,7 +29,6 @@ public class SudokuTest {
 
         Parser parser = new Parser("gameFiles/sudoku.json");
         Game game = parser.getGame();
-
 
         printBoard(game);
 
@@ -66,51 +67,5 @@ public class SudokuTest {
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
         Assert.assertTrue(game.validateRules());
-
-
-/*        Parser parser = null;
-        try {
-            parser = new Parser("gameFiles/sudoku.json");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (org.json.simple.parser.ParseException e) {
-            e.printStackTrace();
-        }
-        Game game = parser.getGame();
-
-
-        printBoard(game);
-        Scanner in = new Scanner(System.in);
-
-        while(!game.validateRules()){
-            System.out.println("row: ");
-            int row = in.nextInt();
-
-            System.out.println("col: ");
-            int col = in.nextInt();
-            System.out.println("num: ");
-            int num = in.nextInt();
-            game.playCell(row,col,"num",num);
-            printBoard(game);
-            System.out.println("rules ok: " + game.validateRules());
-        }
-        System.out.println("YOU WON!");*/
-        /*public static void printBoard(Game game){
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    Object a = game.getCell(i,j).getAttribute("num");
-                    if (a != null) {
-                        System.out.print(" " + a + " |");
-                    } else {
-                        System.out.print("   |");
-                    }
-
-                }
-                System.out.println();
-                System.out.println("----------------");
-            }
-        }*/
     }
 }

@@ -4,10 +4,11 @@ import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Test;
 
-public class CountryTest {
+public class SlitherlinkTest {
     @Test
-    public void test() throws Exception {
-        Parser parser = new Parser("gameFiles/country.json");
+    public void name() throws Exception {
+        Parser parser = new Parser("gameFiles/slitherlink.json");
         Game game = parser.getGame();
+
     }
 }

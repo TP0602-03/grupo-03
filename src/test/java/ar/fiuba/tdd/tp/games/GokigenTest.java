@@ -12,44 +12,35 @@ public class GokigenTest {
     @Test
     public void test1() throws Exception {
         Parser parser = new Parser("gameFiles/gokigen.json");
-        Game gogiken = parser.getGame();
+        Game game = parser.getGame();
 
-        gogiken.playCell(0, 0, "diagonal", "\\");
-        gogiken.addNodeEdge(new Coord(0, 0), new Coord(1, 1));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(0, 0, "diagonal", "\\");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(0, 1, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(1, 1), new Coord(0, 2));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(0, 1, "diagonal", "/");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(0, 2, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(1, 2), new Coord(0, 3));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(0, 2, "diagonal", "/");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(1, 0, "diagonal", "\\");
-        gogiken.addNodeEdge(new Coord(1, 0), new Coord(2, 1));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(1, 0, "diagonal", "\\");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(1, 1, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(2, 1), new Coord(1, 2));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(1, 1, "diagonal", "/");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(1, 2, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(2, 2), new Coord(1, 3));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(1, 2, "diagonal", "\\");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(2, 0, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(2, 0), new Coord(3, 1));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(2, 0, "diagonal", "\\");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(2, 1, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(2, 1), new Coord(3, 2));
-        System.out.println("gogiken = " + gogiken.validateRules());
+        game.playCell(2, 1, "diagonal", "\\");
+        System.out.println("gogiken = " + game.validateRules());
 
-        gogiken.playCell(2, 2, "diagonal", "/");
-        gogiken.addNodeEdge(new Coord(2, 2), new Coord(3, 3));
-        System.out.println("gogiken = " + gogiken.validateRules());
-        assertTrue(gogiken.validateRules());
+        game.playCell(2, 2, "diagonal", "\\");
+        System.out.println("gogiken = " + game.validateRules());
+        assertTrue(game.validateRules());
     }
 
 }

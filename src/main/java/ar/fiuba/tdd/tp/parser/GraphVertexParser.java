@@ -10,9 +10,9 @@ import java.util.Set;
 
 public class GraphVertexParser {
     public void loadGrid(Game game, JSONObject grid) {
-        JSONArray verticesJson = (JSONArray) grid.get("vertices");
+        JSONArray verticesJson = (JSONArray) grid.get("corners");
         if (verticesJson != null) {
-            loadAll(game, verticesJson, "vertices");
+            loadAll(game, verticesJson, "corners");
         }
         JSONArray cellsJson = (JSONArray) grid.get("cells");
         if (cellsJson != null) {
@@ -32,8 +32,8 @@ public class GraphVertexParser {
     }
 
     private GraphVertex getGraphVertex(Game game, int x, int y, String type) {
-        if (Objects.equals(type, "vertices")) {
-            return game.getNode(x, y);
+        if (Objects.equals(type, "corners")) {
+            return game.getCorner(x, y);
         } else {
             // cells
             return game.getCell(x, y);

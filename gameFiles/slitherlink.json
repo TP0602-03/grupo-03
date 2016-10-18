@@ -1,169 +1,151 @@
 {
-  "name": "gokigen naname",
+  "name": "slitherlink",
   "size": {
     "width": 3,
     "height": 3
   },
-  "editables": {
-    "cells": [
-      {
-        "attribute": "left",
-        "values": [
-          true,
-          false
+  "editables": [
+    {
+      "attribute": "left",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomLeft",
+            "dst": "topLeft"
+          },
+          {
+            "type": "affect",
+            "dst": "left",
+            "attribute": "right",
+            "value": true
+          }
         ],
-        "actions": [
-          [
-            {
-              "graph": "cells",
-              "type": "del_edge",
-              "cell1": "this",
-              "cell2": "left"
-            },
-            {
-              "affects": {
-                "cell": "left",
-                "attribute": "right",
-                "value": true
-              }
-            }
-          ],
-          [
-            {
-              "graph": "cells",
-              "type": "add_edge",
-              "cell1": "this",
-              "cell2": "left"
-            },
-            {
-              "affects": {
-                "cell": "left",
-                "attribute": "right",
-                "value": false
-              }
-            }
-          ]
+        [
+          {
+            "type": "remove_edge",
+            "src": "bottomLeft",
+            "dst": "topLeft"
+          },
+          {
+            "type": "affect",
+            "dst": "left",
+            "attribute": "right",
+            "value": false
+          }
         ]
-      },
-      {
-        "attribute": "right",
-        "values": [
-          true,
-          false
+      ]
+    },
+    {
+      "attribute": "right",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "remove_edge",
+            "src": "this",
+            "dst": "right"
+          },
+          {
+            "type": "affect",
+            "dst": "right",
+            "attribute": "left",
+            "value": true
+          }
         ],
-        "actions": [
-          [
-            {
-              "graph": "cells",
-              "type": "del_edge",
-              "cell1": "this",
-              "cell2": "right"
-            },
-            {
-              "affects": {
-                "cell": "right",
-                "attribute": "left",
-                "value": true
-              }
-            }
-          ],
-          [
-            {
-              "graph": "cells",
-              "type": "add_edge",
-              "cell1": "this",
-              "cell2": "right"
-            },
-            {
-              "affects": {
-                "cell": "right",
-                "attribute": "left",
-                "value": false
-              }
-            }
-          ]
+        [
+          {
+            "type": "add_edge",
+            "src": "this",
+            "dst": "right"
+          },
+          {
+            "type": "affect",
+            "dst": "right",
+            "attribute": "left",
+            "value": false
+          }
         ]
-      },
-      {
-        "attribute": "top",
-        "values": [
-          true,
-          false
+      ]
+    },
+    {
+      "attribute": "top",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "remove_edge",
+            "src": "this",
+            "dst": "top"
+          },
+          {
+            "type": "affect",
+            "dst": "top",
+            "attribute": "bottom",
+            "value": true
+          }
         ],
-        "actions": [
-          [
-            {
-              "graph": "cells",
-              "type": "del_edge",
-              "cell1": "this",
-              "cell2": "top"
-            },
-            {
-              "affects": {
-                "cell": "top",
-                "attribute": "bottom",
-                "value": true
-              }
-            }
-          ],
-          [
-            {
-              "graph": "cells",
-              "type": "add_edge",
-              "cell1": "this",
-              "cell2": "top"
-            },
-            {
-              "affects": {
-                "cell": "top",
-                "attribute": "bottom",
-                "value": false
-              }
-            }
-          ]
+        [
+          {
+            "type": "add_edge",
+            "src": "this",
+            "dst": "top"
+          },
+          {
+            "type": "affect",
+            "dst": "top",
+            "attribute": "bottom",
+            "value": false
+          }
         ]
-      },
-      {
-        "attribute": "bottom",
-        "values": [
-          true,
-          false
+      ]
+    },
+    {
+      "attribute": "bottom",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "remove_edge",
+            "src": "this",
+            "dst": "bottom"
+          },
+          {
+            "type": "affect",
+            "dst": "bottom",
+            "attribute": "top",
+            "value": true
+          }
         ],
-        "actions": [
-          [
-            {
-              "graph": "cells",
-              "type": "del_edge",
-              "cell1": "this",
-              "cell2": "bottom"
-            },
-            {
-              "affects": {
-                "cell": "bottom",
-                "attribute": "top",
-                "value": true
-              }
-            }
-          ],
-          [
-            {
-              "graph": "cells",
-              "type": "add_edge",
-              "cell1": "this",
-              "cell2": "bottom"
-            },
-            {
-              "affects": {
-                "cell": "bottom",
-                "attribute": "top",
-                "value": false
-              }
-            }
-          ]
+        [
+          {
+            "type": "add_edge",
+            "src": "this",
+            "dst": "bottom"
+          },
+          {
+            "type": "affect",
+            "dst": "bottom",
+            "attribute": "top",
+            "value": false
+          }
         ]
-      }
-    ]
-  },
+      ]
+    }
+  ],
   "vertices": [
     {
       "x": 0,

@@ -18,25 +18,19 @@ public class RegionParser {
             String type = (String) region.get("type");
             if (Objects.equals(type, "rectangle")) {
                 loadRectangleRegion(game, region, reg);
-//                System.out.println("rectangle region");
             } else if (Objects.equals(type, "column")) {
                 loadColumnRegion(game, region, reg);
-//                System.out.println("column region");
             } else if (Objects.equals(type, "row")) {
                 loadRowRegion(game, region, reg);
-//                System.out.println("row region");
             } else if (Objects.equals(type, "custom")) {
                 loadCustomRegion(game, region, reg);
-//                System.out.println("custom region");
             } else if (Objects.equals(type, "all")) {
-                for (int i = 0; i < game.getHeight() + 1; i++) {
-                    for (int j = 0; j < game.getWidth() + 1; j++) {
-                        GraphVertex v = game.getNode(i, j);
+                for (int i = 0; i < game.getHeight(); i++) {
+                    for (int j = 0; j < game.getWidth(); j++) {
+                        GraphVertex v = game.getVertex(i, j);
                         reg.addVertex(v);
                     }
                 }
-
-//                System.out.println("custom region");
             }
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);

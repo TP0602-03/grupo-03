@@ -4,6 +4,17 @@
     "width": 4,
     "height": 4
   },
+  "editables": [
+    {
+      "attribute": "num",
+      "values": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
   "cells": [
     {
       "x": 0,

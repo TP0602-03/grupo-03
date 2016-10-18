@@ -4,32 +4,32 @@
     "width": 3,
     "height": 3
   },
-  "editables": {
-    "cells": [
-      {
-        "attribute": "diagonal",
-        "values": [
-          "/",
-          "\\"
+  "editables": [
+    {
+      "attribute": "diagonal",
+      "values": [
+        "/",
+        "\\"
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomLeft",
+            "dst": "topRight"
+          }
         ],
-        "actions": [
+        [
           {
-            "graph": "vertices",
             "type": "add_edge",
-            "vertex1": "bottomLeft",
-            "vertex2": "topRight"
-          },
-          {
-            "graph": "vertices",
-            "type": "add_edge",
-            "vertex1": "bottomRight",
-            "vertex2": "topLeft"
+            "src": "bottomRight",
+            "dst": "topLeft"
           }
         ]
-      }
-    ]
-  },
-  "vertices": [
+      ]
+    }
+  ],
+  "corners": [
     {
       "x": 0,
       "y": 0,

@@ -1,13 +1,10 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.action.Action;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Game {
     private GridGraph cells;
@@ -15,12 +12,18 @@ public class Game {
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
+    private Map<String, Map<Object, List<Action>>> actions = new HashMap<>();
 
     public Game(int width, int height) {
         this.width = width;
         this.height = height;
-        cells = new GridGraph(width, height);
+        cells = new GridGraph(2 * width + 1, 2 * height + 1);
         nodes = new GridGraph(width + 1, height + 1);
+    }
+
+    public void addActions(String attribute, Object value, List<Action> actions) {
+        this.actions.putIfAbsent(attribute, new HashMap<>());
+        this.actions.get(attribute).put(value, actions);
     }
 
     public void addRegion(Region region) {
@@ -28,11 +31,15 @@ public class Game {
     }
 
     public GraphVertex getCell(int row, int col) {
-        return cells.getVertex(row, col);
+        return cells.getVertex(2 * row + 1, 2 * col + 1);
     }
 
-    public GraphVertex getNode(int row, int col) {
-        return nodes.getVertex(row, col);
+    public GraphVertex getCorner(int row, int col) {
+        return cells.getVertex(2 * row, 2 * col);
+    }
+
+    public GraphVertex getVertex(int row, int col) {
+        return cells.getVertex(row, col);
     }
 
     public boolean validateRules() {
@@ -51,22 +58,15 @@ public class Game {
     }
 
     public void playCell(int row, int col, String att, Object value) {
-        System.out.println("play cell: " + "(" + row + "," + col + ")" + " att: " + att + "  value: " + value);
-        cells.getVertex(row, col).setAttribute(att, value);
-    }
+        //System.out.println("play cell: " + "(" + row + "," + col + ")" + " att: " + att + "  value: " + value);
 
-    public void playNode(int row, int col, String att, int value) {
-        nodes.getVertex(row, col).setAttribute(att, value);
-    }
-
-    public void addNodeEdge(Coord nodeA, Coord nodeB) {
-        nodes.addEdge(nodeA, nodeB);
-        //validateRules();
-    }
-
-    public void addCellEdge(Coord cellA, Coord cellB) {
-        cells.addEdge(cellA, cellB);
-        //validateRules();
+        cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, value);
+        if (actions.get(att) != null) {
+            for (Action action :
+                    actions.get(att).get(value)) {
+                action.run(cells, 2 * row + 1, 2 * col + 1);
+            }
+        }
     }
 
     public int getWidth() {

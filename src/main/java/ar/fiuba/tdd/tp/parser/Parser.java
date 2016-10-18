@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.Game;
+import ar.fiuba.tdd.tp.action.Action;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -9,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Parser {
     private String path;
@@ -31,6 +34,34 @@ public class Parser {
 
         GraphVertexParser gridParser = new GraphVertexParser();
         gridParser.loadGrid(game, this.jsonGame);
+
+        JSONArray editables = (JSONArray) this.jsonGame.get("editables");
+        for (Object obj :
+                editables) {
+            JSONObject attributeInfo = (JSONObject) obj;
+            String attributeName = (String) attributeInfo.get("attribute");
+            JSONArray attributeValues = (JSONArray) attributeInfo.get("values");
+            JSONArray actions = (JSONArray) attributeInfo.get("actions");
+            if (actions != null) {
+                for (int i = 0; i < attributeValues.size(); i++) {
+                    JSONArray valueActions = (JSONArray) actions.get(i);
+                    List<Action> actionsForValue = new ArrayList<>();
+                    for (Object actionObj :
+                            valueActions) {
+                        JSONObject actionJson = (JSONObject) actionObj;
+                        ActionParser actParser = new ActionParser(actionJson);
+                        Action action = actParser.getAction();
+                        actionsForValue.add(action);
+                        System.out.println("action = " + action);
+                    }
+                    Object value = attributeValues.get(i);
+                    if (value.getClass() == Long.class) {
+                        value = ((Long) value).intValue();
+                    }
+                    game.addActions(attributeName, value, actionsForValue);
+                }
+            }
+        }
 
         RegionParser regionParser = new RegionParser();
         JSONArray jsonRegions = (JSONArray) jsonGame.get("regions");
