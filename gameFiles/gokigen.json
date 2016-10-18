@@ -125,7 +125,7 @@
   "regions": [
     {
       "region": {
-        "type": "all",
+        "type": "all_corners",
         "rules": [
           {
             "rule": {

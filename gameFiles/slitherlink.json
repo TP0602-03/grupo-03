@@ -49,9 +49,9 @@
       "actions": [
         [
           {
-            "type": "remove_edge",
-            "src": "this",
-            "dst": "right"
+            "type": "add_edge",
+            "src": "bottomRight",
+            "dst": "topRight"
           },
           {
             "type": "affect",
@@ -62,9 +62,9 @@
         ],
         [
           {
-            "type": "add_edge",
-            "src": "this",
-            "dst": "right"
+            "type": "remove_edge",
+            "src": "bottomRight",
+            "dst": "topRight"
           },
           {
             "type": "affect",
@@ -84,9 +84,9 @@
       "actions": [
         [
           {
-            "type": "remove_edge",
-            "src": "this",
-            "dst": "top"
+            "type": "add_edge",
+            "src": "topLeft",
+            "dst": "topRight"
           },
           {
             "type": "affect",
@@ -97,9 +97,9 @@
         ],
         [
           {
-            "type": "add_edge",
-            "src": "this",
-            "dst": "top"
+            "type": "remove_edge",
+            "src": "topLeft",
+            "dst": "topRight"
           },
           {
             "type": "affect",
@@ -119,9 +119,9 @@
       "actions": [
         [
           {
-            "type": "remove_edge",
-            "src": "this",
-            "dst": "bottom"
+            "type": "add_edge",
+            "src": "bottomLeft",
+            "dst": "bottomRight"
           },
           {
             "type": "affect",
@@ -132,9 +132,9 @@
         ],
         [
           {
-            "type": "add_edge",
-            "src": "this",
-            "dst": "bottom"
+            "type": "remove_edge",
+            "src": "bottomLeft",
+            "dst": "bottomRight"
           },
           {
             "type": "affect",
@@ -146,113 +146,56 @@
       ]
     }
   ],
-  "vertices": [
-    {
-      "x": 0,
-      "y": 0,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
-    {
-      "x": 0,
-      "y": 3,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
+  "cells": [
     {
       "x": 1,
       "y": 0,
       "attributes": {
-        "max_edges": 1
+        "num": 3
       }
     },
     {
       "x": 1,
       "y": 1,
       "attributes": {
-        "max_edges": 2
-      }
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "attributes": {
-        "max_edges": 2
-      }
-    },
-    {
-      "x": 1,
-      "y": 3,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
-    {
-      "x": 2,
-      "y": 0,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "attributes": {
-        "max_edges": 3
+        "num": 3
       }
     },
     {
       "x": 2,
       "y": 2,
       "attributes": {
-        "max_edges": 2
-      }
-    },
-    {
-      "x": 3,
-      "y": 1,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "attributes": {
-        "max_edges": 1
-      }
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "attributes": {
-        "max_edges": 1
+        "num": 3
       }
     }
   ],
   "regions": [
     {
       "region": {
-        "type": "all",
+        "type": "all_corners",
         "rules": [
           {
             "rule": {
               "name": "RuleGraphHasOneCycle"
             }
-          },
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "all_cells",
+        "rules": [
           {
             "rule": {
-              "name": "RuleCountVertexEdges",
-              "attribute": "max_edges"
+              "name": "RuleCountTrueBooleanAttributes",
+              "attribute": "num",
+              "attributes": [
+                "left",
+                "right",
+                "top",
+                "bottom"
+              ]
             }
           }
         ]

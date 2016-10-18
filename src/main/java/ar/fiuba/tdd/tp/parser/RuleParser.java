@@ -1,8 +1,11 @@
 package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.rule.*;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class RuleParser {
@@ -31,7 +34,19 @@ public class RuleParser {
         } else if (Objects.equals(ruleName, "RuleAllVerticesHaveAttribute")) {
             String att = (String) ruleJson.get("attribute");
             rule = new RuleAllVerticesHaveAttribute(att);
+        } else if (Objects.equals(ruleName, "RuleCountTrueBooleanAttributes")) {
+            String att = (String) ruleJson.get("attribute");
+            JSONArray attListJson = (JSONArray) ruleJson.get("attributes");
+            List<String> attList = new ArrayList<>();
+            for (Object obj :
+                    attListJson) {
+                String attribute = (String) obj;
+                attList.add(attribute);
+            }
+            rule = new RuleCountTrueBooleanAttributes(attList, att);
         }
+
+
         return rule;
     }
 }

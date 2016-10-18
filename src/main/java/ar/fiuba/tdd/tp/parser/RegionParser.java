@@ -24,10 +24,17 @@ public class RegionParser {
                 loadRowRegion(game, region, reg);
             } else if (Objects.equals(type, "custom")) {
                 loadCustomRegion(game, region, reg);
-            } else if (Objects.equals(type, "all")) {
+            } else if (Objects.equals(type, "all_cells")) {
                 for (int i = 0; i < game.getHeight(); i++) {
                     for (int j = 0; j < game.getWidth(); j++) {
-                        GraphVertex v = game.getVertex(i, j);
+                        GraphVertex v = game.getCell(i, j);
+                        reg.addVertex(v);
+                    }
+                }
+            } else if (Objects.equals(type, "all_corners")) {
+                for (int i = 0; i < game.getHeight() + 1; i++) {
+                    for (int j = 0; j < game.getWidth() + 1; j++) {
+                        GraphVertex v = game.getCorner(i, j);
                         reg.addVertex(v);
                     }
                 }

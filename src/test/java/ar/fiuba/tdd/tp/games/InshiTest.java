@@ -4,6 +4,8 @@ import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 public class InshiTest {
     private void printBoard(Game game) {
         for (int i = 0; i < 4; i++) {
@@ -95,6 +97,9 @@ public class InshiTest {
 
         game.playCell(3, 3, "num", 2);
         printBoard(game);
-        System.out.println("rules ok: " + game.validateRules() + "\n");
+        //System.out.println("rules ok: " + game.validateRules() + "\n");
+        assertTrue(game.validateRules());
     }
+
+
 }

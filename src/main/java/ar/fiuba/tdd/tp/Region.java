@@ -23,10 +23,10 @@ public class Region {
         // System.out.println("rules: " +  rules.size());
         for (Rule rule :
                 rules) {
-            System.out.println("rule: " + rule);
+//          System.out.println("rule: " + rule);
             result = rule.check(vertices);
 
-            //System.out.println("rule: " + rule.getClass() + " result: " + result);
+            System.out.println("rule: " + rule.getClass() + " result: " + result);
             if (!result) {
                 return false;
             }

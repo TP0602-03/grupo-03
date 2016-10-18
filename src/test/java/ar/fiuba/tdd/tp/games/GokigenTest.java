@@ -29,7 +29,7 @@ public class GokigenTest {
         game.playCell(1, 1, "diagonal", "/");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(1, 2, "diagonal", "\\");
+        game.playCell(1, 2, "diagonal", "/");
         System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(2, 0, "diagonal", "\\");
@@ -39,7 +39,7 @@ public class GokigenTest {
         System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(2, 2, "diagonal", "\\");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
         assertTrue(game.validateRules());
     }
 
