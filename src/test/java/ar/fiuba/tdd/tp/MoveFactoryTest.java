@@ -33,22 +33,7 @@ public class MoveFactoryTest {
         }
     };
 
-    ArrayList<String> valuesList = new ArrayList<String>() {
-        {
-            add("1");
-            add("2");
-            add("3");
-        }
-    };
 
-    ArrayList<Pair<Integer, Integer>> positionsList = new ArrayList<Pair<Integer, Integer>>() {
-        {
-            add(new Pair<>(0, 0));
-            add(new Pair<>(0, 1));
-            add(new Pair<>(1, 0));
-            add(new Pair<>(1, 1));
-        }
-    };
 
 
     @Test
