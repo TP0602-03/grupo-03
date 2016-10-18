@@ -3,14 +3,25 @@ package ar.fiuba.tdd.tp.games;
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.Region;
 import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.parser.Parser;
 import ar.fiuba.tdd.tp.rule.RuleGraphHasOneCycle;
 import ar.fiuba.tdd.tp.rule.RuleOneEntryOneExit;
 import ar.fiuba.tdd.tp.rule.RuleTotalVertexWithAttributeEqual;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 public class CountryTest {
     @Test
-    public void test() {
+    public void test() throws Exception {
+        Parser parser = new Parser("gameFiles/country.json");
+        Game game = parser.getGame();
+
+        game.playCell();
+
+
+
         Game country = new Game(4, 4);
 
         System.out.println("--- COUNTRY ---");
