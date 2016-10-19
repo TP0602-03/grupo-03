@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.action;
 
 import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
 
 public class AffectAttributeAction extends Action {
@@ -14,15 +15,23 @@ public class AffectAttributeAction extends Action {
         this.value = value;
     }
 
+    private boolean withinGraph(GridGraph graph, Coord dstCoord) {
+        if (dstCoord.getX() < 0 || dstCoord.getX() >= graph.getHeight()) {
+            return false;
+        }
+        if (dstCoord.getY() < 0 || dstCoord.getY() >= graph.getWidth()) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
-    public void run(GridGraph graph, int x, int y) {
-        Coord dstCoord = parseCoord(x, y, dst);
-        if (dstCoord.getCoordinateX() < 0 || dstCoord.getCoordinateX() >= graph.getHeight()) {
+    public void run(GridGraph graph, int row, int col) {
+        Coord dstCoord = parseCoord(row, col, dst);
+        if (!withinGraph(graph, dstCoord)) {
             return;
         }
-        if (dstCoord.getCoordinateY() < 0 || dstCoord.getCoordinateY() >= graph.getWidth()) {
-            return;
-        }
-        graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()).setAttribute(attribute, value);
+        GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
+        dstVertex.setAttribute(attribute, value);
     }
 }

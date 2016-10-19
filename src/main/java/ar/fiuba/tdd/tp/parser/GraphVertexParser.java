@@ -24,19 +24,19 @@ public class GraphVertexParser {
         for (Object obj :
                 verticesJson) {
             JSONObject vertex = (JSONObject) obj;
-            int x = ((Long) vertex.get("x")).intValue();
-            int y = ((Long) vertex.get("y")).intValue();
+            int row = ((Long) vertex.get("x")).intValue();
+            int col = ((Long) vertex.get("y")).intValue();
             JSONObject attributesJson = (JSONObject) vertex.get("attributes");
-            loadAttributes(getGraphVertex(game, x, y, type), attributesJson);
+            loadAttributes(getGraphVertex(game, row, col, type), attributesJson);
         }
     }
 
-    private GraphVertex getGraphVertex(Game game, int x, int y, String type) {
+    private GraphVertex getGraphVertex(Game game, int row, int col, String type) {
         if (Objects.equals(type, "corners")) {
-            return game.getCorner(x, y);
+            return game.getCorner(row, col);
         } else {
             // cells
-            return game.getCell(x, y);
+            return game.getCell(row, col);
         }
     }
 

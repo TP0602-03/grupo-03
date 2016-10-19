@@ -11,14 +11,14 @@ public class CoordTests {
     public void coordGetX() {
         Coord coordinate = new Coord(1, 1);
         Integer num = 1;
-        assertEquals(coordinate.getCoordinateX(), num);
+        assertEquals(coordinate.getX(), num);
     }
 
     @Test
     public void coordGetY() {
         Coord coordinate = new Coord(2, 2);
         Integer num = 2;
-        assertEquals(coordinate.getCoordinateY(), num);
+        assertEquals(coordinate.getY(), num);
     }
 
 }

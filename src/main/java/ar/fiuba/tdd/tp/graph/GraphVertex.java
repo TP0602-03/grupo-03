@@ -45,6 +45,10 @@ public class GraphVertex {
         adjacencyList.remove(vertex);
     }
 
+    public boolean isAdjacent(GraphVertex other) {
+        return adjacencyList.contains(other);
+    }
+
     public void clearEdges() {
         adjacencyList = new ArrayList<>();
     }

@@ -3,8 +3,6 @@ package ar.fiuba.tdd.tp.action;
 import ar.fiuba.tdd.tp.graph.GridGraph;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class AddEdgeActionTest {
     @Test
     public void name() throws Exception {

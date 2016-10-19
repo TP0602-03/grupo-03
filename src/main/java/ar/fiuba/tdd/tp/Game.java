@@ -70,13 +70,10 @@ public class Game {
                         cell.getAttributes().entrySet()) {
 
                     if (actions.get(attribute.getKey()) != null) {
-                        //System.out.println("*** actions for attribute : " + attribute.getKey() + " with value " + attribute.getValue() + " ***");
                         for (Action action :
                                 actions.get(attribute.getKey()).get(attribute.getValue())) {
                             //System.out.println("action = " + action);
                             action.run(cells, 2 * i + 1, 2 * j + 1);
-
-
                         }
 
                     }

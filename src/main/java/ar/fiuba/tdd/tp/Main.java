@@ -38,7 +38,11 @@ public class Main {
 
             Move move = controller.getMove();
             try {
-                System.out.println(Integer.toString(move.getId()) + Integer.toString(move.getX()) + Integer.toString(move.getY()) + move.getValue());
+                String id = Integer.toString(move.getId());
+                String row = Integer.toString(move.getX());
+                String col = Integer.toString(move.getY());
+                String value = move.getValue();
+                System.out.println(id + row + col + value);
             } catch (InvalidMoveException e) {
                 //
             }

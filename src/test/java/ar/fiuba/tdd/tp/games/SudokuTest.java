@@ -5,8 +5,6 @@ import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Scanner;
-
 public class SudokuTest {
     private void printBoard(Game game) {
         for (int i = 0; i < 4; i++) {

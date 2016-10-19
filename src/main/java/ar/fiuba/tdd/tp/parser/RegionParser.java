@@ -29,8 +29,8 @@ public class RegionParser {
             } else if (Objects.equals(type, "all_cells")) {
                 for (int i = 0; i < game.getHeight(); i++) {
                     for (int j = 0; j < game.getWidth(); j++) {
-                        GraphVertex v = game.getCell(i, j);
-                        reg.addVertex(v);
+                        GraphVertex vertex = game.getCell(i, j);
+                        reg.addVertex(vertex);
                     }
                 }
             } else if (Objects.equals(type, "edges")) {
@@ -41,32 +41,32 @@ public class RegionParser {
                 for (Object obj :
                         cells) {
                     JSONObject cellPos = (JSONObject) obj;
-                    int x = ((Long) cellPos.get("x")).intValue();
-                    int y = ((Long) cellPos.get("y")).intValue();
+                    int row = ((Long) cellPos.get("x")).intValue();
+                    int col = ((Long) cellPos.get("y")).intValue();
                     //top
-                    GraphVertex vertex = game.getVertex(2 * x, 2 * y + 1);
+                    GraphVertex vertex = game.getVertex(2 * row, 2 * col + 1);
                     set.add(vertex);
                     //bottom
-                    vertex = game.getVertex(2 * x + 2, 2 * y + 1);
+                    vertex = game.getVertex(2 * row + 2, 2 * col + 1);
                     set.add(vertex);
                     //left
-                    vertex = game.getVertex(2 * x + 1, 2 * y);
+                    vertex = game.getVertex(2 * row + 1, 2 * col);
                     set.add(vertex);
                     //right
-                    vertex = game.getVertex(2 * x + 1, 2 * y + 2);
+                    vertex = game.getVertex(2 * row + 1, 2 * col + 2);
                     set.add(vertex);
 
                 }
-                for (GraphVertex v :
+                for (GraphVertex vertex :
                         set) {
-                    reg.addVertex(v);
+                    reg.addVertex(vertex);
                 }
 
             } else if (Objects.equals(type, "all_corners")) {
                 for (int i = 0; i < game.getHeight() + 1; i++) {
                     for (int j = 0; j < game.getWidth() + 1; j++) {
-                        GraphVertex v = game.getCorner(i, j);
-                        reg.addVertex(v);
+                        GraphVertex vertex = game.getCorner(i, j);
+                        reg.addVertex(vertex);
                     }
                 }
             } else if (Objects.equals(type, "all_edges")) {
@@ -106,9 +106,9 @@ public class RegionParser {
         for (Object obj :
                 cells) {
             JSONObject cellPos = (JSONObject) obj;
-            int x = ((Long) cellPos.get("x")).intValue();
-            int y = ((Long) cellPos.get("y")).intValue();
-            GraphVertex vertex = game.getCell(x, y);
+            int row = ((Long) cellPos.get("x")).intValue();
+            int col = ((Long) cellPos.get("y")).intValue();
+            GraphVertex vertex = game.getCell(row, col);
             reg.addVertex(vertex);
         }
     }
