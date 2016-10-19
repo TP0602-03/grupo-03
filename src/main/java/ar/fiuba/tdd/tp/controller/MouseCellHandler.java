@@ -8,6 +8,8 @@ import ar.fiuba.tdd.tp.view.MainValuePicker;
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by ms0359 on 10/15/16.
@@ -30,8 +32,23 @@ public class MouseCellHandler implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
         Object newValue = mainValuePicker.GetValuePicker((JPanel) e.getSource());
-
+        ArrayList<String> contents = null;
         game.playCell(row,col, "num", newValue);
+        for (int i = 0; i < game.getWidth(); i++) {
+            for (int j = 0; j < game.getHeight(); j++) {
+                contents = new ArrayList<String>();
+                for (Map.Entry<String, Object> key : game.getCellKeysValues(i, j)) {
+                    String content;
+                    try {
+                        content = key.getValue().toString();
+                    } catch (Exception ex) {
+                        content = "  ";
+                    }
+                    contents.add(content);
+                }
+            }
+        }
+        cellView.setContents(contents);
         cellView.generateLabels();
     }
 

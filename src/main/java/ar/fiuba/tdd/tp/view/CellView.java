@@ -17,6 +17,10 @@ public class CellView extends JPanel {
         generateLabels();
     }
 
+    public void setContents(ArrayList<String> newContents) {
+        this.contents = newContents;
+    }
+
     public void setHandlers(MouseListener mouseListener) {
         this.addMouseListener(mouseListener);
     }
