@@ -25,9 +25,9 @@ public class RuleCheckProductTest {
         vertices.add(graph.getVertex(0, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(0, 2));
-        graph.getVertex(0, 0).setAttribute("att", 2);
-        graph.getVertex(0, 1).setAttribute("att", 5);
-        graph.getVertex(0, 2).setAttribute("att", 1);
+        graph.getVertex(0, 0).setAttribute("att", "2");
+        graph.getVertex(0, 1).setAttribute("att", "5");
+        graph.getVertex(0, 2).setAttribute("att", "1");
         assertTrue(rule.check(vertices));
     }
 
@@ -38,9 +38,9 @@ public class RuleCheckProductTest {
         vertices.add(graph.getVertex(1, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(1, 2));
-        graph.getVertex(1, 0).setAttribute("att", 10);
-        graph.getVertex(0, 1).setAttribute("att", 0);
-        graph.getVertex(1, 2).setAttribute("att", 1);
+        graph.getVertex(1, 0).setAttribute("att", "10");
+        graph.getVertex(0, 1).setAttribute("att", "0");
+        graph.getVertex(1, 2).setAttribute("att", "1");
         assertFalse(rule.check(vertices));
     }
 
@@ -51,11 +51,11 @@ public class RuleCheckProductTest {
         vertices.add(graph.getVertex(1, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(1, 2));
-        graph.getVertex(1, 0).setAttribute("att", 1);
+        graph.getVertex(1, 0).setAttribute("att", "1");
         /*TODO Si se comenta una de estas lineas, devuelve true aunque haya un
         vertice que no tenga ese atributo*/
-        graph.getVertex(0, 1).setAttribute("att", 10);
-        graph.getVertex(1, 2).setAttribute("att", 1);
+        graph.getVertex(0, 1).setAttribute("att", "10");
+        graph.getVertex(1, 2).setAttribute("att", "1");
         assertTrue(rule.check(vertices));
     }
 }

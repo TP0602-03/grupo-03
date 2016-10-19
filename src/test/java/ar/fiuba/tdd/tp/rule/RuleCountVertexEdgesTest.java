@@ -23,9 +23,9 @@ public class RuleCountVertexEdgesTest {
     @Test
     public void test1() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        graph.getVertex(0, 0).setAttribute("max_edges", 1);
-        graph.getVertex(0, 1).setAttribute("max_edges", 2);
-        graph.getVertex(0, 2).setAttribute("max_edges", 1);
+        graph.getVertex(0, 0).setAttribute("max_edges", "1");
+        graph.getVertex(0, 1).setAttribute("max_edges", "2");
+        graph.getVertex(0, 2).setAttribute("max_edges", "1");
         graph.addEdge(new Coord(0, 0), new Coord(0, 1));
         graph.addEdge(new Coord(0, 2), new Coord(0, 1));
         List<GraphVertex> vertices = new ArrayList<>();
@@ -38,9 +38,9 @@ public class RuleCountVertexEdgesTest {
     @Test
     public void test2() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        graph.getVertex(0, 0).setAttribute("max_edges", 1);
-        graph.getVertex(0, 1).setAttribute("max_edges", 1);
-        graph.getVertex(0, 2).setAttribute("max_edges", 0);
+        graph.getVertex(0, 0).setAttribute("max_edges", "1");
+        graph.getVertex(0, 1).setAttribute("max_edges", "1");
+        graph.getVertex(0, 2).setAttribute("max_edges", "0");
         graph.addEdge(new Coord(0, 0), new Coord(0, 1));
         graph.addEdge(new Coord(0, 2), new Coord(0, 1));
         List<GraphVertex> vertices = new ArrayList<>();
@@ -54,9 +54,9 @@ public class RuleCountVertexEdgesTest {
     @Test
     public void test3() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        graph.getVertex(0, 0).setAttribute("max_edges", 1);
-        graph.getVertex(0, 1).setAttribute("max_edges", 1);
-        graph.getVertex(0, 2).setAttribute("max_edges", 0);
+        graph.getVertex(0, 0).setAttribute("max_edges", "1");
+        graph.getVertex(0, 1).setAttribute("max_edges", "1");
+        graph.getVertex(0, 2).setAttribute("max_edges", "0");
         graph.addEdge(new Coord(0, 0), new Coord(0, 1));
         List<GraphVertex> vertices = new ArrayList<>();
         vertices.add(graph.getVertex(0, 0));

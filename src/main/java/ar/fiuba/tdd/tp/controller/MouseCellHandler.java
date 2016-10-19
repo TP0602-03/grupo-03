@@ -31,13 +31,13 @@ public class MouseCellHandler implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        Object newValue = mainValuePicker.GetValuePicker((JPanel) e.getSource());
+        String newValue = (String) mainValuePicker.GetValuePicker((JPanel) e.getSource());
         ArrayList<String> contents = null;
         game.playCell(row,col, "num", newValue);
         for (int i = 0; i < game.getWidth(); i++) {
             for (int j = 0; j < game.getHeight(); j++) {
                 contents = new ArrayList<String>();
-                for (Map.Entry<String, Object> key : game.getCellKeysValues(i, j)) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
                     String content;
                     try {
                         content = key.getValue().toString();

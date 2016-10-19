@@ -5,7 +5,7 @@ import ar.fiuba.tdd.tp.rule.RuleDistinctElements;
 
 public class AnotherTest {
 
-    public static void setDefaultAttribute(Game game, int width, int height, String attribute, Object value) {
+    public static void setDefaultAttribute(Game game, int width, int height, String attribute, String value) {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 game.getCell(i, j).setAttribute(attribute, value);

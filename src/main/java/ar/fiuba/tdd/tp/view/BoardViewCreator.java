@@ -19,10 +19,10 @@ public class BoardViewCreator {
             for (int i = 0; i < game.getWidth(); i++) {
                 for (int j = 0; j < game.getHeight(); j++) {
                     ArrayList<String> contents = new ArrayList<String>();
-                    for (Map.Entry<String, Object> key : game.getCellKeysValues(i, j)) {
+                    for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
                         String content;
                         try {
-                            content = key.getValue().toString();
+                            content = key.getValue();
                         } catch (Exception ex) {
                             content = "  ";
                         }

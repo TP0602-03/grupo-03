@@ -30,19 +30,19 @@ public class GridGraph {
     }
 
     public void addEdge(Coord nodeA, Coord nodeB) {
-        int nodeACoordinateX = nodeA.getCoordinateX();
-        int nodeACoordinateY = nodeA.getCoordinateY();
-        int nodeBCoordinateX = nodeB.getCoordinateX();
-        int nodeBCoordinateY = nodeB.getCoordinateY();
+        int nodeACoordinateX = nodeA.getX();
+        int nodeACoordinateY = nodeA.getY();
+        int nodeBCoordinateX = nodeB.getX();
+        int nodeBCoordinateY = nodeB.getY();
         vertices.get(nodeACoordinateX).get(nodeACoordinateY).addEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
         vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).addEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
     }
 
     public void removeEdge(Coord src, Coord dst) {
-        int nodeACoordinateX = src.getCoordinateX();
-        int nodeACoordinateY = src.getCoordinateY();
-        int nodeBCoordinateX = dst.getCoordinateX();
-        int nodeBCoordinateY = dst.getCoordinateY();
+        int nodeACoordinateX = src.getX();
+        int nodeACoordinateY = src.getY();
+        int nodeBCoordinateX = dst.getX();
+        int nodeBCoordinateY = dst.getY();
         vertices.get(nodeACoordinateX).get(nodeACoordinateY).removeEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
         vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).removeEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
     }
@@ -61,5 +61,15 @@ public class GridGraph {
                 vertices.get(i).get(j).clearEdges();
             }
         }
+    }
+
+    public boolean contains(Coord dstCoord) {
+        if (dstCoord.getX() < 0 || dstCoord.getX() >= height) {
+            return false;
+        }
+        if (dstCoord.getY() < 0 || dstCoord.getY() >= width) {
+            return false;
+        }
+        return true;
     }
 }

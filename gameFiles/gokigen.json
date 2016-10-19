@@ -140,6 +140,19 @@
           }
         ]
       }
+    },
+    {
+      "region": {
+        "type": "all_cells",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleAllVerticesHaveAttribute",
+              "attribute": "diagonal"
+            }
+          }
+        ]
+      }
     }
   ]
 }

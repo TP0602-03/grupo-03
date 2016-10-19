@@ -32,70 +32,70 @@ public class InshiTest {
         printBoard(game);
 
 
-        game.playCell(0, 0, "num", 3);
+        game.playCell(0, 0, "num", "3");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(0, 1, "num", 4);
+        game.playCell(0, 1, "num", "4");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(0, 2, "num", 2);
+        game.playCell(0, 2, "num", "2");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(0, 3, "num", 1);
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules() + "\n");
-
-
-        game.playCell(1, 0, "num", 2);
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules() + "\n");
-
-        game.playCell(1, 1, "num", 1);
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules() + "\n");
-
-        game.playCell(1, 2, "num", 4);
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules() + "\n");
-
-        game.playCell(1, 3, "num", 3);
+        game.playCell(0, 3, "num", "1");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
 
-        game.playCell(2, 0, "num", 1);
+        game.playCell(1, 0, "num", "2");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(2, 1, "num", 2);
+        game.playCell(1, 1, "num", "1");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(2, 2, "num", 3);
+        game.playCell(1, 2, "num", "4");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(2, 3, "num", 4);
+        game.playCell(1, 3, "num", "3");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
 
-        game.playCell(3, 0, "num", 4);
+        game.playCell(2, 0, "num", "1");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(3, 1, "num", 3);
+        game.playCell(2, 1, "num", "2");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(3, 2, "num", 1);
+        game.playCell(2, 2, "num", "3");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules() + "\n");
 
-        game.playCell(3, 3, "num", 2);
+        game.playCell(2, 3, "num", "4");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules() + "\n");
+
+
+        game.playCell(3, 0, "num", "4");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules() + "\n");
+
+        game.playCell(3, 1, "num", "3");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules() + "\n");
+
+        game.playCell(3, 2, "num", "1");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules() + "\n");
+
+        game.playCell(3, 3, "num", "2");
         printBoard(game);
         //System.out.println("rules ok: " + game.validateRules() + "\n");
         assertTrue(game.validateRules());

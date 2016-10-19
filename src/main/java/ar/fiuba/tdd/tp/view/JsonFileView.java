@@ -1,11 +1,14 @@
 package ar.fiuba.tdd.tp.view;
 
+import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
 import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by luciano on 16/10/16.
@@ -40,15 +43,58 @@ public class JsonFileView {
         ((JSONArray) this.info.get("plays")).add(play);
     }
 
-    public void add(Pair<Integer, Integer> position, String value) {
-        JSONObject cell = new JSONObject();
-        JSONArray positionArray = new JSONArray();
-        positionArray.add(position.getKey());
-        positionArray.add(position.getValue());
-        cell.put("position", positionArray);
-        cell.put("value", value);
-        ((JSONArray) ((JSONObject) this.info.get("board")).get("values")).add(cell);
+    private JSONObject createJsonCell(int positionX,int positionY,String attribute, String value) {
 
+
+
+        JSONObject cell = new JSONObject();
+
+        JSONArray positionArray = new JSONArray();
+        positionArray.add(positionX);
+        positionArray.add(positionY);
+        cell.put("position", positionArray);
+        cell.put("attribute",attribute);
+        cell.put("value", value);
+
+        return cell;
+
+    }
+
+    private void addStatus(Game game) {
+        if( game.validateRules() ){
+            ((JSONObject)this.info.get("board")).put("status","true");
+        } else {
+            ((JSONObject)this.info.get("board")).put("status","false");
+        }
+
+    }
+
+    private void updateBoard(ArrayList<JSONObject> cells) {
+        ((JSONObject)this.info.get("board")).put("values",cells);
+    }
+
+    public void add(Game game) {
+
+        ArrayList<JSONObject> cells = new ArrayList<>();
+
+        for (int i = 0; i < game.getWidth(); i++) {
+            for (int j = 0; j < game.getHeight(); j++) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
+                    String content;
+                    try {
+                        content = key.getValue();
+                        if (key.getKey() != "pos") {
+                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
+                        }
+                    } catch (Exception ex) {
+                        //do nothing;
+                    }
+                }
+            }
+        }
+
+        this.updateBoard(cells);
+        this.addStatus(game);
     }
 
     public void write() throws IOException {

@@ -22,9 +22,9 @@ public class RuleDistinctElementsTest {
     @Test
     public void test1() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        graph.getVertex(0, 0).setAttribute("att", 1);
-        graph.getVertex(0, 1).setAttribute("att", 3);
-        graph.getVertex(0, 2).setAttribute("att", 4);
+        graph.getVertex(0, 0).setAttribute("att", "1");
+        graph.getVertex(0, 1).setAttribute("att", "3");
+        graph.getVertex(0, 2).setAttribute("att", "4");
         List<GraphVertex> vertices = new ArrayList<>();
         vertices.add(graph.getVertex(0, 0));
         vertices.add(graph.getVertex(0, 1));
@@ -35,9 +35,9 @@ public class RuleDistinctElementsTest {
     @Test
     public void test2() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        graph.getVertex(0, 0).setAttribute("att", 1);
-        graph.getVertex(0, 1).setAttribute("att", 3);
-        graph.getVertex(0, 2).setAttribute("att", 1);
+        graph.getVertex(0, 0).setAttribute("att", "1");
+        graph.getVertex(0, 1).setAttribute("att", "3");
+        graph.getVertex(0, 2).setAttribute("att", "1");
         List<GraphVertex> vertices = new ArrayList<>();
         vertices.add(graph.getVertex(0, 0));
         vertices.add(graph.getVertex(0, 1));

@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.action;
 
 import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
 
 public class RemoveEdgeAction extends Action {
@@ -13,24 +14,15 @@ public class RemoveEdgeAction extends Action {
     }
 
     @Override
-    public void run(GridGraph graph, int x, int y) {
-        Coord srcCoord = parseCoord(x, y, this.src);
-        Coord dstCoord = parseCoord(x, y, this.dst);
-        if (dstCoord.getCoordinateX() < 0 || dstCoord.getCoordinateX() >= graph.getHeight()) {
+    public void run(GridGraph graph, int row, int col) {
+        Coord srcCoord = parseCoord(row, col, this.src);
+        Coord dstCoord = parseCoord(row, col, this.dst);
+        if (!graph.contains(dstCoord) || !graph.contains(srcCoord)) {
             return;
         }
-        if (dstCoord.getCoordinateY() < 0 || dstCoord.getCoordinateY() >= graph.getWidth()) {
-            return;
-        }
-
-        if (srcCoord.getCoordinateX() < 0 || srcCoord.getCoordinateX() >= graph.getHeight()) {
-            return;
-        }
-        if (srcCoord.getCoordinateY() < 0 || srcCoord.getCoordinateY() >= graph.getWidth()) {
-            return;
-        }
-        if (graph.getVertex(srcCoord.getCoordinateX(), srcCoord.getCoordinateY()).getAdjacencyList().contains(graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()))) {
-            //System.out.println("removed edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
+        GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
+        GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
+        if (srcVertex.isAdjacent(dstVertex)) {
             graph.removeEdge(srcCoord, dstCoord);
         }
     }

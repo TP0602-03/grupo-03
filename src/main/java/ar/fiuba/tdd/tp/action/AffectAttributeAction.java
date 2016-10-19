@@ -1,28 +1,27 @@
 package ar.fiuba.tdd.tp.action;
 
 import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
 
 public class AffectAttributeAction extends Action {
     private String dst;
     private String attribute;
-    private Object value;
+    private String value;
 
-    public AffectAttributeAction(String dst, String attribute, Object value) {
+    public AffectAttributeAction(String dst, String attribute, String value) {
         this.dst = dst;
         this.attribute = attribute;
         this.value = value;
     }
 
     @Override
-    public void run(GridGraph graph, int x, int y) {
-        Coord dstCoord = parseCoord(x, y, dst);
-        if (dstCoord.getCoordinateX() < 0 || dstCoord.getCoordinateX() >= graph.getHeight()) {
+    public void run(GridGraph graph, int row, int col) {
+        Coord dstCoord = parseCoord(row, col, dst);
+        if (!graph.contains(dstCoord)) {
             return;
         }
-        if (dstCoord.getCoordinateY() < 0 || dstCoord.getCoordinateY() >= graph.getWidth()) {
-            return;
-        }
-        graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()).setAttribute(attribute, value);
+        GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
+        dstVertex.setAttribute(attribute, value);
     }
 }

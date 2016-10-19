@@ -9,6 +9,8 @@ import javafx.util.Pair;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
@@ -23,22 +25,20 @@ public class JsonControllerTest {
     String allInvalidMoves = folder + "JsonInvalidMoves.json";
     String everyOtherValidMoves = folder + "JsonEveryOtherValidMove.json";
 
-    HashMap<String, String> valuesMap = new HashMap<String, String>() {
+    HashMap<String, ArrayList<String>> valuesMap = new HashMap<String, ArrayList<String>>() {
         {
-            put("1", "num");
-            put("2", "num");
-            put("3", "num");
+            put("num", new ArrayList<>(Arrays.asList("1","2","3")));
         }
     };
 
 
-    HashMap<Pair<Integer, Integer>, Boolean> positionsMap = new HashMap<Pair<Integer, Integer>, Boolean>() {
+    HashMap<Pair<Integer, Integer>, ArrayList<String>> positionsMap = new HashMap<Pair<Integer, Integer>, ArrayList<String>>() {
         {
 
-            put(new Pair<>(0, 0), Boolean.TRUE);
-            put(new Pair<>(0, 1), Boolean.TRUE);
-            put(new Pair<>(1, 0), Boolean.TRUE);
-            put(new Pair<>(1, 1), Boolean.TRUE);
+            put(new Pair<>(0, 0), new ArrayList<>(Arrays.asList("num")));
+            put(new Pair<>(0, 1), new ArrayList<>(Arrays.asList("num")));
+            put(new Pair<>(1, 0), new ArrayList<>(Arrays.asList("num")));
+            put(new Pair<>(1, 1), new ArrayList<>(Arrays.asList("num")));
         }
     };
 

@@ -5,8 +5,6 @@ import ar.fiuba.tdd.tp.parser.Parser;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Scanner;
-
 public class SudokuTest {
     private void printBoard(Game game) {
         for (int i = 0; i < 4; i++) {
@@ -30,40 +28,41 @@ public class SudokuTest {
         Parser parser = new Parser("gameFiles/sudoku.json");
         Game game = parser.getGame();
 
+
         printBoard(game);
 
 
-        game.playCell(0, 3, "num", 2);
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules());
-
-
-        game.playCell(1, 0, "num", 1);
+        game.playCell(3, 0, "num", "2");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
 
-        game.playCell(1, 2, "num", 3);
+        game.playCell(0, 1, "num", "1");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(1, 3, "num", 4);
+
+        game.playCell(2, 1, "num", "3");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(2, 1, "num", 3);
+        game.playCell(3, 1, "num", "4");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(2, 3, "num", 1);
+        game.playCell(1, 2, "num", "3");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(2, 0, "num", 4);
+        game.playCell(3, 2, "num", "1");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(3, 0, "num", 2);
+        game.playCell(0, 2, "num", "4");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules());
+
+        game.playCell(0, 3, "num", "2");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
         Assert.assertTrue(game.validateRules());
