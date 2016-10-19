@@ -35,6 +35,7 @@ public class ConsoleController {
         return bufferedReader.readLine();
     }
 
+
     public Move getMove() throws IOException {
 
         Console console = System.console();
@@ -42,16 +43,18 @@ public class ConsoleController {
         int positionX = 0;
         int positionY = 0;
         String value = null;
+        String attribute = null;
 
         try {
             positionX = this.getCoord("Set X position: ");
             positionY = this.getCoord("Set Y position: ");
+            attribute = this.getValue("Get cell attribute: ");
             value = this.getValue("Set cell value: ");
         } catch (NumberFormatException exception) {
             System.out.println("Invalid value");
         }
 
-        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY, value);
+        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY,attribute,value);
 
         if (!moveToReturn.isValid()) {
             System.out.println("Invalid Move");
