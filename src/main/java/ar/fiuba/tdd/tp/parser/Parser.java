@@ -61,12 +61,23 @@ public class Parser {
 
                 }
             }
+            game.setAllowedValues(this.parseJsonArrayToStringArray(attributeValues));
         }
 
         RegionParser regionParser = new RegionParser();
         JSONArray jsonRegions = (JSONArray) jsonGame.get("regions");
         regionParser.loadRegions(game, jsonRegions);
 
+    }
+
+    private ArrayList<String> parseJsonArrayToStringArray(JSONArray attributeValues) {
+        ArrayList<String> stringArray = new ArrayList<>();
+
+        for (Object jsonObject : attributeValues) {
+            stringArray.add(jsonObject.toString());
+        }
+
+        return stringArray;
     }
 
     public Game getGame() {

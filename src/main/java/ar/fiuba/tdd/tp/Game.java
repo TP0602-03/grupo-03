@@ -13,6 +13,7 @@ public class Game {
     private int width;
     private int height;
     private Map<String, Map<String, List<Action>>> actions = new HashMap<>();
+    private ArrayList<String> allowedValues;
 
 
     public Game(int width, int height) {
@@ -90,5 +91,13 @@ public class Game {
 
     public Set<Map.Entry<String, String>> getCellKeysValues(int row, int col) {
         return cells.getVertex(2 * row + 1,2 * col + 1).getKeysValues();
+    }
+
+    public void setAllowedValues(ArrayList<String> strings) {
+        this.allowedValues = strings;
+    }
+
+    public ArrayList<String> getAllowedValues() {
+        return this.allowedValues;
     }
 }

@@ -15,12 +15,12 @@ import java.util.Map;
  * Created by ms0359 on 10/15/16.
  */
 public class MouseCellHandler implements MouseListener {
-    IconValue[] content;
+    ArrayList<IconValue> content;
     Game game;
     int row, col;
     CellView cellView;
 
-    public MouseCellHandler(IconValue[] content, Game game, int row, int col, CellView cellView) {
+    public MouseCellHandler(ArrayList<IconValue> content, Game game, int row, int col, CellView cellView) {
         this.content = content;
         this.game = game;
         this.row = row;

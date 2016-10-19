@@ -3,13 +3,14 @@ package ar.fiuba.tdd.tp.view;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class MainValuePicker {
 
-    IconValue[] options;
+    ArrayList<IconValue> options;
 
-    public MainValuePicker(IconValue[] options) {
+    public MainValuePicker(ArrayList<IconValue> options) {
         this.options = options;
     }
 
@@ -25,9 +26,9 @@ public class MainValuePicker {
     }
 
     private JButton[] GetOptions(JOptionPane optionPane) {
-        JButton[] buttons = new JButton[options.length];
-        for (int i = 0; i < options.length; i++) {
-            buttons[i] = GetButton(options[i], optionPane);
+        JButton[] buttons = new JButton[options.size()];
+        for (int i = 0; i < options.size(); i++) {
+            buttons[i] = GetButton(options.get(i), optionPane);
         }
         return buttons;
     }
