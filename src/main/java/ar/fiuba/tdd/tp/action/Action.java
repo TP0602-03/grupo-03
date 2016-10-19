@@ -55,59 +55,7 @@ public abstract class Action {
         colOffset.put("middleRight", 1);
 
         Coord coord = new Coord(row + rowOffset.get(strCoord), col + colOffset.get(strCoord));
-        /*
-        if (Objects.equals(strCoord, "topLeft")) {
-            coord = new Coord(row - 1, col - 1);
-        }
-        if (Objects.equals(strCoord, "topRight")) {
-            coord = new Coord(row - 1, col + 1);
-        }
-        if (Objects.equals(strCoord, "bottomLeft")) {
-            coord = new Coord(row + 1, col - 1);
-        }
-        if (Objects.equals(strCoord, "bottomRight")) {
-            coord = new Coord(row + 1, col + 1);
-        }*/
-  /*      if (Objects.equals(strCoord, "top")) {
-            coord = new Coord(row - 2, col);
-        }
-        if (Objects.equals(strCoord, "bottom")) {
-            coord = new Coord(row + 2, col);
-        }
-        if (Objects.equals(strCoord, "left")) {
-            coord = new Coord(row, col - 2);
-        }
-        if (Objects.equals(strCoord, "right")) {
-            coord = new Coord(row, col + 2);
-        }
-        if (Objects.equals(strCoord, "this")) {
-            coord = new Coord(row, col);
-        }
-*/
 
-/*
-        if (Objects.equals(strCoord, "middleLeft")) {
-            coord = new Coord(row, col - 1);
-        }
-        rowOffset.put("middleRight",0);
-        colOffset.put("middleRight",-1);
-        if (Objects.equals(strCoord, "middleRight")) {
-            coord = new Coord(row, col + 1);
-        }
-*/
-
-/*
-        if (Objects.equals(strCoord, "bottomMiddle")) {
-            coord = new Coord(row + 1, col);
-        }
-*/
-
-
-/*
-        if (Objects.equals(strCoord, "topMiddle")) {
-            coord = new Coord(row - 1, col);
-        }
-*/
         return coord;
     }
 }

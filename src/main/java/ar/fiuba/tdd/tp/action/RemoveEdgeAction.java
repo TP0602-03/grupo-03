@@ -17,11 +17,7 @@ public class RemoveEdgeAction extends Action {
     public void run(GridGraph graph, int row, int col) {
         Coord srcCoord = parseCoord(row, col, this.src);
         Coord dstCoord = parseCoord(row, col, this.dst);
-        if (!withinGraph(graph, dstCoord)) {
-            return;
-        }
-
-        if (!withinGraph(graph, srcCoord)) {
+        if (!graph.contains(dstCoord) || !graph.contains(srcCoord)) {
             return;
         }
         GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
@@ -29,15 +25,5 @@ public class RemoveEdgeAction extends Action {
         if (srcVertex.isAdjacent(dstVertex)) {
             graph.removeEdge(srcCoord, dstCoord);
         }
-    }
-
-    private boolean withinGraph(GridGraph graph, Coord dstCoord) {
-        if (dstCoord.getX() < 0 || dstCoord.getX() >= graph.getHeight()) {
-            return false;
-        }
-        if (dstCoord.getY() < 0 || dstCoord.getY() >= graph.getWidth()) {
-            return false;
-        }
-        return true;
     }
 }

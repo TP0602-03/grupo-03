@@ -15,20 +15,10 @@ public class AffectAttributeAction extends Action {
         this.value = value;
     }
 
-    private boolean withinGraph(GridGraph graph, Coord dstCoord) {
-        if (dstCoord.getX() < 0 || dstCoord.getX() >= graph.getHeight()) {
-            return false;
-        }
-        if (dstCoord.getY() < 0 || dstCoord.getY() >= graph.getWidth()) {
-            return false;
-        }
-        return true;
-    }
-
     @Override
     public void run(GridGraph graph, int row, int col) {
         Coord dstCoord = parseCoord(row, col, dst);
-        if (!withinGraph(graph, dstCoord)) {
+        if (!graph.contains(dstCoord)) {
             return;
         }
         GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
