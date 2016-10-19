@@ -54,4 +54,12 @@ public class GridGraph {
     public Integer getHeight() {
         return height;
     }
+
+    public void clearEdges() {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                vertices.get(i).get(j).clearEdges();
+            }
+        }
+    }
 }

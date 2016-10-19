@@ -29,6 +29,9 @@ public class RemoveEdgeAction extends Action {
         if (srcCoord.getCoordinateY() < 0 || srcCoord.getCoordinateY() >= graph.getWidth()) {
             return;
         }
-        graph.removeEdge(srcCoord, dstCoord);
+        if (graph.getVertex(srcCoord.getCoordinateX(), srcCoord.getCoordinateY()).getAdjacencyList().contains(graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()))) {
+            //System.out.println("removed edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
+            graph.removeEdge(srcCoord, dstCoord);
+        }
     }
 }

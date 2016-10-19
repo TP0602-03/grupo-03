@@ -38,10 +38,18 @@ public class GraphVertex {
      * Esta clase se va a borrar, hablar con Chris que la usa para testear or some shit.
      */
     public void print() {
-        System.out.println((String) getAttribute("pos"));
+        //System.out.println((String) getAttribute("pos"));
     }
 
     public void removeEdge(GraphVertex vertex) {
         adjacencyList.remove(vertex);
+    }
+
+    public void clearEdges() {
+        adjacencyList = new ArrayList<>();
+    }
+
+    public Map<String, Object> getAttributes() {
+        return attributes;
     }
 }

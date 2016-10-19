@@ -7,7 +7,9 @@ import ar.fiuba.tdd.tp.rule.Rule;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class RegionParser {
     public void loadRegions(Game game, JSONArray regions) {
@@ -31,6 +33,35 @@ public class RegionParser {
                         reg.addVertex(v);
                     }
                 }
+            } else if (Objects.equals(type, "edges")) {
+
+                JSONArray cells = (JSONArray) region.get("cells");
+                //Horizontal
+                Set<GraphVertex> set = new HashSet<>();
+                for (Object obj :
+                        cells) {
+                    JSONObject cellPos = (JSONObject) obj;
+                    int x = ((Long) cellPos.get("x")).intValue();
+                    int y = ((Long) cellPos.get("y")).intValue();
+                    //top
+                    GraphVertex vertex = game.getVertex(2 * x, 2 * y + 1);
+                    set.add(vertex);
+                    //bottom
+                    vertex = game.getVertex(2 * x + 2, 2 * y + 1);
+                    set.add(vertex);
+                    //left
+                    vertex = game.getVertex(2 * x + 1, 2 * y);
+                    set.add(vertex);
+                    //right
+                    vertex = game.getVertex(2 * x + 1, 2 * y + 2);
+                    set.add(vertex);
+
+                }
+                for (GraphVertex v :
+                        set) {
+                    reg.addVertex(v);
+                }
+
             } else if (Objects.equals(type, "all_corners")) {
                 for (int i = 0; i < game.getHeight() + 1; i++) {
                     for (int j = 0; j < game.getWidth() + 1; j++) {
@@ -38,16 +69,40 @@ public class RegionParser {
                         reg.addVertex(v);
                     }
                 }
+            } else if (Objects.equals(type, "all_edges")) {
+                Set<GraphVertex> set = new HashSet<>();
+                for (int i = 0; i < game.getHeight(); i++) {
+                    for (int j = 0; j < game.getWidth(); j++) {
+                        //top
+                        GraphVertex vertex = game.getVertex(2 * i, 2 * j + 1);
+                        set.add(vertex);
+                        //bottom
+                        vertex = game.getVertex(2 * i + 2, 2 * j + 1);
+                        set.add(vertex);
+                        //left
+                        vertex = game.getVertex(2 * i + 1, 2 * j);
+                        set.add(vertex);
+                        //right
+                        vertex = game.getVertex(2 * i + 1, 2 * j + 2);
+                        set.add(vertex);
+                    }
+
+                }
+                for (GraphVertex v :
+                        set) {
+                    reg.addVertex(v);
+                }
             }
+
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
             game.addRegion(reg);
-
         }
     }
 
+
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
-        JSONArray cells = (JSONArray) region.get("cell");
+        JSONArray cells = (JSONArray) region.get("cells");
         for (Object obj :
                 cells) {
             JSONObject cellPos = (JSONObject) obj;
@@ -63,8 +118,9 @@ public class RegionParser {
         for (Object o :
                 rules) {
             JSONObject jsonRule = (JSONObject) ((JSONObject) o).get("rule");
+            //System.out.println(jsonRule);
             Rule rule = ruleParser.loadRule(jsonRule);
-            System.out.println("added rule: " + rule);
+            //System.out.println("added rule: " + rule);
             reg.addRule(rule);
         }
     }

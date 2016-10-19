@@ -14,6 +14,7 @@ public class Game {
     private int height;
     private Map<String, Map<Object, List<Action>>> actions = new HashMap<>();
 
+
     public Game(int width, int height) {
         this.width = width;
         this.height = height;
@@ -43,13 +44,11 @@ public class Game {
     }
 
     public boolean validateRules() {
-        boolean result = false;
-        //System.out.println("regions: " + regions.size());
+        boolean result;
         for (Region region :
                 regions) {
 
             result = region.validate();
-            //System.out.println("Region is " + (result ? "OK" : "NOT OK"));
             if (!result) {
                 return false;
             }
@@ -57,14 +56,31 @@ public class Game {
         return true;
     }
 
-    public void playCell(int row, int col, String att, Object value) {
-        //System.out.println("play cell: " + "(" + row + "," + col + ")" + " att: " + att + "  value: " + value);
+    public void playCell(int row, int col, String att, Object newValue) {
+        cells.clearEdges();
+        cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, newValue);
 
-        cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, value);
-        if (actions.get(att) != null) {
-            for (Action action :
-                    actions.get(att).get(value)) {
-                action.run(cells, 2 * row + 1, 2 * col + 1);
+        //System.out.println("********* REBUILDING GRAPH: **********");
+
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                GraphVertex cell = getCell(i, j);
+                //System.out.println("******* Actions for Cell: " + i + " , " + j);
+                for (Map.Entry<String, Object> attribute :
+                        cell.getAttributes().entrySet()) {
+
+                    if (actions.get(attribute.getKey()) != null) {
+                        //System.out.println("*** actions for attribute : " + attribute.getKey() + " with value " + attribute.getValue() + " ***");
+                        for (Action action :
+                                actions.get(attribute.getKey()).get(attribute.getValue())) {
+                            //System.out.println("action = " + action);
+                            action.run(cells, 2 * i + 1, 2 * j + 1);
+
+
+                        }
+
+                    }
+                }
             }
         }
     }

@@ -4,7 +4,64 @@
     "width": 3,
     "height": 3
   },
-  "corners": [
+  "editables": [
+    {
+      "attribute": "lines",
+      "values": [
+        "se",
+        "ne",
+        "nw",
+        "sw",
+        "ns",
+        "we"
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomMiddle",
+            "dst": "middleRight"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "topMiddle",
+            "dst": "middleRight"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "topMiddle",
+            "dst": "middleLeft"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomMiddle",
+            "dst": "middleLeft"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "topMiddle",
+            "dst": "bottomMiddle"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "middleLeft",
+            "dst": "middleRight"
+          }
+        ]
+      ]
+    }
+  ],
+  "cells": [
     {
       "x": 0,
       "y": 0,
@@ -16,7 +73,7 @@
       "x": 0,
       "y": 1,
       "attributes": {
-        "num": 1
+        "num": 4
       }
     },
     {
@@ -30,7 +87,7 @@
   "regions": [
     {
       "region": {
-        "type": "custom",
+        "type": "edges",
         "cells": [
           {
             "x": 0,
@@ -46,15 +103,65 @@
             "rule": {
               "name": "RuleOneEntryOneExit"
             }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "x": 0,
+            "y": 0
           },
+          {
+            "x": 1,
+            "y": 0
+          }
+        ],
+        "rules": [
           {
             "rule": {
               "name": "RuleTotalVertexWithAttributeEqual",
-              "attribute": 2
+              "attribute": "lines",
+              "value": 2
             }
           }
         ]
-      },
+      }
+    },
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "x": 0,
+            "y": 1
+          },
+          {
+            "x": 0,
+            "y": 2
+          },
+          {
+            "x": 1,
+            "y": 1
+          },
+          {
+            "x": 1,
+            "y": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
       "region": {
         "type": "custom",
         "cells": [
@@ -78,19 +185,17 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleOneEntryOneExit"
-            }
-          },
-          {
-            "rule": {
               "name": "RuleTotalVertexWithAttributeEqual",
-              "attribute": 4
+              "attribute": "lines",
+              "value": 4
             }
           }
         ]
-      },
+      }
+    },
+    {
       "region": {
-        "type": "custom",
+        "type": "edges",
         "cells": [
           {
             "x": 2,
@@ -110,11 +215,45 @@
             "rule": {
               "name": "RuleOneEntryOneExit"
             }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "x": 2,
+            "y": 0
           },
+          {
+            "x": 2,
+            "y": 1
+          },
+          {
+            "x": 2,
+            "y": 2
+          }
+        ],
+        "rules": [
           {
             "rule": {
               "name": "RuleTotalVertexWithAttributeEqual",
-              "attribute": 2
+              "attribute": "lines",
+              "value": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "all_edges",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleGraphHasOneCycle"
             }
           }
         ]
