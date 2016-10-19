@@ -1,11 +1,13 @@
 package ar.fiuba.tdd.tp.view;
 
+import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
 import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.*;
+import java.util.Map;
 
 /**
  * Created by luciano on 16/10/16.
@@ -40,15 +42,33 @@ public class JsonFileView {
         ((JSONArray) this.info.get("plays")).add(play);
     }
 
-    public void add(Pair<Integer, Integer> position, String value) {
+    public void add(Pair<Integer, Integer> position,String attribute, String value) {
         JSONObject cell = new JSONObject();
         JSONArray positionArray = new JSONArray();
         positionArray.add(position.getKey());
         positionArray.add(position.getValue());
         cell.put("position", positionArray);
+        cell.put("attribute",attribute);
         cell.put("value", value);
         ((JSONArray) ((JSONObject) this.info.get("board")).get("values")).add(cell);
 
+    }
+
+    public void add(Game game) {
+
+        for (int i = 0; i < game.getWidth(); i++) {
+            for (int j = 0; j < game.getHeight(); j++) {
+                for (Map.Entry<String, Object> key : game.getCellKeysValues(i, j)) {
+                    String content;
+                    try {
+                        content = key.getValue().toString();
+                        this.info.put(key,content);
+                    } catch (Exception ex) {
+                        //do nothing;
+                    }
+                }
+            }
+        }
     }
 
     public void write() throws IOException {
