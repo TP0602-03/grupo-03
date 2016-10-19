@@ -90,6 +90,6 @@ public class Game {
     }
 
     public Set<Map.Entry<String, String>> getCellKeysValues(int row, int col) {
-        return cells.getVertex(row, col).getKeysValues();
+        return cells.getVertex(2 * row + 1,2 * col + 1).getKeysValues();
     }
 }

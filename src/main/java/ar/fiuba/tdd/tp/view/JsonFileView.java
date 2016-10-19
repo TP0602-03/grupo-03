@@ -62,9 +62,9 @@ public class JsonFileView {
 
     private void addStatus(Game game) {
         if( game.validateRules() ){
-            this.info.put("status","true");
+            ((JSONObject)this.info.get("board")).put("status","true");
         } else {
-            this.info.put("status","false");
+            ((JSONObject)this.info.get("board")).put("status","false");
         }
 
     }
@@ -74,8 +74,6 @@ public class JsonFileView {
     }
 
     public void add(Game game) {
-
-        this.addStatus(game);
 
         ArrayList<JSONObject> cells = new ArrayList<>();
 
@@ -96,6 +94,7 @@ public class JsonFileView {
         }
 
         this.updateBoard(cells);
+        this.addStatus(game);
     }
 
     public void write() throws IOException {

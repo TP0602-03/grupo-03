@@ -28,6 +28,7 @@ public class SudokuTest {
         Parser parser = new Parser("gameFiles/sudoku.json");
         Game game = parser.getGame();
 
+
         printBoard(game);
 
 
