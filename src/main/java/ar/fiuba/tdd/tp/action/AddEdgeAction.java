@@ -34,7 +34,7 @@ public class AddEdgeAction extends Action {
         if (graph.getVertex(srcCoord.getCoordinateX(), srcCoord.getCoordinateY()).getAdjacencyList().contains(graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()))) {
             return;
         }
-        System.out.println("added edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
+        //System.out.println("added edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
         graph.addEdge(srcCoord, dstCoord);
     }
 }

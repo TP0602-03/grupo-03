@@ -60,20 +60,20 @@ public class Game {
         cells.clearEdges();
         cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, newValue);
 
-        System.out.println("********* REBUILDING GRAPH: **********");
+        //System.out.println("********* REBUILDING GRAPH: **********");
 
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 GraphVertex cell = getCell(i, j);
-                System.out.println("******* Actions for Cell: " + i + " , " + j);
+                //System.out.println("******* Actions for Cell: " + i + " , " + j);
                 for (Map.Entry<String, Object> attribute :
                         cell.getAttributes().entrySet()) {
 
                     if (actions.get(attribute.getKey()) != null) {
-                        System.out.println("*** actions for attribute : " + attribute.getKey() + " with value " + attribute.getValue() + " ***");
+                        //System.out.println("*** actions for attribute : " + attribute.getKey() + " with value " + attribute.getValue() + " ***");
                         for (Action action :
                                 actions.get(attribute.getKey()).get(attribute.getValue())) {
-                            System.out.println("action = " + action);
+                            //System.out.println("action = " + action);
                             action.run(cells, 2 * i + 1, 2 * j + 1);
 
 

@@ -30,7 +30,7 @@ public class RemoveEdgeAction extends Action {
             return;
         }
         if (graph.getVertex(srcCoord.getCoordinateX(), srcCoord.getCoordinateY()).getAdjacencyList().contains(graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()))) {
-            System.out.println("removed edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
+            //System.out.println("removed edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
             graph.removeEdge(srcCoord, dstCoord);
         }
     }

@@ -63,7 +63,7 @@ public class Parser {
                         ActionParser actParser = new ActionParser(actionJson);
                         Action action = actParser.getAction();
                         actionsForValue.add(action);
-                        System.out.println("action = " + action);
+                        //System.out.println("action = " + action);
                     }
                     Object value = attributeValues.get(i);
                     if (value.getClass() == Long.class) {
