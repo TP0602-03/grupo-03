@@ -36,4 +36,8 @@ public class ImageManager {
 
         return this.getImage(symbol);
     }
+
+    public Icon getEmptyImage() {
+        return this.getImage("NullContent");
+    }
 }
