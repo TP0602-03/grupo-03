@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.move;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -17,9 +18,38 @@ public class MoveFactory {
     private HashMap<Pair<Integer, Integer>, ArrayList<String>> editableCells;
 
 
-    public MoveFactory(HashMap<String, ArrayList<String>> possibleValuesMap, HashMap<Pair<Integer, Integer>, ArrayList<String>> possiblePositionsMap) {
+    public MoveFactory(HashMap<String, ArrayList<String>> possibleValuesMap,
+                       HashMap<Pair<Integer, Integer>, ArrayList<String>> possiblePositionsMap) {
         this.possibleAttributeValues = possibleValuesMap;
         this.editableCells = possiblePositionsMap;
+    }
+
+    private Boolean isEditable(Pair<Integer,Integer> position) {
+        //First check if the cell is editable
+        if (!this.editableCells.containsKey(position)) {
+            return false;
+        }
+        return true;
+    }
+
+
+    private Boolean isAttriuteEditable(String attribute,Pair<Integer,Integer> position) {
+        //Now check if the attribute is editable and the value is valid
+        ArrayList<String> editableAttributes = this.editableCells.get(position);
+
+        if (!editableAttributes.contains(attribute) ) {
+            return false;
+        }
+        return true;
+    }
+
+    private Boolean isValuePosible(String attribute,String value) {
+        ArrayList<String> possibleValues = this.possibleAttributeValues.get(attribute);
+
+        if (!possibleValues.contains(value) ) {
+            return false;
+        }
+        return true;
     }
 
 
@@ -27,23 +57,7 @@ public class MoveFactory {
 
         Pair<Integer,Integer> position = new Pair<>(newX,newY);
 
-        //First check if the cell is editable
-        if (!this.editableCells.containsKey(position)) {
-            return new InvalidMove(newId);
-        }
-
-        //Now check if the attribute is editable and the value is valid
-        ArrayList<String> editableAttributes = this.editableCells.get(position);
-
-        if (!editableAttributes.contains(newAttribute) ) {
-            return new InvalidMove(newId);
-        }
-
-        //Now check if the value of the attribute is valid
-
-        ArrayList<String> possibleValues = this.possibleAttributeValues.get(newAttribute);
-
-        if (!possibleValues.contains(newValue) ) {
+        if (!this.isEditable(position) || !this.isAttriuteEditable(newAttribute,position) || !this.isValuePosible(newAttribute,newValue)) {
             return new InvalidMove(newId);
         }
 
