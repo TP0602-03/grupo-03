@@ -8,8 +8,8 @@
     {
       "attribute": "diagonal",
       "values": [
-        "/",
-        "\\"
+        "downToUpDiagonal",
+        "upToDownDiagonal"
       ],
       "actions": [
         [
