@@ -1,7 +1,9 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.move.InvalidMoveException;
 import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
+import ar.fiuba.tdd.tp.parser.Parser;
 import ar.fiuba.tdd.tp.view.JsonFileView;
 import javafx.util.Pair;
 import org.json.simple.JSONObject;
@@ -44,7 +46,11 @@ public class JsonViewTest {
 
 
     @Test
-    public void testCorrectFileCreatiion() throws IOException, ParseException {
+    public void testCorrectFileCreation() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException{
+
+        Parser gParser = new Parser("testFiles/sudokuForJsonFileView.json");
+        Game game = gParser.getGame();
+
 
         String newFile = "testFiles/jsonViewTestFile.json";
         JsonFileView view = new JsonFileView(newFile);
@@ -53,8 +59,11 @@ public class JsonViewTest {
         Move validMove = factory.createMove(1, 0, 0,"num","1");
         Move invalidMove = factory.createMove(2, 0, 1,"num","38");
 
+        game.playCell(validMove.getY(),validMove.getX(),validMove.getAttribute(),validMove.getValue());
+
         view.add(validMove);
         view.add(invalidMove);
+        view.add(game);
 
         view.write();
 

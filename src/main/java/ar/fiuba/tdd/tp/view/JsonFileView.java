@@ -7,6 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -42,19 +43,41 @@ public class JsonFileView {
         ((JSONArray) this.info.get("plays")).add(play);
     }
 
-    public void add(Pair<Integer, Integer> position,String attribute, String value) {
+    private JSONObject createJsonCell(int positionX,int positionY,String attribute, String value) {
+
+
+
         JSONObject cell = new JSONObject();
+
         JSONArray positionArray = new JSONArray();
-        positionArray.add(position.getKey());
-        positionArray.add(position.getValue());
+        positionArray.add(positionX);
+        positionArray.add(positionY);
         cell.put("position", positionArray);
         cell.put("attribute",attribute);
         cell.put("value", value);
-        ((JSONArray) ((JSONObject) this.info.get("board")).get("values")).add(cell);
+
+        return cell;
 
     }
 
+    private void addStatus(Game game) {
+        if( game.validateRules() ){
+            this.info.put("status","true");
+        } else {
+            this.info.put("status","false");
+        }
+
+    }
+
+    private void updateBoard(ArrayList<JSONObject> cells) {
+        ((JSONObject)this.info.get("board")).put("values",cells);
+    }
+
     public void add(Game game) {
+
+        this.addStatus(game);
+
+        ArrayList<JSONObject> cells = new ArrayList<>();
 
         for (int i = 0; i < game.getWidth(); i++) {
             for (int j = 0; j < game.getHeight(); j++) {
@@ -62,13 +85,17 @@ public class JsonFileView {
                     String content;
                     try {
                         content = key.getValue().toString();
-                        this.info.put(key,content);
+                        if (key.getKey() != "pos") {
+                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
+                        }
                     } catch (Exception ex) {
                         //do nothing;
                     }
                 }
             }
         }
+
+        this.updateBoard(cells);
     }
 
     public void write() throws IOException {
