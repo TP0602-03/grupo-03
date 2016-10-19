@@ -19,13 +19,14 @@ public class RuleCheckSum extends Rule {
         Integer total = 0;
         for (GraphVertex vertex :
                 vertices) {
-            Integer num = (Integer) vertex.getAttribute(attribute);
-            total += num;
-            vertex.print();
-            System.out.print(num + " ");
+            if (vertex.getAttribute(attribute) != null) {
+                Integer num = Integer.parseInt(vertex.getAttribute(attribute));
+                total += num;
+            } else if (total >= expected) {
+                return false;
+            }
 
         }
-        System.out.println("total: " + total + "exp: " + expected);
         return total.intValue() == expected.intValue();
     }
 }

@@ -1,19 +1,16 @@
 package ar.fiuba.tdd.tp.graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GraphVertex {
     private List<GraphVertex> adjacencyList = new ArrayList<>();
-    private Map<String, Object> attributes = new HashMap<>();
+    private Map<String, String> attributes = new HashMap<>();
 
-    public Object getAttribute(String attribute) {
+    public String getAttribute(String attribute) {
         return attributes.get(attribute);
     }
 
-    public void setAttribute(String attribute, Object value) {
+    public void setAttribute(String attribute, String value) {
         attributes.put(attribute, value);
     }
 
@@ -33,7 +30,30 @@ public class GraphVertex {
         return adjacencyList;
     }
 
+    public Set<Map.Entry<String, String>> getKeysValues() {
+        return attributes.entrySet();
+    }
+
+    /**
+     * Esta clase se va a borrar, hablar con Chris que la usa para testear or some shit.
+     */
     public void print() {
-        System.out.println((String) getAttribute("pos"));
+        //System.out.println((String) getAttribute("pos"));
+    }
+
+    public void removeEdge(GraphVertex vertex) {
+        adjacencyList.remove(vertex);
+    }
+
+    public boolean isAdjacent(GraphVertex other) {
+        return adjacencyList.contains(other);
+    }
+
+    public void clearEdges() {
+        adjacencyList = new ArrayList<>();
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
     }
 }

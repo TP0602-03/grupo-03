@@ -23,9 +23,9 @@ public class RuleTotalVertexWithAttributeEqual extends Rule {
                 count += 1;
             }
         }
-        System.out.println(count);
-        System.out.println(expected);
-        System.out.println("Total vertices with attribute is " + ((count == expected) ? "OK" : "NOT OK"));
+        //System.out.println(count);
+        //System.out.println(expected);
+        //System.out.println("Total vertices with attribute is " + ((count == expected) ? "OK" : "NOT OK"));
         return count == expected;
     }
 }

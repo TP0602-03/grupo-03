@@ -19,8 +19,12 @@ public class RuleCheckProduct extends Rule {
         Integer total = 1;
         for (GraphVertex vertex :
                 vertices) {
-            Integer num = (Integer) vertex.getAttribute(attribute);
-            total *= num;
+            Integer num = Integer.parseInt(vertex.getAttribute(attribute));
+            if (num != null) {
+                total *= num;
+            } else if (total >= expected) {
+                return false;
+            }
         }
         return total.intValue() == expected.intValue();
     }

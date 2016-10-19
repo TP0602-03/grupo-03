@@ -18,7 +18,7 @@ public class RuleOneEntryOneExit extends Rule {
                 }
             }
         }
-        System.out.println("One entry one exit rule: " + (edges == 2));
+        //System.out.println("One entry one exit rule: " + (edges == 2));
         return edges == 2;
     }
 }

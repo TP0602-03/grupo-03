@@ -20,9 +20,13 @@ public class Region {
 
     public boolean validate() {
         boolean result = false;
+        // System.out.println("rules: " +  rules.size());
         for (Rule rule :
                 rules) {
+//          System.out.println("rule: " + rule);
             result = rule.check(vertices);
+
+            System.out.println("rule: " + rule.getClass() + " result: " + result);
             if (!result) {
                 return false;
             }

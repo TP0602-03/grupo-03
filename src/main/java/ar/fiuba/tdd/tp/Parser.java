@@ -130,7 +130,7 @@ public class Parser {
                     attributes) {
                 JSONObject attribute = (JSONObject) e;
                 String name = (String) attribute.get("name");
-                Object value = attribute.get("value");
+                String value = (String) attribute.get("value");
                 vertex.setAttribute(name, value);
             }
         }

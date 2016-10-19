@@ -6,8 +6,7 @@ public abstract class AbstractController implements Controller {
     // Model model;
 
 
-    protected void createView(int rows,int columns) {
-
+    protected void createView(int rows, int columns) {
 
 
         // we ask the model for the size

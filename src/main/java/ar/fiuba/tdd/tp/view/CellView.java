@@ -1,46 +1,38 @@
 package ar.fiuba.tdd.tp.view;
 
-import ar.fiuba.tdd.tp.controller.CellController;
-
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class CellView extends JPanel {
 
+    protected ImageManager imageGetter = new ImageManager("gameFiles/images");
+    private ArrayList<String> contents;
     protected Color defaultBackground = Color.WHITE;
 
-    public CellView() {
-        addMouseListener(new CellController(this));
-
-        addKeyListener(new KeyAdapter() {
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-                setCellText(keyEvent);
-            }
-
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                setCellText(keyEvent);
-            }
-        });
-
-        this.setBackground(defaultBackground);
+    public CellView(ArrayList<String> contents) {
+        this.contents = contents;
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
+        generateLabels();
     }
 
-    private void setCellText(KeyEvent keyEvent) {
-        JLabel label = (JLabel) this.getComponent(0);
-        label.setText("" + keyEvent.getKeyChar());
+    public void setContents(ArrayList<String> newContents) {
+        this.contents = newContents;
     }
 
-    public void setDefaultBackground() {
-        this.setBackground(defaultBackground);
+    public void setHandlers(MouseListener mouseListener) {
+        this.addMouseListener(mouseListener);
     }
 
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(50, 50);
+    public void generateLabels(){
+        this.removeAll();
+        this.setLayout(new OverlayLayout(this));
+        this.add(new JLabel(this.imageGetter.getImage("  ")));
+        for (String content : contents) {
+            this.add(new JLabel(this.imageGetter.getImage(content)));
+        }
+        this.revalidate();
+        this.repaint();
     }
 }
