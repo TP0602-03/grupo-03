@@ -66,13 +66,10 @@ public class Parser {
                         //System.out.println("action = " + action);
                     }
                     Object value = attributeValues.get(i);
-                    if (value.getClass() == Long.class) {
-                        value = ((Long) value).intValue();
-                    }
                     List<Action> allActions = new ArrayList<>();
                     allActions.addAll(actionsTransition);
                     allActions.addAll(actionsForValue);
-                    game.addActions(attributeName, value, allActions);
+                    game.addActions(attributeName, value.toString(), allActions);
                 }
             }
         }

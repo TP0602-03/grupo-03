@@ -12,7 +12,7 @@ public class Game {
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
-    private Map<String, Map<Object, List<Action>>> actions = new HashMap<>();
+    private Map<String, Map<String, List<Action>>> actions = new HashMap<>();
 
 
     public Game(int width, int height) {
@@ -22,7 +22,7 @@ public class Game {
         nodes = new GridGraph(width + 1, height + 1);
     }
 
-    public void addActions(String attribute, Object value, List<Action> actions) {
+    public void addActions(String attribute, String value, List<Action> actions) {
         this.actions.putIfAbsent(attribute, new HashMap<>());
         this.actions.get(attribute).put(value, actions);
     }
@@ -56,7 +56,7 @@ public class Game {
         return true;
     }
 
-    public void playCell(int row, int col, String att, Object newValue) {
+    public void playCell(int row, int col, String att, String newValue) {
         cells.clearEdges();
         cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, newValue);
 
@@ -66,9 +66,8 @@ public class Game {
             for (int j = 0; j < height; j++) {
                 GraphVertex cell = getCell(i, j);
                 //System.out.println("******* Actions for Cell: " + i + " , " + j);
-                for (Map.Entry<String, Object> attribute :
+                for (Map.Entry<String, String> attribute :
                         cell.getAttributes().entrySet()) {
-
                     if (actions.get(attribute.getKey()) != null) {
                         for (Action action :
                                 actions.get(attribute.getKey()).get(attribute.getValue())) {
@@ -90,7 +89,7 @@ public class Game {
         return height;
     }
 
-    public Set<Map.Entry<String, Object>> getCellKeysValues(int row, int col) {
+    public Set<Map.Entry<String, String>> getCellKeysValues(int row, int col) {
         return cells.getVertex(row, col).getKeysValues();
     }
 }

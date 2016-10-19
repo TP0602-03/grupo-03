@@ -19,11 +19,13 @@ public class RuleCountVertexEdges extends Rule {
                 vertices) {
             //System.out.println("(Integer) vertex.getAttribute(attribute) = " + (Integer) vertex.getAttribute(attribute));
 
-            Integer edgesAttribute = (Integer) vertex.getAttribute(this.attribute);
-            int numAdjacent = vertex.getAdjacencyList().size();
-            if (edgesAttribute != null && numAdjacent != edgesAttribute) {
-                vertex.print();
-                return false;
+            if(vertex.getAttribute(this.attribute) != null) {
+                Integer edgesAttribute = Integer.parseInt(vertex.getAttribute(this.attribute));
+                int numAdjacent = vertex.getAdjacencyList().size();
+                if (numAdjacent != edgesAttribute) {
+                    vertex.print();
+                    return false;
+                }
             }
         }
         return true;

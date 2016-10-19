@@ -4,13 +4,13 @@ import java.util.*;
 
 public class GraphVertex {
     private List<GraphVertex> adjacencyList = new ArrayList<>();
-    private Map<String, Object> attributes = new HashMap<>();
+    private Map<String, String> attributes = new HashMap<>();
 
-    public Object getAttribute(String attribute) {
+    public String getAttribute(String attribute) {
         return attributes.get(attribute);
     }
 
-    public void setAttribute(String attribute, Object value) {
+    public void setAttribute(String attribute, String value) {
         attributes.put(attribute, value);
     }
 
@@ -30,7 +30,7 @@ public class GraphVertex {
         return adjacencyList;
     }
 
-    public Set<Map.Entry<String, Object>> getKeysValues() {
+    public Set<Map.Entry<String, String>> getKeysValues() {
         return attributes.entrySet();
     }
 
@@ -53,7 +53,7 @@ public class GraphVertex {
         adjacencyList = new ArrayList<>();
     }
 
-    public Map<String, Object> getAttributes() {
+    public Map<String, String> getAttributes() {
         return attributes;
     }
 }

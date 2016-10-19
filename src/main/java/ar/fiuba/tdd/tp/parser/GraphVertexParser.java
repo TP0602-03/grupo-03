@@ -46,10 +46,7 @@ public class GraphVertexParser {
                 attributes) {
             String attributeName = (String) attribute;
             Object value = attributesJson.get(attributeName);
-            if (value.getClass() == Long.class) {
-                value = ((Long) value).intValue();
-            }
-            vertex.setAttribute(attributeName, value);
+            vertex.setAttribute(attributeName, value.toString());
         }
     }
 }

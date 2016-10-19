@@ -20,7 +20,7 @@ public class RuleCountTrueBooleanAttributes extends Rule {
         for (GraphVertex vertex : vertices) {
             if (vertex.hasAttribute(attributeValue)) {
                 int total = getTrueBooleanAttributes(vertex);
-                if (total != (Integer) vertex.getAttribute(attributeValue)) {
+                if (total != Integer.parseInt(vertex.getAttribute(attributeValue))) {
                     return false;
                 }
             }
@@ -32,7 +32,7 @@ public class RuleCountTrueBooleanAttributes extends Rule {
     private int getTrueBooleanAttributes(GraphVertex vertex) {
         int total = 0;
         for (String attribute : attributes) {
-            if (vertex.hasAttribute(attribute) && (Boolean) vertex.getAttribute(attribute)) {
+            if (vertex.hasAttribute(attribute) && Boolean.parseBoolean(vertex.getAttribute(attribute))) {
                 total++;
             }
         }

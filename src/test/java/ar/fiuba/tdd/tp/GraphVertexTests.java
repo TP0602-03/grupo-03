@@ -28,21 +28,21 @@ public class GraphVertexTests {
     @Test
     public void graphVertexHasAddedAttribute() {
         GraphVertex vertex = new GraphVertex();
-        vertex.setAttribute("number", 7);
+        vertex.setAttribute("number", "7");
         assert (vertex.hasAttribute("number"));
     }
 
     @Test
     public void graphVertexGetAttribute() {
         GraphVertex vertex = new GraphVertex();
-        vertex.setAttribute("number", 7);
-        assertEquals(vertex.getAttribute("number"), 7);
+        vertex.setAttribute("number", "7");
+        assertEquals(vertex.getAttribute("number"), "7");
     }
 
     @Test
     public void graphVertexRemoveAttribute() {
         GraphVertex vertex = new GraphVertex();
-        vertex.setAttribute("number", 7);
+        vertex.setAttribute("number", "7");
         vertex.removeAttribute("number");
         assertFalse(vertex.hasAttribute("number"));
     }
@@ -59,12 +59,12 @@ public class GraphVertexTests {
     @Test
     public void graphVertex() {
         GraphVertex vertex = new GraphVertex();
-        vertex.setAttribute("number", 1);
+        vertex.setAttribute("number", "1");
         vertex.setAttribute("color", "white");
-        Set<Map.Entry<String, Object>> setKV = vertex.getKeysValues();
-        for (Map.Entry<String, Object> entry : setKV) {
+        Set<Map.Entry<String, String>> setKV = vertex.getKeysValues();
+        for (Map.Entry<String, String> entry : setKV) {
             if (entry.getKey() == "number") {
-                assertEquals(entry.getValue(), 1);
+                assertEquals(entry.getValue(), "1");
             }
         }
     }

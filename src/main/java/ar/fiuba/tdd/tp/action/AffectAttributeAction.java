@@ -7,9 +7,9 @@ import ar.fiuba.tdd.tp.graph.GridGraph;
 public class AffectAttributeAction extends Action {
     private String dst;
     private String attribute;
-    private Object value;
+    private String value;
 
-    public AffectAttributeAction(String dst, String attribute, Object value) {
+    public AffectAttributeAction(String dst, String attribute, String value) {
         this.dst = dst;
         this.attribute = attribute;
         this.value = value;

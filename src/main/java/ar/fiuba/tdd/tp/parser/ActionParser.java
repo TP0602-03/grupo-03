@@ -25,10 +25,7 @@ public class ActionParser {
             String dst = (String) actionJson.get("dst");
             String attribute = (String) actionJson.get("attribute");
             Object value = actionJson.get("value");
-            if (value.getClass() == Long.class) {
-                value = ((Long) value).intValue();
-            }
-            action = new AffectAttributeAction(dst, attribute, value);
+            action = new AffectAttributeAction(dst, attribute, value.toString());
         }
     }
 

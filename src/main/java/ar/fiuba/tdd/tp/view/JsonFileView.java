@@ -81,10 +81,10 @@ public class JsonFileView {
 
         for (int i = 0; i < game.getWidth(); i++) {
             for (int j = 0; j < game.getHeight(); j++) {
-                for (Map.Entry<String, Object> key : game.getCellKeysValues(i, j)) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
                     String content;
                     try {
-                        content = key.getValue().toString();
+                        content = key.getValue();
                         if (key.getKey() != "pos") {
                             cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
                         }

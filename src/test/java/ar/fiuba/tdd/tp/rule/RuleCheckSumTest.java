@@ -27,9 +27,9 @@ public class RuleCheckSumTest {
         vertices.add(graph.getVertex(0, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(0, 2));
-        graph.getVertex(0, 0).setAttribute("att", 2);
-        graph.getVertex(0, 1).setAttribute("att", 5);
-        graph.getVertex(0, 2).setAttribute("att", 1);
+        graph.getVertex(0, 0).setAttribute("att", "2");
+        graph.getVertex(0, 1).setAttribute("att", "5");
+        graph.getVertex(0, 2).setAttribute("att", "1");
         assertFalse(rule.check(vertices));
     }
 
@@ -40,9 +40,9 @@ public class RuleCheckSumTest {
         vertices.add(graph.getVertex(1, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(1, 2));
-        graph.getVertex(1, 0).setAttribute("att", 1);
-        graph.getVertex(0, 1).setAttribute("att", 6);
-        graph.getVertex(1, 2).setAttribute("att", 3);
+        graph.getVertex(1, 0).setAttribute("att", "1");
+        graph.getVertex(0, 1).setAttribute("att", "6");
+        graph.getVertex(1, 2).setAttribute("att", "3");
         assertTrue(rule.check(vertices));
     }
 
@@ -54,8 +54,8 @@ public class RuleCheckSumTest {
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(1, 2));
         graph.getVertex(1, 0).setAttribute("att", null);
-        graph.getVertex(0, 1).setAttribute("att", 10);
-        graph.getVertex(1, 2).setAttribute("att", 1);
+        graph.getVertex(0, 1).setAttribute("att", "10");
+        graph.getVertex(1, 2).setAttribute("att", "1");
         assertFalse(rule.check(vertices));
     }
 
