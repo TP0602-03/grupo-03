@@ -27,4 +27,11 @@ public class ImageManager {
 
         return iconValues;
     }
+
+    public Icon getImage(String key, String value) {
+        String symbol = value;
+        if (key == "small_num") symbol = "leftTop" + value;
+
+        return this.getImage(symbol);
+    }
 }

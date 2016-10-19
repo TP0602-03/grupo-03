@@ -16,9 +16,8 @@ public class Main {
         @Override
         public void run() {
             try {
-                Parser parser = new Parser("gameFiles/gokigen.json");
+                Parser parser = new Parser("gameFiles/inshi.json");
                 boardViewCreator.CreateBoard(parser.getGame());
-
             } catch (Exception ex) {
 
             }
