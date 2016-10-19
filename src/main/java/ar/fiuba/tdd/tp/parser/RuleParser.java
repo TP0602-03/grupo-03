@@ -10,9 +10,8 @@ import java.util.Objects;
 
 public class RuleParser {
     public Rule loadRule(JSONObject ruleJson) {
-
-        Rule rule = null;
         String ruleName = (String) ruleJson.get("name");
+        Rule rule = null;
         if (Objects.equals(ruleName, "RuleCheckSum")) {
             String att = (String) ruleJson.get("attribute");
             int exp = ((Long) ruleJson.get("expected")).intValue();
@@ -51,8 +50,6 @@ public class RuleParser {
         } else if (Objects.equals(ruleName, "RuleOneEntryOneExit")) {
             rule = new RuleOneEntryOneExit();
         }
-
-
         return rule;
     }
 }

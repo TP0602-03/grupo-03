@@ -18,6 +18,8 @@ public class RegionParser {
             JSONObject region = (JSONObject) ((JSONObject) o).get("region");
             Region reg = new Region();
             String type = (String) region.get("type");
+
+
             if (Objects.equals(type, "rectangle")) {
                 loadRectangleRegion(game, region, reg);
             } else if (Objects.equals(type, "column")) {
@@ -26,77 +28,91 @@ public class RegionParser {
                 loadRowRegion(game, region, reg);
             } else if (Objects.equals(type, "custom")) {
                 loadCustomRegion(game, region, reg);
-            } else if (Objects.equals(type, "all_cells")) {
-                for (int i = 0; i < game.getHeight(); i++) {
-                    for (int j = 0; j < game.getWidth(); j++) {
-                        GraphVertex vertex = game.getCell(i, j);
-                        reg.addVertex(vertex);
-                    }
-                }
             } else if (Objects.equals(type, "edges")) {
-
-                JSONArray cells = (JSONArray) region.get("cells");
-                //Horizontal
-                Set<GraphVertex> set = new HashSet<>();
-                for (Object obj :
-                        cells) {
-                    JSONObject cellPos = (JSONObject) obj;
-                    int row = ((Long) cellPos.get("x")).intValue();
-                    int col = ((Long) cellPos.get("y")).intValue();
-                    //top
-                    GraphVertex vertex = game.getVertex(2 * row, 2 * col + 1);
-                    set.add(vertex);
-                    //bottom
-                    vertex = game.getVertex(2 * row + 2, 2 * col + 1);
-                    set.add(vertex);
-                    //left
-                    vertex = game.getVertex(2 * row + 1, 2 * col);
-                    set.add(vertex);
-                    //right
-                    vertex = game.getVertex(2 * row + 1, 2 * col + 2);
-                    set.add(vertex);
-
-                }
-                for (GraphVertex vertex :
-                        set) {
-                    reg.addVertex(vertex);
-                }
-
+                loadEdgesRegion(game, region, reg);
+            } else if (Objects.equals(type, "all_cells")) {
+                loadAllCells(game, reg);
             } else if (Objects.equals(type, "all_corners")) {
-                for (int i = 0; i < game.getHeight() + 1; i++) {
-                    for (int j = 0; j < game.getWidth() + 1; j++) {
-                        GraphVertex vertex = game.getCorner(i, j);
-                        reg.addVertex(vertex);
-                    }
-                }
+                loadAllCorners(game, reg);
             } else if (Objects.equals(type, "all_edges")) {
-                Set<GraphVertex> set = new HashSet<>();
-                for (int i = 0; i < game.getHeight(); i++) {
-                    for (int j = 0; j < game.getWidth(); j++) {
-                        //top
-                        GraphVertex vertex = game.getVertex(2 * i, 2 * j + 1);
-                        set.add(vertex);
-                        //bottom
-                        vertex = game.getVertex(2 * i + 2, 2 * j + 1);
-                        set.add(vertex);
-                        //left
-                        vertex = game.getVertex(2 * i + 1, 2 * j);
-                        set.add(vertex);
-                        //right
-                        vertex = game.getVertex(2 * i + 1, 2 * j + 2);
-                        set.add(vertex);
-                    }
-
-                }
-                for (GraphVertex v :
-                        set) {
-                    reg.addVertex(v);
-                }
+                loadAllEdges(game, reg);
             }
 
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
             game.addRegion(reg);
+        }
+    }
+
+    private void loadAllEdges(Game game, Region reg) {
+        Set<GraphVertex> set = new HashSet<>();
+        for (int i = 0; i < game.getHeight(); i++) {
+            for (int j = 0; j < game.getWidth(); j++) {
+                //top
+                GraphVertex vertex = game.getVertex(2 * i, 2 * j + 1);
+                set.add(vertex);
+                //bottom
+                vertex = game.getVertex(2 * i + 2, 2 * j + 1);
+                set.add(vertex);
+                //left
+                vertex = game.getVertex(2 * i + 1, 2 * j);
+                set.add(vertex);
+                //right
+                vertex = game.getVertex(2 * i + 1, 2 * j + 2);
+                set.add(vertex);
+            }
+
+        }
+        for (GraphVertex v :
+                set) {
+            reg.addVertex(v);
+        }
+    }
+
+    private void loadAllCorners(Game game, Region reg) {
+        for (int i = 0; i < game.getHeight() + 1; i++) {
+            for (int j = 0; j < game.getWidth() + 1; j++) {
+                GraphVertex vertex = game.getCorner(i, j);
+                reg.addVertex(vertex);
+            }
+        }
+    }
+
+    private void loadAllCells(Game game, Region reg) {
+        for (int i = 0; i < game.getHeight(); i++) {
+            for (int j = 0; j < game.getWidth(); j++) {
+                GraphVertex vertex = game.getCell(i, j);
+                reg.addVertex(vertex);
+            }
+        }
+    }
+
+    private void loadEdgesRegion(Game game, JSONObject region, Region reg) {
+        JSONArray cells = (JSONArray) region.get("cells");
+        //Horizontal
+        Set<GraphVertex> set = new HashSet<>();
+        for (Object obj :
+                cells) {
+            JSONObject cellPos = (JSONObject) obj;
+            int row = ((Long) cellPos.get("x")).intValue();
+            int col = ((Long) cellPos.get("y")).intValue();
+            //top
+            GraphVertex vertex = game.getVertex(2 * row, 2 * col + 1);
+            set.add(vertex);
+            //bottom
+            vertex = game.getVertex(2 * row + 2, 2 * col + 1);
+            set.add(vertex);
+            //left
+            vertex = game.getVertex(2 * row + 1, 2 * col);
+            set.add(vertex);
+            //right
+            vertex = game.getVertex(2 * row + 1, 2 * col + 2);
+            set.add(vertex);
+
+        }
+        for (GraphVertex vertex :
+                set) {
+            reg.addVertex(vertex);
         }
     }
 

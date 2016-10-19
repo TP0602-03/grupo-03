@@ -62,4 +62,14 @@ public class GridGraph {
             }
         }
     }
+
+    public boolean contains(Coord dstCoord) {
+        if (dstCoord.getX() < 0 || dstCoord.getX() >= height) {
+            return false;
+        }
+        if (dstCoord.getY() < 0 || dstCoord.getY() >= width) {
+            return false;
+        }
+        return true;
+    }
 }

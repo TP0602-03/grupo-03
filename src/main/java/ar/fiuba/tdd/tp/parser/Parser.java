@@ -36,22 +36,11 @@ public class Parser {
         gridParser.loadGrid(game, this.jsonGame);
 
         JSONArray editables = (JSONArray) this.jsonGame.get("editables");
-        for (Object obj :
-                editables) {
+        for (Object obj : editables) {
             JSONObject attributeInfo = (JSONObject) obj;
             String attributeName = (String) attributeInfo.get("attribute");
             JSONArray attributeValues = (JSONArray) attributeInfo.get("values");
-            JSONArray transitionActions = (JSONArray) attributeInfo.get("transition_actions");
-            List<Action> actionsTransition = new ArrayList<>();
-            if (transitionActions != null) {
-                for (Object actionObj :
-                        transitionActions) {
-                    JSONObject actionJson = (JSONObject) actionObj;
-                    ActionParser actParser = new ActionParser(actionJson);
-                    Action action = actParser.getAction();
-                    actionsTransition.add(action);
-                }
-            }
+
             JSONArray actions = (JSONArray) attributeInfo.get("actions");
             if (actions != null) {
                 for (int i = 0; i < attributeValues.size(); i++) {
@@ -67,9 +56,9 @@ public class Parser {
                     }
                     Object value = attributeValues.get(i);
                     List<Action> allActions = new ArrayList<>();
-                    allActions.addAll(actionsTransition);
                     allActions.addAll(actionsForValue);
                     game.addActions(attributeName, value.toString(), allActions);
+
                 }
             }
         }
