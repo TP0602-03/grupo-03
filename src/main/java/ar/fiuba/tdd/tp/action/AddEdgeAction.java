@@ -16,7 +16,7 @@ public class AddEdgeAction extends Action {
     public void run(GridGraph graph, int x, int y) {
         Coord srcCoord = parseCoord(x, y, this.src);
         Coord dstCoord = parseCoord(x, y, this.dst);
-        System.out.println("added edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
+
 
         if (dstCoord.getCoordinateX() < 0 || dstCoord.getCoordinateX() >= graph.getHeight()) {
             return;
@@ -31,6 +31,10 @@ public class AddEdgeAction extends Action {
         if (srcCoord.getCoordinateY() < 0 || srcCoord.getCoordinateY() >= graph.getWidth()) {
             return;
         }
+        if (graph.getVertex(srcCoord.getCoordinateX(), srcCoord.getCoordinateY()).getAdjacencyList().contains(graph.getVertex(dstCoord.getCoordinateX(), dstCoord.getCoordinateY()))) {
+            return;
+        }
+        System.out.println("added edge between: " + dstCoord.getCoordinateX() + ", " + dstCoord.getCoordinateY() + "  and " + srcCoord.getCoordinateX() + ", " + srcCoord.getCoordinateY());
         graph.addEdge(srcCoord, dstCoord);
     }
 }

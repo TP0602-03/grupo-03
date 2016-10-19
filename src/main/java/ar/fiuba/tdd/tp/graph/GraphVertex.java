@@ -44,4 +44,12 @@ public class GraphVertex {
     public void removeEdge(GraphVertex vertex) {
         adjacencyList.remove(vertex);
     }
+
+    public void clearEdges() {
+        adjacencyList = new ArrayList<>();
+    }
+
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
 }

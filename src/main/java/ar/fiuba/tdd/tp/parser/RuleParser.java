@@ -44,6 +44,12 @@ public class RuleParser {
                 attList.add(attribute);
             }
             rule = new RuleCountTrueBooleanAttributes(attList, att);
+        } else if (Objects.equals(ruleName, "RuleTotalVertexWithAttributeEqual")) {
+            String att = (String) ruleJson.get("attribute");
+            int total = ((Long) ruleJson.get("value")).intValue();
+            rule = new RuleTotalVertexWithAttributeEqual(att, total);
+        } else if (Objects.equals(ruleName, "RuleOneEntryOneExit")) {
+            rule = new RuleOneEntryOneExit();
         }
 
 

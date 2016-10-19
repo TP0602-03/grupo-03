@@ -37,6 +37,18 @@ public abstract class Action {
         if (Objects.equals(strCoord, "this")) {
             coord = new Coord(x, y);
         }
+        if (Objects.equals(strCoord, "middleLeft")) {
+            coord = new Coord(x, y - 1);
+        }
+        if (Objects.equals(strCoord, "middleRight")) {
+            coord = new Coord(x, y + 1);
+        }
+        if (Objects.equals(strCoord, "bottomMiddle")) {
+            coord = new Coord(x + 1, y);
+        }
+        if (Objects.equals(strCoord, "topMiddle")) {
+            coord = new Coord(x - 1, y);
+        }
         return coord;
     }
 }
