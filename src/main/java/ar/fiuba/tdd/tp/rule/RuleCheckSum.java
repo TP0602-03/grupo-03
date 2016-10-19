@@ -23,14 +23,10 @@ public class RuleCheckSum extends Rule {
             if (num != null) {
                 total += num;
             } else if (total >= expected) {
-//                System.out.println("asddad");
                 return false;
             }
-            //vertex.print();
-            //  System.out.print(num + " ");
 
         }
-        //System.out.println("total: " + total + "exp: " + expected);
         return total.intValue() == expected.intValue();
     }
 }

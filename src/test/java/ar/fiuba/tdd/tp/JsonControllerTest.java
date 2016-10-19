@@ -9,7 +9,6 @@ import javafx.util.Pair;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
@@ -52,9 +51,13 @@ public class JsonControllerTest {
         JsonFileController controller = new JsonFileController(factory);
         controller.readFile(allValidMoves);
 
-        ArrayList<Move> moves = controller.getMoves();
+        Move move;
 
-        for (Move move : moves) {
+        while (true) {
+            move = controller.getMove();
+            if (move == null) {
+                break;
+            }
             assertTrue(move.getClass() == ValidMove.class);
         }
 
@@ -67,9 +70,13 @@ public class JsonControllerTest {
         JsonFileController controller = new JsonFileController(factory);
         controller.readFile(allInvalidMoves);
 
-        ArrayList<Move> moves = controller.getMoves();
+        Move move;
 
-        for (Move move : moves) {
+        while (true) {
+            move = controller.getMove();
+            if (move == null) {
+                break;
+            }
             assertTrue(move.getClass() == InvalidMove.class);
         }
 
@@ -82,10 +89,14 @@ public class JsonControllerTest {
         JsonFileController controller = new JsonFileController(factory);
         controller.readFile(everyOtherValidMoves);
 
-        ArrayList<Move> moves = controller.getMoves();
 
         int index = 0;
-        for (Move move : moves) {
+        Move move;
+        while (true) {
+            move = controller.getMove();
+            if (move == null) {
+                break;
+            }
             if (index % 2 == 0) {
                 assertTrue(move.getClass() == ValidMove.class);
             } else {

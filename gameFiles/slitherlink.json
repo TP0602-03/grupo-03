@@ -1,0 +1,205 @@
+{
+  "name": "slitherlink",
+  "size": {
+    "width": 3,
+    "height": 3
+  },
+  "editables": [
+    {
+      "attribute": "left",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomLeft",
+            "dst": "topLeft"
+          },
+          {
+            "type": "affect",
+            "dst": "left",
+            "attribute": "right",
+            "value": true
+          }
+        ],
+        [
+          {
+            "type": "remove_edge",
+            "src": "bottomLeft",
+            "dst": "topLeft"
+          },
+          {
+            "type": "affect",
+            "dst": "left",
+            "attribute": "right",
+            "value": false
+          }
+        ]
+      ]
+    },
+    {
+      "attribute": "right",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomRight",
+            "dst": "topRight"
+          },
+          {
+            "type": "affect",
+            "dst": "right",
+            "attribute": "left",
+            "value": true
+          }
+        ],
+        [
+          {
+            "type": "remove_edge",
+            "src": "bottomRight",
+            "dst": "topRight"
+          },
+          {
+            "type": "affect",
+            "dst": "right",
+            "attribute": "left",
+            "value": false
+          }
+        ]
+      ]
+    },
+    {
+      "attribute": "top",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "topLeft",
+            "dst": "topRight"
+          },
+          {
+            "type": "affect",
+            "dst": "top",
+            "attribute": "bottom",
+            "value": true
+          }
+        ],
+        [
+          {
+            "type": "remove_edge",
+            "src": "topLeft",
+            "dst": "topRight"
+          },
+          {
+            "type": "affect",
+            "dst": "top",
+            "attribute": "bottom",
+            "value": false
+          }
+        ]
+      ]
+    },
+    {
+      "attribute": "bottom",
+      "values": [
+        true,
+        false
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomLeft",
+            "dst": "bottomRight"
+          },
+          {
+            "type": "affect",
+            "dst": "bottom",
+            "attribute": "top",
+            "value": true
+          }
+        ],
+        [
+          {
+            "type": "remove_edge",
+            "src": "bottomLeft",
+            "dst": "bottomRight"
+          },
+          {
+            "type": "affect",
+            "dst": "bottom",
+            "attribute": "top",
+            "value": false
+          }
+        ]
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "x": 1,
+      "y": 0,
+      "attributes": {
+        "num": 3
+      }
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "attributes": {
+        "num": 3
+      }
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "attributes": {
+        "num": 3
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "all_corners",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleGraphHasOneCycle"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "all_cells",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCountTrueBooleanAttributes",
+              "attribute": "num",
+              "attributes": [
+                "left",
+                "right",
+                "top",
+                "bottom"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

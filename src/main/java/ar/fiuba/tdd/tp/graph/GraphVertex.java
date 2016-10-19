@@ -40,4 +40,8 @@ public class GraphVertex {
     public void print() {
         System.out.println((String) getAttribute("pos"));
     }
+
+    public void removeEdge(GraphVertex vertex) {
+        adjacencyList.remove(vertex);
+    }
 }

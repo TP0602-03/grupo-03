@@ -4,86 +4,78 @@
     "width": 4,
     "height": 4
   },
+  "editables": [
+    {
+      "attribute": "num",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
   "cells": [
     {
       "x": 0,
       "y": 0,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 3
-        }
-      ]
+      "attributes": {
+        "num": 3
+      }
     },
     {
       "x": 0,
       "y": 1,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 4
-        }
-      ]
+      "attributes": {
+        "num": 4
+      }
     },
     {
       "x": 0,
       "y": 2,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 1
-        }
-      ]
+      "attributes": {
+        "num": 1
+      }
     },
     {
       "x": 1,
       "y": 1,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 2
-        }
-      ]
+      "attributes": {
+        "num": 2
+      }
     },
     {
       "x": 2,
       "y": 2,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 2
-        }
-      ]
+      "attributes": {
+        "num": 2
+      }
     },
     {
       "x": 3,
       "y": 1,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 1
-        }
-      ]
+      "attributes": {
+        "num": 1
+      }
     },
     {
       "x": 3,
       "y": 2,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 4
-        }
-      ]
+      "attributes": {
+        "num": 4
+      }
     },
     {
       "x": 3,
       "y": 3,
-      "attributes": [
-        {
-          "name": "num",
-          "value": 3
-        }
-      ]
+      "attributes": {
+        "num": 3
+      }
     }
   ],
   "regions": [

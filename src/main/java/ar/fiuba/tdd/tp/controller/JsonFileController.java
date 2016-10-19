@@ -10,6 +10,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 /**
  * Created by luciano on 15/10/16.
@@ -47,10 +50,24 @@ public class JsonFileController {
             this.moves.add(this.factory.createMove(newId, newX, newY, newValue));
         }
 
+        this.sortMoves();
+
     }
 
-    public ArrayList<Move> getMoves() {
-        return this.moves;
+    public void sortMoves() {
+        //Sort the array
+        Comparator<Move> comparator = (Move move1, Move move2) -> {
+            return (((Integer) move1.getId()).compareTo(move2.getId()));
+        };
+        Collections.sort(moves, comparator);
+    }
+
+    public Move getMove() {
+        if (this.moves.isEmpty()) {
+            return null;
+        }
+        return this.moves.remove(0);
+
     }
 
 
