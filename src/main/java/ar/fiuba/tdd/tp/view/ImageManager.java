@@ -30,7 +30,9 @@ public class ImageManager {
 
     public Icon getImage(String key, String value) {
         String symbol = value;
-        if (key == "small_num") symbol = "leftTop" + value;
+        if (key.compareTo("small_num") == 0) {
+            symbol = "leftTop" + value;
+        }
 
         return this.getImage(symbol);
     }
