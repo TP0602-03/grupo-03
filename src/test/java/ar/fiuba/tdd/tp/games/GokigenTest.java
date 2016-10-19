@@ -16,25 +16,25 @@ public class GokigenTest {
         game.playCell(0, 0, "diagonal", "\\");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(0, 1, "diagonal", "/");
+        game.playCell(1, 0, "diagonal", "/");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(0, 2, "diagonal", "/");
+        game.playCell(2, 0, "diagonal", "/");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(1, 0, "diagonal", "\\");
+        game.playCell(0, 1, "diagonal", "\\");
         System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(1, 1, "diagonal", "/");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(1, 2, "diagonal", "/");
+        game.playCell(2, 1, "diagonal", "/");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(2, 0, "diagonal", "\\");
+        game.playCell(0, 2, "diagonal", "\\");
         System.out.println("gogiken = " + game.validateRules());
 
-        game.playCell(2, 1, "diagonal", "\\");
+        game.playCell(1, 2, "diagonal", "\\");
         System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(2, 2, "diagonal", "\\");
