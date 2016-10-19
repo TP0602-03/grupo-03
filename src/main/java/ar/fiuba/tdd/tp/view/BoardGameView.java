@@ -15,6 +15,7 @@ public class BoardGameView extends JPanel {
         frame = new JFrame("Grid Game - TP1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
+        frame.pack();
         frame.add(cellContainer);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

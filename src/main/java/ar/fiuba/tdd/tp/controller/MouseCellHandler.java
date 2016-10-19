@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.controller;
 
+import ar.fiuba.tdd.tp.Game;
+import ar.fiuba.tdd.tp.view.CellView;
 import ar.fiuba.tdd.tp.view.IconValue;
 import ar.fiuba.tdd.tp.view.MainValuePicker;
 
@@ -12,9 +14,16 @@ import java.awt.event.MouseListener;
  */
 public class MouseCellHandler implements MouseListener {
     IconValue[] content;
+    Game game;
+    int row, col;
+    CellView cellView;
 
-    public MouseCellHandler(IconValue[] content) {
+    public MouseCellHandler(IconValue[] content, Game game, int row, int col, CellView cellView) {
         this.content = content;
+        this.game = game;
+        this.row = row;
+        this.col = col;
+        this.cellView = cellView;
     }
 
     @Override
@@ -22,6 +31,8 @@ public class MouseCellHandler implements MouseListener {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
         Object newValue = mainValuePicker.GetValuePicker((JPanel) e.getSource());
 
+        game.playCell(row,col, "num", newValue);
+        cellView.generateLabels();
     }
 
     @Override
