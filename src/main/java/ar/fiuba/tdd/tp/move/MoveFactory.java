@@ -1,7 +1,9 @@
 package ar.fiuba.tdd.tp.move;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -9,29 +11,57 @@ import java.util.HashMap;
  */
 public class MoveFactory {
 
-    //Saves the possible values to be used in the move. The key is the possible value and the value of the hash is the attribute name
-    // its like an inverted hash)
-    private HashMap<String, String> possibleValues;
+    //Saves the attribute name as the key and the possible values as the hash value.
+    private HashMap<String, ArrayList<String>> possibleAttributeValues;
 
-    //Saves the possible positions for the move to take place in
-    private HashMap<Pair<Integer, Integer>, Boolean> possiblePositions;
+    //Saves the editable cell's positions as keys and the editable attributes as values
+    private HashMap<Pair<Integer, Integer>, ArrayList<String>> editableCells;
 
 
-    public MoveFactory(HashMap<String, String> possibleValuesMap, HashMap<Pair<Integer, Integer>, Boolean> possiblePositionsMap) {
-        this.possibleValues = possibleValuesMap;
-        this.possiblePositions = possiblePositionsMap;
+    public MoveFactory(HashMap<String, ArrayList<String>> possibleValuesMap,
+                       HashMap<Pair<Integer, Integer>, ArrayList<String>> possiblePositionsMap) {
+        this.possibleAttributeValues = possibleValuesMap;
+        this.editableCells = possiblePositionsMap;
+    }
+
+    private Boolean isEditable(Pair<Integer,Integer> position) {
+        //First check if the cell is editable
+        if (!this.editableCells.containsKey(position)) {
+            return false;
+        }
+        return true;
     }
 
 
-    public Move createMove(int newId, int newX, int newY, String newValue) {
+    private Boolean isAttriuteEditable(String attribute,Pair<Integer,Integer> position) {
+        //Now check if the attribute is editable and the value is valid
+        ArrayList<String> editableAttributes = this.editableCells.get(position);
+
+        if (!editableAttributes.contains(attribute) ) {
+            return false;
+        }
+        return true;
+    }
+
+    private Boolean isValuePosible(String attribute,String value) {
+        ArrayList<String> possibleValues = this.possibleAttributeValues.get(attribute);
+
+        if (!possibleValues.contains(value) ) {
+            return false;
+        }
+        return true;
+    }
 
 
-        if (this.possibleValues.containsKey(newValue) && possiblePositions.containsKey(new Pair<>(newX, newY))) {
-            String newAttribute = this.possibleValues.get(newValue);
-            return new ValidMove(newId, newX, newY, newAttribute, newValue);
+    public Move createMove(int newId, int newX, int newY,String newAttribute, String newValue) {
+
+        Pair<Integer,Integer> position = new Pair<>(newX,newY);
+
+        if (!this.isEditable(position) || !this.isAttriuteEditable(newAttribute,position) || !this.isValuePosible(newAttribute,newValue)) {
+            return new InvalidMove(newId);
         }
 
-        return new InvalidMove(newId);
+        return new ValidMove(newId,newX,newY,newAttribute,newValue);
     }
 
 
