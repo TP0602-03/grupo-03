@@ -19,7 +19,7 @@ public class GridGraph {
             List<GraphVertex> newRow = vertices.get(row);
             for (int column = 0; column < width; column++) {
                 GraphVertex vertex = new GraphVertex();
-                vertex.setAttribute("pos", "(" + Integer.toString(row) + "," + Integer.toString(column) + ")");
+                //vertex.setAttribute("pos", "(" + Integer.toString(row) + "," + Integer.toString(column) + ")");
                 newRow.add(vertex);
             }
         }

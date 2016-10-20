@@ -3,7 +3,6 @@ package ar.fiuba.tdd.tp.view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,8 +10,8 @@ import java.util.Set;
 public class CellView extends JPanel {
 
     protected ImageManager imageGetter;
-    private HashMap<String, String> contents = new HashMap<>();
     protected Color defaultBackground = Color.WHITE;
+    private HashMap<String, String> contents = new HashMap<>();
 
     public CellView(Set<Map.Entry<String, String>> contents, int gridSize) {
 
@@ -39,7 +38,8 @@ public class CellView extends JPanel {
         this.setLayout(new OverlayLayout(this));
         this.add(new JLabel(this.imageGetter.getEmptyImage()));
         for (String key : contents.keySet()) {
-
+            System.out.println("value of: " + key + " : "
+                    + contents.get(key));
             this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
         }
         this.revalidate();

@@ -71,6 +71,7 @@ public class Game {
                 for (Map.Entry<String, String> attribute :
                         cell.getAttributes().entrySet()) {
                     if (actions.get(attribute.getKey()) != null) {
+                        System.out.println(actions.get(attribute.getKey()).get(attribute.getValue()));
                         for (Action action :
                                 actions.get(attribute.getKey()).get(attribute.getValue())) {
                             action.run(cells, 2 * i + 1, 2 * j + 1);
@@ -100,6 +101,8 @@ public class Game {
 
     public void addAllowedValues(ArrayList<String> strings, String attribute) {
         for (String value : strings) {
+            System.out.println("attribute: " + attribute);
+            System.out.println("value: -" + value + "-");
             this.allowedValues.add(new Pair<String, String>(attribute, value));
         }
     }

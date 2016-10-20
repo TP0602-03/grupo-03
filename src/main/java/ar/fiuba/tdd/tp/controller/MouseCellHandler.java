@@ -10,8 +10,6 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.StringJoiner;
 
 /**
  * Created by ms0359 on 10/15/16.
@@ -35,6 +33,8 @@ public class MouseCellHandler implements MouseListener {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
         Pair<String, String> newValue = (Pair<String,String>) mainValuePicker.GetValuePicker((JPanel) e.getSource());
         ArrayList<String> contents = null;
+        System.out.println("key:" + newValue.getKey());
+        System.out.println("value:" + newValue.getValue());
         game.playCell(row,col, newValue.getKey(), newValue.getValue());
         cellView.setContent(newValue.getKey(), newValue.getValue());
         cellView.generateLabels();

@@ -21,6 +21,7 @@ public class ImageManager {
     }
 
     public ImageIcon getImage(String symbol) {
+        System.out.println("symbol is " + symbol);
         ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + symbol + ".png");
 
         return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
@@ -31,6 +32,7 @@ public class ImageManager {
 
         for (Pair<String,String> allowedValue : allowedValues) {
             String translatedValue = this.imageTranslator.translate(allowedValue);
+            System.out.println("translated value: " + translatedValue);
             iconValues.add(new IconValue(this.getImage(translatedValue), allowedValue.getKey(), translatedValue));
         }
 
@@ -42,7 +44,7 @@ public class ImageManager {
         if (key.compareTo("small_num") == 0) {
             symbol = "leftTop" + value;
         }
-
+        System.out.println(" ---   symbol: " + symbol + "----");
         return this.getImage(symbol);
     }
 
