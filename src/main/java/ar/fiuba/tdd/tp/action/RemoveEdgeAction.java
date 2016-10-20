@@ -16,21 +16,22 @@ public class RemoveEdgeAction extends Action {
     @Override
     public void run(GridGraph graph, int row, int col) {
 
-        Coord dstCoord = parseCoord(row, col, this.dst);
+        Coord targetCoord = parseCoord(row, col, this.dst);
 
-        Coord srcCoord = parseCoord(row, col, this.src);
+        Coord sourceCoord = parseCoord(row, col, this.src);
 
-        if (!graph.contains(srcCoord) || !graph.contains(dstCoord)) {
+        if (!graph.contains(sourceCoord) || !graph.contains(targetCoord)) {
             return;
         }
 
-        GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
-        GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
+        GraphVertex dstVertex = graph.getVertex(targetCoord.getX(), targetCoord.getY());
+
+        GraphVertex srcVertex = graph.getVertex(sourceCoord.getX(), sourceCoord.getY());
 
         //System.out.println("trying to remove edge");
         if (srcVertex.isAdjacent(dstVertex)) {
             //System.out.println("edge removed");
-            graph.removeEdge(srcCoord, dstCoord);
+            graph.removeEdge(sourceCoord, targetCoord);
         } else {
             //System.out.print("no edge to remove");
         }
