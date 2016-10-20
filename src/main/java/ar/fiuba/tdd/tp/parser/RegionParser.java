@@ -135,9 +135,9 @@ public class RegionParser {
 
         for (int i = 0; i< cells.size();i++) {
             JSONObject cellPosition = (JSONObject) cells.get(i);
-            int column = ((Long) cellPosition.get("c")).intValue();
-
-            int row = ((Long) cellPosition.get("r")).intValue();
+            GetCellPosition getCellPosition = new GetCellPosition(cellPosition).invoke();
+            int row = getCellPosition.getRow();
+            int column = getCellPosition.getColumn();
             GraphVertex vertex = game.getCell(row, column);
             reg.addVertex(vertex);
         }
@@ -186,6 +186,30 @@ public class RegionParser {
         for (int i = 0; i < height; i++) {
             GraphVertex vertex = game.getCell(i, column);
             reg.addVertex(vertex);
+        }
+    }
+
+    private static class GetCellPosition {
+        private JSONObject cellPosition;
+        private int column;
+        private int row;
+
+        public GetCellPosition(JSONObject cellPosition) {
+            this.cellPosition = cellPosition;
+        }
+
+        public int getColumn() {
+            return column;
+        }
+
+        public int getRow() {
+            return row;
+        }
+
+        public GetCellPosition invoke() {
+            column = ((Long) cellPosition.get("c")).intValue();
+            row = ((Long) cellPosition.get("r")).intValue();
+            return this;
         }
     }
 }

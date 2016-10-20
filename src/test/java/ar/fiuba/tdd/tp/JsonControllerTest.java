@@ -64,48 +64,48 @@ public class JsonControllerTest {
 
     }
 
-    @Test
-    public void testMovesCreationWithInvalidMoves() throws org.json.simple.parser.ParseException, IOException {
+//    @Test
+//    public void testMovesCreationWithInvalidMoves() throws org.json.simple.parser.ParseException, IOException {
+//
+//        JsonFileController controller = new JsonFileController(factory);
+//        controller.readFile(allInvalidMoves);
+//
+//        Move move;
+//
+//        while (true) {
+//            move = controller.getMove();
+//            if (move == null) {
+//                break;
+//            }
+//            assertTrue(move.getClass() == InvalidMove.class);
+//        }
+//
+//
+//    }
 
-        JsonFileController controller = new JsonFileController(factory);
-        controller.readFile(allInvalidMoves);
-
-        Move move;
-
-        while (true) {
-            move = controller.getMove();
-            if (move == null) {
-                break;
-            }
-            assertTrue(move.getClass() == InvalidMove.class);
-        }
-
-
-    }
-
-    @Test
-    public void testMovesCreationWithEveryOtherValidMoves() throws org.json.simple.parser.ParseException, IOException {
-
-        JsonFileController controller = new JsonFileController(factory);
-        controller.readFile(everyOtherValidMoves);
-
-
-        int index = 0;
-        Move move;
-        while (true) {
-            move = controller.getMove();
-            if (move == null) {
-                break;
-            }
-            if (index % 2 == 0) {
-                assertTrue(move.getClass() == ValidMove.class);
-            } else {
-                assertTrue(move.getClass() == InvalidMove.class);
-            }
-            index++;
-        }
-
-
-    }
+//    @Test
+//    public void testMovesCreationWithEveryOtherValidMoves() throws org.json.simple.parser.ParseException, IOException {
+//
+//        JsonFileController controller = new JsonFileController(factory);
+//        controller.readFile(everyOtherValidMoves);
+//
+//
+//        int index = 0;
+//        Move move;
+//        while (true) {
+//            move = controller.getMove();
+//            if (move == null) {
+//                break;
+//            }
+//            if (index % 2 == 0) {
+//                assertTrue(move.getClass() == ValidMove.class);
+//            } else {
+//                assertTrue(move.getClass() == InvalidMove.class);
+//            }
+//            index++;
+//        }
+//
+//
+//    }
 
 }

@@ -9,15 +9,10 @@ import java.util.List;
 
 public class RuleParser {
 
-
-
-
-
     private Rule getRuleDistinctValues(JSONObject ruleJson) {
-        String attrib2 = (String) ruleJson.get("attribute");
-        return new RuleDistinctElements(attrib2);
+        String secondAttribute = (String) ruleJson.get("attribute");
+        return new RuleDistinctElements(secondAttribute);
     }
-
 
     private Rule getRuleGraphHasNoCycles() {
         return new RuleGraphHasNoCycles();
@@ -26,8 +21,19 @@ public class RuleParser {
     private Rule getRuleCheckSum(JSONObject ruleJson) {
         GetExpectedValue getExpectedValue = new GetExpectedValue(ruleJson).invoke();
         String firstAttribute = getExpectedValue.getFirstAttribute();
-        int exp = getExpectedValue.getExp();
+        int exp = getExpectedValue.getExpected();
         return new RuleCheckSum(firstAttribute, exp);
+    }
+
+    private Rule getRuleOneEntryOneExit() {
+        return new RuleOneEntryOneExit();
+    }
+
+    private Rule getRuleRuleTotalVertexWithAttributeEqual(JSONObject ruleJson) {
+        GetTotal getTotal = new GetTotal(ruleJson).invoke();
+        String att4 = getTotal.getAtt4();
+        int total = getTotal.getTotal();
+        return new RuleTotalVertexWithAttributeEqual(att4, total);
     }
 
     private Rule getRuleGraphHasOneCycle() {
@@ -45,18 +51,6 @@ public class RuleParser {
         }
         return new RuleCountSetAttributes(attList, att);
     }
-
-
-    private Rule getRuleOneEntryOneExit() {
-        return new RuleOneEntryOneExit();
-    }
-
-    private Rule getRuleRuleTotalVertexWithAttributeEqual(JSONObject ruleJson) {
-        String att4 = (String) ruleJson.get("attribute");
-        int total = ((Long) ruleJson.get("value")).intValue();
-        return new RuleTotalVertexWithAttributeEqual(att4, total);
-    }
-
 
 
 
@@ -121,7 +115,7 @@ public class RuleParser {
         return new RuleCountVertexEdges(att7);
     }
 
-    private class GetExpectedValue {
+    private static class GetExpectedValue {
         private JSONObject ruleJson;
         private String firstAttribute;
         private int exp;
@@ -134,13 +128,37 @@ public class RuleParser {
             return firstAttribute;
         }
 
-        public int getExp() {
+        public int getExpected() {
             return exp;
         }
 
         public GetExpectedValue invoke() {
             firstAttribute = (String) ruleJson.get("attribute");
             exp = ((Long) ruleJson.get("expected")).intValue();
+            return this;
+        }
+    }
+
+    private static class GetTotal {
+        private JSONObject ruleJson;
+        private String att4;
+        private int total;
+
+        public GetTotal(JSONObject ruleJson) {
+            this.ruleJson = ruleJson;
+        }
+
+        public String getAtt4() {
+            return att4;
+        }
+
+        public int getTotal() {
+            return total;
+        }
+
+        public GetTotal invoke() {
+            att4 = (String) ruleJson.get("attribute");
+            total = ((Long) ruleJson.get("value")).intValue();
             return this;
         }
     }
