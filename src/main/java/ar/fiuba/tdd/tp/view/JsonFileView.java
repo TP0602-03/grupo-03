@@ -34,14 +34,14 @@ public class JsonFileView {
 
         ArrayList<JSONObject> cells = new ArrayList<>();
 
-        for (int i = 0; i < game.getWidth(); i++) {
-            for (int j = 0; j < game.getHeight(); j++) {
-                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
+        for (int col = 0; isLowerThan(game, col); col++) {
+            for (int row = 0; row < game.getHeight(); row++) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(col, row)) {
                     String content;
                     try {
                         content = key.getValue();
                         if (key.getKey() != "pos") {
-                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
+                            cells.add(this.createJsonCell(row, col, key.getKey().toString(), content));
                         }
                     } catch (Exception ex) {
                         //do nothing;
@@ -52,6 +52,10 @@ public class JsonFileView {
 
         this.updateBoard(cells);
         this.addStatus(game);
+    }
+
+    private boolean isLowerThan(Game game, int col) {
+        return col < game.getWidth();
     }
 
     public void add(Move newMove) {
