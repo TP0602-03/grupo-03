@@ -53,8 +53,6 @@ public class RuleParser {
     }
 
 
-
-
     private Rule getRuleAllVertexHaveAttribute(JSONObject ruleJson) {
         String att0 = (String) ruleJson.get("attribute");
         return new RuleAllVerticesHaveAttribute(att0);

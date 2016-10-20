@@ -1,7 +1,6 @@
 package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.controller.JsonFileController;
-import ar.fiuba.tdd.tp.move.InvalidMove;
 import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
 import ar.fiuba.tdd.tp.move.ValidMove;
