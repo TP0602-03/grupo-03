@@ -20,22 +20,34 @@ public class RegionParser {
             String type = (String) region.get("type");
 
 
-            if (Objects.equals(type, "rectangle")) {
-                loadRectangleRegion(game, region, reg);
-            } else if (Objects.equals(type, "column")) {
-                loadColumnRegion(game, region, reg);
-            } else if (Objects.equals(type, "row")) {
-                loadRowRegion(game, region, reg);
-            } else if (Objects.equals(type, "custom")) {
-                loadCustomRegion(game, region, reg);
-            } else if (Objects.equals(type, "edges")) {
-                loadEdgesRegion(game, region, reg);
-            } else if (Objects.equals(type, "all_cells")) {
-                loadAllCells(game, reg);
-            } else if (Objects.equals(type, "all_corners")) {
-                loadAllCorners(game, reg);
-            } else if (Objects.equals(type, "all_edges")) {
-                loadAllEdges(game, reg);
+            switch (type) {
+                case "rectangle":
+                    loadRectangleRegion(game, region, reg);
+                    break;
+                case "column":
+                    loadColumnRegion(game, region, reg);
+                    break;
+                case "row":
+                    loadRowRegion(game, region, reg);
+                    break;
+                case "custom":
+                    loadCustomRegion(game, region, reg);
+                    break;
+                case "edges":
+                    loadEdgesRegion(game, region, reg);
+                    break;
+                case "all_cells":
+                    loadAllCells(game, reg);
+                    break;
+                case "all_corners":
+                    loadAllCorners(game, reg);
+                    break;
+                case "all_edges":
+                    loadAllEdges(game, reg);
+                    break;
+                default:
+                    break;
+
             }
 
             JSONArray rules = (JSONArray) region.get("rules");
@@ -88,7 +100,7 @@ public class RegionParser {
     }
 
 
-    private GraphVertex getVertex(Game game,int row,int col,int rowOffset,int columnOffset) {
+    private GraphVertex getVertex(Game game, int row, int col, int rowOffset, int columnOffset) {
         return game.getVertex(2 * row + rowOffset, 2 * col + columnOffset);
 
     }
@@ -103,13 +115,13 @@ public class RegionParser {
             int row = ((Long) cellPos.get("r")).intValue();
             int col = ((Long) cellPos.get("c")).intValue();
             //top
-            set.add(this.getVertex(game,row,col,0,1));
+            set.add(this.getVertex(game, row, col, 0, 1));
             //bottom
-            set.add(this.getVertex(game,row,col,2,1));
+            set.add(this.getVertex(game, row, col, 2, 1));
             //left
-            set.add(this.getVertex(game,row,col,1,0));
+            set.add(this.getVertex(game, row, col, 1, 0));
             //right
-            set.add(this.getVertex(game,row,col,1,2));
+            set.add(this.getVertex(game, row, col, 1, 2));
 
         }
         for (GraphVertex vertex :

@@ -19,10 +19,10 @@ public class RuleGraphHasNoCycles extends Rule {
             List<GraphVertex> adjacent = current.getAdjacencyList();
             for (GraphVertex vertex :
                     adjacent) {
-                if (parent.get(current) != vertex && !visited.contains(vertex)) {
+                if ( !visited.contains(vertex) && parent.get(current) != vertex) {
                     parent.put(vertex, current);
                     stack.push(vertex);
-                } else if (parent.get(current) != vertex && visited.contains(vertex)) {
+                } else if (visited.contains(vertex) && parent.get(current) != vertex) {
                     return false;
                 }
             }

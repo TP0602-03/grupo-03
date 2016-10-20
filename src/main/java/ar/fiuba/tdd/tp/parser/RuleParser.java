@@ -5,16 +5,12 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class RuleParser {
 
 
-
-
-    private Rule getRuleCheckSum(JSONObject ruleJson){
+    private Rule getRuleCheckSum(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         int exp = ((Long) ruleJson.get("expected")).intValue();
         return new RuleCheckSum(att, exp);
@@ -26,21 +22,21 @@ public class RuleParser {
         return new RuleCheckProduct(att, exp);
     }
 
-    private Rule getRuleDistinctValues(JSONObject ruleJson){
+    private Rule getRuleDistinctValues(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         return new RuleDistinctElements(att);
     }
 
 
-    private Rule getRuleGraphHasNoCycles(){
+    private Rule getRuleGraphHasNoCycles() {
         return new RuleGraphHasNoCycles();
     }
 
-    private Rule getRuleGraphHasOneCycle(){
+    private Rule getRuleGraphHasOneCycle() {
         return new RuleGraphHasOneCycle();
     }
 
-    private Rule getRuleCountSetAttributes(JSONObject ruleJson){
+    private Rule getRuleCountSetAttributes(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         JSONArray attListJson = (JSONArray) ruleJson.get("attributes");
         List<String> attList = new ArrayList<>();
@@ -52,12 +48,12 @@ public class RuleParser {
         return new RuleCountSetAttributes(attList, att);
     }
 
-    private Rule getRuleCountVertexEdges(JSONObject ruleJson){
+    private Rule getRuleCountVertexEdges(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         return new RuleCountVertexEdges(att);
     }
 
-    private Rule getRuleRuleTotalVertexWithAttributeEqual(JSONObject ruleJson){
+    private Rule getRuleRuleTotalVertexWithAttributeEqual(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         int total = ((Long) ruleJson.get("value")).intValue();
         return new RuleTotalVertexWithAttributeEqual(att, total);
@@ -68,11 +64,10 @@ public class RuleParser {
     }
 
 
-    private Rule getRuleAllVertexHaveAttribute(JSONObject ruleJson){
+    private Rule getRuleAllVertexHaveAttribute(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         return new RuleAllVerticesHaveAttribute(att);
     }
-
 
 
     public Rule loadRule(JSONObject ruleJson) {

@@ -9,9 +9,10 @@ public class AddEdgeAction extends Action {
     private String dst;
 
     public AddEdgeAction(String src, String dst) {
-        System.out.println("ADDED ADD EDGE ACTION");
-        this.src = src;
+        //System.out.println("ADDED ADD EDGE ACTION");
+
         this.dst = dst;
+        this.src = src;
     }
 
     @Override
@@ -19,22 +20,22 @@ public class AddEdgeAction extends Action {
         Coord srcCoord = parseCoord(row, col, this.src);
         Coord dstCoord = parseCoord(row, col, this.dst);
 
-        System.out.println("ADDED EDGE BETWEEN 1");
+        //System.out.println("ADDED EDGE BETWEEN 1");
 
         if (!graph.contains(dstCoord) || !graph.contains(srcCoord)) {
             return;
         }
 
-        System.out.println("ADDED EDGE BETWEEN 2");
+        //System.out.println("ADDED EDGE BETWEEN 2");
         GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
         GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
 
-        System.out.println("ADDED EDGE BETWEEN 3");
+        //System.out.println("ADDED EDGE BETWEEN 3");
         if (srcVertex.isAdjacent(dstVertex)) {
             return;
         }
 
-        System.out.println("ADDED EDGE BETWEEN 4");
+        //System.out.println("ADDED EDGE BETWEEN 4");
         srcVertex.print();
         dstVertex.print();
 

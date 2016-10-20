@@ -15,19 +15,24 @@ public class RemoveEdgeAction extends Action {
 
     @Override
     public void run(GridGraph graph, int row, int col) {
-        Coord srcCoord = parseCoord(row, col, this.src);
+
         Coord dstCoord = parseCoord(row, col, this.dst);
-        if (!graph.contains(dstCoord) || !graph.contains(srcCoord)) {
+
+        Coord srcCoord = parseCoord(row, col, this.src);
+
+        if (!graph.contains(srcCoord) || !graph.contains(dstCoord)) {
             return;
         }
-        GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
+
         GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
-        System.out.println("trying to remove edge");
+        GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
+
+        //System.out.println("trying to remove edge");
         if (srcVertex.isAdjacent(dstVertex)) {
-            System.out.println("edge removed");
+            //System.out.println("edge removed");
             graph.removeEdge(srcCoord, dstCoord);
         } else {
-            System.out.print("no edge to remove");
+            //System.out.print("no edge to remove");
         }
     }
 }
