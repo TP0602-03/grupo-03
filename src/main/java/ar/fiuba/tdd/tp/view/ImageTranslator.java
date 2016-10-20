@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class ImageTranslator {
 
     private HashMap<String, String> translateDict;
+    private HashMap<String, Pair<String, String>> retroTranslateDict;
 
     public ImageTranslator() {
         this.translateDict = new HashMap<>();
@@ -18,6 +19,10 @@ public class ImageTranslator {
         this.translateDict.put("bottom", "bottomHorizontalPipe");
         this.translateDict.put("top", "topHorizontalPipe");
         this.translateDict.put("right", "rightVerticalPipe");
+
+        this.retroTranslateDict.put("bottomHorizontalLine", new Pair<>("bottom", "true"));
+        this.retroTranslateDict.put("topHorizontalLine", new Pair<>("top", "true"));
+        this.retroTranslateDict.put("rightVerticalLine", new Pair<>("right", "true"));
     }
 
     public String translate(Pair<String, String> allowedValue) {
@@ -26,5 +31,9 @@ public class ImageTranslator {
         if (allowedValue.getKey() != "small_num") trailingData = "";
 
         return this.translateDict.get(allowedValue.getKey()) + trailingData;
+    }
+
+    public String translate(String imageName) {
+        return "";
     }
 }
