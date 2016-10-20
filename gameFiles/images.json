@@ -110,7 +110,7 @@
     ]
   },
   {
-    "attribute": "small_num",
+    "attribute": "small_first",
     "values": [
       {
         "value": "0",
@@ -151,6 +151,51 @@
       {
         "value": "9",
         "image": "leftTop9"
+      }
+    ]
+  },
+  {
+    "attribute": "small_second",
+    "values": [
+      {
+        "value": "0",
+        "image": "leftTop0Right"
+      },
+      {
+        "value": "1",
+        "image": "leftTop1Right"
+      },
+      {
+        "value": "2",
+        "image": "leftTop2Right"
+      },
+      {
+        "value": "3",
+        "image": "leftTop3Right"
+      },
+      {
+        "value": "4",
+        "image": "leftTop4Right"
+      },
+      {
+        "value": "5",
+        "image": "leftTop5Right"
+      },
+      {
+        "value": "6",
+        "image": "leftTop6Right"
+      },
+      {
+        "value": "7",
+        "image": "leftTop7Right"
+      },
+      {
+        "value": "8",
+        "image": "leftTop8Right"
+      },
+      {
+        "value": "9",
+        "image": "leftTop9Right"
       }
     ]
   },

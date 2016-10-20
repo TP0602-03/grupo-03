@@ -21,42 +21,138 @@
       "r": 0,
       "c": 0,
       "attributes": {
-        "small_num": 6
+        "small_first": 6,
+        "small_num": 6,
+        "regionRight": "true"
       }
     },
     {
       "r": 0,
       "c": 1,
       "attributes": {
-        "small_num": 8
+        "small_first": 8,
+        "small_num": 8,
+        "regionLeft": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 0,
+      "c": 2,
+      "attributes": {
+        "regionRight": "true",
+        "regionBottom": "true"
       }
     },
     {
       "r": 0,
       "c": 3,
       "attributes": {
-        "small_num": 24
+        "small_first": 2,
+        "small_second": 4,
+        "small_num": 24,
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "attributes": {
+        "regionBottom": "true",
+        "regionRight": "true"
       }
     },
     {
       "r": 1,
       "c": 1,
       "attributes": {
-        "small_num": 4
+        "small_first": 4,
+        "small_num": 4,
+        "regionBottom": "true",
+        "regionLeft": "true",
+        "regionTop": "true",
+      }
+    },
+    {
+      "r": 1,
+      "c": 2,
+      "attributes": {
+        "regionBottom": "true",
+        "regionRight": "true",
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
       }
     },
     {
       "r": 2,
       "c": 0,
       "attributes": {
-        "small_num": 6
+        "small_first": 6,
+        "small_num": 6,
+        "regionTop": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "attributes": {
+        "regionTop": "true",
+        "regionBottom": "true",
+        "regionRight": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "attributes": {
+        "small_first": 1,
+        "small_second": 2,
+        "small_num": 12,
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 2,
+      "attributes": {
+        "regionRight": "true",
+        "regionTop": "true"
       }
     },
     {
       "r": 3,
       "c": 3,
       "attributes": {
-        "small_num": 12
+        "regionLeft": "true"
       }
     }
   ],
