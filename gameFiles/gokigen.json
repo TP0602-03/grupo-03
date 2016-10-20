@@ -31,92 +31,92 @@
   ],
   "corners": [
     {
-      "x": 0,
-      "y": 0,
+      "r": 0,
+      "c": 0,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 0,
-      "y": 2,
+      "r": 0,
+      "c": 2,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 0,
-      "y": 3,
+      "r": 0,
+      "c": 3,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 1,
-      "y": 0,
+      "r": 1,
+      "c": 0,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 1,
-      "y": 1,
+      "r": 1,
+      "c": 1,
       "attributes": {
         "max_edges": 2
       }
     },
     {
-      "x": 1,
-      "y": 2,
+      "r": 1,
+      "c": 2,
       "attributes": {
         "max_edges": 2
       }
     },
     {
-      "x": 1,
-      "y": 3,
+      "r": 1,
+      "c": 3,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 2,
-      "y": 0,
+      "r": 2,
+      "c": 0,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 2,
-      "y": 1,
+      "r": 2,
+      "c": 1,
       "attributes": {
         "max_edges": 3
       }
     },
     {
-      "x": 2,
-      "y": 2,
+      "r": 2,
+      "c": 2,
       "attributes": {
         "max_edges": 2
       }
     },
     {
-      "x": 3,
-      "y": 1,
+      "r": 3,
+      "c": 1,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 3,
-      "y": 2,
+      "r": 3,
+      "c": 2,
       "attributes": {
         "max_edges": 1
       }
     },
     {
-      "x": 3,
-      "y": 3,
+      "r": 3,
+      "c": 3,
       "attributes": {
         "max_edges": 1
       }

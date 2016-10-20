@@ -11,6 +11,12 @@ public class IconValue {
     private Icon icon;
     private Pair<String, String> keyValue;
 
+    public IconValue(Icon icon, String key, String value) {
+        this.icon = icon;
+        System.out.println("value :::::: " + value);
+        this.keyValue = new Pair<>(key, value);
+    }
+
     public Icon getIcon() {
         return icon;
     }
@@ -25,11 +31,6 @@ public class IconValue {
 
     public Pair<String, String> getKeyValue(){
         return keyValue;
-    }
-
-    public IconValue(Icon icon, String key, String value) {
-        this.icon = icon;
-        this.keyValue = new Pair<>(key, value);
     }
 
 }

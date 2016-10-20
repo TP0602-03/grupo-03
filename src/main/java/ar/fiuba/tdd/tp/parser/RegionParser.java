@@ -94,8 +94,8 @@ public class RegionParser {
         for (Object obj :
                 cells) {
             JSONObject cellPos = (JSONObject) obj;
-            int row = ((Long) cellPos.get("x")).intValue();
-            int col = ((Long) cellPos.get("y")).intValue();
+            int row = ((Long) cellPos.get("r")).intValue();
+            int col = ((Long) cellPos.get("c")).intValue();
             //top
             GraphVertex vertex = game.getVertex(2 * row, 2 * col + 1);
             set.add(vertex);
@@ -122,8 +122,8 @@ public class RegionParser {
         for (Object obj :
                 cells) {
             JSONObject cellPos = (JSONObject) obj;
-            int row = ((Long) cellPos.get("x")).intValue();
-            int col = ((Long) cellPos.get("y")).intValue();
+            int row = ((Long) cellPos.get("r")).intValue();
+            int col = ((Long) cellPos.get("c")).intValue();
             GraphVertex vertex = game.getCell(row, col);
             reg.addVertex(vertex);
         }
@@ -144,10 +144,10 @@ public class RegionParser {
 
     private void loadRectangleRegion(Game game, JSONObject region, Region reg) {
         JSONObject rectangle = (JSONObject) region.get("rectangle");
-        int rowMin = ((Long) rectangle.get("x_min")).intValue();
-        int rowMax = ((Long) rectangle.get("x_max")).intValue();
-        int colMin = ((Long) rectangle.get("y_min")).intValue();
-        int colMax = ((Long) rectangle.get("y_max")).intValue();
+        int rowMin = ((Long) rectangle.get("r_min")).intValue();
+        int rowMax = ((Long) rectangle.get("r_max")).intValue();
+        int colMin = ((Long) rectangle.get("c_min")).intValue();
+        int colMax = ((Long) rectangle.get("c_max")).intValue();
 
         for (int i = rowMin; i <= rowMax; i++) {
             for (int j = colMin; j <= colMax; j++) {

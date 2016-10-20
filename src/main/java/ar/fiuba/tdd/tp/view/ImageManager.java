@@ -1,8 +1,10 @@
 package ar.fiuba.tdd.tp.view;
 
 import javafx.util.Pair;
+import org.json.simple.parser.ParseException;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +16,7 @@ public class ImageManager {
     private ImageResizer resizer;
     private ImageTranslator imageTranslator;
 
-    public ImageManager(String pathToImages, int rowCount) {
+    public ImageManager(String pathToImages, int rowCount) throws IOException, ParseException {
         this.relativePath = pathToImages;
         this.resizer = new ImageResizer(rowCount);
         this.imageTranslator = new ImageTranslator();
@@ -33,7 +35,7 @@ public class ImageManager {
         for (Pair<String,String> allowedValue : allowedValues) {
             String translatedValue = this.imageTranslator.translate(allowedValue);
             System.out.println("translated value: " + translatedValue);
-            iconValues.add(new IconValue(this.getImage(translatedValue), allowedValue.getKey(), translatedValue));
+            iconValues.add(new IconValue(this.getImage(translatedValue), allowedValue.getKey(), allowedValue.getValue()));
         }
 
         return iconValues;
@@ -44,7 +46,7 @@ public class ImageManager {
         if (key.compareTo("small_num") == 0) {
             symbol = "leftTop" + value;
         }
-        System.out.println(" ---   symbol: " + symbol + "----");
+//        System.out.println(" ---   symbol: " + symbol + "----");
         return this.getImage(symbol);
     }
 

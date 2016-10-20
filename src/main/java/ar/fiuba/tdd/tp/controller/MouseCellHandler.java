@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.controller;
 
 import ar.fiuba.tdd.tp.Game;
+import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.CellView;
 import ar.fiuba.tdd.tp.view.IconValue;
 import ar.fiuba.tdd.tp.view.MainValuePicker;
@@ -10,6 +11,8 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by ms0359 on 10/15/16.
@@ -19,8 +22,10 @@ public class MouseCellHandler implements MouseListener {
     Game game;
     int row, col;
     CellView cellView;
+    private BoardGameView board;
 
-    public MouseCellHandler(ArrayList<IconValue> content, Game game, int row, int col, CellView cellView) {
+    public MouseCellHandler(BoardGameView board, ArrayList<IconValue> content, Game game, int row, int col, CellView cellView) {
+        this.board = board;
         this.content = content;
         this.game = game;
         this.row = row;
@@ -36,8 +41,21 @@ public class MouseCellHandler implements MouseListener {
         System.out.println("key:" + newValue.getKey());
         System.out.println("value:" + newValue.getValue());
         game.playCell(row,col, newValue.getKey(), newValue.getValue());
-        cellView.setContent(newValue.getKey(), newValue.getValue());
-        cellView.generateLabels();
+
+        for (int i = 0; i < game.getHeight(); i++) {
+            for (int j = 0; j < game.getWidth(); j++) {
+                CellView cell = (CellView) board.get(i, j);
+                Set<Map.Entry<String, String>> atts = game.getCellKeysValues(i, j);
+                for (Map.Entry<String, String> att : atts) {
+                    cell.setContent(att.getKey(), att.getValue());
+                }
+                cell.generateLabels();
+
+            }
+        }
+
+        /*cellView.setContent(newValue.getKey(), newValue.getValue());
+        cellView.generateLabels();*/
     }
 
     @Override

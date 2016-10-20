@@ -1,8 +1,11 @@
 package ar.fiuba.tdd.tp.view;
 
+import org.json.simple.parser.ParseException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,7 +16,7 @@ public class CellView extends JPanel {
     protected Color defaultBackground = Color.WHITE;
     private HashMap<String, String> contents = new HashMap<>();
 
-    public CellView(Set<Map.Entry<String, String>> contents, int gridSize) {
+    public CellView(Set<Map.Entry<String, String>> contents, int gridSize) throws IOException, ParseException {
 
         this.imageGetter = new ImageManager("gameFiles/images", gridSize);
         this.setContents(contents);
@@ -43,6 +46,7 @@ public class CellView extends JPanel {
             this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
         }
         this.revalidate();
+        System.out.println("repainting");
         this.repaint();
     }
 

@@ -1,0 +1,199 @@
+[
+  {
+    "attribute": "num",
+    "values": [
+      {
+        "value": "1",
+        "image": "1"
+      },
+      {
+        "value": "2",
+        "image": "2"
+      },
+      {
+        "value": "3",
+        "image": "3"
+      },
+      {
+        "value": "4",
+        "image": "4"
+      },
+      {
+        "value": "5",
+        "image": "5"
+      },
+      {
+        "value": "6",
+        "image": "6"
+      },
+      {
+        "value": "7",
+        "image": "7"
+      },
+      {
+        "value": "8",
+        "image": "8"
+      },
+      {
+        "value": "9",
+        "image": "9"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
+    "attribute": "left",
+    "values": [
+      {
+        "value": "leftVerticalPipe",
+        "image": "leftVerticalPipe"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
+    "attribute": "right",
+    "values": [
+      {
+        "value": "rightVerticalPipe",
+        "image": "rightVerticalPipe"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
+    "attribute": "right",
+    "values": [
+      {
+        "value": "rightVerticalPipe",
+        "image": "rightVerticalPipe"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
+    "attribute": "top",
+    "values": [
+      {
+        "value": "topHorizontalPipe",
+        "image": "topHorizontalPipe"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
+    "attribute": "bottom",
+    "values": [
+      {
+        "value": "bottomHorizontalPipe",
+        "image": "bottomHorizontalPipe"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
+    "attribute": "small_num",
+    "values": [
+      {
+        "value": "0",
+        "image": "leftTop0"
+      },
+      {
+        "value": "1",
+        "image": "leftTop1"
+      },
+      {
+        "value": "2",
+        "image": "leftTop2"
+      },
+      {
+        "value": "3",
+        "image": "leftTop3"
+      },
+      {
+        "value": "4",
+        "image": "leftTop4"
+      },
+      {
+        "value": "5",
+        "image": "leftTop5"
+      },
+      {
+        "value": "6",
+        "image": "leftTop6"
+      },
+      {
+        "value": "7",
+        "image": "leftTop7"
+      },
+      {
+        "value": "8",
+        "image": "leftTop8"
+      },
+      {
+        "value": "9",
+        "image": "leftTop9"
+      }
+    ]
+  },
+  {
+    "attribute": "diagonal",
+    "values": [
+      {
+        "value": "downToUpDiagonal",
+        "image": "downToUpDiagonal"
+      },
+      {
+        "value": "upToDownDiagonal",
+        "image": "upToDownDiagonal"
+      }
+    ]
+  },
+  {
+    "attribute": "lines",
+    "values": [
+      {
+        "value": "se",
+        "image": "downToUpDiagonal"
+      },
+      {
+        "value": "ne",
+        "image": "upToDownDiagonal"
+      },
+      {
+        "value": "nw",
+        "image": "upToDownDiagonal"
+      },
+      {
+        "value": "sw",
+        "image": "upToDownDiagonal"
+      },
+      {
+        "value": "ns",
+        "image": "midVerticalPipe"
+      },
+      {
+        "value": "we",
+        "image": "midHorizontalPipe"
+      }
+    ]
+  }
+]

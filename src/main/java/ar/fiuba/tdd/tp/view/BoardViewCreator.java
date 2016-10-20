@@ -3,9 +3,6 @@ package ar.fiuba.tdd.tp.view;
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.controller.MouseCellHandler;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 public class BoardViewCreator {
 
     public BoardViewCreator() {
@@ -21,7 +18,7 @@ public class BoardViewCreator {
                     ImageManager imageGetter = new ImageManager("gameFiles/images", game.getHeight());
 
                     CellView panel = new CellView(game.getCellKeysValues(i, j), game.getHeight());
-                    panel.setHandlers(new MouseCellHandler(imageGetter.getImages(game.getAllowedValues()), game, i, j, panel));
+                    panel.setHandlers(new MouseCellHandler(board, imageGetter.getImages(game.getAllowedValues()), game, i, j, panel));
                     board.set(i, j, 50, 50, panel);
                 }
             }

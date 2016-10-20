@@ -18,7 +18,9 @@ public class AffectAttributeAction extends Action {
     @Override
     public void run(GridGraph graph, int row, int col) {
         Coord dstCoord = parseCoord(row, col, dst);
+        System.out.println("affecting attribute: " + this.attribute + "of cell " + dstCoord.getX() + " , " + dstCoord.getY());
         if (!graph.contains(dstCoord)) {
+            System.out.println("*************out of range**************");
             return;
         }
         GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());

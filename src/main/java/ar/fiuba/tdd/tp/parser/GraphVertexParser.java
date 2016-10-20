@@ -24,8 +24,8 @@ public class GraphVertexParser {
         for (Object obj :
                 verticesJson) {
             JSONObject vertex = (JSONObject) obj;
-            int row = ((Long) vertex.get("y")).intValue();
-            int col = ((Long) vertex.get("x")).intValue();
+            int row = ((Long) vertex.get("r")).intValue();
+            int col = ((Long) vertex.get("c")).intValue();
             JSONObject attributesJson = (JSONObject) vertex.get("attributes");
             loadAttributes(getGraphVertex(game, row, col, type), attributesJson);
         }

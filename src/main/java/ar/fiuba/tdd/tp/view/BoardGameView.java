@@ -8,10 +8,11 @@ public class BoardGameView extends JPanel {
     //private board
     JPanel cellContainer;
     JFrame frame;
+    GridBagLayout gbl;
 
     public BoardGameView() {
-        cellContainer = new JPanel();
 
+        cellContainer = new JPanel();
         frame = new JFrame("Grid Game - TP1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -19,8 +20,8 @@ public class BoardGameView extends JPanel {
         frame.add(cellContainer);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-        cellContainer.setLayout(new GridBagLayout());
+        gbl = new GridBagLayout();
+        cellContainer.setLayout(gbl);
 
     }
 
@@ -36,8 +37,11 @@ public class BoardGameView extends JPanel {
 
         cellContainer.add(cell, gridBagConstraints);
 
-
         frame.pack();
+    }
+
+    public Component get(int row, int col) {
+        return cellContainer.getComponent(row * gbl.getLayoutDimensions()[0].length + col);
     }
 
     public void won() {

@@ -12,67 +12,63 @@
         2,
         3,
         4,
-        5,
-        6,
-        7,
-        8,
-        9
+        ""
       ]
     }
   ],
   "cells": [
     {
-      "x": 0,
-      "y": 0,
+      "r": 0,
+      "c": 0,
       "attributes": {
         "num": 3
       }
     },
     {
-      "x": 0,
-      "y": 1,
+      "r": 0,
+      "c": 1,
       "attributes": {
         "num": 4
       }
     },
     {
-      "x": 0,
-      "y": 2,
+      "r": 0,
+      "c": 2,
       "attributes": {
         "num": 1
       }
     },
     {
-      "x": 1,
-      "y": 1,
+      "r": 1,
+      "c": 1,
       "attributes": {
         "num": 2
       }
     },
     {
-      "x": 2,
-      "y": 2,
+      "r": 2,
+      "c": 2,
       "attributes": {
         "num": 2
       }
     },
     {
-      "x": 3,
-      "y": 1,
+      "r": 3,
+      "c": 1,
       "attributes": {
         "num": 1
       }
     },
     {
-      "x": 3,
-      "y": 2,
+      "r": 3,
+      "c": 2,
       "attributes": {
         "num": 4
       }
     },
     {
-      "x": 3,
-      "y": 3,
+      "r": 3,
+      "c": 3,
       "attributes": {
         "num": 3
       }
@@ -251,10 +247,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 0,
-          "y_min": 0,
-          "x_max": 1,
-          "y_max": 1
+          "r_min": 0,
+          "c_min": 0,
+          "r_max": 1,
+          "c_max": 1
         },
         "rules": [
           {
@@ -277,10 +273,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 0,
-          "y_min": 2,
-          "x_max": 1,
-          "y_max": 3
+          "r_min": 0,
+          "c_min": 2,
+          "r_max": 1,
+          "c_max": 3
         },
         "rules": [
           {
@@ -303,10 +299,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 2,
-          "y_min": 0,
-          "x_max": 3,
-          "y_max": 1
+          "r_min": 2,
+          "c_min": 0,
+          "r_max": 3,
+          "c_max": 1
         },
         "rules": [
           {
@@ -329,10 +325,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 2,
-          "y_min": 2,
-          "x_max": 3,
-          "y_max": 3
+          "r_min": 2,
+          "c_min": 2,
+          "r_max": 3,
+          "c_max": 3
         },
         "rules": [
           {
