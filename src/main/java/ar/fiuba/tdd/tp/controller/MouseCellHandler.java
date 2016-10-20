@@ -38,8 +38,8 @@ public class MouseCellHandler implements MouseListener {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
         Pair<String, String> newValue = (Pair<String,String>) mainValuePicker.GetValuePicker((JPanel) e.getSource());
         ArrayList<String> contents = null;
-        System.out.println("key:" + newValue.getKey());
-        System.out.println("value:" + newValue.getValue());
+        System.out.println("key is:" + newValue.getKey());
+        System.out.println("value is:" + newValue.getValue());
         game.playCell(row,col, newValue.getKey(), newValue.getValue());
 
         for (int i = 0; i < game.getHeight(); i++) {
