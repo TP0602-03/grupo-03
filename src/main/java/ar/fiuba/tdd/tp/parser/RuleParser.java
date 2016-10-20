@@ -33,7 +33,7 @@ public class RuleParser {
         } else if (Objects.equals(ruleName, "RuleAllVerticesHaveAttribute")) {
             String att = (String) ruleJson.get("attribute");
             rule = new RuleAllVerticesHaveAttribute(att);
-        } else if (Objects.equals(ruleName, "RuleCountTrueBooleanAttributes")) {
+        } else if (Objects.equals(ruleName, "RuleCountSetAttributes")) {
             String att = (String) ruleJson.get("attribute");
             JSONArray attListJson = (JSONArray) ruleJson.get("attributes");
             List<String> attList = new ArrayList<>();
@@ -42,7 +42,7 @@ public class RuleParser {
                 String attribute = (String) obj;
                 attList.add(attribute);
             }
-            rule = new RuleCountTrueBooleanAttributes(attList, att);
+            rule = new RuleCountSetAttributes(attList, att);
         } else if (Objects.equals(ruleName, "RuleTotalVertexWithAttributeEqual")) {
             String att = (String) ruleJson.get("attribute");
             int total = ((Long) ruleJson.get("value")).intValue();

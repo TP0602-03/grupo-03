@@ -188,7 +188,7 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCountTrueBooleanAttributes",
+              "name": "RuleCountSetAttributes",
               "attribute": "num",
               "attributes": [
                 "left",

@@ -4,12 +4,12 @@ import ar.fiuba.tdd.tp.graph.GraphVertex;
 
 import java.util.List;
 
-public class RuleCountTrueBooleanAttributes extends Rule {
+public class RuleCountSetAttributes extends Rule {
 
     private final List<String> attributes;
     private final String attributeValue;
 
-    public RuleCountTrueBooleanAttributes(List<String> attributes, String attributeValue) {
+    public RuleCountSetAttributes(List<String> attributes, String attributeValue) {
 
         this.attributes = attributes;
         this.attributeValue = attributeValue;
@@ -19,7 +19,7 @@ public class RuleCountTrueBooleanAttributes extends Rule {
     public boolean check(List<GraphVertex> vertices) {
         for (GraphVertex vertex : vertices) {
             if (vertex.hasAttribute(attributeValue)) {
-                int total = getTrueBooleanAttributes(vertex);
+                int total = getSetAttributes(vertex);
                 if (total != Integer.parseInt(vertex.getAttribute(attributeValue))) {
                     return false;
                 }
@@ -29,10 +29,10 @@ public class RuleCountTrueBooleanAttributes extends Rule {
         return true;
     }
 
-    private int getTrueBooleanAttributes(GraphVertex vertex) {
+    private int getSetAttributes(GraphVertex vertex) {
         int total = 0;
         for (String attribute : attributes) {
-            if (vertex.hasAttribute(attribute) && Boolean.parseBoolean(vertex.getAttribute(attribute))) {
+            if (vertex.hasAttribute(attribute) && !vertex.getAttribute(attribute).equals("")) {
                 total++;
             }
         }
