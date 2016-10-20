@@ -87,6 +87,12 @@ public class RegionParser {
         }
     }
 
+
+    private GraphVertex getVertex(Game game,int row,int col,int rowOffset,int columnOffset) {
+        return game.getVertex(2 * row + rowOffset, 2 * col + columnOffset);
+
+    }
+
     private void loadEdgesRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
         //Horizontal
@@ -97,17 +103,13 @@ public class RegionParser {
             int row = ((Long) cellPos.get("r")).intValue();
             int col = ((Long) cellPos.get("c")).intValue();
             //top
-            GraphVertex vertex = game.getVertex(2 * row, 2 * col + 1);
-            set.add(vertex);
+            set.add(this.getVertex(game,row,col,0,1));
             //bottom
-            vertex = game.getVertex(2 * row + 2, 2 * col + 1);
-            set.add(vertex);
+            set.add(this.getVertex(game,row,col,2,1));
             //left
-            vertex = game.getVertex(2 * row + 1, 2 * col);
-            set.add(vertex);
+            set.add(this.getVertex(game,row,col,1,0));
             //right
-            vertex = game.getVertex(2 * row + 1, 2 * col + 2);
-            set.add(vertex);
+            set.add(this.getVertex(game,row,col,1,2));
 
         }
         for (GraphVertex vertex :
