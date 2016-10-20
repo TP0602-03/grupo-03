@@ -33,31 +33,31 @@ public class JsonFileView {
     public void add(Game game) {
 
         ArrayList<JSONObject> cells = new ArrayList<>();
-        int k = 0;
-        int h = 0;
 
-        while ( k < game.getWidth()) {
-            while ( h < game.getHeight() ) {
-                for (Map.Entry<String, String> clave : game.getCellKeysValues(k, h)) {
+        for (int col = 0; isLowerThan(game, col); col++) {
+            for (int row = 0; row < game.getHeight(); row++) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(col, row)) {
                     String content;
                     try {
-                        content = clave.getValue();
-                        if (clave.getKey() != "pos") {
-                            cells.add(this.createJsonCell(h, k, clave.getKey().toString(), content));
+                        content = key.getValue();
+                        if (key.getKey() != "pos") {
+                            cells.add(this.createJsonCell(row, col, key.getKey().toString(), content));
                         }
                     } catch (Exception ex) {
                         //do nothing;
                     }
                 }
-                h++;
+
             }
-            h = 0;
-            k++;
         }
 
 
         this.updateBoard(cells);
         this.addStatus(game);
+    }
+
+    private boolean isLowerThan(Game game, int col) {
+        return col < game.getWidth();
     }
 
     public void add(Move newMove) {
