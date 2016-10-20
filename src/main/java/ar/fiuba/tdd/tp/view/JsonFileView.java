@@ -56,10 +56,6 @@ public class JsonFileView {
         this.addStatus(game);
     }
 
-    private boolean isLowerThan(Game game, int col) {
-        return col < game.getWidth();
-    }
-
     public void add(Move newMove) {
         JSONObject play = new JSONObject();
         play.put("number", newMove.getId());
@@ -70,6 +66,10 @@ public class JsonFileView {
             play.put("boardStatus", "invalid");
         }
         ((JSONArray) this.info.get("plays")).add(play);
+    }
+
+    private boolean isLowerThan(Game game, int col) {
+        return col < game.getWidth();
     }
 
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
