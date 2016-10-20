@@ -16,7 +16,7 @@ public class Main {
         @Override
         public void run() {
             try {
-                Parser parser = new Parser("gameFiles/country.json");
+                Parser parser = new Parser("gameFiles/sudoku.json");
                 boardViewCreator.CreateBoard(parser.getGame());
             } catch (Exception ex) {
 

@@ -36,12 +36,12 @@ public class MouseCellHandler implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        Pair<String, String> newValue = (Pair<String,String>) mainValuePicker.GetValuePicker((JPanel) e.getSource());
+        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.GetValuePicker((JPanel) e.getSource());
         ArrayList<String> contents = null;
         System.out.println("key is:" + newValue.getKey());
         System.out.println("value is:" + newValue.getValue());
-        game.playCell(row,col, newValue.getKey(), newValue.getValue());
-
+        game.playCell(row, col, newValue.getKey(), newValue.getValue());
+        // ACTUALIZO LOS ATRIBUTOS DE TODAS LAS CELDAS Y LAS REDIBUJO
         for (int i = 0; i < game.getHeight(); i++) {
             for (int j = 0; j < game.getWidth(); j++) {
                 CellView cell = (CellView) board.get(i, j);
@@ -52,6 +52,22 @@ public class MouseCellHandler implements MouseListener {
                 cell.generateLabels();
 
             }
+        }
+
+        if (game.validateRules()) {
+            JOptionPane jOptionPane = new JOptionPane();
+            jOptionPane.setMessage("##### ***** YOU WON ***** #####");
+            JFrame jFrame = new JFrame();
+
+            JDialog jDialog = jOptionPane.createDialog(jFrame, "Move");
+            jDialog.setVisible(true);
+        } else {
+            JOptionPane jOptionPane = new JOptionPane();
+            jOptionPane.setMessage("##### ***** NOT YET ***** #####");
+            JFrame jFrame = new JFrame();
+
+            JDialog jDialog = jOptionPane.createDialog(jFrame, "Move");
+            jDialog.setVisible(true);
         }
 
         /*cellView.setContent(newValue.getKey(), newValue.getValue());
