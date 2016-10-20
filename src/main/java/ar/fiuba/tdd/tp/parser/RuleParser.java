@@ -66,6 +66,7 @@ public class RuleParser {
         return rule;
     }
 
+    @SuppressWarnings("CPD-START")
     private Rule loadRuleDependingOnName(JSONObject ruleJson, String ruleName) {
         if (ruleName.equals("RuleCheckSum")) {
             return this.getRuleCheckSum(ruleJson);
@@ -96,6 +97,7 @@ public class RuleParser {
         }
         return null;
     }
+    @SuppressWarnings("CPD-END")
 
     private Rule getRuleCheckProduct(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
