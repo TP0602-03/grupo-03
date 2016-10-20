@@ -31,7 +31,7 @@ public class ImageManager {
 
         for (Pair<String,String> allowedValue : allowedValues) {
             String translatedValue = this.imageTranslator.translate(allowedValue);
-            iconValues.add(new IconValue(this.getImage(translatedValue), translatedValue));
+            iconValues.add(new IconValue(this.getImage(translatedValue), allowedValue.getKey(), translatedValue));
         }
 
         return iconValues;

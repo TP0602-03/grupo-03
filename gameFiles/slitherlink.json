@@ -8,8 +8,8 @@
     {
       "attribute": "left",
       "values": [
-        true,
-        false
+        "leftVerticalPipe",
+        ""
       ],
       "actions": [
         [

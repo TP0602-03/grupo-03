@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.view;
 
+import javafx.util.Pair;
+
 import javax.swing.*;
 
 /**
@@ -7,19 +9,27 @@ import javax.swing.*;
  */
 public class IconValue {
     private Icon icon;
-    private String value;
+    private Pair<String, String> keyValue;
 
     public Icon getIcon() {
         return icon;
     }
 
-    public String getValue() {
-        return value;
+    public String getKey(){
+        return keyValue.getKey();
     }
 
-    public IconValue(Icon icon, String value) {
+    public String getValue() {
+        return keyValue.getValue();
+    }
+
+    public Pair<String, String> getKeyValue(){
+        return keyValue;
+    }
+
+    public IconValue(Icon icon, String key, String value) {
         this.icon = icon;
-        this.value = value;
+        this.keyValue = new Pair<>(key, value);
     }
 
 }

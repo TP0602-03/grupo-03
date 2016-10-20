@@ -26,6 +26,7 @@ public class BoardViewCreator {
                 }
             }
         } catch (Exception ex) {
+            System.out.println();
 
         }
     }
