@@ -61,45 +61,40 @@ public class RuleParser {
 
     public Rule loadRule(JSONObject ruleJson) {
         String ruleName = (String) ruleJson.get("name");
-        Rule rule = null;
 
-        switch (ruleName) {
-            case "RuleCheckSum":
-                rule = this.getRuleCheckSum(ruleJson);
-                break;
-            case "RuleCheckProduct":
-                rule = this.getRuleCheckProduct(ruleJson);
-                break;
-            case "RuleDistinctValues":
-                rule = this.getRuleDistinctValues(ruleJson);
-                break;
-            case "RuleCountVertexEdges":
-                rule = this.getRuleCountVertexEdges(ruleJson);
-                break;
-            case "RuleGraphHasNoCycles":
-                rule = this.getRuleGraphHasNoCycles();
-                break;
-            case "RuleGraphHasOneCycle":
-                rule = this.getRuleGraphHasOneCycle();
-                break;
-            case "RuleAllVerticesHaveAttribute":
-                rule = this.getRuleAllVertexHaveAttribute(ruleJson);
-                break;
-            case "RuleCountSetAttributes":
-                rule = this.getRuleCountSetAttributes(ruleJson);
-                break;
-            case "RuleTotalVertexWithAttributeEqual":
-                rule = this.getRuleRuleTotalVertexWithAttributeEqual(ruleJson);
-                break;
-            case "RuleOneEntryOneExit":
-                rule = this.getRuleOneEntryOneExit();
-                break;
-            default:
-                break;
-
-
-        }
+        Rule  rule = loadRuleDependingOnName(ruleJson, ruleName);
         return rule;
+    }
+
+    private Rule loadRuleDependingOnName(JSONObject ruleJson, String ruleName) {
+        if (ruleName.equals("RuleCheckSum")) {
+            return this.getRuleCheckSum(ruleJson);
+        } else if (ruleName.equals("RuleCheckProduct")) {
+            return this.getRuleCheckProduct(ruleJson);
+        } else if (ruleName.equals("RuleDistinctValues")) {
+            return this.getRuleDistinctValues(ruleJson);
+        } else if (ruleName.equals("RuleCountSetAttributes")) {
+            return this.getRuleCountSetAttributes(ruleJson);
+        } else if (ruleName.equals("RuleTotalVertexWithAttributeEqual")) {
+            return this.getRuleRuleTotalVertexWithAttributeEqual(ruleJson);
+        } else if (ruleName.equals("RuleOneEntryOneExit")) {
+            return this.getRuleOneEntryOneExit();
+        } else {
+            return loadGraphRules(ruleJson, ruleName);
+        }
+    }
+
+    private Rule loadGraphRules(JSONObject ruleJson, String ruleName) {
+        if (ruleName.equals("RuleGraphHasNoCycles")) {
+            return this.getRuleGraphHasNoCycles();
+        } else if (ruleName.equals("RuleGraphHasOneCycle")) {
+            return this.getRuleGraphHasOneCycle();
+        } else if (ruleName.equals("RuleCountVertexEdges")) {
+            return this.getRuleCountVertexEdges(ruleJson);
+        } else if (ruleName.equals("RuleAllVerticesHaveAttribute")) {
+            return this.getRuleAllVertexHaveAttribute(ruleJson);
+        }
+        return null;
     }
 
     private Rule getRuleCheckProduct(JSONObject ruleJson) {

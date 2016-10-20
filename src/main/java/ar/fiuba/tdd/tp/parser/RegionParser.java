@@ -19,39 +19,37 @@ public class RegionParser {
             String type = (String) region.get("type");
 
 
-            switch (type) {
-                case "rectangle":
-                    loadRectangleRegion(game, region, reg);
-                    break;
-                case "column":
-                    loadColumnRegion(game, region, reg);
-                    break;
-                case "row":
-                    loadRowRegion(game, region, reg);
-                    break;
-                case "custom":
-                    loadCustomRegion(game, region, reg);
-                    break;
-                case "edges":
-                    loadEdgesRegion(game, region, reg);
-                    break;
-                case "all_cells":
-                    loadAllCells(game, reg);
-                    break;
-                case "all_corners":
-                    loadAllCorners(game, reg);
-                    break;
-                case "all_edges":
-                    loadAllEdges(game, reg);
-                    break;
-                default:
-                    break;
-
-            }
+            loadRegionDependingOnType(game, region, reg, type);
 
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
             game.addRegion(reg);
+        }
+    }
+
+    private void loadRegionDependingOnType(Game game, JSONObject region, Region reg, String type) {
+        if (type.equals("rectangle")) {
+            loadRectangleRegion(game, region, reg);
+        } else if (type.equals("column")) {
+            loadColumnRegion(game, region, reg);
+        } else if (type.equals("row")) {
+            loadRowRegion(game, region, reg);
+        } else if (type.equals("custom")) {
+            loadCustomRegion(game, region, reg);
+        } else if (type.equals("edges")) {
+            loadEdgesRegion(game, region, reg);
+        } else {
+            loadGeneralRegions(game, reg, type);
+        }
+    }
+
+    private void loadGeneralRegions(Game game, Region reg, String type) {
+        if (type.equals("all_cells")) {
+            loadAllCells(game, reg);
+        } else if (type.equals("all_corners")) {
+            loadAllCorners(game, reg);
+        } else if (type.equals("all_edges")) {
+            loadAllEdges(game, reg);
         }
     }
 
