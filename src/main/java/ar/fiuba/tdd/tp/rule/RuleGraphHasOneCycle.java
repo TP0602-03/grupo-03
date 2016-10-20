@@ -5,9 +5,9 @@ import ar.fiuba.tdd.tp.graph.GraphVertex;
 import java.util.*;
 
 public class RuleGraphHasOneCycle extends Rule {
-    @Override
-    public boolean check(List<GraphVertex> vertices) {
-        List<GraphVertex> verticesWithEdges = new ArrayList<>();
+
+    private Boolean checkVertices(List<GraphVertex> verticesWithEdges,List<GraphVertex> vertices) {
+
         for (GraphVertex vertex :
                 vertices) {
             int vertexDegree = vertex.getAdjacencyList().size();
@@ -19,14 +19,13 @@ public class RuleGraphHasOneCycle extends Rule {
                 verticesWithEdges.add(vertex);
             }
         }
-        if (verticesWithEdges.size() == 0) {
-            return false;
-        }
-        Stack<GraphVertex> stack = new Stack<>();
+        return true;
+    }
+
+
+    private Boolean checkStack(Stack<GraphVertex> stack,List<GraphVertex> verticesWithEdges) {
         List<GraphVertex> visited = new ArrayList<>();
         Map<GraphVertex, GraphVertex> parent = new HashMap<>();
-
-        stack.push(verticesWithEdges.get(0));
         while (!stack.empty()) {
             GraphVertex current = stack.pop();
             visited.add(current);
@@ -43,6 +42,26 @@ public class RuleGraphHasOneCycle extends Rule {
             }
         }
         return false;
+    }
+
+
+    @Override
+    public boolean check(List<GraphVertex> vertices) {
+        List<GraphVertex> verticesWithEdges = new ArrayList<>();
+
+        if (! this.checkVertices(verticesWithEdges,vertices)) {
+            return false;
+        }
+        if (verticesWithEdges.size() == 0) {
+            return false;
+        }
+
+        Stack<GraphVertex> stack = new Stack<>();
+
+        stack.push(verticesWithEdges.get(0));
+
+        return this.checkStack(stack,verticesWithEdges);
+
 
     }
 }

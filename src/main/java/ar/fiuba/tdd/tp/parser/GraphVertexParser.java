@@ -22,7 +22,7 @@ public class GraphVertexParser {
 
     private void loadAll(Game game, JSONArray verticesJson, String type) {
 
-        for(int i = 0; i< verticesJson.size();i++) {
+        for (int i = 0; i < verticesJson.size(); i++) {
             JSONObject vertex = (JSONObject) verticesJson.get(i);
 
             int row = ((Long) vertex.get("r")).intValue();
