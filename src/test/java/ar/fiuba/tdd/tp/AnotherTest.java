@@ -37,47 +37,32 @@ public class AnotherTest {
             region.addVertex(game.getCell(3, i));
             region.addRule(new RuleCheckSum("num", 10));
             region.addRule(new RuleDistinctElements("num"));
+
             game.addRegion(region);
         }
     }
 
-    private static void buildSquareRegions(Game game) {
+
+    private static void buildSquareRegion(Game game, int upperLeftCornerRow, int upperLeftCornerCol) {
         Region region;
         region = new Region();
-        region.addVertex(game.getCell(0, 0));
-        region.addVertex(game.getCell(0, 1));
-        region.addVertex(game.getCell(1, 0));
-        region.addVertex(game.getCell(1, 1));
+        region.addVertex(game.getCell(upperLeftCornerRow, upperLeftCornerCol));
+        region.addVertex(game.getCell(upperLeftCornerRow, upperLeftCornerCol + 1));
+        region.addVertex(game.getCell(upperLeftCornerRow + 1, upperLeftCornerCol));
+        region.addVertex(game.getCell(upperLeftCornerRow + 1, upperLeftCornerCol + 1));
         region.addRule(new RuleCheckSum("num", 10));
         region.addRule(new RuleDistinctElements("num"));
         game.addRegion(region);
+    }
 
-        region = new Region();
-        region.addVertex(game.getCell(2, 0));
-        region.addVertex(game.getCell(2, 1));
-        region.addVertex(game.getCell(3, 0));
-        region.addVertex(game.getCell(3, 1));
-        region.addRule(new RuleCheckSum("num", 10));
-        region.addRule(new RuleDistinctElements("num"));
-        game.addRegion(region);
+    private static void buildSquareRegions(Game game) {
 
-        region = new Region();
-        region.addVertex(game.getCell(0, 2));
-        region.addVertex(game.getCell(0, 3));
-        region.addVertex(game.getCell(1, 2));
-        region.addVertex(game.getCell(1, 3));
-        region.addRule(new RuleCheckSum("num", 10));
-        region.addRule(new RuleDistinctElements("num"));
-        game.addRegion(region);
+        buildSquareRegion(game, 0, 0);
+        buildSquareRegion(game, 2, 0);
+        buildSquareRegion(game, 0, 2);
+        buildSquareRegion(game, 2, 2);
 
-        region = new Region();
-        region.addVertex(game.getCell(2, 2));
-        region.addVertex(game.getCell(2, 3));
-        region.addVertex(game.getCell(3, 2));
-        region.addVertex(game.getCell(3, 3));
-        region.addRule(new RuleCheckSum("num", 10));
-        region.addRule(new RuleDistinctElements("num"));
-        game.addRegion(region);
+
     }
 
     /*        Game game = new Game(4, 4);

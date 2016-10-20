@@ -55,14 +55,13 @@ public class JsonViewTest {
 
 
     @Test
-    public void testCorrectFileCreation() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException {
+    public void testCorrectFileCreation() throws IOException, org.json.simple.parser.ParseException,
+            java.text.ParseException, InvalidMoveException {
 
-        Parser gParser = new Parser("testFiles/sudokuForJsonFileView.json");
-        Game game = gParser.getGame();
+        Parser gameParser = new Parser("testFiles/sudokuForJsonFileView.json");
+        Game game = gameParser.getGame();
 
-
-        String newFile = "testFiles/jsonViewTestFile.json";
-        JsonFileView view = new JsonFileView(newFile);
+        JsonFileView view = new JsonFileView("testFiles/jsonViewTestFile.json");
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
         Move validMove = factory.createMove(1, 0, 0, "num", "1");
@@ -78,7 +77,8 @@ public class JsonViewTest {
 
         JSONParser parser = new JSONParser();
         JSONObject jsonFile1 = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(alreadyPrintedFile), "UTF-8"));
-        JSONObject jsonFile2 = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(newFile), "UTF-8"));
+        JSONObject jsonFile2 = (JSONObject)
+                parser.parse(new InputStreamReader(new FileInputStream("testFiles/jsonViewTestFile.json"), "UTF-8"));
 
         List<String> jsonList1 = Arrays.asList(jsonFile1.toString().split(","));
         List<String> jsonList2 = Arrays.asList(jsonFile2.toString().split(","));
@@ -90,51 +90,53 @@ public class JsonViewTest {
     }
 
 
+    private void loadWinningGame(Game game,MoveFactory factory,JsonFileView view) throws InvalidMoveException {
+
+
+        ArrayList<Move> array = new ArrayList<Move>() {
+            {
+                add(factory.createMove(1, 1, 0, "num", "1"));
+                add(factory.createMove(2, 2, 0, "num", "4"));
+                add(factory.createMove(3, 3, 0, "num", "2"));
+                add(factory.createMove(4, 1, 2, "num", "3"));
+                add(factory.createMove(5, 2, 1, "num", "3"));
+                add(factory.createMove(6, 0, 3, "num", "2"));
+                add(factory.createMove(7, 1, 3, "num", "4"));
+                add(factory.createMove(8, 2, 3, "num", "1"));
+            }
+        };
+
+        for (Move move : array) {
+            game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
+            view.add(move);
+        }
+
+    }
+
+
     @Test
     public void testGameWins() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException {
 
-        Parser gParser = new Parser("testFiles/sudokuForJsonFileView.json");
-        Game game = gParser.getGame();
+        Parser gameParser = new Parser("testFiles/sudokuForJsonFileView.json");
+        Game game = gameParser.getGame();
 
 
         String newFile = "testFiles/jsonViewTestFileWon.json";
-        JsonFileView view = new JsonFileView(newFile);
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move validMove = factory.createMove(1, 1, 0, "num", "1");
-        Move validMove1 = factory.createMove(2, 2, 0, "num", "4");
-        Move validMove2 = factory.createMove(3, 3, 0, "num", "2");
-        Move validMove3 = factory.createMove(4, 1, 2, "num", "3");
-        Move validMove4 = factory.createMove(5, 2, 1, "num", "3");
-        Move validMove5 = factory.createMove(6, 0, 3, "num", "2");
-        Move validMove6 = factory.createMove(7, 1, 3, "num", "4");
-        Move validMove7 = factory.createMove(8, 2, 3, "num", "1");
 
 
-        game.playCell(validMove.getY(), validMove.getX(), validMove.getAttribute(), validMove.getValue());
-        game.playCell(validMove1.getY(), validMove1.getX(), validMove1.getAttribute(), validMove1.getValue());
-        game.playCell(validMove2.getY(), validMove2.getX(), validMove2.getAttribute(), validMove2.getValue());
-        game.playCell(validMove3.getY(), validMove3.getX(), validMove3.getAttribute(), validMove3.getValue());
-        game.playCell(validMove4.getY(), validMove4.getX(), validMove4.getAttribute(), validMove4.getValue());
-        game.playCell(validMove5.getY(), validMove5.getX(), validMove5.getAttribute(), validMove5.getValue());
-        game.playCell(validMove6.getY(), validMove6.getX(), validMove6.getAttribute(), validMove6.getValue());
-        game.playCell(validMove7.getY(), validMove7.getX(), validMove7.getAttribute(), validMove7.getValue());
+        JsonFileView view = new JsonFileView(newFile);
 
-        view.add(validMove);
-        view.add(validMove1);
-        view.add(validMove2);
-        view.add(validMove3);
-        view.add(validMove4);
-        view.add(validMove5);
-        view.add(validMove6);
-        view.add(validMove7);
+        loadWinningGame(game,factory,view);
 
         view.add(game);
 
         view.write();
 
         JSONParser parser = new JSONParser();
-        JSONObject jsonFile1 = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream("testFiles/testOutputWonGame.json"), "UTF-8"));
+        JSONObject jsonFile1 =
+                (JSONObject) parser.parse(new InputStreamReader(new FileInputStream("testFiles/testOutputWonGame.json"), "UTF-8"));
         JSONObject jsonFile2 = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(newFile), "UTF-8"));
 
         List<String> jsonList1 = Arrays.asList(jsonFile1.toString().split(","));

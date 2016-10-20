@@ -14,28 +14,28 @@ public class GokigenTest {
         Game game = parser.getGame();
 
         game.playCell(0, 0, "diagonal", "upToDownDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(0, 1, "diagonal", "downToUpDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(0, 2, "diagonal", "downToUpDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(1, 0, "diagonal", "upToDownDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(1, 1, "diagonal", "downToUpDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(1, 2, "diagonal", "downToUpDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(2, 0, "diagonal", "upToDownDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(2, 1, "diagonal", "upToDownDiagonal");
-        System.out.println("gogiken = " + game.validateRules());
+        //System.out.println("gogiken = " + game.validateRules());
 
         game.playCell(2, 2, "diagonal", "upToDownDiagonal");
         //System.out.println("gogiken = " + game.validateRules());
