@@ -97,8 +97,8 @@ public class RuleParser {
         }
         return null;
     }
+    
     @SuppressWarnings("CPD-END")
-
     private Rule getRuleCheckProduct(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         int exp = ((Long) ruleJson.get("expected")).intValue();
