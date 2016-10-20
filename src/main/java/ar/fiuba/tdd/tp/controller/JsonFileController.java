@@ -33,12 +33,19 @@ public class JsonFileController {
         JSONArray jsonPlays = (JSONArray) jsonFile.get("plays");
         this.moves = new ArrayList<>();
 
+        loadMoves(jsonPlays);
+
+        sortMoves();
+
+    }
+
+    private void loadMoves(JSONArray jsonPlays) {
         JSONObject jsonMove;
         JSONArray jsonPoint;
         int newX;
         int newY;
         int newId;
-        String newAttirbute;
+        String newAttribute;
         String newValue;
 
         for (int i = 0; i < jsonPlays.size(); i++) {
@@ -47,14 +54,12 @@ public class JsonFileController {
             newX = ((Long) jsonPoint.get(0)).intValue();
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
-            newAttirbute = (String) jsonMove.get("attribute");
+            newAttribute = (String) jsonMove.get("attribute");
             newValue = (String) jsonMove.get("value");
-            this.moves.add(this.factory.createMove(newId, newX, newY, newAttirbute, newValue));
+            this.moves.add(this.factory.createMove(newId, newX, newY, newAttribute, newValue));
         }
-
-        this.sortMoves();
-
     }
+
 
     public void sortMoves() {
         //Sort the array

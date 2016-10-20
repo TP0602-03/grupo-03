@@ -59,28 +59,38 @@ public class Game {
 
     public void playCell(int row, int col, String att, String newValue) {
         cells.clearEdges();
-        cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, newValue);
-        if (actions.get(new Pair<>(att, newValue)) != null) {
+
+        getCell(row, col).setAttribute(att, newValue);
+
+        runActionsForCell(row, col);
+
+        /*if (actions.get(new Pair<>(att, newValue)) != null) {
             for (Action action : actions.get(new Pair<>(att, newValue))) {
                 action.run(cells, 2 * row + 1, 2 * col + 1);
             }
         }
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                GraphVertex cell = getCell(i, j);
-                for (Map.Entry<String, String> attribute :
-                        cell.getAttributes().entrySet()) {
-                    Pair<String, String> entry = new Pair<>(attribute.getKey(), attribute.getValue());
-                    if (actions.get(entry) != null) {
-                        for (Action action : actions.get(entry)) {
-                            action.run(cells, 2 * i + 1, 2 * j + 1);
-                        }
-                    }
-                }
+        */
+
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                runActionsForCell(r, c);
             }
         }
     }
 
+
+    private void runActionsForCell(int row, int col) {
+        GraphVertex cell = getCell(row, col);
+        for (Map.Entry<String, String> attribute :
+                cell.getAttributes().entrySet()) {
+            Pair<String, String> entry = new Pair<>(attribute.getKey(), attribute.getValue());
+            if (actions.get(entry) != null) {
+                for (Action action : actions.get(entry)) {
+                    action.run(cells, 2 * row + 1, 2 * col + 1);
+                }
+            }
+        }
+    }
 
     public int getWidth() {
         return width;
@@ -100,8 +110,6 @@ public class Game {
 
     public void addAllowedValues(ArrayList<String> strings, String attribute) {
         for (String value : strings) {
-            //System.out.println("attribute: " + attribute);
-            //System.out.println("value: -" + value + "-");
             this.allowedValues.add(new Pair<String, String>(attribute, value));
         }
     }
