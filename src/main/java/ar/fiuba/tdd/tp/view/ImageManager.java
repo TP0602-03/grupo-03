@@ -15,7 +15,9 @@ public class ImageManager {
     }
 
     public ImageIcon getImage(String symbol) {
-        return new ImageIcon(this.relativePath + "/" + symbol + ".png");
+        ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + symbol + ".png");
+        ImageResizer resizer = new ImageResizer();
+        return new ImageIcon(resizer.getScaledImage(auxImageIcon.getImage(), 20, 20));
     }
 
     public ArrayList<IconValue> getImages(ArrayList<String> allowedValues) {
