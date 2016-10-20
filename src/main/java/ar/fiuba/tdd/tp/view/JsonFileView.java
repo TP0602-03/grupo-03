@@ -47,8 +47,10 @@ public class JsonFileView {
                         //do nothing;
                     }
                 }
+
             }
         }
+
 
         this.updateBoard(cells);
         this.addStatus(game);
