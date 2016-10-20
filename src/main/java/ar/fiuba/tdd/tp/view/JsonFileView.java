@@ -56,9 +56,7 @@ public class JsonFileView {
         this.addStatus(game);
     }
 
-    private boolean isLowerThan(Game game, int col) {
-        return col < game.getWidth();
-    }
+
 
     public void add(Move newMove) {
         JSONObject play = new JSONObject();
@@ -101,6 +99,9 @@ public class JsonFileView {
         ((JSONObject) this.info.get("board")).put("values", cells);
     }
 
+    private boolean isLowerThan(Game game, int col) {
+        return col < game.getWidth();
+    }
 
     public void write() throws IOException {
 

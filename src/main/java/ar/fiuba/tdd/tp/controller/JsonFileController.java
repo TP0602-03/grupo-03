@@ -63,9 +63,8 @@ public class JsonFileController {
 
     public void sortMoves() {
         //Sort the array
-        Comparator<Move> comparator = (Move move1, Move move2) -> {
-            return (((Integer) move1.getId()).compareTo(move2.getId()));
-        };
+        Comparator<Move> comparator = (Move move1, Move move2) -> (((Integer) move1.getId()).compareTo(move2.getId()));
+
         Collections.sort(moves, comparator);
     }
 
