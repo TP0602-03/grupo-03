@@ -199,5 +199,41 @@
         "image": "NullContent"
       }
     ]
+  },
+  {
+    "attribute": "regionTop",
+    "values": [
+      {
+        "value": "true",
+        "image": "regionTop"
+      }
+    ]
+  },
+  {
+    "attribute": "regionRight",
+    "values": [
+      {
+        "value": "true",
+        "image": "regionRight"
+      }
+    ]
+  },
+  {
+    "attribute": "regionLeft",
+    "values": [
+      {
+        "value": "true",
+        "image": "regionLeft"
+      }
+    ]
+  },
+  {
+    "attribute": "regionBottom",
+    "values": [
+      {
+        "value": "true",
+        "image": "regionBottom"
+      }
+    ]
   }
 ]
