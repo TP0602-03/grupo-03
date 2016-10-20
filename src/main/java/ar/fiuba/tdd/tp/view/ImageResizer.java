@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.view;
 
-import javax.tools.Tool;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -16,6 +15,8 @@ public class ImageResizer {
     }
 
     private Image getScaledImage(Image srcImg, int width, int height){
+        System.out.println("WWW: " + width);
+        System.out.println("HHH: " + height);
         BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = resizedImg.createGraphics();
 
@@ -28,8 +29,8 @@ public class ImageResizer {
 
     public Image getScreenScaledImage(Image image) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double correctedWidth = screenSize.getWidth() / (this.rowCount * 4);
-        double correctedHeight = screenSize.getHeight() / (this.rowCount * 4);
+        double correctedWidth = screenSize.getWidth() / (this.rowCount * 2);
+        double correctedHeight = screenSize.getHeight() / (this.rowCount * 2);
         int correctedSize = (int) Math.min(correctedHeight, correctedWidth);
         return getScaledImage(image, correctedSize, correctedSize);
     }

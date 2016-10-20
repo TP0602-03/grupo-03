@@ -19,7 +19,7 @@ public class BoardViewCreator {
 
                     CellView panel = new CellView(game.getCellKeysValues(i, j), game.getHeight());
                     panel.setHandlers(new MouseCellHandler(board, imageGetter.getImages(game.getAllowedValues()), game, i, j, panel));
-                    board.set(i, j, 50, 50, panel);
+                    board.set(i, j, 0, 0, panel);
                 }
             }
         } catch (Exception ex) {
