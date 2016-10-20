@@ -132,8 +132,9 @@ public class RegionParser {
 
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
-        for (Object objeto : cells) {
-            JSONObject cellPosition = (JSONObject) objeto;
+
+        for (int i = 0; i< cells.size();i++) {
+            JSONObject cellPosition = (JSONObject) cells.get(i);
             int column = ((Long) cellPosition.get("c")).intValue();
 
             int row = ((Long) cellPosition.get("r")).intValue();
