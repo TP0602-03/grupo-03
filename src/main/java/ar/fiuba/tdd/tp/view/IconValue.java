@@ -13,7 +13,6 @@ public class IconValue {
 
     public IconValue(Icon icon, String key, String value) {
         this.icon = icon;
-        System.out.println("value :::::: " + value);
         this.keyValue = new Pair<>(key, value);
     }
 

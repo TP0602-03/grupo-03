@@ -32,7 +32,7 @@ public class ImageTranslator {
                 String value = (String) valueImage.get("value");
                 String image = (String) valueImage.get("image");
                 retroTranslateDict.put(new Pair<>(attributeName, value), image);
-                System.out.println("att:" + attributeName + "val: " + value + "img:" + image);
+
             }
 
         }
@@ -65,7 +65,7 @@ public class ImageTranslator {
         System.out.println("dict: " + this.translateDict.get(allowedValue.getKey()));
         System.out.println("translated: " + this.translateDict.get(allowedValue.getKey()) + trailingData);
         return this.translateDict.get(allowedValue.getKey()) + trailingData;*/
-        System.out.println("image for: " + allowedValue.getKey() + " " + allowedValue.getValue() + " is" + this.retroTranslateDict.get(allowedValue));
+
         return this.retroTranslateDict.get(allowedValue);
     }
 

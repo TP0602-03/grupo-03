@@ -15,8 +15,7 @@ public class ImageResizer {
     }
 
     private Image getScaledImage(Image srcImg, int width, int height){
-        System.out.println("WWW: " + width);
-        System.out.println("HHH: " + height);
+
         BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = resizedImg.createGraphics();
 

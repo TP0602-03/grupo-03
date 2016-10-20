@@ -41,12 +41,9 @@ public class CellView extends JPanel {
         this.setLayout(new OverlayLayout(this));
         this.add(new JLabel(this.imageGetter.getEmptyImage()));
         for (String key : contents.keySet()) {
-            System.out.println("value of: " + key + " : "
-                    + contents.get(key));
             this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
         }
         this.revalidate();
-        System.out.println("repainting");
         this.repaint();
     }
 
