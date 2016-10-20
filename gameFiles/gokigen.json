@@ -9,7 +9,8 @@
       "attribute": "diagonal",
       "values": [
         "downToUpDiagonal",
-        "upToDownDiagonal"
+        "upToDownDiagonal",
+        ""
       ],
       "actions": [
         [

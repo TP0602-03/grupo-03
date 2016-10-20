@@ -43,7 +43,7 @@ public class Parser {
 
             JSONArray actions = (JSONArray) attributeInfo.get("actions");
             if (actions != null) {
-                for (int i = 0; i < attributeValues.size(); i++) {
+                for (int i = 0; i < actions.size(); i++) {
                     JSONArray valueActions = (JSONArray) actions.get(i);
                     List<Action> actionsForValue = new ArrayList<>();
                     for (Object actionObj :

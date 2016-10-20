@@ -172,19 +172,19 @@
     "values": [
       {
         "value": "se",
-        "image": "downToUpDiagonal"
+        "image": "southEastPipe"
       },
       {
         "value": "ne",
-        "image": "upToDownDiagonal"
+        "image": "northEastPipe"
       },
       {
         "value": "nw",
-        "image": "upToDownDiagonal"
+        "image": "northWestPipe"
       },
       {
         "value": "sw",
-        "image": "upToDownDiagonal"
+        "image": "southWestPipe"
       },
       {
         "value": "ns",
@@ -193,6 +193,10 @@
       {
         "value": "we",
         "image": "midHorizontalPipe"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
       }
     ]
   }
