@@ -23,8 +23,7 @@ public class BoardViewCreator {
                 }
             }
         } catch (Exception ex) {
-            System.out.println();
-
+            System.out.println(ex.getMessage());
         }
     }
 }
