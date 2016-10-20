@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.view;
 
+import javafx.util.Pair;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -10,10 +12,12 @@ public class ImageManager {
 
     private String relativePath;
     private ImageResizer resizer;
+    private ImageTranslator imageTranslator;
 
     public ImageManager(String pathToImages, int rowCount) {
         this.relativePath = pathToImages;
         this.resizer = new ImageResizer(rowCount);
+        this.imageTranslator = new ImageTranslator();
     }
 
     public ImageIcon getImage(String symbol) {
@@ -22,11 +26,12 @@ public class ImageManager {
         return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
     }
 
-    public ArrayList<IconValue> getImages(ArrayList<String> allowedValues) {
+    public ArrayList<IconValue> getImages(ArrayList<Pair<String, String>> allowedValues) {
         ArrayList<IconValue> iconValues = new ArrayList<>();
 
-        for (String allowedValue : allowedValues) {
-            iconValues.add(new IconValue(this.getImage(allowedValue), allowedValue));
+        for (Pair<String,String> allowedValue : allowedValues) {
+            String translatedValue = this.imageTranslator.translate(allowedValue);
+            iconValues.add(new IconValue(this.getImage(translatedValue), translatedValue));
         }
 
         return iconValues;

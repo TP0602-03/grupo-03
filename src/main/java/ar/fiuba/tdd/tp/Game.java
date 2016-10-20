@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp;
 import ar.fiuba.tdd.tp.action.Action;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+import javafx.util.Pair;
 
 import java.util.*;
 
@@ -13,7 +14,7 @@ public class Game {
     private int width;
     private int height;
     private Map<String, Map<String, List<Action>>> actions = new HashMap<>();
-    private ArrayList<String> allowedValues;
+    private ArrayList<Pair<String, String>> allowedValues = new ArrayList<>();
 
 
     public Game(int width, int height) {
@@ -93,11 +94,13 @@ public class Game {
         return cells.getVertex(2 * row + 1,2 * col + 1).getKeysValues();
     }
 
-    public void setAllowedValues(ArrayList<String> strings) {
-        this.allowedValues = strings;
+    public ArrayList<Pair<String, String>> getAllowedValues() {
+        return this.allowedValues;
     }
 
-    public ArrayList<String> getAllowedValues() {
-        return this.allowedValues;
+    public void addAllowedValues(ArrayList<String> strings, String attribute) {
+        for (String value : strings) {
+            this.allowedValues.add(new Pair<String, String>(attribute, value));
+        }
     }
 }

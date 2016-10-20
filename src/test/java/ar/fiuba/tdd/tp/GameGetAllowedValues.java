@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp;
 
 
 import ar.fiuba.tdd.tp.parser.*;
+import javafx.util.Pair;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,10 +16,10 @@ public class GameGetAllowedValues {
     @Test
     public void testGameGetsValuesWell() throws IOException, ParseException, org.json.simple.parser.ParseException {
 
-        ar.fiuba.tdd.tp.parser.Parser parser = new ar.fiuba.tdd.tp.parser.Parser("gameFiles/sudoku.json");
+        ar.fiuba.tdd.tp.parser.Parser parser = new ar.fiuba.tdd.tp.parser.Parser("gameFiles/slitherlink.json");
         Game game = parser.getGame();
 
-        for (String value : game.getAllowedValues()) {
+        for (Pair<String, String> value : game.getAllowedValues()) {
             System.out.println(value);
         }
 

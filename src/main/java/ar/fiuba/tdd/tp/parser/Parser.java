@@ -61,7 +61,7 @@ public class Parser {
 
                 }
             }
-            game.setAllowedValues(this.parseJsonArrayToStringArray(attributeValues));
+            game.addAllowedValues(this.parseJsonArrayToStringArray(attributeValues), attributeName);
         }
 
         RegionParser regionParser = new RegionParser();
