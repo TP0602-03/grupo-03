@@ -33,22 +33,28 @@ public class JsonFileView {
     public void add(Game game) {
 
         ArrayList<JSONObject> cells = new ArrayList<>();
+        int k = 0;
+        int h = 0;
 
-        for (int i = 0; i < game.getWidth(); i++) {
-            for (int j = 0; j < game.getHeight(); j++) {
-                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
+        while ( k < game.getWidth()) {
+            while ( h < game.getHeight() ) {
+                for (Map.Entry<String, String> clave : game.getCellKeysValues(k, h)) {
                     String content;
                     try {
-                        content = key.getValue();
-                        if (key.getKey() != "pos") {
-                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
+                        content = clave.getValue();
+                        if (clave.getKey() != "pos") {
+                            cells.add(this.createJsonCell(h, k, clave.getKey().toString(), content));
                         }
                     } catch (Exception ex) {
                         //do nothing;
                     }
                 }
+                h++;
             }
+            h = 0;
+            k++;
         }
+
 
         this.updateBoard(cells);
         this.addStatus(game);
