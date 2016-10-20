@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+
 public class CellView extends JPanel {
 
     protected ImageManager imageGetter;
@@ -24,8 +25,7 @@ public class CellView extends JPanel {
         generateLabels();
     }
 
-    public void setContents(Set<Map.Entry<String, String>> newContents)
-    {
+    public void setContents(Set<Map.Entry<String, String>> newContents) {
         for (Map.Entry<String, String> content : newContents) {
             this.contents.put(content.getKey(), content.getValue());
         }
@@ -35,7 +35,7 @@ public class CellView extends JPanel {
         this.addMouseListener(mouseListener);
     }
 
-    public void generateLabels(){
+    public void generateLabels() {
         this.removeAll();
 
         this.setLayout(new OverlayLayout(this));

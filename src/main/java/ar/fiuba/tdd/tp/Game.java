@@ -59,36 +59,20 @@ public class Game {
 
     public void playCell(int row, int col, String att, String newValue) {
         cells.clearEdges();
-        System.out.println("played cell: " + row + " , " + col + " att: " + att + ", " + "val: " + newValue);
         cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, newValue);
-
-        //System.out.println("********* REBUILDING GRAPH: **********");
-
-        //System.out.println("ALL ATTRIBUTES FOR CELL: " + row + "," + col + " ARE:");
-        for (Map.Entry<String, String> attribute :
-                cells.getVertex(2 * row + 1, 2 * col + 1).getAttributes().entrySet()) {
-            // System.out.println("attribute.getKey() = " + attribute.getKey() + "->" + attribute.getValue());
-
-        }
-
-        //System.out.println("#################new value: " + newValue);
         if (actions.get(new Pair<>(att, newValue)) != null) {
             for (Action action : actions.get(new Pair<>(att, newValue))) {
-                // System.out.println("action: " + action);
                 action.run(cells, 2 * row + 1, 2 * col + 1);
             }
         }
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 GraphVertex cell = getCell(i, j);
-                //System.out.println("******* Actions for Cell: " + i + " , " + j);
                 for (Map.Entry<String, String> attribute :
                         cell.getAttributes().entrySet()) {
                     Pair<String, String> entry = new Pair<>(attribute.getKey(), attribute.getValue());
                     if (actions.get(entry) != null) {
-                        // System.out.println("actions for: " + entry.getKey() + " : " + entry.getValue());
                         for (Action action : actions.get(entry)) {
-                            // System.out.println("action: " + action);
                             action.run(cells, 2 * i + 1, 2 * j + 1);
                         }
                     }
@@ -96,6 +80,7 @@ public class Game {
             }
         }
     }
+
 
     public int getWidth() {
         return width;

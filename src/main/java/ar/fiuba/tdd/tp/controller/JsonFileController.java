@@ -47,9 +47,9 @@ public class JsonFileController {
             newX = ((Long) jsonPoint.get(0)).intValue();
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
-            newAttirbute  = (String) jsonMove.get("attribute");
+            newAttirbute = (String) jsonMove.get("attribute");
             newValue = (String) jsonMove.get("value");
-            this.moves.add(this.factory.createMove(newId, newX, newY,newAttirbute, newValue));
+            this.moves.add(this.factory.createMove(newId, newX, newY, newAttirbute, newValue));
         }
 
         this.sortMoves();

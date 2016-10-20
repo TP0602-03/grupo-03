@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 /**
  * Created by mvbattan on 15/10/16.
  */
@@ -31,7 +32,7 @@ public class ImageManager {
     public ArrayList<IconValue> getImages(ArrayList<Pair<String, String>> allowedValues) {
         ArrayList<IconValue> iconValues = new ArrayList<>();
 
-        for (Pair<String,String> allowedValue : allowedValues) {
+        for (Pair<String, String> allowedValue : allowedValues) {
             String translatedValue = this.imageTranslator.translate(allowedValue);
             iconValues.add(new IconValue(this.getImage(translatedValue), allowedValue.getKey(), allowedValue.getValue()));
         }

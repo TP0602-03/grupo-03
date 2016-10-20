@@ -54,7 +54,7 @@ public class ConsoleController {
             System.out.println("Invalid value");
         }
 
-        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY,attribute,value);
+        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY, attribute, value);
 
         if (!moveToReturn.isValid()) {
             System.out.println("Invalid Move");

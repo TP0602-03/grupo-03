@@ -8,7 +8,6 @@ import ar.fiuba.tdd.tp.view.JsonFileView;
 import javafx.util.Pair;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
 import java.io.FileInputStream;
@@ -27,7 +26,7 @@ public class JsonViewTest {
 
     HashMap<String, ArrayList<String>> valuesMap = new HashMap<String, ArrayList<String>>() {
         {
-            put("num", new ArrayList<>(Arrays.asList("1","2","3","4")));
+            put("num", new ArrayList<>(Arrays.asList("1", "2", "3", "4")));
         }
     };
 
@@ -56,21 +55,20 @@ public class JsonViewTest {
 
 
     @Test
-    public void testCorrectFileCreation() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException{
+    public void testCorrectFileCreation() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException {
 
         Parser gParser = new Parser("testFiles/sudokuForJsonFileView.json");
         Game game = gParser.getGame();
-
 
 
         String newFile = "testFiles/jsonViewTestFile.json";
         JsonFileView view = new JsonFileView(newFile);
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move validMove = factory.createMove(1, 0, 0,"num","1");
-        Move invalidMove = factory.createMove(2, 0, 1,"num","38");
+        Move validMove = factory.createMove(1, 0, 0, "num", "1");
+        Move invalidMove = factory.createMove(2, 0, 1, "num", "38");
 
-        game.playCell(validMove.getY(),validMove.getX(),validMove.getAttribute(),validMove.getValue());
+        game.playCell(validMove.getY(), validMove.getX(), validMove.getAttribute(), validMove.getValue());
 
         view.add(validMove);
         view.add(invalidMove);
@@ -88,41 +86,39 @@ public class JsonViewTest {
         Collections.sort(jsonList2);
 
 
-
-        assertEquals(jsonList1,jsonList2);
+        assertEquals(jsonList1, jsonList2);
     }
 
 
     @Test
-    public void testGameWins() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException{
+    public void testGameWins() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException {
 
         Parser gParser = new Parser("testFiles/sudokuForJsonFileView.json");
         Game game = gParser.getGame();
-
 
 
         String newFile = "testFiles/jsonViewTestFileWon.json";
         JsonFileView view = new JsonFileView(newFile);
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move validMove = factory.createMove(1, 1, 0,"num","1");
-        Move validMove1 = factory.createMove(2, 2, 0,"num","4");
-        Move validMove2 = factory.createMove(3, 3, 0,"num","2");
-        Move validMove3 = factory.createMove(4, 1, 2,"num","3");
-        Move validMove4 = factory.createMove(5, 2, 1,"num","3");
-        Move validMove5 = factory.createMove(6, 0, 3,"num","2");
-        Move validMove6 = factory.createMove(7, 1, 3,"num","4");
-        Move validMove7 = factory.createMove(8, 2, 3,"num","1");
+        Move validMove = factory.createMove(1, 1, 0, "num", "1");
+        Move validMove1 = factory.createMove(2, 2, 0, "num", "4");
+        Move validMove2 = factory.createMove(3, 3, 0, "num", "2");
+        Move validMove3 = factory.createMove(4, 1, 2, "num", "3");
+        Move validMove4 = factory.createMove(5, 2, 1, "num", "3");
+        Move validMove5 = factory.createMove(6, 0, 3, "num", "2");
+        Move validMove6 = factory.createMove(7, 1, 3, "num", "4");
+        Move validMove7 = factory.createMove(8, 2, 3, "num", "1");
 
 
-        game.playCell(validMove.getY(),validMove.getX(),validMove.getAttribute(),validMove.getValue());
-        game.playCell(validMove1.getY(),validMove1.getX(),validMove1.getAttribute(),validMove1.getValue());
-        game.playCell(validMove2.getY(),validMove2.getX(),validMove2.getAttribute(),validMove2.getValue());
-        game.playCell(validMove3.getY(),validMove3.getX(),validMove3.getAttribute(),validMove3.getValue());
-        game.playCell(validMove4.getY(),validMove4.getX(),validMove4.getAttribute(),validMove4.getValue());
-        game.playCell(validMove5.getY(),validMove5.getX(),validMove5.getAttribute(),validMove5.getValue());
-        game.playCell(validMove6.getY(),validMove6.getX(),validMove6.getAttribute(),validMove6.getValue());
-        game.playCell(validMove7.getY(),validMove7.getX(),validMove7.getAttribute(),validMove7.getValue());
+        game.playCell(validMove.getY(), validMove.getX(), validMove.getAttribute(), validMove.getValue());
+        game.playCell(validMove1.getY(), validMove1.getX(), validMove1.getAttribute(), validMove1.getValue());
+        game.playCell(validMove2.getY(), validMove2.getX(), validMove2.getAttribute(), validMove2.getValue());
+        game.playCell(validMove3.getY(), validMove3.getX(), validMove3.getAttribute(), validMove3.getValue());
+        game.playCell(validMove4.getY(), validMove4.getX(), validMove4.getAttribute(), validMove4.getValue());
+        game.playCell(validMove5.getY(), validMove5.getX(), validMove5.getAttribute(), validMove5.getValue());
+        game.playCell(validMove6.getY(), validMove6.getX(), validMove6.getAttribute(), validMove6.getValue());
+        game.playCell(validMove7.getY(), validMove7.getX(), validMove7.getAttribute(), validMove7.getValue());
 
         view.add(validMove);
         view.add(validMove1);
@@ -147,8 +143,7 @@ public class JsonViewTest {
         Collections.sort(jsonList2);
 
 
-
-        assertEquals(jsonList1,jsonList2);
+        assertEquals(jsonList1, jsonList2);
     }
 
 }

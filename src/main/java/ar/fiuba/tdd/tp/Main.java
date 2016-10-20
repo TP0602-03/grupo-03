@@ -16,10 +16,10 @@ public class Main {
         @Override
         public void run() {
             try {
-                Parser parser = new Parser("gameFiles/kakuro.json");
-                boardViewCreator.CreateBoard(parser.getGame());
+                Parser parser = new Parser("gameFiles/a.json");
+                boardViewCreator.createBoard(parser.getGame());
             } catch (Exception ex) {
-
+                System.err.println(ex);
             }
         }
     }

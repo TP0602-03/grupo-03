@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
 public class MainValuePicker {
 
     ArrayList<IconValue> options;
@@ -16,33 +15,33 @@ public class MainValuePicker {
         this.options = options;
     }
 
-    public Object GetValuePicker(JPanel panel) {
-        JOptionPane jOptionPane = new JOptionPane();
-        jOptionPane.setOptions(GetOptions(jOptionPane));
-        jOptionPane.setMessage("Choose a move");
-        JFrame jFrame = new JFrame();
+    public Object getValuePicker(JPanel panel) {
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setOptions(getOptions(optionPane));
+        optionPane.setMessage("Choose a move");
+        JFrame frame = new JFrame();
 
-        JDialog jDialog = jOptionPane.createDialog(jFrame, "Move");
-        jDialog.setVisible(true);
-        return jOptionPane.getValue();
+        JDialog dialog = optionPane.createDialog(frame, "Move");
+        dialog.setVisible(true);
+        return optionPane.getValue();
     }
 
-    private JButton[] GetOptions(JOptionPane optionPane) {
+    private JButton[] getOptions(JOptionPane optionPane) {
         JButton[] buttons = new JButton[options.size()];
         for (int i = 0; i < options.size(); i++) {
-            buttons[i] = GetButton(options.get(i), optionPane);
+            buttons[i] = getButton(options.get(i), optionPane);
         }
         return buttons;
     }
 
-    private JButton GetButton(IconValue icon, JOptionPane optionPane) {
+    private JButton getButton(IconValue icon, JOptionPane optionPane) {
         JButton button = new JButton("", icon.getIcon());
-        ActionListener actionListener = GetAction(icon.getKeyValue(), optionPane);
+        ActionListener actionListener = getAction(icon.getKeyValue(), optionPane);
         button.addActionListener(actionListener);
         return button;
     }
 
-    private ActionListener GetAction(Pair<String, String> returnValue, JOptionPane optionPane) {
+    private ActionListener getAction(Pair<String, String> returnValue, JOptionPane optionPane) {
         return new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 // Return current text label, instead of argument to method

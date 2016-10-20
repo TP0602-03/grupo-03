@@ -9,7 +9,7 @@ public class BoardViewCreator {
 
     }
 
-    public void CreateBoard(Game game) {
+    public void createBoard(Game game) {
         try {
             BoardGameView board = new BoardGameView();
 

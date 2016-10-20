@@ -20,7 +20,7 @@ public class IconValue {
         return icon;
     }
 
-    public String getKey(){
+    public String getKey() {
         return keyValue.getKey();
     }
 
@@ -28,7 +28,7 @@ public class IconValue {
         return keyValue.getValue();
     }
 
-    public Pair<String, String> getKeyValue(){
+    public Pair<String, String> getKeyValue() {
         return keyValue;
     }
 

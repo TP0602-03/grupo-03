@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
-import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -43,8 +42,7 @@ public class JsonFileView {
         ((JSONArray) this.info.get("plays")).add(play);
     }
 
-    private JSONObject createJsonCell(int positionX,int positionY,String attribute, String value) {
-
+    private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
 
 
         JSONObject cell = new JSONObject();
@@ -53,7 +51,7 @@ public class JsonFileView {
         positionArray.add(positionX);
         positionArray.add(positionY);
         cell.put("position", positionArray);
-        cell.put("attribute",attribute);
+        cell.put("attribute", attribute);
         cell.put("value", value);
 
         return cell;
@@ -61,16 +59,16 @@ public class JsonFileView {
     }
 
     private void addStatus(Game game) {
-        if( game.validateRules() ){
-            ((JSONObject)this.info.get("board")).put("status","true");
+        if (game.validateRules()) {
+            ((JSONObject) this.info.get("board")).put("status", "true");
         } else {
-            ((JSONObject)this.info.get("board")).put("status","false");
+            ((JSONObject) this.info.get("board")).put("status", "false");
         }
 
     }
 
     private void updateBoard(ArrayList<JSONObject> cells) {
-        ((JSONObject)this.info.get("board")).put("values",cells);
+        ((JSONObject) this.info.get("board")).put("values", cells);
     }
 
     public void add(Game game) {

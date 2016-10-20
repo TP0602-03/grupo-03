@@ -18,7 +18,7 @@ public class MoveFactoryTest {
 
     HashMap<String, ArrayList<String>> valuesMap = new HashMap<String, ArrayList<String>>() {
         {
-            put("num", new ArrayList<>(Arrays.asList("1","2","3")));
+            put("num", new ArrayList<>(Arrays.asList("1", "2", "3")));
         }
     };
 
@@ -34,13 +34,12 @@ public class MoveFactoryTest {
     };
 
 
-
     @Test
     public void validMoveCreationWithHashAsFactoryCreationParameter() {
 
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move move = factory.createMove(1, 0, 0,"num","1");
+        Move move = factory.createMove(1, 0, 0, "num", "1");
 
         assertTrue(move.getClass() == ValidMove.class);
 
@@ -52,7 +51,7 @@ public class MoveFactoryTest {
 
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
-        Move move = factory.createMove(1, 0, 0,"num","50");
+        Move move = factory.createMove(1, 0, 0, "num", "50");
 
         assertTrue(move.getClass() == InvalidMove.class);
 

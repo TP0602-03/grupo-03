@@ -14,7 +14,7 @@ public class ImageResizer {
         this.rowCount = rowCount;
     }
 
-    private Image getScaledImage(Image srcImg, int width, int height){
+    private Image getScaledImage(Image srcImg, int width, int height) {
 
         BufferedImage resizedImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = resizedImg.createGraphics();

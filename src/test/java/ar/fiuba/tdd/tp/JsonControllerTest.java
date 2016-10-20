@@ -27,7 +27,7 @@ public class JsonControllerTest {
 
     HashMap<String, ArrayList<String>> valuesMap = new HashMap<String, ArrayList<String>>() {
         {
-            put("num", new ArrayList<>(Arrays.asList("1","2","3")));
+            put("num", new ArrayList<>(Arrays.asList("1", "2", "3")));
         }
     };
 

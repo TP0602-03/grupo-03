@@ -14,13 +14,15 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
+
 /**
  * Created by ms0359 on 10/15/16.
  */
 public class MouseCellHandler implements MouseListener {
     ArrayList<IconValue> content;
     Game game;
-    int row, col;
+    int row;
+    int col;
     CellView cellView;
     private BoardGameView board;
 
@@ -34,12 +36,12 @@ public class MouseCellHandler implements MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent event) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.GetValuePicker((JPanel) e.getSource());
+        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker((JPanel) event.getSource());
         ArrayList<String> contents = null;
-        System.out.println("key is:" + newValue.getKey());
-        System.out.println("value is:" + newValue.getValue());
+        //System.out.println("key is:" + newValue.getKey());
+        //System.out.println("value is:" + newValue.getValue());
         game.playCell(row, col, newValue.getKey(), newValue.getValue());
         // ACTUALIZO LOS ATRIBUTOS DE TODAS LAS CELDAS Y LAS REDIBUJO
         for (int i = 0; i < game.getHeight(); i++) {
@@ -55,19 +57,19 @@ public class MouseCellHandler implements MouseListener {
         }
 
         if (game.validateRules()) {
-            JOptionPane jOptionPane = new JOptionPane();
-            jOptionPane.setMessage("##### ***** YOU WON ***** #####");
-            JFrame jFrame = new JFrame();
+            JOptionPane optionPane = new JOptionPane();
+            optionPane.setMessage("##### ***** YOU WON ***** #####");
+            JFrame frame = new JFrame();
 
-            JDialog jDialog = jOptionPane.createDialog(jFrame, "Move");
-            jDialog.setVisible(true);
+            JDialog dialog = optionPane.createDialog(frame, "Move");
+            dialog.setVisible(true);
         } else {
-            JOptionPane jOptionPane = new JOptionPane();
-            jOptionPane.setMessage("##### ***** NOT YET ***** #####");
-            JFrame jFrame = new JFrame();
+            JOptionPane optionPane = new JOptionPane();
+            optionPane.setMessage("##### ***** NOT YET ***** #####");
+            JFrame frame = new JFrame();
 
-            JDialog jDialog = jOptionPane.createDialog(jFrame, "Move");
-            jDialog.setVisible(true);
+            JDialog dialog = optionPane.createDialog(frame, "Move");
+            dialog.setVisible(true);
         }
 
         /*cellView.setContent(newValue.getKey(), newValue.getValue());
@@ -75,22 +77,22 @@ public class MouseCellHandler implements MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent event) {
 
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void mouseReleased(MouseEvent event) {
 
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
+    public void mouseEntered(MouseEvent event) {
 
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent event) {
 
     }
 }
