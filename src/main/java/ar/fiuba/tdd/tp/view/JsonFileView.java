@@ -57,7 +57,6 @@ public class JsonFileView {
     }
 
 
-
     public void add(Move newMove) {
         JSONObject play = new JSONObject();
         play.put("number", newMove.getId());
@@ -69,6 +68,8 @@ public class JsonFileView {
         }
         ((JSONArray) this.info.get("plays")).add(play);
     }
+
+
 
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
 
