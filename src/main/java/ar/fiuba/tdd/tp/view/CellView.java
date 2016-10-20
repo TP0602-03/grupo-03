@@ -10,12 +10,13 @@ import java.util.Set;
 
 public class CellView extends JPanel {
 
-    protected ImageManager imageGetter = new ImageManager("gameFiles/images");
+    protected ImageManager imageGetter;
     private HashMap<String, String> contents = new HashMap<>();
     protected Color defaultBackground = Color.WHITE;
 
-    public CellView(Set<Map.Entry<String, String>> contents) {
+    public CellView(Set<Map.Entry<String, String>> contents, int gridSize) {
 
+        this.imageGetter = new ImageManager("gameFiles/images", gridSize);
         this.setContents(contents);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         generateLabels();

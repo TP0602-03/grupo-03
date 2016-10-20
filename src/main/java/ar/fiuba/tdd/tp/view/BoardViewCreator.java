@@ -18,9 +18,9 @@ public class BoardViewCreator {
 
             for (int i = 0; i < game.getWidth(); i++) {
                 for (int j = 0; j < game.getHeight(); j++) {
-                    ImageManager imageGetter = new ImageManager("gameFiles/images");
+                    ImageManager imageGetter = new ImageManager("gameFiles/images", game.getHeight());
 
-                    CellView panel = new CellView(game.getCellKeysValues(i, j));
+                    CellView panel = new CellView(game.getCellKeysValues(i, j), game.getHeight());
                     panel.setHandlers(new MouseCellHandler(imageGetter.getImages(game.getAllowedValues()), game, i, j, panel));
                     board.set(i, j, 50, 50, panel);
                 }

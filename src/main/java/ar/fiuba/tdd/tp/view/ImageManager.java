@@ -9,15 +9,17 @@ import java.util.ArrayList;
 public class ImageManager {
 
     private String relativePath;
+    private ImageResizer resizer;
 
-    public ImageManager(String pathToImages) {
+    public ImageManager(String pathToImages, int rowCount) {
         this.relativePath = pathToImages;
+        this.resizer = new ImageResizer(rowCount);
     }
 
     public ImageIcon getImage(String symbol) {
         ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + symbol + ".png");
-        ImageResizer resizer = new ImageResizer();
-        return new ImageIcon(resizer.getScaledImage(auxImageIcon.getImage(), 20, 20));
+
+        return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
     }
 
     public ArrayList<IconValue> getImages(ArrayList<String> allowedValues) {
