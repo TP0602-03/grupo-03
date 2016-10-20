@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Game {
     private GridGraph cells;
-    private GridGraph nodes;
+    //private GridGraph nodes;
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
@@ -21,7 +21,7 @@ public class Game {
         this.width = width;
         this.height = height;
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
-        nodes = new GridGraph(width + 1, height + 1);
+        //nodes = new GridGraph(width + 1, height + 1);
     }
 
     public void addActions(String attribute, String value, List<Action> actions) {
