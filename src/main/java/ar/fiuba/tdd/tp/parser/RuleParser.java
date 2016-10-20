@@ -10,9 +10,6 @@ import java.util.List;
 public class RuleParser {
 
 
-
-
-
     private Rule getRuleDistinctValues(JSONObject ruleJson) {
         String attrib2 = (String) ruleJson.get("attribute");
         return new RuleDistinctElements(attrib2);
@@ -56,9 +53,6 @@ public class RuleParser {
         int total = ((Long) ruleJson.get("value")).intValue();
         return new RuleTotalVertexWithAttributeEqual(att4, total);
     }
-
-
-
 
 
     private Rule getRuleAllVertexHaveAttribute(JSONObject ruleJson) {
