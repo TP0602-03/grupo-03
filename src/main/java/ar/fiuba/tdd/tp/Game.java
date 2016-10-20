@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp;
 import ar.fiuba.tdd.tp.action.Action;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+import javafx.util.Pair;
 
 import java.util.*;
 
@@ -13,6 +14,8 @@ public class Game {
     private int width;
     private int height;
     private Map<String, Map<String, List<Action>>> actions = new HashMap<>();
+    HashMap<String, ArrayList<String>> posibleValues = new HashMap<>();
+    HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
 
 
     public Game(int width, int height) {
@@ -21,6 +24,27 @@ public class Game {
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
         nodes = new GridGraph(width + 1, height + 1);
     }
+
+    public void setPosibleValues(HashMap<String, ArrayList<String>> newPosibleValues) {
+        this.posibleValues = newPosibleValues;
+    }
+
+    public void setAllowedPositions(HashMap<Pair<Integer, Integer>, ArrayList<String>> newAllowedPositions) {
+        this.allowedPositions = newAllowedPositions;
+    }
+
+
+    public HashMap<String, ArrayList<String>> getPosibleValues() {
+        return this.posibleValues;
+    }
+
+
+    public HashMap<Pair<Integer, Integer>, ArrayList<String>> getAllowedPositions() {
+        return this.allowedPositions;
+    }
+
+
+
 
     public void addActions(String attribute, String value, List<Action> actions) {
         this.actions.putIfAbsent(attribute, new HashMap<>());

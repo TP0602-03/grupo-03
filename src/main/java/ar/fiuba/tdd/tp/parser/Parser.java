@@ -67,6 +67,10 @@ public class Parser {
         JSONArray jsonRegions = (JSONArray) jsonGame.get("regions");
         regionParser.loadRegions(game, jsonRegions);
 
+        RestrictionsParser restrictionsParser = new RestrictionsParser();
+        JSONArray jsonRestrictions = (JSONArray) jsonGame.get("restrictions");
+        restrictionsParser.loadCellRestrictions(game,jsonRestrictions);
+
     }
 
     public Game getGame() {
