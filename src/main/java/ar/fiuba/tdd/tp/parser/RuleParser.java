@@ -24,9 +24,10 @@ public class RuleParser {
     }
 
     private Rule getRuleCheckSum(JSONObject ruleJson) {
-        String attrib1 = (String) ruleJson.get("attribute");
-        int exp = ((Long) ruleJson.get("expected")).intValue();
-        return new RuleCheckSum(attrib1, exp);
+        GetExpectedValue getExpectedValue = new GetExpectedValue(ruleJson).invoke();
+        String firstAttribute = getExpectedValue.getFirstAttribute();
+        int exp = getExpectedValue.getExp();
+        return new RuleCheckSum(firstAttribute, exp);
     }
 
     private Rule getRuleGraphHasOneCycle() {
@@ -116,5 +117,29 @@ public class RuleParser {
     private Rule getRuleCountVertexEdges(JSONObject ruleJson) {
         String att7 = (String) ruleJson.get("attribute");
         return new RuleCountVertexEdges(att7);
+    }
+
+    private class GetExpectedValue {
+        private JSONObject ruleJson;
+        private String firstAttribute;
+        private int exp;
+
+        public GetExpectedValue(JSONObject ruleJson) {
+            this.ruleJson = ruleJson;
+        }
+
+        public String getFirstAttribute() {
+            return firstAttribute;
+        }
+
+        public int getExp() {
+            return exp;
+        }
+
+        public GetExpectedValue invoke() {
+            firstAttribute = (String) ruleJson.get("attribute");
+            exp = ((Long) ruleJson.get("expected")).intValue();
+            return this;
+        }
     }
 }
