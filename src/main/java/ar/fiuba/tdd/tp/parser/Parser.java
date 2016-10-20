@@ -57,6 +57,7 @@ public class Parser {
                     Object value = attributeValues.get(i);
                     List<Action> allActions = new ArrayList<>();
                     allActions.addAll(actionsForValue);
+                    System.out.println("ADDED ACTION FOR: " + attributeName + " val:" + value.toString() + " all:" + allActions);
                     game.addActions(attributeName, value.toString(), allActions);
 
                 }
