@@ -10,26 +10,23 @@ import java.util.List;
 public class RuleParser {
 
 
-    private Rule getRuleCheckSum(JSONObject ruleJson) {
-        String att = (String) ruleJson.get("attribute");
-        int exp = ((Long) ruleJson.get("expected")).intValue();
-        return new RuleCheckSum(att, exp);
-    }
 
-    private Rule getRuleCheckProduct(JSONObject ruleJson) {
-        String att = (String) ruleJson.get("attribute");
-        int exp = ((Long) ruleJson.get("expected")).intValue();
-        return new RuleCheckProduct(att, exp);
-    }
+
 
     private Rule getRuleDistinctValues(JSONObject ruleJson) {
-        String att = (String) ruleJson.get("attribute");
-        return new RuleDistinctElements(att);
+        String attrib2 = (String) ruleJson.get("attribute");
+        return new RuleDistinctElements(attrib2);
     }
 
 
     private Rule getRuleGraphHasNoCycles() {
         return new RuleGraphHasNoCycles();
+    }
+
+    private Rule getRuleCheckSum(JSONObject ruleJson) {
+        String attrib1 = (String) ruleJson.get("attribute");
+        int exp = ((Long) ruleJson.get("expected")).intValue();
+        return new RuleCheckSum(attrib1, exp);
     }
 
     private Rule getRuleGraphHasOneCycle() {
@@ -48,15 +45,12 @@ public class RuleParser {
         return new RuleCountSetAttributes(attList, att);
     }
 
-    private Rule getRuleCountVertexEdges(JSONObject ruleJson) {
-        String att = (String) ruleJson.get("attribute");
-        return new RuleCountVertexEdges(att);
-    }
+
 
     private Rule getRuleRuleTotalVertexWithAttributeEqual(JSONObject ruleJson) {
-        String att = (String) ruleJson.get("attribute");
+        String att4 = (String) ruleJson.get("attribute");
         int total = ((Long) ruleJson.get("value")).intValue();
-        return new RuleTotalVertexWithAttributeEqual(att, total);
+        return new RuleTotalVertexWithAttributeEqual(att4, total);
     }
 
     private Rule getRuleOneEntryOneExit() {
@@ -64,9 +58,15 @@ public class RuleParser {
     }
 
 
-    private Rule getRuleAllVertexHaveAttribute(JSONObject ruleJson) {
+    private Rule getRuleCheckProduct(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
-        return new RuleAllVerticesHaveAttribute(att);
+        int exp = ((Long) ruleJson.get("expected")).intValue();
+        return new RuleCheckProduct(att, exp);
+    }
+
+    private Rule getRuleAllVertexHaveAttribute(JSONObject ruleJson) {
+        String att0 = (String) ruleJson.get("attribute");
+        return new RuleAllVerticesHaveAttribute(att0);
     }
 
 
@@ -111,5 +111,10 @@ public class RuleParser {
 
         }
         return rule;
+    }
+
+    private Rule getRuleCountVertexEdges(JSONObject ruleJson) {
+        String att7 = (String) ruleJson.get("attribute");
+        return new RuleCountVertexEdges(att7);
     }
 }

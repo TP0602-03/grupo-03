@@ -15,7 +15,7 @@ public class AddEdgeAction extends Action {
         this.src = src;
     }
 
-    private Boolean containsCoordenates(GridGraph graph,Coord srcCoordinates,Coord dstCoordinates) {
+    private Boolean containsCoordenates(GridGraph graph, Coord srcCoordinates, Coord dstCoordinates) {
 
         if (!graph.contains(dstCoordinates)) {
             return false;
@@ -36,7 +36,7 @@ public class AddEdgeAction extends Action {
 
         //System.out.println("ADDED EDGE BETWEEN 1");
 
-        if ( ! containsCoordenates(graph,srcCoord,dstCoord)) {
+        if (!containsCoordenates(graph, srcCoord, dstCoord)) {
             return;
         }
 

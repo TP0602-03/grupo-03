@@ -8,7 +8,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class RegionParser {
@@ -133,12 +132,12 @@ public class RegionParser {
 
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
-        for (Object obj :
-                cells) {
-            JSONObject cellPos = (JSONObject) obj;
-            int row = ((Long) cellPos.get("r")).intValue();
-            int col = ((Long) cellPos.get("c")).intValue();
-            GraphVertex vertex = game.getCell(row, col);
+        for (Object objeto : cells) {
+            JSONObject cellPosition = (JSONObject) objeto;
+            int column = ((Long) cellPosition.get("c")).intValue();
+
+            int row = ((Long) cellPosition.get("r")).intValue();
+            GraphVertex vertex = game.getCell(row, column);
             reg.addVertex(vertex);
         }
     }

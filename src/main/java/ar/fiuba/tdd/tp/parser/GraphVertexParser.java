@@ -21,9 +21,10 @@ public class GraphVertexParser {
     }
 
     private void loadAll(Game game, JSONArray verticesJson, String type) {
-        for (Object obj :
-                verticesJson) {
-            JSONObject vertex = (JSONObject) obj;
+
+        for(int i = 0; i< verticesJson.size();i++) {
+            JSONObject vertex = (JSONObject) verticesJson.get(i);
+
             int row = ((Long) vertex.get("r")).intValue();
             int col = ((Long) vertex.get("c")).intValue();
             JSONObject attributesJson = (JSONObject) vertex.get("attributes");

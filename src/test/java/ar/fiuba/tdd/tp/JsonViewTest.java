@@ -90,7 +90,7 @@ public class JsonViewTest {
     }
 
 
-    private void loadWinningGame(Game game,MoveFactory factory,JsonFileView view) throws InvalidMoveException {
+    private void loadWinningGame(Game game, MoveFactory factory, JsonFileView view) throws InvalidMoveException {
 
 
         ArrayList<Move> array = new ArrayList<Move>() {
@@ -125,10 +125,9 @@ public class JsonViewTest {
         MoveFactory factory = new MoveFactory(valuesMap, positionsMap);
 
 
-
         JsonFileView view = new JsonFileView(newFile);
 
-        loadWinningGame(game,factory,view);
+        loadWinningGame(game, factory, view);
 
         view.add(game);
 
