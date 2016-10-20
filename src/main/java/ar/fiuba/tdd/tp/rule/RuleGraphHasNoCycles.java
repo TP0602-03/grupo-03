@@ -5,6 +5,21 @@ import ar.fiuba.tdd.tp.graph.GraphVertex;
 import java.util.*;
 
 public class RuleGraphHasNoCycles extends Rule {
+
+    private Boolean checkAdjacent(List<GraphVertex> adjacent,List<GraphVertex> visited,
+                                  Map<GraphVertex, GraphVertex> parent,Stack<GraphVertex> stack ,GraphVertex current) {
+        for (GraphVertex vertex :
+                adjacent) {
+            if (!visited.contains(vertex) && parent.get(current) != vertex) {
+                parent.put(vertex, current);
+                stack.push(vertex);
+            } else if (visited.contains(vertex) && parent.get(current) != vertex) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public boolean check(List<GraphVertex> vertices) {
         GraphAnalizer graphAnalizer = new GraphAnalizer().invoke();
@@ -18,14 +33,9 @@ public class RuleGraphHasNoCycles extends Rule {
             visited.add(current);
 
             List<GraphVertex> adjacent = current.getAdjacencyList();
-            for (GraphVertex vertex :
-                    adjacent) {
-                if (!visited.contains(vertex) && parent.get(current) != vertex) {
-                    parent.put(vertex, current);
-                    stack.push(vertex);
-                } else if (visited.contains(vertex) && parent.get(current) != vertex) {
-                    return false;
-                }
+
+            if( ! this.checkAdjacent(adjacent,visited,parent,stack,current)) {
+                return false;
             }
 
             if (stack.empty()) {
