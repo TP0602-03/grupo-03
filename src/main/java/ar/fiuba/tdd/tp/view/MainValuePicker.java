@@ -1,5 +1,7 @@
 package ar.fiuba.tdd.tp.view;
 
+import javafx.util.Pair;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,12 +37,12 @@ public class MainValuePicker {
 
     private JButton GetButton(IconValue icon, JOptionPane optionPane) {
         JButton button = new JButton("", icon.getIcon());
-        ActionListener actionListener = GetAction(icon.getValue(), optionPane);
+        ActionListener actionListener = GetAction(icon.getKeyValue(), optionPane);
         button.addActionListener(actionListener);
         return button;
     }
 
-    private ActionListener GetAction(String returnValue, JOptionPane optionPane) {
+    private ActionListener GetAction(Pair<String, String> returnValue, JOptionPane optionPane) {
         return new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 // Return current text label, instead of argument to method

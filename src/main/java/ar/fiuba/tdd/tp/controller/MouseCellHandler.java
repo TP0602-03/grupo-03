@@ -4,12 +4,14 @@ import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.view.CellView;
 import ar.fiuba.tdd.tp.view.IconValue;
 import ar.fiuba.tdd.tp.view.MainValuePicker;
+import javafx.util.Pair;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.StringJoiner;
 
 /**
  * Created by ms0359 on 10/15/16.
@@ -31,10 +33,10 @@ public class MouseCellHandler implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        String newValue = (String) mainValuePicker.GetValuePicker((JPanel) e.getSource());
+        Pair<String, String> newValue = (Pair<String,String>) mainValuePicker.GetValuePicker((JPanel) e.getSource());
         ArrayList<String> contents = null;
-        game.playCell(row,col, "num", newValue);
-        cellView.setContent("num", newValue);
+        game.playCell(row,col, newValue.getKey(), newValue.getValue());
+        cellView.setContent(newValue.getKey(), newValue.getValue());
         cellView.generateLabels();
     }
 

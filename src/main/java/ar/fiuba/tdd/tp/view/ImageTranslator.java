@@ -21,7 +21,6 @@ public class ImageTranslator {
         this.translateDict.put("right", "rightVerticalPipe");
 
         this.retroTranslateDict = new HashMap<>();
-
         this.retroTranslateDict.put("bottomHorizontalLine", new Pair<>("bottom", "true"));
         this.retroTranslateDict.put("topHorizontalLine", new Pair<>("top", "true"));
         this.retroTranslateDict.put("rightVerticalLine", new Pair<>("right", "true"));
