@@ -39,7 +39,6 @@ public class RuleGraphHasNoCycles extends Rule {
             }
 
         }
-        // Falla si el vertice 0 no tiene aristas?
         return true;
     }
 }

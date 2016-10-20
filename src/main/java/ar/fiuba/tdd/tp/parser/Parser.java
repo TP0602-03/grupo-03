@@ -35,6 +35,15 @@ public class Parser {
         GraphVertexParser gridParser = new GraphVertexParser();
         gridParser.loadGrid(game, this.jsonGame);
 
+        loadEditables();
+
+        RegionParser regionParser = new RegionParser();
+        JSONArray jsonRegions = (JSONArray) jsonGame.get("regions");
+        regionParser.loadRegions(game, jsonRegions);
+
+    }
+
+    private void loadEditables() {
         JSONArray editables = (JSONArray) this.jsonGame.get("editables");
         for (Object obj : editables) {
             JSONObject attributeInfo = (JSONObject) obj;
@@ -43,32 +52,27 @@ public class Parser {
 
             JSONArray actions = (JSONArray) attributeInfo.get("actions");
             if (actions != null) {
-                for (int i = 0; i < actions.size(); i++) {
-                    JSONArray valueActions = (JSONArray) actions.get(i);
-                    List<Action> actionsForValue = new ArrayList<>();
-                    for (Object actionObj :
-                            valueActions) {
-                        JSONObject actionJson = (JSONObject) actionObj;
-                        ActionParser actParser = new ActionParser(actionJson);
-                        Action action = actParser.getAction();
-                        actionsForValue.add(action);
-                        //System.out.println("action = " + action);
-                    }
-                    Object value = attributeValues.get(i);
-                    List<Action> allActions = new ArrayList<>();
-                    allActions.addAll(actionsForValue);
-                    // System.out.println("ADDED ACTION FOR: " + attributeName + " val:" + value.toString() + " all:" + allActions);
-                    game.addActions(attributeName, value.toString(), allActions);
-
-                }
+                loadActionsForAttribute(attributeName, attributeValues, actions);
             }
             game.addAllowedValues(this.parseJsonArrayToStringArray(attributeValues), attributeName);
         }
+    }
 
-        RegionParser regionParser = new RegionParser();
-        JSONArray jsonRegions = (JSONArray) jsonGame.get("regions");
-        regionParser.loadRegions(game, jsonRegions);
+    private void loadActionsForAttribute(String attributeName, JSONArray attributeValues, JSONArray actions) {
+        for (int i = 0; i < actions.size(); i++) {
+            JSONArray valueActions = (JSONArray) actions.get(i);
+            List<Action> actionsForValue = new ArrayList<>();
+            for (Object actionObj :
+                    valueActions) {
+                JSONObject actionJson = (JSONObject) actionObj;
+                ActionParser actParser = new ActionParser(actionJson);
+                Action action = actParser.getAction();
+                actionsForValue.add(action);
+            }
+            Object value = attributeValues.get(i);
+            game.addActions(attributeName, value.toString(), actionsForValue);
 
+        }
     }
 
     private ArrayList<String> parseJsonArrayToStringArray(JSONArray attributeValues) {

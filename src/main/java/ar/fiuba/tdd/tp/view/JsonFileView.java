@@ -30,6 +30,30 @@ public class JsonFileView {
         this.info.put("board", boardObject);
     }
 
+    public void add(Game game) {
+
+        ArrayList<JSONObject> cells = new ArrayList<>();
+
+        for (int i = 0; i < game.getWidth(); i++) {
+            for (int j = 0; j < game.getHeight(); j++) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
+                    String content;
+                    try {
+                        content = key.getValue();
+                        if (key.getKey() != "pos") {
+                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
+                        }
+                    } catch (Exception ex) {
+                        //do nothing;
+                    }
+                }
+            }
+        }
+
+        this.updateBoard(cells);
+        this.addStatus(game);
+    }
+
     public void add(Move newMove) {
         JSONObject play = new JSONObject();
         play.put("number", newMove.getId());
@@ -71,29 +95,6 @@ public class JsonFileView {
         ((JSONObject) this.info.get("board")).put("values", cells);
     }
 
-    public void add(Game game) {
-
-        ArrayList<JSONObject> cells = new ArrayList<>();
-
-        for (int i = 0; i < game.getWidth(); i++) {
-            for (int j = 0; j < game.getHeight(); j++) {
-                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
-                    String content;
-                    try {
-                        content = key.getValue();
-                        if (key.getKey() != "pos") {
-                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
-                        }
-                    } catch (Exception ex) {
-                        //do nothing;
-                    }
-                }
-            }
-        }
-
-        this.updateBoard(cells);
-        this.addStatus(game);
-    }
 
     public void write() throws IOException {
 

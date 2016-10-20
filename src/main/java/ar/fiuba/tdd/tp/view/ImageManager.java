@@ -29,6 +29,12 @@ public class ImageManager {
         return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
     }
 
+    public Icon getImage(String key, String value) {
+        String translatedValue = this.imageTranslator.translate(new Pair<String, String>(key, value));
+        ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + translatedValue + ".png");
+        return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
+    }
+
     public ArrayList<IconValue> getImages(ArrayList<Pair<String, String>> allowedValues) {
         ArrayList<IconValue> iconValues = new ArrayList<>();
 
@@ -40,11 +46,6 @@ public class ImageManager {
         return iconValues;
     }
 
-    public Icon getImage(String key, String value) {
-        String translatedValue = this.imageTranslator.translate(new Pair<String, String>(key, value));
-        ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + translatedValue + ".png");
-        return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
-    }
 
     public Icon getEmptyImage() {
         return this.getImage("NullContent");

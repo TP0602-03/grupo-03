@@ -34,38 +34,11 @@ public class ImageTranslator {
                 retroTranslateDict.put(new Pair<>(attributeName, value), image);
 
             }
-
         }
-
-
-
-
-/*        this.translateDict = new HashMap<>();
-        this.translateDict.put("small_num", "leftTop");
-        this.translateDict.put("left", "leftVerticalPipe");
-        this.translateDict.put("bottom", "bottomHorizontalPipe");
-        this.translateDict.put("top", "topHorizontalPipe");
-        this.translateDict.put("right", "rightVerticalPipe");
-
-        this.translateDict.put("diagonal", "");
-        this.translateDict.put("num", "");*/
-
 
     }
 
     public String translate(Pair<String, String> allowedValue) {
-       /* System.out.println("allowed value key is: " + allowedValue.getKey());
-        System.out.println("allowed value value is: " + allowedValue.getValue());
-        String trailingData = allowedValue.getValue();
-
-        if (!Objects.equals(allowedValue.getKey(), "diagonal") && !Objects.equals(allowedValue.getKey(), "small_num") && !Objects.equals(allowedValue.getKey(), "num"))
-            trailingData = "";
-        System.out.println("dict size: " + this.translateDict.size());
-        System.out.println("dict size: " + this.translateDict.size());
-        System.out.println("dict: " + this.translateDict.get(allowedValue.getKey()));
-        System.out.println("translated: " + this.translateDict.get(allowedValue.getKey()) + trailingData);
-        return this.translateDict.get(allowedValue.getKey()) + trailingData;*/
-
         return this.retroTranslateDict.get(allowedValue);
     }
 
