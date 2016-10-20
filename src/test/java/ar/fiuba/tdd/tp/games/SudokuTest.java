@@ -37,28 +37,28 @@ public class SudokuTest {
         System.out.println("rules ok: " + game.validateRules());
 
 
-        game.playCell(0, 1, "num", "1");
+        game.playCell(1, 0, "num", "1");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-
-        game.playCell(2, 1, "num", "3");
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules());
-
-        game.playCell(3, 1, "num", "4");
-        printBoard(game);
-        System.out.println("rules ok: " + game.validateRules());
 
         game.playCell(1, 2, "num", "3");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(3, 2, "num", "1");
+        game.playCell(1, 3, "num", "4");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
-        game.playCell(0, 2, "num", "4");
+        game.playCell(2, 1, "num", "3");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules());
+
+        game.playCell(2, 3, "num", "1");
+        printBoard(game);
+        System.out.println("rules ok: " + game.validateRules());
+
+        game.playCell(2, 0, "num", "4");
         printBoard(game);
         System.out.println("rules ok: " + game.validateRules());
 
