@@ -23,7 +23,7 @@ public class MouseCellHandler implements MouseListener {
     Game game;
     int row;
     int col;
-    CellView cellView;
+    //CellView cellView;
     private BoardGameView board;
 
     public MouseCellHandler(BoardGameView board, ArrayList<IconValue> content, Game game, int row, int col, CellView cellView) {
@@ -32,7 +32,7 @@ public class MouseCellHandler implements MouseListener {
         this.game = game;
         this.row = row;
         this.col = col;
-        this.cellView = cellView;
+        //this.cellView = cellView;
     }
 
     @Override
