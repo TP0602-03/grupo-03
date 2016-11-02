@@ -1,0 +1,288 @@
+{
+  "name": "kakuro",
+  "size": {
+    "width": 4,
+    "height": 4
+  },
+  "editables": [
+    {
+      "attribute": "num",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        ""
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "r": 0,
+      "c": 0,
+      "attributes": {
+        "type": "black"
+      }
+    },
+    {
+      "r": 0,
+      "c": 1,
+      "attributes": {
+        "secondDownLeft": "7",
+        "type": "cornerUp"
+      }
+    },
+    {
+      "r": 0,
+      "c": 2,
+      "attributes": {
+        "firstDownLeft": "1",
+        "secondDownLeft": "9",
+        "type": "cornerUp"
+      }
+    },
+    {
+      "r": 0,
+      "c": 3,
+      "attributes": {
+        "type": "black"
+      }
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "attributes": {
+        "firstUpRight": "1",
+        "secondUpRight": "3",
+        "type": "cornerDown"
+      }
+    },
+    {
+      "r": 1,
+      "c": 3,
+      "attributes": {
+        "secondDownLeft": "4",
+        "type": "cornerUp"
+      }
+    },
+    {
+      "r": 2,
+      "c": 0,
+      "attributes": {
+        "secondUpRight": "7",
+        "type": "cornerDown"
+      }
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "attributes": {
+        "type": "black"
+      }
+    },
+    {
+      "r": 3,
+      "c": 1,
+      "attributes": {
+        "firstUpRight": "1",
+        "secondUpRight": "0",
+        "type": "cornerDown"
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 1,
+            "c": 1
+          },
+          {
+            "r": 2,
+            "c": 1
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 7
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 1,
+            "c": 2
+          },
+          {
+            "r": 2,
+            "c": 2
+          },
+          {
+            "r": 3,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 19
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 3
+          },
+          {
+            "r": 3,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 4
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 1,
+            "c": 1
+          },
+          {
+            "r": 1,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 13
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 1
+          },
+          {
+            "r": 2,
+            "c": 2
+          },
+          {
+            "r": 2,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 7
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 3,
+            "c": 2
+          },
+          {
+            "r": 3,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckSum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

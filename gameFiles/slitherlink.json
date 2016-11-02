@@ -8,8 +8,8 @@
     {
       "attribute": "left",
       "values": [
-        true,
-        false
+        "leftVerticalPipe",
+        ""
       ],
       "actions": [
         [
@@ -22,7 +22,7 @@
             "type": "affect",
             "dst": "left",
             "attribute": "right",
-            "value": true
+            "value": "rightVerticalPipe"
           }
         ],
         [
@@ -35,7 +35,7 @@
             "type": "affect",
             "dst": "left",
             "attribute": "right",
-            "value": false
+            "value": ""
           }
         ]
       ]
@@ -43,8 +43,8 @@
     {
       "attribute": "right",
       "values": [
-        true,
-        false
+        "rightVerticalPipe",
+        ""
       ],
       "actions": [
         [
@@ -57,7 +57,7 @@
             "type": "affect",
             "dst": "right",
             "attribute": "left",
-            "value": true
+            "value": "leftVerticalPipe"
           }
         ],
         [
@@ -70,7 +70,7 @@
             "type": "affect",
             "dst": "right",
             "attribute": "left",
-            "value": false
+            "value": ""
           }
         ]
       ]
@@ -78,8 +78,8 @@
     {
       "attribute": "top",
       "values": [
-        true,
-        false
+        "topHorizontalPipe",
+        ""
       ],
       "actions": [
         [
@@ -92,7 +92,7 @@
             "type": "affect",
             "dst": "top",
             "attribute": "bottom",
-            "value": true
+            "value": "bottomHorizontalPipe"
           }
         ],
         [
@@ -105,7 +105,7 @@
             "type": "affect",
             "dst": "top",
             "attribute": "bottom",
-            "value": false
+            "value": ""
           }
         ]
       ]
@@ -113,8 +113,8 @@
     {
       "attribute": "bottom",
       "values": [
-        true,
-        false
+        "bottomHorizontalPipe",
+        ""
       ],
       "actions": [
         [
@@ -127,7 +127,7 @@
             "type": "affect",
             "dst": "bottom",
             "attribute": "top",
-            "value": true
+            "value": "topHorizontalPipe"
           }
         ],
         [
@@ -140,7 +140,7 @@
             "type": "affect",
             "dst": "bottom",
             "attribute": "top",
-            "value": false
+            "value": ""
           }
         ]
       ]
@@ -148,22 +148,22 @@
   ],
   "cells": [
     {
-      "x": 0,
-      "y": 1,
+      "r": 0,
+      "c": 1,
       "attributes": {
         "num": 3
       }
     },
     {
-      "x": 1,
-      "y": 1,
+      "r": 1,
+      "c": 1,
       "attributes": {
         "num": 3
       }
     },
     {
-      "x": 2,
-      "y": 2,
+      "r": 2,
+      "c": 2,
       "attributes": {
         "num": 3
       }
@@ -188,7 +188,7 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCountTrueBooleanAttributes",
+              "name": "RuleCountSetAttributes",
               "attribute": "num",
               "attributes": [
                 "left",

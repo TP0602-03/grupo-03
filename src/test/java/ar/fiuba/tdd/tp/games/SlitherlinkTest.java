@@ -12,46 +12,27 @@ public class SlitherlinkTest {
         Parser parser = new Parser("gameFiles/slitherlink.json");
         Game game = parser.getGame();
 
+        game.playCell(0, 0, "top", "topHorizontalPipe");
+        game.playCell(0, 0, "left", "leftVerticalPipe");
 
+        game.playCell(0, 1, "top", "topHorizontalPipe");
+        game.playCell(0, 1, "right", "rightVerticalPipe");
+        game.playCell(0, 1, "bottom", "bottomHorizontalPipe");
 
+        game.playCell(1, 0, "left", "leftVerticalPipe");
 
+        game.playCell(1, 1, "left", "leftVerticalPipe");
+        game.playCell(1, 1, "bottom", "bottomHorizontalPipe");
 
+        game.playCell(1, 2, "bottom", "bottomHorizontalPipe");
 
-        game.playCell(1, 0, "bottom", "true");
-        game.playCell(1, 0, "left", "true");
-        game.playCell(1, 0, "right", "true");
-        game.playCell(0, 0, "left", "true");
-        game.playCell(0, 0, "top", "true");
+        game.playCell(2, 0, "left", "leftVerticalPipe");
+        game.playCell(2, 0, "bottom", "bottomHorizontalPipe");
 
+        game.playCell(2, 1, "bottom", "bottomHorizontalPipe");
 
-        game.playCell(0, 1, "top", "true");
-        //System.out.println("game.validateRules() = " + game.validateRules());
-
-        game.playCell(0, 1, "bottom", "true");
-        //System.out.println("game.validateRules() = " + game.validateRules());
-
-        game.playCell(0, 2, "top", "true");
-        //System.out.println("game.validateRules() = " + game.validateRules());
-
-        game.playCell(0, 2, "right", "true");
-        //System.out.println("game.validateRules() = " + game.validateRules());
-
-
-
-
-
-
-
-        game.playCell(1, 2, "right", "true");
-        game.playCell(1, 2, "left", "true");
-        //System.out.println("game.validateRules() = " + game.validateRules());
-
-
-        game.playCell(2, 2, "bottom", "true");
-        game.playCell(2, 2, "left", "true");
-        game.playCell(2, 2, "right", "true");
-        //System.out.println("game.validateRules() = " + game.validateRules());
-
+        game.playCell(2, 2, "bottom", "bottomHorizontalPipe");
+        game.playCell(2, 2, "right", "rightVerticalPipe");
 
         System.out.println("game.validateRules() = " + game.validateRules());
         assertTrue(game.validateRules());

@@ -9,46 +9,43 @@ import java.util.*;
 
 public class Game {
     private GridGraph cells;
-    private GridGraph nodes;
+    //private GridGraph nodes;
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
-    private Map<String, Map<String, List<Action>>> actions = new HashMap<>();
-    HashMap<String, ArrayList<String>> posibleValues = new HashMap<>();
-    HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
+
+    private HashMap<String, ArrayList<String>> posibleValues = new HashMap<>();
+    private HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
+
+    private Map<Pair<String, String>, List<Action>> actions = new HashMap<>();
+    private ArrayList<Pair<String, String>> allowedValues = new ArrayList<>();
 
 
     public Game(int width, int height) {
         this.width = width;
         this.height = height;
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
-        nodes = new GridGraph(width + 1, height + 1);
+        //nodes = new GridGraph(width + 1, height + 1);
+    }
+
+    public HashMap<String, ArrayList<String>> getPosibleValues() {
+        return this.posibleValues;
     }
 
     public void setPosibleValues(HashMap<String, ArrayList<String>> newPosibleValues) {
         this.posibleValues = newPosibleValues;
     }
 
-    public void setAllowedPositions(HashMap<Pair<Integer, Integer>, ArrayList<String>> newAllowedPositions) {
-        this.allowedPositions = newAllowedPositions;
-    }
-
-
-    public HashMap<String, ArrayList<String>> getPosibleValues() {
-        return this.posibleValues;
-    }
-
-
     public HashMap<Pair<Integer, Integer>, ArrayList<String>> getAllowedPositions() {
         return this.allowedPositions;
     }
 
-
-
+    public void setAllowedPositions(HashMap<Pair<Integer, Integer>, ArrayList<String>> newAllowedPositions) {
+        this.allowedPositions = newAllowedPositions;
+    }
 
     public void addActions(String attribute, String value, List<Action> actions) {
-        this.actions.putIfAbsent(attribute, new HashMap<>());
-        this.actions.get(attribute).put(value, actions);
+        this.actions.putIfAbsent(new Pair<>(attribute, value), actions);
     }
 
     public void addRegion(Region region) {
@@ -82,23 +79,34 @@ public class Game {
 
     public void playCell(int row, int col, String att, String newValue) {
         cells.clearEdges();
-        cells.getVertex(2 * row + 1, 2 * col + 1).setAttribute(att, newValue);
 
-        //System.out.println("********* REBUILDING GRAPH: **********");
+        getCell(row, col).setAttribute(att, newValue);
 
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                GraphVertex cell = getCell(i, j);
-                //System.out.println("******* Actions for Cell: " + i + " , " + j);
-                for (Map.Entry<String, String> attribute :
-                        cell.getAttributes().entrySet()) {
-                    if (actions.get(attribute.getKey()) != null) {
-                        for (Action action :
-                                actions.get(attribute.getKey()).get(attribute.getValue())) {
-                            action.run(cells, 2 * i + 1, 2 * j + 1);
-                        }
+        runActionsForCell(row, col);
 
-                    }
+        /*if (actions.get(new Pair<>(att, newValue)) != null) {
+            for (Action action : actions.get(new Pair<>(att, newValue))) {
+                action.run(cells, 2 * row + 1, 2 * col + 1);
+            }
+        }
+        */
+
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                runActionsForCell(r, c);
+            }
+        }
+    }
+
+
+    private void runActionsForCell(int row, int col) {
+        GraphVertex cell = getCell(row, col);
+        for (Map.Entry<String, String> attribute :
+                cell.getAttributes().entrySet()) {
+            Pair<String, String> entry = new Pair<>(attribute.getKey(), attribute.getValue());
+            if (actions.get(entry) != null) {
+                for (Action action : actions.get(entry)) {
+                    action.run(cells, 2 * row + 1, 2 * col + 1);
                 }
             }
         }
@@ -113,6 +121,16 @@ public class Game {
     }
 
     public Set<Map.Entry<String, String>> getCellKeysValues(int row, int col) {
-        return cells.getVertex(2 * row + 1,2 * col + 1).getKeysValues();
+        return cells.getVertex(2 * row + 1, 2 * col + 1).getKeysValues();
+    }
+
+    public ArrayList<Pair<String, String>> getAllowedValues() {
+        return this.allowedValues;
+    }
+
+    public void addAllowedValues(ArrayList<String> strings, String attribute) {
+        for (String value : strings) {
+            this.allowedValues.add(new Pair<String, String>(attribute, value));
+        }
     }
 }

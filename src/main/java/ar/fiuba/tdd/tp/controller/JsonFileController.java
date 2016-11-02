@@ -28,14 +28,10 @@ public class JsonFileController {
     }
 
 
-    private Boolean isNumeric(String numberString)
-    {
-        try
-        {
-            double d = Double.parseDouble(numberString);
-        }
-        catch(NumberFormatException nfe)
-        {
+    private Boolean isNumeric(String numberString) {
+        try {
+            Double.parseDouble(numberString);
+        } catch (NumberFormatException nfe) {
             return false;
         }
         return true;
@@ -47,12 +43,19 @@ public class JsonFileController {
         JSONArray jsonPlays = (JSONArray) jsonFile.get("plays");
         this.moves = new ArrayList<>();
 
+        loadMoves(jsonPlays);
+
+        sortMoves();
+
+    }
+
+    private void loadMoves(JSONArray jsonPlays) {
         JSONObject jsonMove;
         JSONArray jsonPoint;
         int newX;
         int newY;
         int newId;
-        String newAttirbute;
+        String newAttribute;
         String newValue;
 
         for (int i = 0; i < jsonPlays.size(); i++) {
@@ -61,21 +64,22 @@ public class JsonFileController {
             newX = ((Long) jsonPoint.get(0)).intValue();
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
-            //newAttirbute  = (String) jsonMove.get("attribute");
-            newAttirbute = "num";
             newValue = (String) jsonMove.get("value");
-            this.moves.add(this.factory.createMove(newId, newX, newY,newAttirbute, newValue));
+            if(this.isNumeric(newValue)) {
+                newAttribute = "num";
+            } else {
+                newAttribute = (String) jsonMove.get("attribute");
+            }
+
+            this.moves.add(this.factory.createMove(newId, newX, newY, newAttribute, newValue));
         }
-
-        this.sortMoves();
-
     }
+
 
     public void sortMoves() {
         //Sort the array
-        Comparator<Move> comparator = (Move move1, Move move2) -> {
-            return (((Integer) move1.getId()).compareTo(move2.getId()));
-        };
+        Comparator<Move> comparator = (Move move1, Move move2) -> (((Integer) move1.getId()).compareTo(move2.getId()));
+
         Collections.sort(moves, comparator);
     }
 

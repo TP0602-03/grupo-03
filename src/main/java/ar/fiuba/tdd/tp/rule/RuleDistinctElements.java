@@ -20,7 +20,9 @@ public class RuleDistinctElements extends Rule {
         for (GraphVertex vertex :
                 vertices) {
             map.put(vertex.getAttribute(attribute), 1);
+            System.out.println("attribute is:" + attribute + "  val: " + vertex.getAttribute(attribute));
         }
+
         return map.size() == vertices.size();
     }
 }

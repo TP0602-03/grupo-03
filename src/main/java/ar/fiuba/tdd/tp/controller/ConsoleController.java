@@ -4,9 +4,9 @@ import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
 
 import java.io.BufferedReader;
-import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 /**
  * Created by luciano on 18/10/16.
@@ -30,7 +30,7 @@ public class ConsoleController {
 
     private String getValue(String message) throws IOException {
         System.out.print(message);
-        InputStreamReader streamReader = new InputStreamReader(System.in);
+        InputStreamReader streamReader = new InputStreamReader(System.in, Charset.defaultCharset());
         BufferedReader bufferedReader = new BufferedReader(streamReader);
         return bufferedReader.readLine();
     }
@@ -38,7 +38,7 @@ public class ConsoleController {
 
     public Move getMove() throws IOException {
 
-        Console console = System.console();
+        //Console console = System.console();
         int newId = this.moveCount;
         int positionX = 0;
         int positionY = 0;
@@ -54,7 +54,7 @@ public class ConsoleController {
             System.out.println("Invalid value");
         }
 
-        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY,attribute,value);
+        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY, attribute, value);
 
         if (!moveToReturn.isValid()) {
             System.out.println("Invalid Move");

@@ -2,7 +2,6 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
-import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -31,6 +30,33 @@ public class JsonFileView {
         this.info.put("board", boardObject);
     }
 
+    public void add(Game game) {
+
+        ArrayList<JSONObject> cells = new ArrayList<>();
+
+        for (int col = 0; isLowerThan(game, col); col++) {
+            for (int row = 0; row < game.getHeight(); row++) {
+                for (Map.Entry<String, String> key : game.getCellKeysValues(col, row)) {
+                    String content;
+                    try {
+                        content = key.getValue();
+                        if (key.getKey() != "pos") {
+                            cells.add(this.createJsonCell(row, col, key.getKey().toString(), content));
+                        }
+                    } catch (Exception ex) {
+                        //do nothing;
+                    }
+                }
+
+            }
+        }
+
+
+        this.updateBoard(cells);
+        this.addStatus(game);
+    }
+
+
     public void add(Move newMove) {
         JSONObject play = new JSONObject();
         play.put("number", newMove.getId());
@@ -43,8 +69,8 @@ public class JsonFileView {
         ((JSONArray) this.info.get("plays")).add(play);
     }
 
-    private JSONObject createJsonCell(int positionX,int positionY,String attribute, String value) {
 
+    private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
 
 
         JSONObject cell = new JSONObject();
@@ -53,7 +79,9 @@ public class JsonFileView {
         positionArray.add(positionX);
         positionArray.add(positionY);
         cell.put("position", positionArray);
-        //cell.put("attribute",attribute);
+
+        cell.put("attribute", attribute);
+
         cell.put("value", value);
 
         return cell;
@@ -61,40 +89,20 @@ public class JsonFileView {
     }
 
     private void addStatus(Game game) {
-        if( game.validateRules() ){
-            ((JSONObject)this.info.get("board")).put("status","true");
+        if (game.validateRules()) {
+            ((JSONObject) this.info.get("board")).put("status", "true");
         } else {
-            ((JSONObject)this.info.get("board")).put("status","false");
+            ((JSONObject) this.info.get("board")).put("status", "false");
         }
 
     }
 
     private void updateBoard(ArrayList<JSONObject> cells) {
-        ((JSONObject)this.info.get("board")).put("values",cells);
+        ((JSONObject) this.info.get("board")).put("values", cells);
     }
 
-    public void add(Game game) {
-
-        ArrayList<JSONObject> cells = new ArrayList<>();
-
-        for (int i = 0; i < game.getWidth(); i++) {
-            for (int j = 0; j < game.getHeight(); j++) {
-                for (Map.Entry<String, String> key : game.getCellKeysValues(i, j)) {
-                    String content;
-                    try {
-                        content = key.getValue();
-                        if (key.getKey() != "pos") {
-                            cells.add(this.createJsonCell(j, i, key.getKey().toString(), content));
-                        }
-                    } catch (Exception ex) {
-                        //do nothing;
-                    }
-                }
-            }
-        }
-
-        this.updateBoard(cells);
-        this.addStatus(game);
+    private boolean isLowerThan(Game game, int col) {
+        return col < game.getWidth();
     }
 
     public void write() throws IOException {

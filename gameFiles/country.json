@@ -13,7 +13,8 @@
         "nw",
         "sw",
         "ns",
-        "we"
+        "we",
+        ""
       ],
       "actions": [
         [
@@ -63,24 +64,64 @@
   ],
   "cells": [
     {
-      "x": 0,
-      "y": 0,
+      "r": 0,
+      "c": 0,
       "attributes": {
-        "num": 2
+        "num": 2,
+        "regionRight": "true"
       }
     },
     {
-      "x": 0,
-      "y": 1,
+      "r": 0,
+      "c": 1,
       "attributes": {
-        "num": 4
+        "num": 4,
+        "regionLeft": "true"
       }
     },
     {
-      "x": 2,
-      "y": 0,
+      "r": 1,
+      "c": 0,
       "attributes": {
-        "num": 2
+        "regionRight": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "attributes": {
+        "regionLeft": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 2,
+      "attributes": {
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 0,
+      "attributes": {
+        "num": 2,
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "attributes": {
+        "regionTop": "true"
       }
     }
   ],
@@ -90,12 +131,12 @@
         "type": "edges",
         "cells": [
           {
-            "x": 0,
-            "y": 0
+            "r": 0,
+            "c": 0
           },
           {
-            "x": 1,
-            "y": 0
+            "r": 1,
+            "c": 0
           }
         ],
         "rules": [
@@ -112,12 +153,12 @@
         "type": "custom",
         "cells": [
           {
-            "x": 0,
-            "y": 0
+            "r": 0,
+            "c": 0
           },
           {
-            "x": 1,
-            "y": 0
+            "r": 1,
+            "c": 0
           }
         ],
         "rules": [
@@ -136,20 +177,20 @@
         "type": "edges",
         "cells": [
           {
-            "x": 0,
-            "y": 1
+            "r": 0,
+            "c": 1
           },
           {
-            "x": 0,
-            "y": 2
+            "r": 0,
+            "c": 2
           },
           {
-            "x": 1,
-            "y": 1
+            "r": 1,
+            "c": 1
           },
           {
-            "x": 1,
-            "y": 2
+            "r": 1,
+            "c": 2
           }
         ],
         "rules": [
@@ -166,20 +207,20 @@
         "type": "custom",
         "cells": [
           {
-            "x": 0,
-            "y": 1
+            "r": 0,
+            "c": 1
           },
           {
-            "x": 0,
-            "y": 2
+            "r": 0,
+            "c": 2
           },
           {
-            "x": 1,
-            "y": 1
+            "r": 1,
+            "c": 1
           },
           {
-            "x": 1,
-            "y": 2
+            "r": 1,
+            "c": 2
           }
         ],
         "rules": [
@@ -198,16 +239,16 @@
         "type": "edges",
         "cells": [
           {
-            "x": 2,
-            "y": 0
+            "r": 2,
+            "c": 0
           },
           {
-            "x": 2,
-            "y": 1
+            "r": 2,
+            "c": 1
           },
           {
-            "x": 2,
-            "y": 2
+            "r": 2,
+            "c": 2
           }
         ],
         "rules": [
@@ -224,16 +265,16 @@
         "type": "custom",
         "cells": [
           {
-            "x": 2,
-            "y": 0
+            "r": 2,
+            "c": 0
           },
           {
-            "x": 2,
-            "y": 1
+            "r": 2,
+            "c": 1
           },
           {
-            "x": 2,
-            "y": 2
+            "r": 2,
+            "c": 2
           }
         ],
         "rules": [

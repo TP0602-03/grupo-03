@@ -14,7 +14,7 @@ public class ParserTest {
     String sudokuFile = "gameFiles/sudoku.json";
 
     @Test
-    public void restrictionsLoadingIsOK() throws IOException,ParseException, org.json.simple.parser.ParseException{
+    public void restrictionsLoadingIsOK() throws IOException, ParseException, org.json.simple.parser.ParseException {
 
         Parser parser = new Parser(sudokuFile);
         Game game = parser.getGame();
@@ -23,7 +23,6 @@ public class ParserTest {
         System.out.println(game.getPosibleValues().toString());
 
     }
-
 
 
 }

@@ -18,12 +18,15 @@ public class RuleCountVertexEdges extends Rule {
         for (GraphVertex vertex :
                 vertices) {
             //System.out.println("(Integer) vertex.getAttribute(attribute) = " + (Integer) vertex.getAttribute(attribute));
-
-            if(vertex.getAttribute(this.attribute) != null) {
+            vertex.print();
+            if (vertex.getAttribute(this.attribute) != null) {
                 Integer edgesAttribute = Integer.parseInt(vertex.getAttribute(this.attribute));
+                System.out.println("WANTS " + edgesAttribute);
+                System.out.println("HAS " + vertex.getAdjacencyList().size());
                 int numAdjacent = vertex.getAdjacencyList().size();
                 if (numAdjacent != edgesAttribute) {
                     vertex.print();
+                    System.out.println("!!!!!!!!!!!!!!!!!DOESNT HAVE OK EDGES");
                     return false;
                 }
             }

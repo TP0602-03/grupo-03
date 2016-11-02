@@ -11,51 +11,148 @@
         1,
         2,
         3,
-        4
+        4,
+        ""
       ]
     }
   ],
   "cells": [
     {
-      "x": 0,
-      "y": 0,
+      "r": 0,
+      "c": 0,
       "attributes": {
-        "small_num": 6
+        "small_first": 6,
+        "small_num": 6,
+        "regionRight": "true"
       }
     },
     {
-      "x": 0,
-      "y": 1,
+      "r": 0,
+      "c": 1,
       "attributes": {
-        "small_num": 8
+        "small_first": 8,
+        "small_num": 8,
+        "regionLeft": "true",
+        "regionBottom": "true"
       }
     },
     {
-      "x": 0,
-      "y": 3,
+      "r": 0,
+      "c": 2,
       "attributes": {
-        "small_num": 24
+        "regionRight": "true",
+        "regionBottom": "true"
       }
     },
     {
-      "x": 1,
-      "y": 1,
+      "r": 0,
+      "c": 3,
       "attributes": {
-        "small_num": 4
+        "small_first": 2,
+        "small_second": 4,
+        "small_num": 24,
+        "regionLeft": "true"
       }
     },
     {
-      "x": 2,
-      "y": 0,
+      "r": 1,
+      "c": 0,
       "attributes": {
-        "small_num": 6
+        "regionBottom": "true",
+        "regionRight": "true"
       }
     },
     {
-      "x": 3,
-      "y": 3,
+      "r": 1,
+      "c": 1,
       "attributes": {
-        "small_num": 12
+        "small_first": 4,
+        "small_num": 4,
+        "regionBottom": "true",
+        "regionLeft": "true",
+        "regionTop": "true",
+      }
+    },
+    {
+      "r": 1,
+      "c": 2,
+      "attributes": {
+        "regionBottom": "true",
+        "regionRight": "true",
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 0,
+      "attributes": {
+        "small_first": 6,
+        "small_num": 6,
+        "regionTop": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "attributes": {
+        "regionTop": "true",
+        "regionBottom": "true",
+        "regionRight": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "attributes": {
+        "small_first": 1,
+        "small_second": 2,
+        "small_num": 12,
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 2,
+      "attributes": {
+        "regionRight": "true",
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
       }
     }
   ],
@@ -232,10 +329,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 0,
-          "y_min": 0,
-          "x_max": 1,
-          "y_max": 0
+          "r_min": 0,
+          "c_min": 0,
+          "r_max": 1,
+          "c_max": 0
         },
         "rules": [
           {
@@ -258,10 +355,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 0,
-          "y_min": 1,
-          "x_max": 0,
-          "y_max": 2
+          "r_min": 0,
+          "c_min": 1,
+          "r_max": 0,
+          "c_max": 2
         },
         "rules": [
           {
@@ -284,10 +381,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 1,
-          "y_min": 1,
-          "x_max": 1,
-          "y_max": 2
+          "r_min": 1,
+          "c_min": 1,
+          "r_max": 1,
+          "c_max": 2
         },
         "rules": [
           {
@@ -310,10 +407,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 2,
-          "y_min": 0,
-          "x_max": 2,
-          "y_max": 2
+          "r_min": 2,
+          "c_min": 0,
+          "r_max": 2,
+          "c_max": 2
         },
         "rules": [
           {
@@ -336,10 +433,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 3,
-          "y_min": 0,
-          "x_max": 3,
-          "y_max": 2
+          "r_min": 3,
+          "c_min": 0,
+          "r_max": 3,
+          "c_max": 2
         },
         "rules": [
           {
@@ -362,10 +459,10 @@
       "region": {
         "type": "rectangle",
         "rectangle": {
-          "x_min": 0,
-          "y_min": 3,
-          "x_max": 3,
-          "y_max": 3
+          "r_min": 0,
+          "c_min": 3,
+          "r_max": 3,
+          "c_max": 3
         },
         "rules": [
           {

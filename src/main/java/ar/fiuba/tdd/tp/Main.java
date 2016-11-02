@@ -1,21 +1,26 @@
 package ar.fiuba.tdd.tp;
 
-import ar.fiuba.tdd.tp.controller.ConsoleController;
-import ar.fiuba.tdd.tp.move.InvalidMoveException;
-import ar.fiuba.tdd.tp.move.Move;
-import ar.fiuba.tdd.tp.move.MoveFactory;
-import javafx.util.Pair;
+import ar.fiuba.tdd.tp.parser.Parser;
+import ar.fiuba.tdd.tp.view.BoardViewCreator;
 
-import java.io.IOException;
-import java.util.HashMap;
+import java.awt.*;
 
 public class Main {
-
-
     public static void main(String[] args) {
-
-
+        EventQueue.invokeLater(new MainRun());
     }
 
+    private static class MainRun implements Runnable {
+        private final BoardViewCreator boardViewCreator = new BoardViewCreator();
 
+        @Override
+        public void run() {
+            try {
+                Parser parser = new Parser("gameFiles/country.json");
+                boardViewCreator.createBoard(parser.getGame());
+            } catch (Exception ex) {
+                System.err.println(ex);
+            }
+        }
+    }
 }

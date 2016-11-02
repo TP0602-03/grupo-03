@@ -8,7 +8,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class RegionParser {
@@ -20,27 +19,37 @@ public class RegionParser {
             String type = (String) region.get("type");
 
 
-            if (Objects.equals(type, "rectangle")) {
-                loadRectangleRegion(game, region, reg);
-            } else if (Objects.equals(type, "column")) {
-                loadColumnRegion(game, region, reg);
-            } else if (Objects.equals(type, "row")) {
-                loadRowRegion(game, region, reg);
-            } else if (Objects.equals(type, "custom")) {
-                loadCustomRegion(game, region, reg);
-            } else if (Objects.equals(type, "edges")) {
-                loadEdgesRegion(game, region, reg);
-            } else if (Objects.equals(type, "all_cells")) {
-                loadAllCells(game, reg);
-            } else if (Objects.equals(type, "all_corners")) {
-                loadAllCorners(game, reg);
-            } else if (Objects.equals(type, "all_edges")) {
-                loadAllEdges(game, reg);
-            }
+            loadRegionDependingOnType(game, region, reg, type);
 
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
             game.addRegion(reg);
+        }
+    }
+
+    private void loadRegionDependingOnType(Game game, JSONObject region, Region reg, String type) {
+        if (type.equals("rectangle")) {
+            loadRectangleRegion(game, region, reg);
+        } else if (type.equals("column")) {
+            loadColumnRegion(game, region, reg);
+        } else if (type.equals("row")) {
+            loadRowRegion(game, region, reg);
+        } else if (type.equals("custom")) {
+            loadCustomRegion(game, region, reg);
+        } else if (type.equals("edges")) {
+            loadEdgesRegion(game, region, reg);
+        } else {
+            loadGeneralRegions(game, reg, type);
+        }
+    }
+
+    private void loadGeneralRegions(Game game, Region reg, String type) {
+        if (type.equals("all_cells")) {
+            loadAllCells(game, reg);
+        } else if (type.equals("all_corners")) {
+            loadAllCorners(game, reg);
+        } else if (type.equals("all_edges")) {
+            loadAllEdges(game, reg);
         }
     }
 
@@ -87,6 +96,12 @@ public class RegionParser {
         }
     }
 
+
+    private GraphVertex getVertex(Game game, int row, int col, int rowOffset, int columnOffset) {
+        return game.getVertex(2 * row + rowOffset, 2 * col + columnOffset);
+
+    }
+
     private void loadEdgesRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
         //Horizontal
@@ -94,20 +109,16 @@ public class RegionParser {
         for (Object obj :
                 cells) {
             JSONObject cellPos = (JSONObject) obj;
-            int row = ((Long) cellPos.get("x")).intValue();
-            int col = ((Long) cellPos.get("y")).intValue();
+            int row = ((Long) cellPos.get("r")).intValue();
+            int col = ((Long) cellPos.get("c")).intValue();
             //top
-            GraphVertex vertex = game.getVertex(2 * row, 2 * col + 1);
-            set.add(vertex);
+            set.add(this.getVertex(game, row, col, 0, 1));
             //bottom
-            vertex = game.getVertex(2 * row + 2, 2 * col + 1);
-            set.add(vertex);
+            set.add(this.getVertex(game, row, col, 2, 1));
             //left
-            vertex = game.getVertex(2 * row + 1, 2 * col);
-            set.add(vertex);
+            set.add(this.getVertex(game, row, col, 1, 0));
             //right
-            vertex = game.getVertex(2 * row + 1, 2 * col + 2);
-            set.add(vertex);
+            set.add(this.getVertex(game, row, col, 1, 2));
 
         }
         for (GraphVertex vertex :
@@ -119,12 +130,13 @@ public class RegionParser {
 
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
-        for (Object obj :
-                cells) {
-            JSONObject cellPos = (JSONObject) obj;
-            int row = ((Long) cellPos.get("x")).intValue();
-            int col = ((Long) cellPos.get("y")).intValue();
-            GraphVertex vertex = game.getCell(row, col);
+
+        for (int i = 0; i < cells.size(); i++) {
+            JSONObject cellPosition = (JSONObject) cells.get(i);
+            GetCellPosition getCellPosition = new GetCellPosition(cellPosition).invoke();
+            int row = getCellPosition.getRow();
+            int column = getCellPosition.getColumn();
+            GraphVertex vertex = game.getCell(row, column);
             reg.addVertex(vertex);
         }
     }
@@ -144,10 +156,10 @@ public class RegionParser {
 
     private void loadRectangleRegion(Game game, JSONObject region, Region reg) {
         JSONObject rectangle = (JSONObject) region.get("rectangle");
-        int rowMin = ((Long) rectangle.get("x_min")).intValue();
-        int rowMax = ((Long) rectangle.get("x_max")).intValue();
-        int colMin = ((Long) rectangle.get("y_min")).intValue();
-        int colMax = ((Long) rectangle.get("y_max")).intValue();
+        int rowMin = ((Long) rectangle.get("r_min")).intValue();
+        int rowMax = ((Long) rectangle.get("r_max")).intValue();
+        int colMin = ((Long) rectangle.get("c_min")).intValue();
+        int colMax = ((Long) rectangle.get("c_max")).intValue();
 
         for (int i = rowMin; i <= rowMax; i++) {
             for (int j = colMin; j <= colMax; j++) {
@@ -172,6 +184,30 @@ public class RegionParser {
         for (int i = 0; i < height; i++) {
             GraphVertex vertex = game.getCell(i, column);
             reg.addVertex(vertex);
+        }
+    }
+
+    private static class GetCellPosition {
+        private JSONObject cellPosition;
+        private int column;
+        private int row;
+
+        public GetCellPosition(JSONObject cellPosition) {
+            this.cellPosition = cellPosition;
+        }
+
+        public int getColumn() {
+            return column;
+        }
+
+        public int getRow() {
+            return row;
+        }
+
+        public GetCellPosition invoke() {
+            column = ((Long) cellPosition.get("c")).intValue();
+            row = ((Long) cellPosition.get("r")).intValue();
+            return this;
         }
     }
 }

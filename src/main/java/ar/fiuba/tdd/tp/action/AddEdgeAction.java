@@ -9,29 +9,49 @@ public class AddEdgeAction extends Action {
     private String dst;
 
     public AddEdgeAction(String src, String dst) {
-        this.src = src;
+        //System.out.println("ADDED ADD EDGE ACTION");
+
         this.dst = dst;
+        this.src = src;
+    }
+
+    private Boolean containsCoordenates(GridGraph graph, Coord srcCoordinates, Coord dstCoordinates) {
+
+        if (!graph.contains(dstCoordinates)) {
+            return false;
+        }
+        if (!graph.contains(srcCoordinates)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public void run(GridGraph graph, int row, int col) {
         Coord srcCoord = parseCoord(row, col, this.src);
         Coord dstCoord = parseCoord(row, col, this.dst);
+        GraphVertex sourceVertex;
+        GraphVertex targetVertex;
 
 
+        //System.out.println("ADDED EDGE BETWEEN 1");
 
-
-
-        if (!graph.contains(dstCoord) || !graph.contains(srcCoord)) {
+        if (!containsCoordenates(graph, srcCoord, dstCoord)) {
             return;
         }
 
-        GraphVertex srcVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
-        GraphVertex dstVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
-        if (srcVertex.isAdjacent(dstVertex)) {
+        //System.out.println("ADDED EDGE BETWEEN 2");
+        sourceVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
+        targetVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
+
+        //System.out.println("ADDED EDGE BETWEEN 3");
+        if (sourceVertex.isAdjacent(targetVertex)) {
             return;
         }
 
+        //System.out.println("ADDED EDGE BETWEEN 4");
+        sourceVertex.print();
+        targetVertex.print();
 
         graph.addEdge(srcCoord, dstCoord);
     }

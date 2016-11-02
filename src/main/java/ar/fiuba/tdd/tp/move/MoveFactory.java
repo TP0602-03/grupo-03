@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.tp.move;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class MoveFactory {
         this.editableCells = possiblePositionsMap;
     }
 
-    private Boolean isEditable(Pair<Integer,Integer> position) {
+    private Boolean isEditable(Pair<Integer, Integer> position) {
         //First check if the cell is editable
         if (!this.editableCells.containsKey(position)) {
             return false;
@@ -33,35 +32,38 @@ public class MoveFactory {
     }
 
 
-    private Boolean isAttriuteEditable(String attribute,Pair<Integer,Integer> position) {
+    private Boolean isAttributeEditable(String attribute, Pair<Integer, Integer> position) {
         //Now check if the attribute is editable and the value is valid
         ArrayList<String> editableAttributes = this.editableCells.get(position);
 
-        if (!editableAttributes.contains(attribute) ) {
+        if (!editableAttributes.contains(attribute)) {
             return false;
         }
         return true;
     }
 
-    private Boolean isValuePosible(String attribute,String value) {
+    private Boolean isValuePosible(String attribute, String value) {
         ArrayList<String> possibleValues = this.possibleAttributeValues.get(attribute);
 
-        if (!possibleValues.contains(value) ) {
+        if (!possibleValues.contains(value)) {
             return false;
         }
         return true;
     }
 
 
-    public Move createMove(int newId, int newX, int newY,String newAttribute, String newValue) {
+    public Move createMove(int newId, int newX, int newY, String newAttribute, String newValue) {
 
-        Pair<Integer,Integer> position = new Pair<>(newX,newY);
+        Pair<Integer, Integer> position = new Pair<>(newX, newY);
 
-        if (!this.isEditable(position) || !this.isAttriuteEditable(newAttribute,position) || !this.isValuePosible(newAttribute,newValue)) {
+        Boolean editable = this.isEditable(position);
+        Boolean attributeEditable = this.isAttributeEditable(newAttribute, position);
+        Boolean valuePosible = this.isValuePosible(newAttribute, newValue);
+        if (!editable || !attributeEditable || !valuePosible) {
             return new InvalidMove(newId);
         }
 
-        return new ValidMove(newId,newX,newY,newAttribute,newValue);
+        return new ValidMove(newId, newX, newY, newAttribute, newValue);
     }
 
 
