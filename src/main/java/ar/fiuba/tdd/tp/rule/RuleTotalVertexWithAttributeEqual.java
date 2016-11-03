@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.rule;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RuleTotalVertexWithAttributeEqual extends Rule {
 
@@ -19,7 +20,7 @@ public class RuleTotalVertexWithAttributeEqual extends Rule {
         int count = 0;
         for (GraphVertex vertex :
                 vertices) {
-            if (vertex.hasAttribute(attribute)) {
+            if (vertex.hasAttribute(attribute) && !Objects.equals(vertex.getAttribute(attribute), "")) {
                 count += 1;
             }
         }
