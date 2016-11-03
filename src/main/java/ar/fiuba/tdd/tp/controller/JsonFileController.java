@@ -27,6 +27,16 @@ public class JsonFileController {
         this.factory = newFactory;
     }
 
+
+    private Boolean isNumeric(String numberString) {
+        try {
+            Double.parseDouble(numberString);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
     public void readFile(String fileName) throws org.json.simple.parser.ParseException, IOException {
         JSONParser parser = new JSONParser();
         JSONObject jsonFile = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
@@ -54,8 +64,13 @@ public class JsonFileController {
             newX = ((Long) jsonPoint.get(0)).intValue();
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
-            newAttribute = (String) jsonMove.get("attribute");
             newValue = (String) jsonMove.get("value");
+            if (this.isNumeric(newValue)) {
+                newAttribute = "num";
+            } else {
+                newAttribute = (String) jsonMove.get("attribute");
+            }
+
             this.moves.add(this.factory.createMove(newId, newX, newY, newAttribute, newValue));
         }
     }

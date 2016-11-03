@@ -70,7 +70,6 @@ public class JsonFileView {
     }
 
 
-
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
 
 
@@ -80,7 +79,9 @@ public class JsonFileView {
         positionArray.add(positionX);
         positionArray.add(positionY);
         cell.put("position", positionArray);
+
         cell.put("attribute", attribute);
+
         cell.put("value", value);
 
         return cell;

@@ -1,13 +1,11 @@
 package ar.fiuba.tdd.tp.view;
 
 import javafx.util.Pair;
-
 import org.json.simple.parser.ParseException;
 
+
 import java.io.IOException;
-
 import java.util.ArrayList;
-
 import javax.swing.*;
 
 /**

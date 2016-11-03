@@ -20,7 +20,7 @@ public class RuleGraphHasNoCycles extends Rule {
         return true;
     }
 
-    private void fixStackEmpty(Stack<GraphVertex> stack,List<GraphVertex> vertices,List<GraphVertex> visited) {
+    private void fixStackEmpty(Stack<GraphVertex> stack, List<GraphVertex> vertices, List<GraphVertex> visited) {
 
         if (stack.empty()) {
             for (GraphVertex vertex :
@@ -51,7 +51,7 @@ public class RuleGraphHasNoCycles extends Rule {
             if (!this.checkAdjacent(adjacent, visited, parent, stack, current)) {
                 return false;
             }
-            this.fixStackEmpty(stack,vertices,visited);
+            this.fixStackEmpty(stack, vertices, visited);
 
 
         }

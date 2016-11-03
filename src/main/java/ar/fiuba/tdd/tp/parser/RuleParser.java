@@ -62,7 +62,7 @@ public class RuleParser {
     public Rule loadRule(JSONObject ruleJson) {
         String ruleName = (String) ruleJson.get("name");
 
-        Rule  rule = loadRuleDependingOnName(ruleJson, ruleName);
+        Rule rule = loadRuleDependingOnName(ruleJson, ruleName);
         return rule;
     }
 

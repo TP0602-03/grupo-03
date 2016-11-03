@@ -13,6 +13,10 @@ public class Game {
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
+
+    private HashMap<String, ArrayList<String>> posibleValues = new HashMap<>();
+    private HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
+
     private Map<Pair<String, String>, List<Action>> actions = new HashMap<>();
     private ArrayList<Pair<String, String>> allowedValues = new ArrayList<>();
 
@@ -22,6 +26,22 @@ public class Game {
         this.height = height;
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
         //nodes = new GridGraph(width + 1, height + 1);
+    }
+
+    public HashMap<String, ArrayList<String>> getPosibleValues() {
+        return this.posibleValues;
+    }
+
+    public void setPosibleValues(HashMap<String, ArrayList<String>> newPosibleValues) {
+        this.posibleValues = newPosibleValues;
+    }
+
+    public HashMap<Pair<Integer, Integer>, ArrayList<String>> getAllowedPositions() {
+        return this.allowedPositions;
+    }
+
+    public void setAllowedPositions(HashMap<Pair<Integer, Integer>, ArrayList<String>> newAllowedPositions) {
+        this.allowedPositions = newAllowedPositions;
     }
 
     public void addActions(String attribute, String value, List<Action> actions) {
