@@ -7,12 +7,13 @@ import ar.fiuba.tdd.tp.view.IconValue;
 import ar.fiuba.tdd.tp.view.MainValuePicker;
 import javafx.util.Pair;
 
-import javax.swing.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
+import javax.swing.*;
 
 /**
  * Created by ms0359 on 10/15/16.

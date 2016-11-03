@@ -65,7 +65,7 @@ public class JsonFileController {
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
             newValue = (String) jsonMove.get("value");
-            if(this.isNumeric(newValue)) {
+            if (this.isNumeric(newValue)) {
                 newAttribute = "num";
             } else {
                 newAttribute = (String) jsonMove.get("attribute");

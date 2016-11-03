@@ -63,9 +63,9 @@ public class RestrictionsParser {
     private void loadAll(JSONArray info, HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositionsMap,
                          HashMap<String, ArrayList<String>> posibleValues) {
         for (Object object : info) {
-            String attribute = (String) ((JSONObject)object).get("attribute");
-            JSONArray allowedPositionsJson = (JSONArray) ((JSONObject)object).get("allowedPositions");
-            JSONArray values = (JSONArray) ((JSONObject)object).get("allowedValues");
+            String attribute = (String) ((JSONObject) object).get("attribute");
+            JSONArray allowedPositionsJson = (JSONArray) ((JSONObject) object).get("allowedPositions");
+            JSONArray values = (JSONArray) ((JSONObject) object).get("allowedValues");
 
             this.loadAllowedPositions(attribute, allowedPositionsJson, allowedPositionsMap);
             this.loadAllowedValues(attribute, values, posibleValues);
