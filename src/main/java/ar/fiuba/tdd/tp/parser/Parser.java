@@ -25,7 +25,7 @@ public class Parser {
         this.path = filePath;
         JSONParser parser = new JSONParser();
         this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(this.path), "UTF-8"));
-        //this.gameName = (String) this.jsonGame.get("name");
+        //this.gameName = (String) this.jsonGame.getCell("name");
         JSONObject size = (JSONObject) this.jsonGame.get("size");
         width = ((Long) size.get("width")).intValue();
         height = ((Long) size.get("height")).intValue();

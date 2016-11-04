@@ -78,24 +78,31 @@ public class Game {
     }
 
     public void playCell(int row, int col, String att, String newValue) {
-        cells.clearEdges();
 
-        getCell(row, col).setAttribute(att, newValue);
 
-        runActionsForCell(row, col);
+        System.out.println("Allowed attributes for cell:");
+        if (this.allowedPositions.containsKey(new Pair<Integer, Integer>(row, col))) {
+            cells.clearEdges();
+            getCell(row, col).setAttribute(att, newValue);
 
-        /*if (actions.get(new Pair<>(att, newValue)) != null) {
-            for (Action action : actions.get(new Pair<>(att, newValue))) {
+            runActionsForCell(row, col);
+
+        /*if (actions.getCell(new Pair<>(att, newValue)) != null) {
+            for (Action action : actions.getCell(new Pair<>(att, newValue))) {
                 action.run(cells, 2 * row + 1, 2 * col + 1);
             }
         }
         */
 
-        for (int r = 0; r < height; r++) {
-            for (int c = 0; c < width; c++) {
-                runActionsForCell(r, c);
+            for (int r = 0; r < height; r++) {
+                for (int c = 0; c < width; c++) {
+                    runActionsForCell(r, c);
+                }
             }
+        } else {
+            System.out.println("This cell is not editable!");
         }
+
     }
 
 
@@ -132,5 +139,9 @@ public class Game {
         for (String value : strings) {
             this.allowedValues.add(new Pair<String, String>(attribute, value));
         }
+    }
+
+    public Set<Map.Entry<String, String>> getVertexKeysValues(int i, int j) {
+        return cells.getVertex(2 * i, 2 * j).getKeysValues();
     }
 }

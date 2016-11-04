@@ -2,29 +2,33 @@ package ar.fiuba.tdd.tp.view;
 
 import org.json.simple.parser.ParseException;
 
-
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import javax.swing.*;
 
 public class CellView extends JPanel {
 
+    private final String emptyImage;
     protected ImageManager imageGetter;
     protected Color defaultBackground = Color.WHITE;
     private HashMap<String, String> contents = new HashMap<>();
 
-    public CellView(Set<Map.Entry<String, String>> contents, int gridSize) throws IOException, ParseException {
+    public CellView(Set<Map.Entry<String, String>> contents, int gridSize, String emptyImage) throws IOException, ParseException {
 
         this.imageGetter = new ImageManager("gameFiles/images", gridSize);
+        this.emptyImage = emptyImage;
         this.setContents(contents);
-        this.setBorder(BorderFactory.createLineBorder(Color.black));
+
         generateLabels();
     }
 
+    public void setBorder() {
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
+    }
     public void setContents(Set<Map.Entry<String, String>> newContents) {
         for (Map.Entry<String, String> content : newContents) {
             this.contents.put(content.getKey(), content.getValue());
@@ -39,10 +43,11 @@ public class CellView extends JPanel {
         this.removeAll();
 
         this.setLayout(new OverlayLayout(this));
-        this.add(new JLabel(this.imageGetter.getEmptyImage()));
+        this.add(new JLabel(this.imageGetter.getImage(emptyImage)));
         for (String key : contents.keySet()) {
             this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
         }
+        System.out.println(this.getSize());
         this.revalidate();
         this.repaint();
     }

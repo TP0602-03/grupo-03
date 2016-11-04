@@ -1,5 +1,26 @@
 [
   {
+    "attribute": "max_edges",
+    "values": [
+      {
+        "value": "1",
+        "image": "circle1"
+      },
+      {
+        "value": "2",
+        "image": "circle2"
+      },
+      {
+        "value": "3",
+        "image": "circle3"
+      },
+      {
+        "value": "",
+        "image": "NullContent"
+      }
+    ]
+  },
+  {
     "attribute": "num",
     "values": [
       {

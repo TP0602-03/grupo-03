@@ -49,7 +49,7 @@ public class AddEdgeAction extends Action {
             return;
         }
 
-        //System.out.println("ADDED EDGE BETWEEN 4");
+        System.out.println("ADDED EDGE BETWEEN ");
         sourceVertex.print();
         targetVertex.print();
 
