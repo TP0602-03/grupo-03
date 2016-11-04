@@ -20,10 +20,11 @@ public class RegionParser {
 
 
             loadRegionDependingOnType(game, region, reg, type);
-
+            System.out.println("finisheddd");
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
             game.addRegion(reg);
+            System.out.println("finished loading regions");
         }
     }
 
@@ -147,7 +148,10 @@ public class RegionParser {
                 rules) {
             JSONObject jsonRule = (JSONObject) ((JSONObject) o).get("rule");
             //System.out.println(jsonRule);
+            System.out.println("loading rule");
             Rule rule = ruleParser.loadRule(jsonRule);
+            System.out.println("loaded rule");
+            System.out.println(rule);
             //System.out.println("added rule: " + rule);
             reg.addRule(rule);
         }

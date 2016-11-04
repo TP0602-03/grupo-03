@@ -29,6 +29,7 @@ public class CellView extends JPanel {
     public void setBorder() {
         this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
+
     public void setContents(Set<Map.Entry<String, String>> newContents) {
         for (Map.Entry<String, String> content : newContents) {
             this.contents.put(content.getKey(), content.getValue());

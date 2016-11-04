@@ -14,6 +14,7 @@ public class BoardGameView extends JPanel {
     GridBagLayout gbl;
     GridBagLayout vgbl;
     OverlayLayout ol;
+
     public BoardGameView() {
 
         cellContainer = new JPanel();

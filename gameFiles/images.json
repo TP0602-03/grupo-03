@@ -1,5 +1,26 @@
 [
   {
+    "attribute": "arrow",
+    "values": [
+      {
+        "value": "arrow_right",
+        "image": "arrow_right"
+      },
+      {
+        "value": "arrow_left",
+        "image": "arrow_left"
+      },
+      {
+        "value": "arrow_down",
+        "image": "arrow_down"
+      },
+      {
+        "value": "arrow_up",
+        "image": "arrow_up"
+      }
+    ]
+  },
+  {
     "attribute": "max_edges",
     "values": [
       {
@@ -263,6 +284,10 @@
       {
         "value": "",
         "image": "NullContent"
+      },
+      {
+        "value": "black",
+        "image": "black_1"
       }
     ]
   },

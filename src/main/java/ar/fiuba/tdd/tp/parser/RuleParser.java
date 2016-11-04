@@ -30,9 +30,12 @@ public class RuleParser {
     }
 
     private Rule getRuleRuleTotalVertexWithAttributeEqual(JSONObject ruleJson) {
+        System.out.println("lala");
         GetTotal getTotal = new GetTotal(ruleJson).invoke();
+        System.out.println("lele");
         String att4 = getTotal.getAtt4();
         int total = getTotal.getTotal();
+        System.out.println("total" + total);
         return new RuleTotalVertexWithAttributeEqual(att4, total);
     }
 
@@ -61,8 +64,9 @@ public class RuleParser {
 
     public Rule loadRule(JSONObject ruleJson) {
         String ruleName = (String) ruleJson.get("name");
-
+        System.out.println(ruleName);
         Rule rule = loadRuleDependingOnName(ruleJson, ruleName);
+        System.out.println("ok");
         return rule;
     }
 
@@ -77,12 +81,22 @@ public class RuleParser {
         } else if (ruleName.equals("RuleCountSetAttributes")) {
             return this.getRuleCountSetAttributes(ruleJson);
         } else if (ruleName.equals("RuleTotalVertexWithAttributeEqual")) {
+            System.out.println("here");
             return this.getRuleRuleTotalVertexWithAttributeEqual(ruleJson);
         } else if (ruleName.equals("RuleOneEntryOneExit")) {
             return this.getRuleOneEntryOneExit();
+        } else if (ruleName.equals("RuleCountVertWithAttributeValue")) {
+            return this.getRuleCountVertWithAttValue(ruleJson);
         } else {
             return loadGraphRules(ruleJson, ruleName);
         }
+    }
+
+    private Rule getRuleCountVertWithAttValue(JSONObject ruleJson) {
+        String att = (String) ruleJson.get("attribute");
+        String val = (String) ruleJson.get("value");
+        int exp = ((Long) ruleJson.get("expected")).intValue();
+        return new RuleCountVertWithAttributeValue(att, val, exp);
     }
 
     private Rule loadGraphRules(JSONObject ruleJson, String ruleName) {
@@ -94,8 +108,16 @@ public class RuleParser {
             return this.getRuleCountVertexEdges(ruleJson);
         } else if (ruleName.equals("RuleAllVerticesHaveAttribute")) {
             return this.getRuleAllVertexHaveAttribute(ruleJson);
+        } else if (ruleName.equals("RuleGraphAdjacentVerticesDontShareAttributeValue")) {
+            return this.getRuleAdjVerticesAttValue(ruleJson);
         }
         return null;
+    }
+
+    private Rule getRuleAdjVerticesAttValue(JSONObject ruleJson) {
+        String att = (String) ruleJson.get("attribute");
+        String val = (String) ruleJson.get("value");
+        return new RuleGraphAdjacentVerticesDontShareAttributeValue(att, val);
     }
 
     @SuppressWarnings("CPD-END")
