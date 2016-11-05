@@ -9,6 +9,7 @@ public class CoordTests {
 
     @Test
     public void coordGetX() {
+
         Coord coordinate = new Coord(1, 1);
         Integer num = 1;
         assertEquals(coordinate.getX(), num);

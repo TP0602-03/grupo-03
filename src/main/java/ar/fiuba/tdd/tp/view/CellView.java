@@ -13,8 +13,7 @@ import java.util.Set;
 public class CellView extends JPanel {
 
     private final String emptyImage;
-    protected ImageManager imageGetter;
-    protected Color defaultBackground = Color.WHITE;
+    private ImageManager imageGetter;
     private HashMap<String, String> contents = new HashMap<>();
 
     public CellView(Set<Map.Entry<String, String>> contents, int gridSize, String emptyImage) throws IOException, ParseException {
@@ -48,7 +47,6 @@ public class CellView extends JPanel {
         for (String key : contents.keySet()) {
             this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
         }
-        System.out.println(this.getSize());
         this.revalidate();
         this.repaint();
     }

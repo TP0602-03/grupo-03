@@ -29,7 +29,7 @@ public class ImageManager {
     }
 
     public Icon getImage(String key, String value) {
-        String translatedValue = this.imageTranslator.translate(new Pair<String, String>(key, value));
+        String translatedValue = this.imageTranslator.translate(new Pair<>(key, value));
         ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + translatedValue + ".png");
         return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
     }
@@ -46,7 +46,4 @@ public class ImageManager {
     }
 
 
-    public Icon getEmptyImage() {
-        return this.getImage("NullContent");
-    }
 }

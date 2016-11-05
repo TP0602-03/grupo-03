@@ -13,31 +13,19 @@ public class CountryTest {
         Parser parser = new Parser("gameFiles/country.json");
         Game game = parser.getGame();
 
-        //System.out.println("game = " + game.validateRules());
-
         game.playCell(0, 0, "lines", "se");
-        //System.out.println("game = " + game.validateRules());
-
 
         game.playCell(0, 1, "lines", "we");
-        //System.out.println("game = " + game.validateRules());
-
 
         game.playCell(0, 2, "lines", "sw");
-        //System.out.println("game = " + game.validateRules());
 
         game.playCell(1, 0, "lines", "ns");
-        //System.out.println("game = " + game.validateRules());
 
         game.playCell(1, 1, "lines", "se");
-        //System.out.println("game = " + game.validateRules());
 
         game.playCell(1, 2, "lines", "nw");
-        //System.out.println("game = " + game.validateRules());
-
 
         game.playCell(2, 0, "lines", "ne");
-        //System.out.println("game = " + game.validateRules());
 
         game.playCell(2, 1, "lines", "nw");
         assertTrue(game.validateRules());

@@ -17,10 +17,10 @@ import java.util.HashMap;
 public class ImageTranslator {
 
     //private HashMap<String, String> translateDict;
-    private HashMap<Pair<String, String>, String> retroTranslateDict;
+    private HashMap<Pair<String, String>, String> key_value_image_map;
 
     public ImageTranslator() throws IOException, ParseException {
-        this.retroTranslateDict = new HashMap<>();
+        this.key_value_image_map = new HashMap<>();
         JSONParser parser = new JSONParser();
         JSONArray all = (JSONArray) parser.parse(new InputStreamReader(new FileInputStream("gameFiles/images.json"), "UTF-8"));
         for (Object obj : all) {
@@ -31,7 +31,7 @@ public class ImageTranslator {
                 JSONObject valueImage = (JSONObject) objVal;
                 String value = (String) valueImage.get("value");
                 String image = (String) valueImage.get("image");
-                retroTranslateDict.put(new Pair<>(attributeName, value), image);
+                key_value_image_map.put(new Pair<>(attributeName, value), image);
 
             }
         }
@@ -39,10 +39,7 @@ public class ImageTranslator {
     }
 
     public String translate(Pair<String, String> allowedValue) {
-        return this.retroTranslateDict.get(allowedValue);
+        return this.key_value_image_map.get(allowedValue);
     }
 
-    public String translate(String imageName) {
-        return "";
-    }
 }

@@ -19,17 +19,14 @@ public class BoardViewCreator {
 
                     CellView panel = new CellView(game.getCellKeysValues(i, j), game.getHeight(), "NullContent");
                     panel.setBorder();
-                    panel.setHandlers(new MouseCellHandler(board, imageGetter.getImages(game.getAllowedValues()), game, i, j, panel));
+                    panel.setHandlers(new MouseCellHandler(board, imageGetter.getImages(game.getAllowedValues()), game, i, j));
                     panel.setOpaque(false);
                     board.setCell(i, j, 0, 0, panel);
                 }
             }
             for (int i = 0; i < game.getWidth() + 1; i++) {
                 for (int j = 0; j < game.getHeight() + 1; j++) {
-                    ImageManager imageGetter = new ImageManager("gameFiles/images", game.getHeight() * 5);
-
                     CellView panel = new CellView(game.getVertexKeysValues(i, j), game.getHeight() * 2 + 1, "NullContent");
-                    //panel.setHandlers(new MouseCellHandler(board, imageGetter.getImages(game.getAllowedValues()), game, i, j, panel));
                     panel.setOpaque(false);
                     board.setVertex(i, j, 15, 15, panel);
                 }

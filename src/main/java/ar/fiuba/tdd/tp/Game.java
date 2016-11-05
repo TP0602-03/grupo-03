@@ -9,7 +9,6 @@ import java.util.*;
 
 public class Game {
     private GridGraph cells;
-    //private GridGraph nodes;
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
@@ -25,7 +24,6 @@ public class Game {
         this.width = width;
         this.height = height;
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
-        //nodes = new GridGraph(width + 1, height + 1);
     }
 
     public HashMap<String, ArrayList<String>> getPosibleValues() {
@@ -78,21 +76,11 @@ public class Game {
     }
 
     public void playCell(int row, int col, String att, String newValue) {
-
-
-        System.out.println("Allowed attributes for cell:");
-        if (this.allowedPositions.containsKey(new Pair<Integer, Integer>(row, col))) {
+        if (this.allowedPositions.containsKey(new Pair<>(row, col))) {
             cells.clearEdges();
             getCell(row, col).setAttribute(att, newValue);
 
             runActionsForCell(row, col);
-
-        /*if (actions.getCell(new Pair<>(att, newValue)) != null) {
-            for (Action action : actions.getCell(new Pair<>(att, newValue))) {
-                action.run(cells, 2 * row + 1, 2 * col + 1);
-            }
-        }
-        */
 
             for (int r = 0; r < height; r++) {
                 for (int c = 0; c < width; c++) {
@@ -137,7 +125,7 @@ public class Game {
 
     public void addAllowedValues(ArrayList<String> strings, String attribute) {
         for (String value : strings) {
-            this.allowedValues.add(new Pair<String, String>(attribute, value));
+            this.allowedValues.add(new Pair<>(attribute, value));
         }
     }
 

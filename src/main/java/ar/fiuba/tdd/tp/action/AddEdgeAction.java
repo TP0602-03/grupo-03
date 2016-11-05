@@ -33,25 +33,16 @@ public class AddEdgeAction extends Action {
         GraphVertex sourceVertex;
         GraphVertex targetVertex;
 
-
-        //System.out.println("ADDED EDGE BETWEEN 1");
-
         if (!containsCoordenates(graph, srcCoord, dstCoord)) {
             return;
         }
 
-        //System.out.println("ADDED EDGE BETWEEN 2");
         sourceVertex = graph.getVertex(srcCoord.getX(), srcCoord.getY());
         targetVertex = graph.getVertex(dstCoord.getX(), dstCoord.getY());
 
-        //System.out.println("ADDED EDGE BETWEEN 3");
         if (sourceVertex.isAdjacent(targetVertex)) {
             return;
         }
-
-        System.out.println("ADDED EDGE BETWEEN ");
-        sourceVertex.print();
-        targetVertex.print();
 
         graph.addEdge(srcCoord, dstCoord);
     }

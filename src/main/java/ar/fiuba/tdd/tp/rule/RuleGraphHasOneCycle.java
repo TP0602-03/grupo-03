@@ -11,7 +11,6 @@ public class RuleGraphHasOneCycle extends Rule {
         for (GraphVertex vertex :
                 vertices) {
             int vertexDegree = vertex.getAdjacencyList().size();
-            vertex.print();
             if (vertexDegree != 0 && vertexDegree != 2) {
                 return false;
             }
@@ -29,7 +28,6 @@ public class RuleGraphHasOneCycle extends Rule {
         while (!stack.empty()) {
             GraphVertex current = stack.pop();
             visited.add(current);
-            current.print();
             List<GraphVertex> adjacent = current.getAdjacencyList();
             for (GraphVertex vertex :
                     adjacent) {

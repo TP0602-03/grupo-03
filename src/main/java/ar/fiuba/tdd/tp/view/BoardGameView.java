@@ -19,14 +19,12 @@ public class BoardGameView extends JPanel {
 
         cellContainer = new JPanel();
         vertexContainer = new JPanel();
-        frame = new JFrame("Grid Game - TP1");
+        frame = new JFrame("Nikoli games");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.pack();
         ol = new OverlayLayout(frame.getContentPane());
         frame.getContentPane().setLayout(ol);
-        //frame.add(cellContainer);
-        //frame.setLayout(ol);
         frame.add(vertexContainer);
         frame.add(cellContainer);
 
@@ -66,26 +64,7 @@ public class BoardGameView extends JPanel {
 
         vgridBagConstraints.ipadx = 0;
         vgridBagConstraints.ipady = 0;
-//        vgridBagConstraints.weightx = 1;
-//        vgridBagConstraints.weighty = 1;
-//        int a=0;
-//        int b=0;
-//        int c=0;
-//        int d=0;
-//
-//        if(indexR == 0) {
-//            a = 0; //top = 0
-//            b = 0;
-//        }
-//        else{
-//
-//        }
-//        if(indexC == 0) {
-//
-//        }
-//        else{
-//
-//        }
+
         vgridBagConstraints.insets = new Insets(35, 35, 35, 35);
 
         vertexContainer.add(vertex, vgridBagConstraints);
@@ -101,8 +80,5 @@ public class BoardGameView extends JPanel {
         return vertexContainer.getComponent(row * vgbl.getLayoutDimensions()[0].length + col);
     }
 
-    public void won() {
-        JOptionPane.showMessageDialog(null, "You won!");
-    }
 }
 

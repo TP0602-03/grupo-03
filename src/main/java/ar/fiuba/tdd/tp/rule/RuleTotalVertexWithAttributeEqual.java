@@ -24,12 +24,6 @@ public class RuleTotalVertexWithAttributeEqual extends Rule {
                 count += 1;
             }
         }
-        if (count != expected) {
-            System.out.println("Failed, missing: " + (expected - count));
-        }
-        //System.out.println(count);
-        //System.out.println(expected);
-        //System.out.println("Total vertices with attribute is " + ((count == expected) ? "OK" : "NOT OK"));
         return count == expected;
     }
 }

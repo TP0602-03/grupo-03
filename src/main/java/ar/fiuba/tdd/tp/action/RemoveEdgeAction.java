@@ -28,12 +28,8 @@ public class RemoveEdgeAction extends Action {
 
         GraphVertex srcVertex = graph.getVertex(sourceCoord.getX(), sourceCoord.getY());
 
-        //System.out.println("trying to remove edge");
         if (srcVertex.isAdjacent(dstVertex)) {
-            //System.out.println("edge removed");
             graph.removeEdge(sourceCoord, targetCoord);
-        } else {
-            //System.out.print("no edge to remove");
         }
     }
 }

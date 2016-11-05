@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by luciano on 16/10/16.
@@ -40,8 +41,8 @@ public class JsonFileView {
                     String content;
                     try {
                         content = key.getValue();
-                        if (key.getKey() != "pos") {
-                            cells.add(this.createJsonCell(row, col, key.getKey().toString(), content));
+                        if (!Objects.equals(key.getKey(), "pos")) {
+                            cells.add(this.createJsonCell(row, col, key.getKey(), content));
                         }
                     } catch (Exception ex) {
                         //do nothing;

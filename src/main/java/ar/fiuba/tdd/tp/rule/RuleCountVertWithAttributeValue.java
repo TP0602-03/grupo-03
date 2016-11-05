@@ -28,9 +28,6 @@ public class RuleCountVertWithAttributeValue extends Rule {
                 count += 1;
             }
         }
-        if (count != expected) {
-            System.out.println("failed, I have: " + count);
-        }
         return count == expected;
     }
 }

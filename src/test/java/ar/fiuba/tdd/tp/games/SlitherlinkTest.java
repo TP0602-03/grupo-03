@@ -34,7 +34,6 @@ public class SlitherlinkTest {
         game.playCell(2, 2, "bottom", "bottomHorizontalPipe");
         game.playCell(2, 2, "right", "rightVerticalPipe");
 
-        System.out.println("game.validateRules() = " + game.validateRules());
         assertTrue(game.validateRules());
 
 

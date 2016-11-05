@@ -21,9 +21,6 @@ public class RuleGraphAdjacentVerticesDontShareAttributeValue extends Rule {
             List<GraphVertex> adjList = vertex.getAdjacencyList();
             for (GraphVertex adj : adjList) {
                 if (vertex.hasAttribute(attribute) && Objects.equals(vertex.getAttribute(attribute), value) && adj.hasAttribute(attribute) && Objects.equals(adj.getAttribute(attribute), value)) {
-                    System.out.println("vertices share attribute value");
-                    vertex.print();
-                    adj.print();
                     return false;
                 }
             }

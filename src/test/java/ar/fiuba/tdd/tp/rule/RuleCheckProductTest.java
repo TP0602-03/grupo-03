@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.tp.rule;
 
+import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +22,7 @@ public class RuleCheckProductTest {
     @Test
     public void test1() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        List vertices = new ArrayList<>();
+        List<GraphVertex> vertices = new ArrayList<>();
         vertices.add(graph.getVertex(0, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(0, 2));
@@ -34,7 +35,7 @@ public class RuleCheckProductTest {
     @Test
     public void test2() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        List vertices = new ArrayList<>();
+        List<GraphVertex> vertices = new ArrayList<>();
         vertices.add(graph.getVertex(1, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(1, 2));
@@ -47,7 +48,7 @@ public class RuleCheckProductTest {
     @Test
     public void test3() throws Exception {
         GridGraph graph = new GridGraph(3, 3);
-        List vertices = new ArrayList<>();
+        List<GraphVertex> vertices = new ArrayList<>();
         vertices.add(graph.getVertex(1, 0));
         vertices.add(graph.getVertex(0, 1));
         vertices.add(graph.getVertex(1, 2));

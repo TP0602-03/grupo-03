@@ -25,10 +25,7 @@ public class MoveFactory {
 
     private Boolean isEditable(Pair<Integer, Integer> position) {
         //First check if the cell is editable
-        if (!this.editableCells.containsKey(position)) {
-            return false;
-        }
-        return true;
+        return this.editableCells.containsKey(position);
     }
 
 
@@ -36,19 +33,13 @@ public class MoveFactory {
         //Now check if the attribute is editable and the value is valid
         ArrayList<String> editableAttributes = this.editableCells.get(position);
 
-        if (!editableAttributes.contains(attribute)) {
-            return false;
-        }
-        return true;
+        return editableAttributes.contains(attribute);
     }
 
     private Boolean isValuePosible(String attribute, String value) {
         ArrayList<String> possibleValues = this.possibleAttributeValues.get(attribute);
 
-        if (!possibleValues.contains(value)) {
-            return false;
-        }
-        return true;
+        return possibleValues.contains(value);
     }
 
 

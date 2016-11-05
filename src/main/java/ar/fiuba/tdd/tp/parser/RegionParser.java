@@ -12,19 +12,16 @@ import java.util.Set;
 
 public class RegionParser {
     public void loadRegions(Game game, JSONArray regions) {
-        for (Object o :
-                regions) {
+        for (Object o : regions) {
             JSONObject region = (JSONObject) ((JSONObject) o).get("region");
             Region reg = new Region();
             String type = (String) region.get("type");
 
 
             loadRegionDependingOnType(game, region, reg, type);
-            System.out.println("finisheddd");
             JSONArray rules = (JSONArray) region.get("rules");
             loadRules(rules, reg);
             game.addRegion(reg);
-            System.out.println("finished loading regions");
         }
     }
 
@@ -122,8 +119,7 @@ public class RegionParser {
             set.add(this.getVertex(game, row, col, 1, 2));
 
         }
-        for (GraphVertex vertex :
-                set) {
+        for (GraphVertex vertex : set) {
             reg.addVertex(vertex);
         }
     }
@@ -132,8 +128,8 @@ public class RegionParser {
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
 
-        for (int i = 0; i < cells.size(); i++) {
-            JSONObject cellPosition = (JSONObject) cells.get(i);
+        for (Object cell : cells) {
+            JSONObject cellPosition = (JSONObject) cell;
             GetCellPosition getCellPosition = new GetCellPosition(cellPosition).invoke();
             int row = getCellPosition.getRow();
             int column = getCellPosition.getColumn();
@@ -144,15 +140,9 @@ public class RegionParser {
 
     private void loadRules(JSONArray rules, Region reg) {
         RuleParser ruleParser = new RuleParser();
-        for (Object o :
-                rules) {
+        for (Object o : rules) {
             JSONObject jsonRule = (JSONObject) ((JSONObject) o).get("rule");
-            //System.out.println(jsonRule);
-            System.out.println("loading rule");
             Rule rule = ruleParser.loadRule(jsonRule);
-            System.out.println("loaded rule");
-            System.out.println(rule);
-            //System.out.println("added rule: " + rule);
             reg.addRule(rule);
         }
     }

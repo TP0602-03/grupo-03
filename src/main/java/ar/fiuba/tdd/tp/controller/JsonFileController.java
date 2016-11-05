@@ -58,8 +58,8 @@ public class JsonFileController {
         String newAttribute;
         String newValue;
 
-        for (int i = 0; i < jsonPlays.size(); i++) {
-            jsonMove = (JSONObject) jsonPlays.get(i);
+        for (Object jsonPlay : jsonPlays) {
+            jsonMove = (JSONObject) jsonPlay;
             jsonPoint = (JSONArray) jsonMove.get("position");
             newX = ((Long) jsonPoint.get(0)).intValue();
             newY = ((Long) jsonPoint.get(1)).intValue();

@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -63,7 +64,7 @@ public class GraphVertexTests {
         vertex.setAttribute("color", "white");
         Set<Map.Entry<String, String>> setKV = vertex.getKeysValues();
         for (Map.Entry<String, String> entry : setKV) {
-            if (entry.getKey() == "number") {
+            if (Objects.equals(entry.getKey(), "number")) {
                 assertEquals(entry.getValue(), "1");
             }
         }

@@ -245,7 +245,7 @@
       ],
       "allowedValues": [
         "true",
-        "false",
+        "false"
       ]
     },
     {
@@ -290,7 +290,7 @@
       ],
       "allowedValues": [
         "true",
-        "false",
+        "false"
       ]
     },
     {
@@ -335,7 +335,7 @@
       ],
       "allowedValues": [
         "true",
-        "false",
+        "false"
       ]
     },{
       "attribute": "right",
@@ -379,7 +379,7 @@
       ],
       "allowedValues": [
         "true",
-        "false",
+        "false"
       ]
     }
   ]

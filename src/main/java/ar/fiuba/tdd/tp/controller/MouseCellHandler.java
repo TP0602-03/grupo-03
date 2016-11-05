@@ -22,23 +22,20 @@ public class MouseCellHandler implements MouseListener {
     Game game;
     int row;
     int col;
-    //CellView cellView;
     private BoardGameView board;
 
-    public MouseCellHandler(BoardGameView board, ArrayList<IconValue> content, Game game, int row, int col, CellView cellView) {
+    public MouseCellHandler(BoardGameView board, ArrayList<IconValue> content, Game game, int row, int col) {
         this.board = board;
         this.content = content;
         this.game = game;
         this.row = row;
         this.col = col;
-        //this.cellView = cellView;
     }
 
     @Override
     public void mouseClicked(MouseEvent event) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker((JPanel) event.getSource());
-        ArrayList<String> contents = null;
+        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker();
 
         game.playCell(row, col, newValue.getKey(), newValue.getValue());
 
