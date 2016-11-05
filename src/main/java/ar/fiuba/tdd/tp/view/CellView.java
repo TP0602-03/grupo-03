@@ -13,16 +13,21 @@ import javax.swing.*;
 
 public class CellView extends JPanel {
 
-    protected ImageManager imageGetter;
-    protected Color defaultBackground = Color.WHITE;
+    private final String emptyImage;
+    private ImageManager imageGetter;
     private HashMap<String, String> contents = new HashMap<>();
 
-    public CellView(Set<Map.Entry<String, String>> contents, int gridSize) throws IOException, ParseException {
+    public CellView(Set<Map.Entry<String, String>> contents, int gridSize, String emptyImage) throws IOException, ParseException {
 
         this.imageGetter = new ImageManager("gameFiles/images", gridSize);
+        this.emptyImage = emptyImage;
         this.setContents(contents);
-        this.setBorder(BorderFactory.createLineBorder(Color.black));
+
         generateLabels();
+    }
+
+    public void setBorder() {
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     public void setContents(Set<Map.Entry<String, String>> newContents) {
@@ -39,7 +44,7 @@ public class CellView extends JPanel {
         this.removeAll();
 
         this.setLayout(new OverlayLayout(this));
-        this.add(new JLabel(this.imageGetter.getEmptyImage()));
+        this.add(new JLabel(this.imageGetter.getImage(emptyImage)));
         for (String key : contents.keySet()) {
             this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
         }

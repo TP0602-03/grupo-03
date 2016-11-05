@@ -38,7 +38,6 @@ public class ConsoleController {
 
     public Move getMove() throws IOException {
 
-        //Console console = System.console();
         int newId = this.moveCount;
         int positionX = 0;
         int positionY = 0;

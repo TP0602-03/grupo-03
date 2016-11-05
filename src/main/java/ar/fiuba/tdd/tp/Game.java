@@ -9,10 +9,13 @@ import java.util.*;
 
 public class Game {
     private GridGraph cells;
-    //private GridGraph nodes;
     private List<Region> regions = new ArrayList<>();
     private int width;
     private int height;
+
+    private HashMap<String, ArrayList<String>> posibleValues = new HashMap<>();
+    private HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
+
     private Map<Pair<String, String>, List<Action>> actions = new HashMap<>();
     private ArrayList<Pair<String, String>> allowedValues = new ArrayList<>();
 
@@ -21,7 +24,22 @@ public class Game {
         this.width = width;
         this.height = height;
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
-        //nodes = new GridGraph(width + 1, height + 1);
+    }
+
+    public HashMap<String, ArrayList<String>> getPosibleValues() {
+        return this.posibleValues;
+    }
+
+    public void setPosibleValues(HashMap<String, ArrayList<String>> newPosibleValues) {
+        this.posibleValues = newPosibleValues;
+    }
+
+    public HashMap<Pair<Integer, Integer>, ArrayList<String>> getAllowedPositions() {
+        return this.allowedPositions;
+    }
+
+    public void setAllowedPositions(HashMap<Pair<Integer, Integer>, ArrayList<String>> newAllowedPositions) {
+        this.allowedPositions = newAllowedPositions;
     }
 
     public void addActions(String attribute, String value, List<Action> actions) {
@@ -58,24 +76,21 @@ public class Game {
     }
 
     public void playCell(int row, int col, String att, String newValue) {
-        cells.clearEdges();
+        if (this.allowedPositions.containsKey(new Pair<>(row, col))) {
+            cells.clearEdges();
+            getCell(row, col).setAttribute(att, newValue);
 
-        getCell(row, col).setAttribute(att, newValue);
+            runActionsForCell(row, col);
 
-        runActionsForCell(row, col);
-
-        /*if (actions.get(new Pair<>(att, newValue)) != null) {
-            for (Action action : actions.get(new Pair<>(att, newValue))) {
-                action.run(cells, 2 * row + 1, 2 * col + 1);
+            for (int r = 0; r < height; r++) {
+                for (int c = 0; c < width; c++) {
+                    runActionsForCell(r, c);
+                }
             }
+        } else {
+            System.out.println("This cell is not editable!");
         }
-        */
 
-        for (int r = 0; r < height; r++) {
-            for (int c = 0; c < width; c++) {
-                runActionsForCell(r, c);
-            }
-        }
     }
 
 
@@ -110,7 +125,11 @@ public class Game {
 
     public void addAllowedValues(ArrayList<String> strings, String attribute) {
         for (String value : strings) {
-            this.allowedValues.add(new Pair<String, String>(attribute, value));
+            this.allowedValues.add(new Pair<>(attribute, value));
         }
+    }
+
+    public Set<Map.Entry<String, String>> getVertexKeysValues(int row, int col) {
+        return cells.getVertex(2 * row, 2 * col).getKeysValues();
     }
 }

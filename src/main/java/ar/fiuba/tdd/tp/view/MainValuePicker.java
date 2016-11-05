@@ -5,6 +5,7 @@ import javafx.util.Pair;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 import javax.swing.*;
 
 public class MainValuePicker {
@@ -15,7 +16,7 @@ public class MainValuePicker {
         this.options = options;
     }
 
-    public Object getValuePicker(JPanel panel) {
+    public Object getValuePicker() {
         JOptionPane optionPane = new JOptionPane();
         optionPane.setOptions(getOptions(optionPane));
         optionPane.setMessage("Choose a move");
@@ -46,7 +47,6 @@ public class MainValuePicker {
             public void actionPerformed(ActionEvent actionEvent) {
                 // Return current text label, instead of argument to method
                 optionPane.setValue(returnValue);
-                System.out.println(returnValue);
             }
         };
     }

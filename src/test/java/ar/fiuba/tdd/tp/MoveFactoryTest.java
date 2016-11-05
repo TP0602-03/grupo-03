@@ -5,6 +5,7 @@ import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
 import ar.fiuba.tdd.tp.move.ValidMove;
 import javafx.util.Pair;
+
 import org.junit.Test;
 
 import java.util.ArrayList;

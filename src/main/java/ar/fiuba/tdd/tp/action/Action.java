@@ -9,7 +9,7 @@ import java.util.Map;
 public abstract class Action {
     public abstract void run(GridGraph graph, int row, int col);
 
-    protected Map<String, Integer> loadRowOffsetMap() {
+    private Map<String, Integer> loadRowOffsetMap() {
         Map<String, Integer> rowOffset = new HashMap<>();
         rowOffset.put("topLeft", -1);
         rowOffset.put("topRight", -1);
@@ -27,7 +27,7 @@ public abstract class Action {
         return rowOffset;
     }
 
-    protected Map<String, Integer> loadColOffset() {
+    private Map<String, Integer> loadColOffset() {
         Map<String, Integer> colOffset = new HashMap<>();
         colOffset.put("topLeft", -1);
         colOffset.put("topRight", 1);

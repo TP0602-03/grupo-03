@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.action.Action;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,21 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
-    private String path;
     private JSONObject jsonGame;
-    //private String gameName;
-    private int width;
-    private int height;
     private Game game;
 
     public Parser(String filePath) throws ParseException, IOException, org.json.simple.parser.ParseException {
-        this.path = filePath;
+        String path = filePath;
         JSONParser parser = new JSONParser();
-        this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(this.path), "UTF-8"));
-        //this.gameName = (String) this.jsonGame.get("name");
+        this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(path), "UTF-8"));
+        //this.gameName = (String) this.jsonGame.getCell("name");
         JSONObject size = (JSONObject) this.jsonGame.get("size");
-        width = ((Long) size.get("width")).intValue();
-        height = ((Long) size.get("height")).intValue();
+        int width = ((Long) size.get("width")).intValue();
+        int height = ((Long) size.get("height")).intValue();
 
         game = new Game(width, height);
 
@@ -82,7 +79,14 @@ public class Parser {
             stringArray.add(jsonObject.toString());
         }
 
+
+        RestrictionsParser restrictionsParser = new RestrictionsParser();
+        JSONArray jsonRestrictions = (JSONArray) jsonGame.get("restrictions");
+        restrictionsParser.loadCellRestrictions(game, jsonRestrictions);
+
+
         return stringArray;
+
     }
 
     public Game getGame() {

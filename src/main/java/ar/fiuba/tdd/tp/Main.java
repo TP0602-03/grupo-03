@@ -16,7 +16,7 @@ public class Main {
         @Override
         public void run() {
             try {
-                Parser parser = new Parser("gameFiles/slitherlink.json");
+                Parser parser = new Parser("gameFiles/inshi.json");
                 boardViewCreator.createBoard(parser.getGame());
             } catch (Exception ex) {
                 System.err.println(ex);

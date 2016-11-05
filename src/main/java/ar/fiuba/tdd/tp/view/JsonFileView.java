@@ -2,12 +2,14 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by luciano on 16/10/16.
@@ -40,8 +42,8 @@ public class JsonFileView {
                     String content;
                     try {
                         content = key.getValue();
-                        if (key.getKey() != "pos") {
-                            cells.add(this.createJsonCell(row, col, key.getKey().toString(), content));
+                        if (!Objects.equals(key.getKey(), "pos")) {
+                            cells.add(this.createJsonCell(row, col, key.getKey(), content));
                         }
                     } catch (Exception ex) {
                         //do nothing;
@@ -70,7 +72,6 @@ public class JsonFileView {
     }
 
 
-
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
 
 
@@ -80,7 +81,9 @@ public class JsonFileView {
         positionArray.add(positionX);
         positionArray.add(positionY);
         cell.put("position", positionArray);
+
         cell.put("attribute", attribute);
+
         cell.put("value", value);
 
         return cell;

@@ -15,6 +15,7 @@ import java.util.Set;
 
 import javax.swing.*;
 
+
 /**
  * Created by ms0359 on 10/15/16.
  */
@@ -23,39 +24,55 @@ public class MouseCellHandler implements MouseListener {
     Game game;
     int row;
     int col;
-    //CellView cellView;
     private BoardGameView board;
 
-    public MouseCellHandler(BoardGameView board, ArrayList<IconValue> content, Game game, int row, int col, CellView cellView) {
+    public MouseCellHandler(BoardGameView board, ArrayList<IconValue> content, Game game, int row, int col) {
         this.board = board;
         this.content = content;
         this.game = game;
         this.row = row;
         this.col = col;
-        //this.cellView = cellView;
     }
 
     @Override
     public void mouseClicked(MouseEvent event) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker((JPanel) event.getSource());
-        ArrayList<String> contents = null;
+        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker();
 
         game.playCell(row, col, newValue.getKey(), newValue.getValue());
 
-        for (int i = 0; i < game.getHeight(); i++) {
-            for (int j = 0; j < game.getWidth(); j++) {
-                CellView cell = (CellView) board.get(i, j);
-                Set<Map.Entry<String, String>> atts = game.getCellKeysValues(i, j);
-                for (Map.Entry<String, String> att : atts) {
-                    cell.setContent(att.getKey(), att.getValue());
-                }
-                cell.generateLabels();
+        drawVertices();
 
-            }
-        }
+        drawCells();
 
         checkIfGameIsWon();
+    }
+
+    private void drawCells() {
+        for (int i = 0; i < game.getHeight(); i++) {
+            for (int j = 0; j < game.getWidth(); j++) {
+                CellView cell = (CellView) board.getCell(i, j);
+                Set<Map.Entry<String, String>> atts = game.getCellKeysValues(i, j);
+                drawCellView(cell, atts);
+            }
+        }
+    }
+
+    private void drawCellView(CellView cell, Set<Map.Entry<String, String>> atts) {
+        for (Map.Entry<String, String> att : atts) {
+            cell.setContent(att.getKey(), att.getValue());
+        }
+        cell.generateLabels();
+    }
+
+    private void drawVertices() {
+        for (int i = 0; i < game.getHeight() + 1; i++) {
+            for (int j = 0; j < game.getWidth() + 1; j++) {
+                CellView cell = (CellView) board.getVertex(i, j);
+                //Para que no falle CDP :p
+                drawCellView(cell, game.getVertexKeysValues(i, j));
+            }
+        }
     }
 
     private void checkIfGameIsWon() {

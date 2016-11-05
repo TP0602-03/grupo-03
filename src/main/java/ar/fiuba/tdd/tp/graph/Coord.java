@@ -8,6 +8,7 @@ public class Coord {
 
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
+
     }
 
     public Integer getY() {
