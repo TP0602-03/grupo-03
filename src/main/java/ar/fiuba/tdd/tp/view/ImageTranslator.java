@@ -17,7 +17,6 @@ import java.util.HashMap;
  */
 public class ImageTranslator {
 
-    //private HashMap<String, String> translateDict;
     private HashMap<Pair<String, String>, String> keyValueImageMap;
 
     public ImageTranslator() throws IOException, ParseException {

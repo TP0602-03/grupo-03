@@ -51,7 +51,6 @@ public class RuleCountVertexEdgesTest {
         assertFalse(rule.check(vertices));
     }
 
-
     @Test
     public void test3() throws Exception {
         GridGraph graph = new GridGraph(3, 3);

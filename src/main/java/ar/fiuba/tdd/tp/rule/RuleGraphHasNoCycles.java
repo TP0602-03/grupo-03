@@ -62,7 +62,6 @@ public class RuleGraphHasNoCycles extends Rule {
             }
             this.fixStackEmpty(stack, vertices, visited);
 
-
         }
         return true;
     }

@@ -15,7 +15,6 @@ import java.util.Set;
 
 import javax.swing.*;
 
-
 /**
  * Created by ms0359 on 10/15/16.
  */
@@ -37,9 +36,9 @@ public class MouseCellHandler implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent event) {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
-        Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker();
-
-        if (newValue != null) {
+        Object result = mainValuePicker.getValuePicker();
+        if (result != null) {
+            Pair<String, String> newValue = (Pair<String, String>) result;
 
             game.playCell(row, col, newValue.getKey(), newValue.getValue());
 

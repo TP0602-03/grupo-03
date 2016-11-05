@@ -14,20 +14,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-
 /**
  * Created by luciano on 15/10/16.
  */
+
 public class JsonFileController {
 
     private ArrayList<Move> moves;
     private MoveFactory factory;
 
-
     public JsonFileController(MoveFactory newFactory) {
         this.factory = newFactory;
     }
-
 
     private Boolean isNumeric(String numberString) {
         try {
@@ -76,7 +74,6 @@ public class JsonFileController {
         }
     }
 
-
     public void sortMoves() {
         //Sort the array
         Comparator<Move> comparator = (Move move1, Move move2) -> (((Integer) move1.getId()).compareTo(move2.getId()));
@@ -91,6 +88,5 @@ public class JsonFileController {
         return this.moves.remove(0);
 
     }
-
 
 }

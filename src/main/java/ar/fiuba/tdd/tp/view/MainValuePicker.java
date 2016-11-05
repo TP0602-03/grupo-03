@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class MainValuePicker {
 
-    ArrayList<IconValue> options;
+    private ArrayList<IconValue> options;
 
     public MainValuePicker(ArrayList<IconValue> options) {
         this.options = options;

@@ -95,7 +95,6 @@ public class RegionParser {
         }
     }
 
-
     private GraphVertex getVertex(Game game, int row, int col, int rowOffset, int columnOffset) {
         return game.getVertex(2 * row + rowOffset, 2 * col + columnOffset);
 
@@ -125,7 +124,6 @@ public class RegionParser {
         }
     }
 
-
     private void loadCustomRegion(Game game, JSONObject region, Region reg) {
         JSONArray cells = (JSONArray) region.get("cells");
 
@@ -147,7 +145,6 @@ public class RegionParser {
             reg.addRule(rule);
         }
     }
-
 
     private void loadRectangleRegion(Game game, JSONObject region, Region reg) {
         JSONObject rectangle = (JSONObject) region.get("rectangle");

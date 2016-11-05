@@ -96,7 +96,6 @@ public class JsonViewTest {
 //
 //    }
 
-
 //    @Test
 //    public void testGameWins() throws IOException, org.json.simple.parser.ParseException, java.text.ParseException, InvalidMoveException {
 //

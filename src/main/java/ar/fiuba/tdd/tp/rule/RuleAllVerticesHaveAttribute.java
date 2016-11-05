@@ -17,7 +17,6 @@ public class RuleAllVerticesHaveAttribute extends Rule {
         this.attribute = attribute;
     }
 
-
     public RuleAllVerticesHaveAttribute(JSONObject ruleJson) {
         attribute = (String) ruleJson.get("attribute");
     }

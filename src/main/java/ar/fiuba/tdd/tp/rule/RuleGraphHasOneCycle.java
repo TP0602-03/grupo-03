@@ -67,6 +67,5 @@ public class RuleGraphHasOneCycle extends Rule {
 
         return this.checkStack(stack, verticesWithEdges);
 
-
     }
 }

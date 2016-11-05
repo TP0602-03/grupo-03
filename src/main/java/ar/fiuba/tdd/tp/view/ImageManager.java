@@ -4,6 +4,7 @@ import javafx.util.Pair;
 
 import org.json.simple.parser.ParseException;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ import javax.swing.*;
 /**
  * Created by mvbattan on 15/10/16.
  */
+
 public class ImageManager {
 
     private String relativePath;
@@ -25,15 +27,18 @@ public class ImageManager {
     }
 
     public ImageIcon getImage(String symbol) {
-        ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + symbol + ".png");
-
-        return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
+        String path = this.relativePath + "/" + symbol + ".png";
+        ImageIcon auxImageIcon = new ImageIcon(path);
+        Image scaledImage = this.resizer.getScreenScaledImage(auxImageIcon.getImage());
+        return new ImageIcon(scaledImage);
     }
 
     public Icon getImage(String key, String value) {
         String translatedValue = this.imageTranslator.translate(new Pair<>(key, value));
-        ImageIcon auxImageIcon = new ImageIcon(this.relativePath + "/" + translatedValue + ".png");
-        return new ImageIcon(this.resizer.getScreenScaledImage(auxImageIcon.getImage()));
+        String path = this.relativePath + "/" + translatedValue + ".png";
+        ImageIcon auxImageIcon = new ImageIcon(path);
+        Image scaledImage = this.resizer.getScreenScaledImage(auxImageIcon.getImage());
+        return new ImageIcon(scaledImage);
     }
 
     public ArrayList<IconValue> getImages(ArrayList<Pair<String, String>> allowedValues) {
@@ -41,11 +46,14 @@ public class ImageManager {
 
         for (Pair<String, String> allowedValue : allowedValues) {
             String translatedValue = this.imageTranslator.translate(allowedValue);
-            iconValues.add(new IconValue(this.getImage(translatedValue), allowedValue.getKey(), allowedValue.getValue()));
+            ImageIcon image = this.getImage(translatedValue);
+            String key = allowedValue.getKey();
+            String value = allowedValue.getValue();
+            IconValue iconValue = new IconValue(image, key, value);
+            iconValues.add(iconValue);
         }
 
         return iconValues;
     }
-
 
 }

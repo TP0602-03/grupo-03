@@ -16,13 +16,11 @@ import static org.junit.Assert.assertTrue;
 
 public class MoveFactoryTest {
 
-
     HashMap<String, ArrayList<String>> valuesMap = new HashMap<String, ArrayList<String>>() {
         {
             put("num", new ArrayList<>(Arrays.asList("1", "2", "3")));
         }
     };
-
 
     HashMap<Pair<Integer, Integer>, ArrayList<String>> positionsMap = new HashMap<Pair<Integer, Integer>, ArrayList<String>>() {
         {
@@ -34,7 +32,6 @@ public class MoveFactoryTest {
         }
     };
 
-
     @Test
     public void validMoveCreationWithHashAsFactoryCreationParameter() {
 
@@ -43,7 +40,6 @@ public class MoveFactoryTest {
         Move move = factory.createMove(1, 0, 0, "num", "1");
 
         assertTrue(move.getClass() == ValidMove.class);
-
 
     }
 
@@ -55,7 +51,6 @@ public class MoveFactoryTest {
         Move move = factory.createMove(1, 0, 0, "num", "50");
 
         assertTrue(move.getClass() == InvalidMove.class);
-
 
     }
 

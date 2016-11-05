@@ -49,5 +49,4 @@ public class InshiTest {
         assertTrue(game.validateRules());
     }
 
-
 }

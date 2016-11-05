@@ -108,7 +108,6 @@ public class JsonControllerTest {
 //
 //    }
 
-
 //    @Test
 //    public void testWinningInishi() throws org.json.simple.parser.ParseException, IOException, ParseException, InvalidMoveException {
 //

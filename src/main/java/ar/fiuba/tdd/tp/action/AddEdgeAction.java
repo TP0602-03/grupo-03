@@ -15,12 +15,8 @@ public class AddEdgeAction extends Action {
         this.src = src;
     }
 
-    private Boolean containsCoordenates(GridGraph graph, Coord srcCoordinates, Coord dstCoordinates) {
-
-        if (!graph.contains(dstCoordinates)) {
-            return false;
-        }
-        return graph.contains(srcCoordinates);
+    private Boolean containsCoordinates(GridGraph graph, Coord srcCoordinates, Coord dstCoordinates) {
+        return graph.contains(dstCoordinates) && graph.contains(srcCoordinates);
     }
 
     @Override
@@ -30,7 +26,7 @@ public class AddEdgeAction extends Action {
         GraphVertex sourceVertex;
         GraphVertex targetVertex;
 
-        if (!containsCoordenates(graph, srcCoord, dstCoord)) {
+        if (!containsCoordinates(graph, srcCoord, dstCoord)) {
             return;
         }
 
@@ -43,6 +39,5 @@ public class AddEdgeAction extends Action {
 
         graph.addEdge(srcCoord, dstCoord);
     }
-
 
 }

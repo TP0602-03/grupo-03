@@ -18,9 +18,8 @@ public class ParserTest {
         Game game = parser.getGame();
 
         System.out.println(game.getAllowedPositions().toString());
-        System.out.println(game.getPosibleValues().toString());
+        System.out.println(game.getPossibleValues().toString());
 
     }
-
 
 }

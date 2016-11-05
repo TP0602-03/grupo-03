@@ -77,11 +77,9 @@ public class Parser {
             stringArray.add(jsonObject.toString());
         }
 
-
         RestrictionsParser restrictionsParser = new RestrictionsParser();
         JSONArray jsonRestrictions = (JSONArray) jsonGame.get("restrictions");
         restrictionsParser.loadCellRestrictions(game, jsonRestrictions);
-
 
         return stringArray;
 

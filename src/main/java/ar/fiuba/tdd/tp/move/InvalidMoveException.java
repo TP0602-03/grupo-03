@@ -5,7 +5,6 @@ package ar.fiuba.tdd.tp.move;
  */
 public class InvalidMoveException extends Exception {
 
-
     public InvalidMoveException() {
     }
 

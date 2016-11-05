@@ -1,10 +1,8 @@
 package ar.fiuba.tdd.tp.view;
 
-
 import java.awt.*;
 
 import javax.swing.*;
-
 
 public class BoardGameView extends JPanel {
 
@@ -40,7 +38,6 @@ public class BoardGameView extends JPanel {
 
     }
 
-
     public void setCell(int indexR, int indexC, int width, int height, Component cell) {
 
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
@@ -50,14 +47,12 @@ public class BoardGameView extends JPanel {
         gridBagConstraints.ipadx = width;
         gridBagConstraints.ipady = height;
 
-
         cellContainer.add(cell, gridBagConstraints);
 
         frame.pack();
     }
 
     public void setVertex(int indexR, int indexC, int width, int height, Component vertex) {
-
 
         GridBagConstraints vgridBagConstraints = new GridBagConstraints();
         vgridBagConstraints.gridx = indexC;

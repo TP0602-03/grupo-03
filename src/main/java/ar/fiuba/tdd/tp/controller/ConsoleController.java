@@ -16,7 +16,6 @@ public class ConsoleController {
     private MoveFactory moveFactory;
     private int moveCount;
 
-
     public ConsoleController(MoveFactory newMoveFactory) {
         this.moveFactory = newMoveFactory;
         this.moveCount = 0;
@@ -34,7 +33,6 @@ public class ConsoleController {
         BufferedReader bufferedReader = new BufferedReader(streamReader);
         return bufferedReader.readLine();
     }
-
 
     public Move getMove() throws IOException {
 

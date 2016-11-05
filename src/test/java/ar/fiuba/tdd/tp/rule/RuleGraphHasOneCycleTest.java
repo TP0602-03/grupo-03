@@ -90,7 +90,6 @@ public class RuleGraphHasOneCycleTest {
         assertFalse(rule.check(vertices));
     }
 
-
     @Test
     public void test6() throws Exception {
         GridGraph graph = new GridGraph(3, 3);

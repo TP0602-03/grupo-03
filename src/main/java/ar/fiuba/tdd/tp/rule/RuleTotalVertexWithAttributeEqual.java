@@ -33,27 +33,4 @@ public class RuleTotalVertexWithAttributeEqual extends Rule {
         return count == expected;
     }
 
-    private static class GetExpectedValue {
-        private JSONObject ruleJson;
-        private String firstAttribute;
-        private int exp;
-
-        public GetExpectedValue(JSONObject ruleJson) {
-            this.ruleJson = ruleJson;
-        }
-
-        public String getFirstAttribute() {
-            return firstAttribute;
-        }
-
-        public int getExpected() {
-            return exp;
-        }
-
-        public RuleTotalVertexWithAttributeEqual.GetExpectedValue invoke() {
-            firstAttribute = (String) ruleJson.get("attribute");
-            exp = ((Long) ruleJson.get("expected")).intValue();
-            return this;
-        }
-    }
 }

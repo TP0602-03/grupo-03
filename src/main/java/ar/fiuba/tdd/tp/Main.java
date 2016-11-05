@@ -13,12 +13,13 @@ public class Main {
     }
 
     private static class MainRun implements Runnable {
+
         private final BoardViewCreator boardViewCreator = new BoardViewCreator();
 
         @Override
         public void run() {
             try {
-                Parser parser = new Parser("gameFiles/inshi.json");
+                Parser parser = new Parser("gameFiles/sudoku.json");
                 boardViewCreator.createBoard(parser.getGame());
             } catch (Exception ex) {
                 JFrame frame = new JFrame();

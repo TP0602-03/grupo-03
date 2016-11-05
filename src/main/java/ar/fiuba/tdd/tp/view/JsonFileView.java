@@ -19,7 +19,6 @@ public class JsonFileView {
     private String fileName;
     private JSONObject info;
 
-
     public JsonFileView(String newFileName) {
         this.fileName = newFileName;
         this.info = new JSONObject();
@@ -53,11 +52,9 @@ public class JsonFileView {
             }
         }
 
-
         this.updateBoard(cells);
         this.addStatus(game);
     }
-
 
     public void add(Move newMove) {
         JSONObject play = new JSONObject();
@@ -71,9 +68,7 @@ public class JsonFileView {
         ((JSONArray) this.info.get("plays")).add(play);
     }
 
-
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
-
 
         JSONObject cell = new JSONObject();
 

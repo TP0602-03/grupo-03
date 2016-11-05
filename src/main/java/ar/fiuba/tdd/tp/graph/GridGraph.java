@@ -29,22 +29,22 @@ public class GridGraph {
         return vertices.get(row).get(column);
     }
 
-    public void addEdge(Coord nodeA, Coord nodeB) {
-        int nodeACoordinateX = nodeA.getX();
-        int nodeACoordinateY = nodeA.getY();
-        int nodeBCoordinateX = nodeB.getX();
-        int nodeBCoordinateY = nodeB.getY();
-        vertices.get(nodeACoordinateX).get(nodeACoordinateY).addEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
-        vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).addEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
+    public GraphVertex getVertex(Coord coord) {
+        return getVertex(coord.getX(), coord.getY());
     }
 
-    public void removeEdge(Coord src, Coord dst) {
-        int nodeACoordinateX = src.getX();
-        int nodeACoordinateY = src.getY();
-        int nodeBCoordinateX = dst.getX();
-        int nodeBCoordinateY = dst.getY();
-        vertices.get(nodeACoordinateX).get(nodeACoordinateY).removeEdge(vertices.get(nodeBCoordinateX).get(nodeBCoordinateY));
-        vertices.get(nodeBCoordinateX).get(nodeBCoordinateY).removeEdge(vertices.get(nodeACoordinateX).get(nodeACoordinateY));
+    public void addEdge(Coord nodeA, Coord nodeB) {
+        GraphVertex vertexA = getVertex(nodeA);
+        GraphVertex vertexB = getVertex(nodeB);
+        vertexA.addEdge(vertexB);
+        vertexB.addEdge(vertexA);
+    }
+
+    public void removeEdge(Coord nodeA, Coord nodeB) {
+        GraphVertex vertexA = getVertex(nodeA);
+        GraphVertex vertexB = getVertex(nodeB);
+        vertexA.removeEdge(vertexB);
+        vertexB.removeEdge(vertexA);
     }
 
     public Integer getWidth() {
@@ -58,15 +58,15 @@ public class GridGraph {
     public void clearEdges() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                vertices.get(i).get(j).clearEdges();
+                getVertex(i, j).clearEdges();
             }
         }
     }
 
-    public boolean contains(Coord dstCoord) {
-        if (dstCoord.getX() < 0 || dstCoord.getX() >= height) {
+    public boolean contains(Coord node) {
+        if (node.getX() < 0 || node.getX() >= height) {
             return false;
         }
-        return !(dstCoord.getY() < 0 || dstCoord.getY() >= width);
+        return !(node.getY() < 0 || node.getY() >= width);
     }
 }

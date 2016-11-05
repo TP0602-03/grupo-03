@@ -21,7 +21,7 @@ public class RestrictionsParser {
 
         this.loadAll(info, allowedPositions, posibleValues);
 
-        game.setPosibleValues(posibleValues);
+        game.setPossibleValues(posibleValues);
         game.setAllowedPositions(allowedPositions);
 
     }
@@ -58,7 +58,6 @@ public class RestrictionsParser {
 
         posibleValues.put(attribute, valuesArray);
 
-
     }
 
     private void loadAll(JSONArray info, HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositionsMap,
@@ -72,7 +71,6 @@ public class RestrictionsParser {
             this.loadAllowedValues(attribute, values, posibleValues);
 
         }
-
 
     }
 }

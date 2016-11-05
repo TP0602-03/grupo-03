@@ -9,7 +9,6 @@ import java.util.Objects;
 
 public class RuleCheckOperationResult extends Rule {
 
-
     private final String attribute;
     private final int expected;
     private OperationCalculator operation;

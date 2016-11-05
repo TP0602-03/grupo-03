@@ -21,5 +21,4 @@ public abstract class Move {
 
     public abstract Boolean isValid();
 
-
 }

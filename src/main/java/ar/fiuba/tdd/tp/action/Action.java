@@ -45,7 +45,6 @@ public abstract class Action {
         return colOffset;
     }
 
-
     protected Coord parseCoord(int row, int col, String strCoord) {
 
         Map<String, Integer> rowOffset = loadRowOffsetMap();
