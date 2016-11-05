@@ -225,7 +225,7 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleGraphAdjacentVerticesDontShareAttributeValue",
+              "name": "RuleGraphAdjacentDontShareAttributeValue",
               "attribute": "lines",
               "value": "black"
             }

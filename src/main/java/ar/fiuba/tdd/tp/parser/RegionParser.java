@@ -4,6 +4,7 @@ import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.Region;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.rule.Rule;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -104,11 +105,11 @@ public class RegionParser {
         JSONArray cells = (JSONArray) region.get("cells");
         //Horizontal
         Set<GraphVertex> set = new HashSet<>();
-        for (Object obj :
-                cells) {
+        for (Object obj : cells) {
             JSONObject cellPos = (JSONObject) obj;
-            int row = ((Long) cellPos.get("r")).intValue();
-            int col = ((Long) cellPos.get("c")).intValue();
+            PositionParser parser = new PositionParser(cellPos);
+            int row = parser.getRow();
+            int col = parser.getCol();
             //top
             set.add(this.getVertex(game, row, col, 0, 1));
             //bottom

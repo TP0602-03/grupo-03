@@ -5,11 +5,11 @@ import ar.fiuba.tdd.tp.graph.GraphVertex;
 import java.util.List;
 import java.util.Objects;
 
-public class RuleGraphAdjacentVerticesDontShareAttributeValue extends Rule {
+public class RuleGraphAdjacentDontShareAttributeValue extends Rule {
     private final String attribute;
     private final String value;
 
-    public RuleGraphAdjacentVerticesDontShareAttributeValue(String attribute, String value) {
+    public RuleGraphAdjacentDontShareAttributeValue(String attribute, String value) {
 
         this.attribute = attribute;
         this.value = value;
@@ -20,8 +20,10 @@ public class RuleGraphAdjacentVerticesDontShareAttributeValue extends Rule {
         for (GraphVertex vertex : vertices) {
             List<GraphVertex> adjList = vertex.getAdjacencyList();
             for (GraphVertex adj : adjList) {
-                if (vertex.hasAttribute(attribute) && Objects.equals(vertex.getAttribute(attribute), value) && adj.hasAttribute(attribute) && Objects.equals(adj.getAttribute(attribute), value)) {
-                    return false;
+                if (vertex.hasAttribute(attribute) && Objects.equals(vertex.getAttribute(attribute), value)) {
+                    if (adj.hasAttribute(attribute) && Objects.equals(adj.getAttribute(attribute), value)) {
+                        return false;
+                    }
                 }
             }
         }

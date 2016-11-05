@@ -129,7 +129,7 @@ public class Game {
         }
     }
 
-    public Set<Map.Entry<String, String>> getVertexKeysValues(int i, int j) {
-        return cells.getVertex(2 * i, 2 * j).getKeysValues();
+    public Set<Map.Entry<String, String>> getVertexKeysValues(int row, int col) {
+        return cells.getVertex(2 * row, 2 * col).getKeysValues();
     }
 }

@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.graph.Coord;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

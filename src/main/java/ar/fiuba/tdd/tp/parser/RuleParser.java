@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.rule.*;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -77,8 +78,6 @@ public class RuleParser {
             return this.getRuleCountSetAttributes(ruleJson);
         } else if (ruleName.equals("RuleTotalVertexWithAttributeEqual")) {
             return this.getRuleRuleTotalVertexWithAttributeEqual(ruleJson);
-        } else if (ruleName.equals("RuleOneEntryOneExit")) {
-            return this.getRuleOneEntryOneExit();
         } else if (ruleName.equals("RuleCountVertWithAttributeValue")) {
             return this.getRuleCountVertWithAttValue(ruleJson);
         } else {
@@ -102,7 +101,9 @@ public class RuleParser {
             return this.getRuleCountVertexEdges(ruleJson);
         } else if (ruleName.equals("RuleAllVerticesHaveAttribute")) {
             return this.getRuleAllVertexHaveAttribute(ruleJson);
-        } else if (ruleName.equals("RuleGraphAdjacentVerticesDontShareAttributeValue")) {
+        } else if (ruleName.equals("RuleOneEntryOneExit")) {
+            return this.getRuleOneEntryOneExit();
+        } else if (ruleName.equals("RuleGraphAdjacentDontShareAttributeValue")) {
             return this.getRuleAdjVerticesAttValue(ruleJson);
         }
         return null;
@@ -111,7 +112,7 @@ public class RuleParser {
     private Rule getRuleAdjVerticesAttValue(JSONObject ruleJson) {
         String att = (String) ruleJson.get("attribute");
         String val = (String) ruleJson.get("value");
-        return new RuleGraphAdjacentVerticesDontShareAttributeValue(att, val);
+        return new RuleGraphAdjacentDontShareAttributeValue(att, val);
     }
 
     @SuppressWarnings("CPD-END")

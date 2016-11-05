@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.view;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.move.Move;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
