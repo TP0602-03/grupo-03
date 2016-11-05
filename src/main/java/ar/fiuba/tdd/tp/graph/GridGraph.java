@@ -67,9 +67,6 @@ public class GridGraph {
         if (dstCoord.getX() < 0 || dstCoord.getX() >= height) {
             return false;
         }
-        if (dstCoord.getY() < 0 || dstCoord.getY() >= width) {
-            return false;
-        }
-        return true;
+        return !(dstCoord.getY() < 0 || dstCoord.getY() >= width);
     }
 }

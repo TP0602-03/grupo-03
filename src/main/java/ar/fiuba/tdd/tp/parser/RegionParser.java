@@ -12,12 +12,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RegionParser {
-    public void loadRegions(Game game, JSONArray regions) {
+    public void loadRegions(Game game, JSONArray regions) throws Exception {
         for (Object o : regions) {
             JSONObject region = (JSONObject) ((JSONObject) o).get("region");
             Region reg = new Region();
             String type = (String) region.get("type");
-
 
             loadRegionDependingOnType(game, region, reg, type);
             JSONArray rules = (JSONArray) region.get("rules");
@@ -26,7 +25,7 @@ public class RegionParser {
         }
     }
 
-    private void loadRegionDependingOnType(Game game, JSONObject region, Region reg, String type) {
+    private void loadRegionDependingOnType(Game game, JSONObject region, Region reg, String type) throws Exception {
         if (type.equals("rectangle")) {
             loadRectangleRegion(game, region, reg);
         } else if (type.equals("column")) {
@@ -42,13 +41,15 @@ public class RegionParser {
         }
     }
 
-    private void loadGeneralRegions(Game game, Region reg, String type) {
+    private void loadGeneralRegions(Game game, Region reg, String type) throws Exception {
         if (type.equals("all_cells")) {
             loadAllCells(game, reg);
         } else if (type.equals("all_corners")) {
             loadAllCorners(game, reg);
         } else if (type.equals("all_edges")) {
             loadAllEdges(game, reg);
+        } else {
+            throw new Exception("Error: invalid region type \"" + type + "\"");
         }
     }
 
@@ -71,8 +72,7 @@ public class RegionParser {
             }
 
         }
-        for (GraphVertex v :
-                set) {
+        for (GraphVertex v : set) {
             reg.addVertex(v);
         }
     }
@@ -139,7 +139,7 @@ public class RegionParser {
         }
     }
 
-    private void loadRules(JSONArray rules, Region reg) {
+    private void loadRules(JSONArray rules, Region reg) throws Exception {
         RuleParser ruleParser = new RuleParser();
         for (Object o : rules) {
             JSONObject jsonRule = (JSONObject) ((JSONObject) o).get("rule");

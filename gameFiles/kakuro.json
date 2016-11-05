@@ -112,7 +112,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 7
             }
@@ -146,7 +147,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 19
             }
@@ -240,7 +242,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 7
             }
@@ -270,7 +273,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }

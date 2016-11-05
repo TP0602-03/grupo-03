@@ -2,6 +2,8 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONObject;
+
 import java.util.List;
 
 public class RuleCountVertexEdges extends Rule {
@@ -9,6 +11,10 @@ public class RuleCountVertexEdges extends Rule {
 
     public RuleCountVertexEdges(String attribute) {
         this.attribute = attribute;
+    }
+
+    public RuleCountVertexEdges(JSONObject ruleJson) {
+        this((String) ruleJson.get("attribute"));
     }
 
     @Override

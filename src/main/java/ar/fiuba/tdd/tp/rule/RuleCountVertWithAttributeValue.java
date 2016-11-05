@@ -2,13 +2,15 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONObject;
+
 import java.util.List;
 import java.util.Objects;
 
 public class RuleCountVertWithAttributeValue extends Rule {
 
-    private final String attribute;
-    private final String value;
+    private String attribute;
+    private String value;
     private int expected;
 
     public RuleCountVertWithAttributeValue(String attribute, String value, int expected) {
@@ -18,6 +20,11 @@ public class RuleCountVertWithAttributeValue extends Rule {
         this.expected = expected;
     }
 
+    public RuleCountVertWithAttributeValue(JSONObject ruleJson) {
+        attribute = (String) ruleJson.get("attribute");
+        value = (String) ruleJson.get("value");
+        expected = ((Long) ruleJson.get("expected")).intValue();
+    }
 
     @Override
     public boolean check(List<GraphVertex> vertices) {

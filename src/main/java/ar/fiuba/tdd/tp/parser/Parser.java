@@ -8,9 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class Parser {
     private JSONObject jsonGame;
     private Game game;
 
-    public Parser(String filePath) throws ParseException, IOException, org.json.simple.parser.ParseException {
+    public Parser(String filePath) throws Exception {
         String path = filePath;
         JSONParser parser = new JSONParser();
         this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(path), "UTF-8"));

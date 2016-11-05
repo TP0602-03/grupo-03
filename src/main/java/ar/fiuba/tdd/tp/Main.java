@@ -5,6 +5,8 @@ import ar.fiuba.tdd.tp.view.BoardViewCreator;
 
 import java.awt.*;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
         EventQueue.invokeLater(new MainRun());
@@ -19,7 +21,11 @@ public class Main {
                 Parser parser = new Parser("gameFiles/inshi.json");
                 boardViewCreator.createBoard(parser.getGame());
             } catch (Exception ex) {
-                System.err.println(ex);
+                JFrame frame = new JFrame();
+                JOptionPane optionPane = new JOptionPane();
+                optionPane.setMessage(ex.getMessage());
+                JDialog dialog = optionPane.createDialog(frame, "Error");
+                dialog.setVisible(true);
             }
         }
     }

@@ -20,10 +20,7 @@ public class AddEdgeAction extends Action {
         if (!graph.contains(dstCoordinates)) {
             return false;
         }
-        if (!graph.contains(srcCoordinates)) {
-            return false;
-        }
-        return true;
+        return graph.contains(srcCoordinates);
     }
 
     @Override

@@ -82,7 +82,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -103,7 +104,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -124,7 +126,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -145,7 +148,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -166,7 +170,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -187,7 +192,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -208,7 +214,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -229,7 +236,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -255,7 +263,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -281,7 +290,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -307,7 +317,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -333,7 +344,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -426,6 +438,4 @@
       ]
     }
   ]
-
-
 }

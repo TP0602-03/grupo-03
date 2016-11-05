@@ -2,9 +2,18 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONObject;
+
 import java.util.*;
 
 public class RuleGraphHasOneCycle extends Rule {
+
+    public RuleGraphHasOneCycle() {
+    }
+
+    public RuleGraphHasOneCycle(JSONObject ruleJson) {
+
+    }
 
     private Boolean checkVertices(List<GraphVertex> verticesWithEdges, List<GraphVertex> vertices) {
 
@@ -20,7 +29,6 @@ public class RuleGraphHasOneCycle extends Rule {
         }
         return true;
     }
-
 
     private Boolean checkStack(Stack<GraphVertex> stack, List<GraphVertex> verticesWithEdges) {
         List<GraphVertex> visited = new ArrayList<>();
@@ -41,7 +49,6 @@ public class RuleGraphHasOneCycle extends Rule {
         }
         return false;
     }
-
 
     @Override
     public boolean check(List<GraphVertex> vertices) {

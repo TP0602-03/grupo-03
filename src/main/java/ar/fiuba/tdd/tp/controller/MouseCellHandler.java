@@ -39,13 +39,16 @@ public class MouseCellHandler implements MouseListener {
         MainValuePicker mainValuePicker = new MainValuePicker(content);
         Pair<String, String> newValue = (Pair<String, String>) mainValuePicker.getValuePicker();
 
-        game.playCell(row, col, newValue.getKey(), newValue.getValue());
+        if (newValue != null) {
 
-        drawVertices();
+            game.playCell(row, col, newValue.getKey(), newValue.getValue());
 
-        drawCells();
+            drawVertices();
 
-        checkIfGameIsWon();
+            drawCells();
+
+            checkIfGameIsWon();
+        }
     }
 
     private void drawCells() {
@@ -77,11 +80,10 @@ public class MouseCellHandler implements MouseListener {
 
     private void checkIfGameIsWon() {
         if (game.validateRules()) {
-            JOptionPane optionPane = new JOptionPane();
-            optionPane.setMessage("##### ***** YOU WON ***** #####");
             JFrame frame = new JFrame();
-
-            JDialog dialog = optionPane.createDialog(frame, "Move");
+            JOptionPane optionPane = new JOptionPane();
+            optionPane.setMessage("##### ***** YOU WIN ***** #####");
+            JDialog dialog = optionPane.createDialog(frame, "YOU WIN");
             dialog.setVisible(true);
         }
     }

@@ -2,16 +2,22 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RuleDistinctElements extends Rule {
+public class RuleDistinctValues extends Rule {
     private String attribute;
 
-    public RuleDistinctElements(String attribute) {
+    public RuleDistinctValues(String attribute) {
 
         this.attribute = attribute;
+    }
+
+    public RuleDistinctValues(JSONObject ruleJson) {
+        attribute = (String) ruleJson.get("attribute");
     }
 
     @Override

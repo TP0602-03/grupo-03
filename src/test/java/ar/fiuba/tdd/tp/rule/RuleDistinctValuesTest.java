@@ -12,12 +12,12 @@ import java.util.List;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class RuleDistinctElementsTest {
+public class RuleDistinctValuesTest {
     private Rule rule;
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleDistinctElements("att");
+        this.rule = new RuleDistinctValues("att");
     }
 
     @Test
