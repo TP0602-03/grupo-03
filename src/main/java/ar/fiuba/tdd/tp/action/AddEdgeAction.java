@@ -9,8 +9,6 @@ public class AddEdgeAction extends Action {
     private String dst;
 
     public AddEdgeAction(String src, String dst) {
-        //System.out.println("ADDED ADD EDGE ACTION");
-
         this.dst = dst;
         this.src = src;
     }

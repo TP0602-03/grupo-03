@@ -7,9 +7,9 @@ import javax.swing.*;
 public class BoardGameView extends JPanel {
 
     //private board
+    JPanel panel;
     JPanel cellContainer;
     JPanel vertexContainer;
-    JFrame frame;
     GridBagLayout gbl;
     GridBagLayout vgbl;
     OverlayLayout ol;
@@ -17,18 +17,21 @@ public class BoardGameView extends JPanel {
     public BoardGameView() {
 
         cellContainer = new JPanel();
+//        cellContainer.setBorder(BorderFactory.createDashedBorder(Color.black));
+//        cellContainer.addComponentListener(new ComponentAdapter() {
+//            public void componentResized(ComponentEvent evt) {
+//                Component c = (Component) evt.getSource();
+//                System.out.println("resized!");
+//            }
+//        });
         vertexContainer = new JPanel();
-        frame = new JFrame("Nikoli games");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.pack();
-        ol = new OverlayLayout(frame.getContentPane());
-        frame.getContentPane().setLayout(ol);
-        frame.add(vertexContainer);
-        frame.add(cellContainer);
-
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        ol = new OverlayLayout(panel);
+        panel.setLayout(ol);
+        panel.add(vertexContainer);
+        panel.add(cellContainer);
+        panel.setVisible(true);
         gbl = new GridBagLayout();
         cellContainer.setLayout(gbl);
         cellContainer.setOpaque(false);
@@ -36,6 +39,10 @@ public class BoardGameView extends JPanel {
         vertexContainer.setLayout(vgbl);
         vertexContainer.setOpaque(false);
 
+    }
+
+    public JPanel getPanel() {
+        return panel;
     }
 
     public void setCell(int indexR, int indexC, int width, int height, Component cell) {
@@ -49,7 +56,6 @@ public class BoardGameView extends JPanel {
 
         cellContainer.add(cell, gridBagConstraints);
 
-        frame.pack();
     }
 
     public void setVertex(int indexR, int indexC, int width, int height, Component vertex) {
@@ -65,7 +71,6 @@ public class BoardGameView extends JPanel {
 
         vertexContainer.add(vertex, vgridBagConstraints);
 
-        frame.pack();
     }
 
     public Component getCell(int row, int col) {

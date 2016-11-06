@@ -65,6 +65,8 @@ public class MouseCellHandler implements MouseListener {
             cell.setContent(att.getKey(), att.getValue());
         }
         cell.generateLabels();
+        cell.revalidate();
+        cell.repaint();
     }
 
     private void drawVertices() {

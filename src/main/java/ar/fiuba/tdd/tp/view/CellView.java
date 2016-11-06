@@ -17,13 +17,15 @@ public class CellView extends JPanel {
     private ImageManager imageGetter;
     private HashMap<String, String> contents = new HashMap<>();
 
-    public CellView(Set<Map.Entry<String, String>> contents, int gridSize, String emptyImage) throws IOException, ParseException {
+    public CellView(Set<Map.Entry<String, String>> contents, ImageManager imageGetter, String emptyImage) throws IOException, ParseException {
 
-        this.imageGetter = new ImageManager("gameFiles/images", gridSize);
+        this.imageGetter = imageGetter;
         this.emptyImage = emptyImage;
         this.setContents(contents);
 
         generateLabels();
+        //this.revalidate();
+        //this.repaint();
     }
 
     public void setBorder() {
@@ -31,6 +33,7 @@ public class CellView extends JPanel {
     }
 
     public void setContents(Set<Map.Entry<String, String>> newContents) {
+        System.out.println("Called setContents");
         for (Map.Entry<String, String> content : newContents) {
             this.contents.put(content.getKey(), content.getValue());
         }
@@ -41,8 +44,8 @@ public class CellView extends JPanel {
     }
 
     public void generateLabels() {
+        System.out.println("Called generateLabels");
         this.removeAll();
-
         this.setLayout(new OverlayLayout(this));
         ImageIcon emptyLabel = this.imageGetter.getImage(emptyImage);
         JLabel label = new JLabel(emptyLabel);
@@ -53,11 +56,11 @@ public class CellView extends JPanel {
             JLabel imageLabel = new JLabel(image);
             this.add(imageLabel);
         }
-        this.revalidate();
-        this.repaint();
+
     }
 
     public void setContent(String key, String newValue) {
         this.contents.put(key, newValue);
     }
+
 }

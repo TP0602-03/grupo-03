@@ -17,15 +17,15 @@ public class Parser {
     private Game game;
 
     public Parser(String filePath) throws Exception {
-        String path = filePath;
         JSONParser parser = new JSONParser();
-        this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(path), "UTF-8"));
-        //this.gameName = (String) this.jsonGame.getCell("name");
+        this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
+
         JSONObject size = (JSONObject) this.jsonGame.get("size");
         int width = ((Long) size.get("width")).intValue();
         int height = ((Long) size.get("height")).intValue();
 
-        game = new Game(width, height);
+        String gameName = (String) this.jsonGame.get("name");
+        game = new Game(gameName, width, height);
 
         GraphVertexParser gridParser = new GraphVertexParser();
         gridParser.loadGrid(game, this.jsonGame);
@@ -41,15 +41,23 @@ public class Parser {
     private void loadEditables() {
         JSONArray editables = (JSONArray) this.jsonGame.get("editables");
         for (Object obj : editables) {
+
             JSONObject attributeInfo = (JSONObject) obj;
+
             String attributeName = (String) attributeInfo.get("attribute");
+
             JSONArray attributeValues = (JSONArray) attributeInfo.get("values");
 
             JSONArray actions = (JSONArray) attributeInfo.get("actions");
+
             if (actions != null) {
+
                 loadActionsForAttribute(attributeName, attributeValues, actions);
+
             }
+
             game.addAllowedValues(this.parseJsonArrayToStringArray(attributeValues), attributeName);
+
         }
     }
 
@@ -78,7 +86,9 @@ public class Parser {
         }
 
         RestrictionsParser restrictionsParser = new RestrictionsParser();
+
         JSONArray jsonRestrictions = (JSONArray) jsonGame.get("restrictions");
+
         restrictionsParser.loadCellRestrictions(game, jsonRestrictions);
 
         return stringArray;

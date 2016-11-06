@@ -19,10 +19,12 @@ public class Game {
 
     private Map<Pair<String, String>, List<Action>> actions = new HashMap<>();
     private ArrayList<Pair<String, String>> allowedValues = new ArrayList<>();
+    private String name;
 
-    public Game(int width, int height) {
+    public Game(String name, int width, int height) {
         this.width = width;
         this.height = height;
+        this.name = name;
         cells = new GridGraph(2 * width + 1, 2 * height + 1);
     }
 
@@ -130,5 +132,9 @@ public class Game {
 
     public Set<Map.Entry<String, String>> getVertexKeysValues(int row, int col) {
         return cells.getVertex(2 * row, 2 * col).getKeysValues();
+    }
+
+    public String getName() {
+        return name;
     }
 }

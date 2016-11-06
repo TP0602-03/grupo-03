@@ -16,16 +16,17 @@ public class BoardViewCreator {
 
     }
 
-    public void createBoard(Game game) {
-        try {
-            BoardGameView board = new BoardGameView();
+    public BoardGameView createBoard(Game game) {
+        BoardGameView board = new BoardGameView();
 
+        try {
             loadCells(game, board);
             loadVertices(game, board);
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        return board;
     }
 
     private void loadVertices(Game game, BoardGameView board) throws IOException, ParseException {
@@ -35,7 +36,9 @@ public class BoardViewCreator {
                 Set<Map.Entry<String, String>> vertexKeysValues = game.getVertexKeysValues(i, j);
                 int gridSize = game.getHeight() * 2 + 1;
 
-                CellView panel = new CellView(vertexKeysValues, gridSize, "NullContent");
+                ImageManager imageGetter = new ImageManager("gameFiles/images", gridSize);
+
+                CellView panel = new CellView(vertexKeysValues, imageGetter, "NullContent");
 
                 panel.setOpaque(false);
 
@@ -51,7 +54,7 @@ public class BoardViewCreator {
                 ImageManager imageGetter = new ImageManager("gameFiles/images", game.getHeight());
                 Set<Map.Entry<String, String>> cellKeysValues = game.getCellKeysValues(i, j);
 
-                CellView panel = new CellView(cellKeysValues, game.getHeight(), "NullContent");
+                CellView panel = new CellView(cellKeysValues, imageGetter, "NullContent");
 
                 panel.setBorder();
                 panel.setOpaque(false);
