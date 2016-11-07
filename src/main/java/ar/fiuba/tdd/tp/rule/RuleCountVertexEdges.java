@@ -23,8 +23,8 @@ public class RuleCountVertexEdges extends Rule {
         for (GraphVertex vertex :
                 vertices) {
 
-            if (vertex.getAttribute(this.attribute) != null) {
-                Integer edgesAttribute = Integer.parseInt(vertex.getAttribute(this.attribute));
+            if (vertex.getAttribute(attribute) != null) {
+                Integer edgesAttribute = Integer.parseInt(vertex.getAttribute(attribute));
                 int numAdjacent = vertex.getAdjacencyList().size();
                 if (numAdjacent != edgesAttribute) {
                     return false;

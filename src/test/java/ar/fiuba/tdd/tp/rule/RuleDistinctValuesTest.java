@@ -17,7 +17,7 @@ public class RuleDistinctValuesTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleDistinctValues("att");
+        rule = new RuleDistinctValues("att");
     }
 
     @Test

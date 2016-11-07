@@ -19,42 +19,42 @@ public class CellView extends JPanel {
 
         this.imageGetter = imageGetter;
         this.emptyImage = emptyImage;
-        this.setContents(contents);
+        setContents(contents);
         generateLabels();
 
     }
 
     public void setBorder() {
-        this.setBorder(BorderFactory.createLineBorder(Color.black));
+        setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     public void setContents(Set<Map.Entry<String, String>> newContents) {
         for (Map.Entry<String, String> content : newContents) {
-            this.contents.put(content.getKey(), content.getValue());
+            contents.put(content.getKey(), content.getValue());
         }
     }
 
     public void setHandlers(MouseListener mouseListener) {
-        this.addMouseListener(mouseListener);
+        addMouseListener(mouseListener);
     }
 
     public void generateLabels() {
-        this.removeAll();
-        this.setLayout(new OverlayLayout(this));
-        ImageIcon emptyLabel = this.imageGetter.getImage(emptyImage);
+        removeAll();
+        setLayout(new OverlayLayout(this));
+        ImageIcon emptyLabel = imageGetter.getImage(emptyImage);
         JLabel label = new JLabel(emptyLabel);
-        this.add(label);
+        add(label);
         for (String key : contents.keySet()) {
             String value = contents.get(key);
-            Icon image = this.imageGetter.getImage(key, value);
+            Icon image = imageGetter.getImage(key, value);
             JLabel imageLabel = new JLabel(image);
-            this.add(imageLabel);
+            add(imageLabel);
         }
 
     }
 
     public void setContent(String key, String newValue) {
-        this.contents.put(key, newValue);
+        contents.put(key, newValue);
     }
 
 }

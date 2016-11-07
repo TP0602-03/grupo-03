@@ -54,7 +54,7 @@ public class RuleGraphHasOneCycle extends Rule {
     public boolean check(List<GraphVertex> vertices) {
         List<GraphVertex> verticesWithEdges = new ArrayList<>();
 
-        if (!this.checkVertices(verticesWithEdges, vertices)) {
+        if (!checkVertices(verticesWithEdges, vertices)) {
             return false;
         }
         if (verticesWithEdges.size() == 0) {
@@ -65,7 +65,7 @@ public class RuleGraphHasOneCycle extends Rule {
 
         stack.push(verticesWithEdges.get(0));
 
-        return this.checkStack(stack, verticesWithEdges);
+        return checkStack(stack, verticesWithEdges);
 
     }
 }

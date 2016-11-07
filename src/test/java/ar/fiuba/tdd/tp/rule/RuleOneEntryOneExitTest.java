@@ -22,7 +22,7 @@ public class RuleOneEntryOneExitTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleOneEntryOneExit();
+        rule = new RuleOneEntryOneExit();
     }
 
     @Test

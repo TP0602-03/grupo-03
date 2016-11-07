@@ -3,6 +3,8 @@ package ar.fiuba.tdd.tp.view;
 import ar.fiuba.tdd.tp.Game;
 
 import java.awt.*;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.*;
 
@@ -75,6 +77,41 @@ public class BoardGameView extends JPanel {
 
     public Component getVertex(int row, int col) {
         return vertexContainer.getComponent(row * vgbl.getLayoutDimensions()[0].length + col);
+    }
+
+    private void drawCells() {
+        for (int i = 0; i < game.getHeight(); i++) {
+            for (int j = 0; j < game.getWidth(); j++) {
+                CellView cell = (CellView) getCell(i, j);
+                Set<Map.Entry<String, String>> atts = game.getCellKeysValues(i, j);
+                drawCellView(cell, atts);
+            }
+        }
+    }
+
+    private void drawCellView(CellView cell, Set<Map.Entry<String, String>> atts) {
+        for (Map.Entry<String, String> att : atts) {
+            cell.setContent(att.getKey(), att.getValue());
+        }
+        cell.generateLabels();
+        cell.revalidate();
+        cell.repaint();
+    }
+
+    private void drawVertices() {
+        for (int i = 0; i < game.getHeight() + 1; i++) {
+            for (int j = 0; j < game.getWidth() + 1; j++) {
+                CellView cell = (CellView) getVertex(i, j);
+                //Para que no falle CDP :p
+                drawCellView(cell, game.getVertexKeysValues(i, j));
+            }
+        }
+    }
+
+    public void update() {
+        drawVertices();
+
+        drawCells();
     }
 
 }

@@ -17,12 +17,12 @@ public class ConsoleController {
     private int moveCount;
 
     public ConsoleController(MoveFactory newMoveFactory) {
-        this.moveFactory = newMoveFactory;
-        this.moveCount = 0;
+        moveFactory = newMoveFactory;
+        moveCount = 0;
     }
 
     private int getCoord(String message) throws IOException {
-        String coord = this.getValue(message);
+        String coord = getValue(message);
 
         return Integer.parseInt(coord);
     }
@@ -36,27 +36,27 @@ public class ConsoleController {
 
     public Move getMove() throws IOException {
 
-        int newId = this.moveCount;
+        int newId = moveCount;
         int positionX = 0;
         int positionY = 0;
         String value = null;
         String attribute = null;
 
         try {
-            positionX = this.getCoord("Set X position: ");
-            positionY = this.getCoord("Set Y position: ");
-            attribute = this.getValue("Get cell attribute: ");
-            value = this.getValue("Set cell value: ");
+            positionX = getCoord("Set X position: ");
+            positionY = getCoord("Set Y position: ");
+            attribute = getValue("Get cell attribute: ");
+            value = getValue("Set cell value: ");
         } catch (NumberFormatException exception) {
             System.out.println("Invalid value");
         }
 
-        Move moveToReturn = this.moveFactory.createMove(newId, positionX, positionY, attribute, value);
+        Move moveToReturn = moveFactory.createMove(newId, positionX, positionY, attribute, value);
 
         if (!moveToReturn.isValid()) {
             System.out.println("Invalid Move");
         } else {
-            this.moveCount++;
+            moveCount++;
         }
         return moveToReturn;
 

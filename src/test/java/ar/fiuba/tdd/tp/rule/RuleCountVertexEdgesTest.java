@@ -18,7 +18,7 @@ public class RuleCountVertexEdgesTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleCountVertexEdges("max_edges");
+        rule = new RuleCountVertexEdges("max_edges");
     }
 
     @Test

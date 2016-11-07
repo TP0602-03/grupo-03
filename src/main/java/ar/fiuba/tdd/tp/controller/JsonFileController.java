@@ -24,7 +24,7 @@ public class JsonFileController {
     private MoveFactory factory;
 
     public JsonFileController(MoveFactory newFactory) {
-        this.factory = newFactory;
+        factory = newFactory;
     }
 
     private Boolean isNumeric(String numberString) {
@@ -40,7 +40,7 @@ public class JsonFileController {
         JSONParser parser = new JSONParser();
         JSONObject jsonFile = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
         JSONArray jsonPlays = (JSONArray) jsonFile.get("plays");
-        this.moves = new ArrayList<>();
+        moves = new ArrayList<>();
 
         loadMoves(jsonPlays);
 
@@ -64,13 +64,13 @@ public class JsonFileController {
             newY = ((Long) jsonPoint.get(1)).intValue();
             newId = ((Long) jsonMove.get("number")).intValue();
             newValue = (String) jsonMove.get("value");
-            if (this.isNumeric(newValue)) {
+            if (isNumeric(newValue)) {
                 newAttribute = "num";
             } else {
                 newAttribute = (String) jsonMove.get("attribute");
             }
 
-            this.moves.add(this.factory.createMove(newId, newX, newY, newAttribute, newValue));
+            moves.add(factory.createMove(newId, newX, newY, newAttribute, newValue));
         }
     }
 
@@ -82,10 +82,10 @@ public class JsonFileController {
     }
 
     public Move getMove() {
-        if (this.moves.isEmpty()) {
+        if (moves.isEmpty()) {
             return null;
         }
-        return this.moves.remove(0);
+        return moves.remove(0);
 
     }
 

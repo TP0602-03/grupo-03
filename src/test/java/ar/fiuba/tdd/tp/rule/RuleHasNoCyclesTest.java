@@ -19,7 +19,7 @@ public class RuleHasNoCyclesTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleGraphHasNoCycles();
+        rule = new RuleGraphHasNoCycles();
 
     }
 

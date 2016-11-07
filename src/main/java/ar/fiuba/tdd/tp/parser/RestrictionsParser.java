@@ -19,7 +19,7 @@ public class RestrictionsParser {
         HashMap<String, ArrayList<String>> posibleValues = new HashMap<>();
         HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
 
-        this.loadAll(info, allowedPositions, posibleValues);
+        loadAll(info, allowedPositions, posibleValues);
 
         game.setPossibleValues(posibleValues);
         game.setAllowedPositions(allowedPositions);
@@ -67,8 +67,8 @@ public class RestrictionsParser {
             JSONArray allowedPositionsJson = (JSONArray) ((JSONObject) object).get("allowedPositions");
             JSONArray values = (JSONArray) ((JSONObject) object).get("allowedValues");
 
-            this.loadAllowedPositions(attribute, allowedPositionsJson, allowedPositionsMap);
-            this.loadAllowedValues(attribute, values, posibleValues);
+            loadAllowedPositions(attribute, allowedPositionsJson, allowedPositionsMap);
+            loadAllowedValues(attribute, values, posibleValues);
 
         }
 

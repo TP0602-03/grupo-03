@@ -18,24 +18,24 @@ public class MoveFactory {
 
     public MoveFactory(HashMap<String, ArrayList<String>> possibleValuesMap,
                        HashMap<Pair<Integer, Integer>, ArrayList<String>> possiblePositionsMap) {
-        this.possibleAttributeValues = possibleValuesMap;
-        this.editableCells = possiblePositionsMap;
+        possibleAttributeValues = possibleValuesMap;
+        editableCells = possiblePositionsMap;
     }
 
     private Boolean isEditable(Pair<Integer, Integer> position) {
         //First check if the cell is editable
-        return this.editableCells.containsKey(position);
+        return editableCells.containsKey(position);
     }
 
     private Boolean isAttributeEditable(String attribute, Pair<Integer, Integer> position) {
         //Now check if the attribute is editable and the value is valid
-        ArrayList<String> editableAttributes = this.editableCells.get(position);
+        ArrayList<String> editableAttributes = editableCells.get(position);
 
         return editableAttributes.contains(attribute);
     }
 
     private Boolean isValuePossible(String attribute, String value) {
-        ArrayList<String> possibleValues = this.possibleAttributeValues.get(attribute);
+        ArrayList<String> possibleValues = possibleAttributeValues.get(attribute);
 
         return possibleValues.contains(value);
     }
@@ -44,9 +44,9 @@ public class MoveFactory {
 
         Pair<Integer, Integer> position = new Pair<>(newX, newY);
 
-        Boolean editable = this.isEditable(position);
-        Boolean attributeEditable = this.isAttributeEditable(newAttribute, position);
-        Boolean valuePossible = this.isValuePossible(newAttribute, newValue);
+        Boolean editable = isEditable(position);
+        Boolean attributeEditable = isAttributeEditable(newAttribute, position);
+        Boolean valuePossible = isValuePossible(newAttribute, newValue);
         if (!editable || !attributeEditable || !valuePossible) {
             return new InvalidMove(newId);
         }

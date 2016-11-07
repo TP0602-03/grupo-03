@@ -19,7 +19,7 @@ public class RuleAllVerticesHaveAttributeTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleAllVerticesHaveAttribute("att");
+        rule = new RuleAllVerticesHaveAttribute("att");
 
     }
 

@@ -57,10 +57,10 @@ public class RuleGraphHasNoCycles extends Rule {
 
             List<GraphVertex> adjacent = current.getAdjacencyList();
 
-            if (!this.checkAdjacent(adjacent, visited, parent, stack, current)) {
+            if (!checkAdjacent(adjacent, visited, parent, stack, current)) {
                 return false;
             }
-            this.fixStackEmpty(stack, vertices, visited);
+            fixStackEmpty(stack, vertices, visited);
 
         }
         return true;

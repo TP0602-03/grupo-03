@@ -16,7 +16,7 @@ public abstract class Move {
     public abstract String getAttribute() throws InvalidMoveException;
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public abstract Boolean isValid();

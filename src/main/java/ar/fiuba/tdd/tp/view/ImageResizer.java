@@ -29,8 +29,8 @@ public class ImageResizer {
     public Image getScreenScaledImage(Image image) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        double correctedWidth = screenSize.getWidth() / (this.rowCount * 2);
-        double correctedHeight = screenSize.getHeight() / (this.rowCount * 2);
+        double correctedWidth = screenSize.getWidth() / (rowCount * 2);
+        double correctedHeight = screenSize.getHeight() / (rowCount * 2);
         int correctedSize = (int) Math.min(correctedHeight, correctedWidth);
         return getScaledImage(image, correctedSize, correctedSize);
     }

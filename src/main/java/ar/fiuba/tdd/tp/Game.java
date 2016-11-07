@@ -24,7 +24,7 @@ public class Game {
     private String name;
 
     public Game(String name, int width, int height) {
-        this.plays = new Stack<>();
+        plays = new Stack<>();
         this.width = width;
         this.height = height;
         this.name = name;
@@ -32,19 +32,19 @@ public class Game {
     }
 
     public HashMap<String, ArrayList<String>> getPossibleValues() {
-        return this.possibleValues;
+        return possibleValues;
     }
 
     public void setPossibleValues(HashMap<String, ArrayList<String>> newPossibleValues) {
-        this.possibleValues = newPossibleValues;
+        possibleValues = newPossibleValues;
     }
 
     public HashMap<Pair<Integer, Integer>, ArrayList<String>> getAllowedPositions() {
-        return this.allowedPositions;
+        return allowedPositions;
     }
 
     public void setAllowedPositions(HashMap<Pair<Integer, Integer>, ArrayList<String>> newAllowedPositions) {
-        this.allowedPositions = newAllowedPositions;
+        allowedPositions = newAllowedPositions;
     }
 
     public void addActions(String attribute, String value, List<Action> actions) {
@@ -80,24 +80,29 @@ public class Game {
     }
 
     public void playCell(int row, int col, String att, String newValue) {
-        if (this.allowedPositions.containsKey(new Pair<>(row, col))) {
-            cells.clearEdges();
+        if (allowedPositions.containsKey(new Pair<>(row, col))) {
+
 
             Pair<String, String> oldValue = new Pair<>(att, getCell(row, col).getAttribute(att));
             Pair<Pair<Integer, Integer>, Pair<String, String>> old = new Pair<>(new Pair<Integer, Integer>(row, col), oldValue);
             plays.push(old);
-            getCell(row, col).setAttribute(att, newValue);
-            runActionsForCell(row, col);
-
-            for (int r = 0; r < height; r++) {
-                for (int c = 0; c < width; c++) {
-                    runActionsForCell(r, c);
-                }
-            }
+            runActions(row, col, att, newValue);
         } else {
             System.out.println("This cell is not editable!");
         }
 
+    }
+
+    private void runActions(int row, int col, String att, String newValue) {
+        cells.clearEdges();
+        getCell(row, col).setAttribute(att, newValue);
+        runActionsForCell(row, col);
+
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                runActionsForCell(r, c);
+            }
+        }
     }
 
     private void runActionsForCell(int row, int col) {
@@ -127,12 +132,12 @@ public class Game {
     }
 
     public ArrayList<Pair<String, String>> getAllowedValues() {
-        return this.allowedValues;
+        return allowedValues;
     }
 
     public void addAllowedValues(ArrayList<String> strings, String attribute) {
         for (String value : strings) {
-            this.allowedValues.add(new Pair<>(attribute, value));
+            allowedValues.add(new Pair<>(attribute, value));
         }
     }
 
@@ -153,14 +158,6 @@ public class Game {
         int col = lastPlay.getKey().getValue();
         String att = lastPlay.getValue().getKey();
         String value = lastPlay.getValue().getValue();
-        getCell(row, col).setAttribute(att, value);
-
-        runActionsForCell(row, col);
-
-        for (int r = 0; r < height; r++) {
-            for (int c = 0; c < width; c++) {
-                runActionsForCell(r, c);
-            }
-        }
+        runActions(row, col, att, value);
     }
 }

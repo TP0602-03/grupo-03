@@ -18,7 +18,7 @@ public class RuleGraphHasOneCycleTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleGraphHasOneCycle();
+        rule = new RuleGraphHasOneCycle();
 
     }
 

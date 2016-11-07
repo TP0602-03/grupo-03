@@ -3,14 +3,11 @@ package ar.fiuba.tdd.tp;
 import ar.fiuba.tdd.tp.parser.Parser;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.BoardViewCreator;
-import ar.fiuba.tdd.tp.view.CellView;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.Map;
-import java.util.Set;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -44,35 +41,6 @@ public class MainWindow {
 
     public void show() {
         frame.setVisible(true);
-    }
-
-    private void drawCells() {
-        for (int i = 0; i < game.getHeight(); i++) {
-            for (int j = 0; j < game.getWidth(); j++) {
-                CellView cell = (CellView) boardGameView.getCell(i, j);
-                Set<Map.Entry<String, String>> atts = game.getCellKeysValues(i, j);
-                drawCellView(cell, atts);
-            }
-        }
-    }
-
-    private void drawCellView(CellView cell, Set<Map.Entry<String, String>> atts) {
-        for (Map.Entry<String, String> att : atts) {
-            cell.setContent(att.getKey(), att.getValue());
-        }
-        cell.generateLabels();
-        cell.revalidate();
-        cell.repaint();
-    }
-
-    private void drawVertices() {
-        for (int i = 0; i < game.getHeight() + 1; i++) {
-            for (int j = 0; j < game.getWidth() + 1; j++) {
-                CellView cell = (CellView) boardGameView.getVertex(i, j);
-                //Para que no falle CDP :p
-                drawCellView(cell, game.getVertexKeysValues(i, j));
-            }
-        }
     }
 
     private void showErrorDialog() {
@@ -115,9 +83,7 @@ public class MainWindow {
             if (game != null) {
                 game.undoPlay();
 
-                drawVertices();
-
-                drawCells();
+                boardGameView.update();
             }
         }
     }

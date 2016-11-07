@@ -110,13 +110,13 @@ public class RegionParser {
             int row = parser.getRow();
             int col = parser.getCol();
             //top
-            set.add(this.getVertex(game, row, col, 0, 1));
+            set.add(getVertex(game, row, col, 0, 1));
             //bottom
-            set.add(this.getVertex(game, row, col, 2, 1));
+            set.add(getVertex(game, row, col, 2, 1));
             //left
-            set.add(this.getVertex(game, row, col, 1, 0));
+            set.add(getVertex(game, row, col, 1, 0));
             //right
-            set.add(this.getVertex(game, row, col, 1, 2));
+            set.add(getVertex(game, row, col, 1, 2));
 
         }
         for (GraphVertex vertex : set) {

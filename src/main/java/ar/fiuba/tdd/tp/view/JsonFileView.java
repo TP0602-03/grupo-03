@@ -20,15 +20,15 @@ public class JsonFileView {
     private JSONObject info;
 
     public JsonFileView(String newFileName) {
-        this.fileName = newFileName;
-        this.info = new JSONObject();
+        fileName = newFileName;
+        info = new JSONObject();
 
-        this.info.put("plays", new JSONArray());
+        info.put("plays", new JSONArray());
         JSONObject boardObject = new JSONObject();
         boardObject.put("status", "false");
         JSONArray valuesArray = new JSONArray();
         boardObject.put("values", valuesArray);
-        this.info.put("board", boardObject);
+        info.put("board", boardObject);
     }
 
     public void add(Game game) {
@@ -42,7 +42,7 @@ public class JsonFileView {
                     try {
                         content = key.getValue();
                         if (!Objects.equals(key.getKey(), "pos")) {
-                            cells.add(this.createJsonCell(row, col, key.getKey(), content));
+                            cells.add(createJsonCell(row, col, key.getKey(), content));
                         }
                     } catch (Exception ex) {
                         //do nothing;
@@ -52,8 +52,8 @@ public class JsonFileView {
             }
         }
 
-        this.updateBoard(cells);
-        this.addStatus(game);
+        updateBoard(cells);
+        addStatus(game);
     }
 
     public void add(Move newMove) {
@@ -65,7 +65,7 @@ public class JsonFileView {
         } else {
             play.put("boardStatus", "invalid");
         }
-        ((JSONArray) this.info.get("plays")).add(play);
+        ((JSONArray) info.get("plays")).add(play);
     }
 
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
@@ -87,15 +87,15 @@ public class JsonFileView {
 
     private void addStatus(Game game) {
         if (game.validateRules()) {
-            ((JSONObject) this.info.get("board")).put("status", "true");
+            ((JSONObject) info.get("board")).put("status", "true");
         } else {
-            ((JSONObject) this.info.get("board")).put("status", "false");
+            ((JSONObject) info.get("board")).put("status", "false");
         }
 
     }
 
     private void updateBoard(ArrayList<JSONObject> cells) {
-        ((JSONObject) this.info.get("board")).put("values", cells);
+        ((JSONObject) info.get("board")).put("values", cells);
     }
 
     private boolean isLowerThan(Game game, int col) {
@@ -104,10 +104,10 @@ public class JsonFileView {
 
     public void write() throws IOException {
 
-        File file = new File(this.fileName);
+        File file = new File(fileName);
         Writer writer = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
         PrintWriter printWriter = new PrintWriter(writer);
-        printWriter.print(this.info.toJSONString());
+        printWriter.print(info.toJSONString());
         printWriter.close();
 
     }

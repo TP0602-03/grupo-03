@@ -16,9 +16,9 @@ public class RemoveEdgeAction extends Action {
     @Override
     public void run(GridGraph graph, int row, int col) {
 
-        Coord targetCoord = parseCoord(row, col, this.dst);
+        Coord targetCoord = parseCoord(row, col, dst);
 
-        Coord sourceCoord = parseCoord(row, col, this.src);
+        Coord sourceCoord = parseCoord(row, col, src);
 
         if (!graph.contains(sourceCoord) || !graph.contains(targetCoord)) {
             return;

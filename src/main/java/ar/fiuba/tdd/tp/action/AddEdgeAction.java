@@ -19,8 +19,8 @@ public class AddEdgeAction extends Action {
 
     @Override
     public void run(GridGraph graph, int row, int col) {
-        Coord srcCoord = parseCoord(row, col, this.src);
-        Coord dstCoord = parseCoord(row, col, this.dst);
+        Coord srcCoord = parseCoord(row, col, src);
+        Coord dstCoord = parseCoord(row, col, dst);
         GraphVertex sourceVertex;
         GraphVertex targetVertex;
 

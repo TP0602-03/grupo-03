@@ -21,23 +21,23 @@ public class ImageManager {
     private ImageTranslator imageTranslator;
 
     public ImageManager(String pathToImages, int rowCount) throws IOException, ParseException {
-        this.relativePath = pathToImages;
-        this.resizer = new ImageResizer(rowCount);
-        this.imageTranslator = new ImageTranslator();
+        relativePath = pathToImages;
+        resizer = new ImageResizer(rowCount);
+        imageTranslator = new ImageTranslator();
     }
 
     public ImageIcon getImage(String symbol) {
-        String path = this.relativePath + "/" + symbol + ".png";
+        String path = relativePath + "/" + symbol + ".png";
         ImageIcon auxImageIcon = new ImageIcon(path);
-        Image scaledImage = this.resizer.getScreenScaledImage(auxImageIcon.getImage());
+        Image scaledImage = resizer.getScreenScaledImage(auxImageIcon.getImage());
         return new ImageIcon(scaledImage);
     }
 
     public Icon getImage(String key, String value) {
-        String translatedValue = this.imageTranslator.translate(new Pair<>(key, value));
-        String path = this.relativePath + "/" + translatedValue + ".png";
+        String translatedValue = imageTranslator.translate(new Pair<>(key, value));
+        String path = relativePath + "/" + translatedValue + ".png";
         ImageIcon auxImageIcon = new ImageIcon(path);
-        Image scaledImage = this.resizer.getScreenScaledImage(auxImageIcon.getImage());
+        Image scaledImage = resizer.getScreenScaledImage(auxImageIcon.getImage());
         return new ImageIcon(scaledImage);
     }
 
@@ -45,8 +45,8 @@ public class ImageManager {
         ArrayList<IconValue> iconValues = new ArrayList<>();
 
         for (Pair<String, String> allowedValue : allowedValues) {
-            String translatedValue = this.imageTranslator.translate(allowedValue);
-            ImageIcon image = this.getImage(translatedValue);
+            String translatedValue = imageTranslator.translate(allowedValue);
+            ImageIcon image = getImage(translatedValue);
             String key = allowedValue.getKey();
             String value = allowedValue.getValue();
             IconValue iconValue = new IconValue(image, key, value);

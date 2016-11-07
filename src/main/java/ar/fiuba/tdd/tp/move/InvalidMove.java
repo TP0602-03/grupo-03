@@ -6,7 +6,7 @@ package ar.fiuba.tdd.tp.move;
 public class InvalidMove extends Move {
 
     public InvalidMove(int newId) {
-        this.id = newId;
+        id = newId;
     }
 
     public int getX() throws InvalidMoveException {
