@@ -33,6 +33,9 @@ public class MainWindow {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
+    }
+
+    public void show() {
         frame.setVisible(true);
     }
 
