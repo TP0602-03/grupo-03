@@ -3,9 +3,6 @@ package ar.fiuba.tdd.tp.view;
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.controller.MouseCellHandler;
 
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -17,7 +14,7 @@ public class BoardViewCreator {
     }
 
     public BoardGameView createBoard(Game game) {
-        BoardGameView board = new BoardGameView();
+        BoardGameView board = new BoardGameView(game);
 
         try {
             loadCells(game, board);
@@ -29,7 +26,7 @@ public class BoardViewCreator {
         return board;
     }
 
-    private void loadVertices(Game game, BoardGameView board) throws IOException, ParseException {
+    private void loadVertices(Game game, BoardGameView board) throws Exception {
         for (int i = 0; i < game.getWidth() + 1; i++) {
             for (int j = 0; j < game.getHeight() + 1; j++) {
 
@@ -47,7 +44,7 @@ public class BoardViewCreator {
         }
     }
 
-    private void loadCells(Game game, BoardGameView board) throws IOException, ParseException {
+    private void loadCells(Game game, BoardGameView board) throws Exception {
         for (int i = 0; i < game.getWidth(); i++) {
             for (int j = 0; j < game.getHeight(); j++) {
 

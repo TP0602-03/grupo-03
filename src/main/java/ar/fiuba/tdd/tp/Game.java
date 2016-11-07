@@ -14,6 +14,8 @@ public class Game {
     private int width;
     private int height;
 
+    private Stack<Pair<Pair<Integer, Integer>, Pair<String, String>>> plays;
+
     private HashMap<String, ArrayList<String>> possibleValues = new HashMap<>();
     private HashMap<Pair<Integer, Integer>, ArrayList<String>> allowedPositions = new HashMap<>();
 
@@ -22,6 +24,7 @@ public class Game {
     private String name;
 
     public Game(String name, int width, int height) {
+        this.plays = new Stack<>();
         this.width = width;
         this.height = height;
         this.name = name;
@@ -79,8 +82,11 @@ public class Game {
     public void playCell(int row, int col, String att, String newValue) {
         if (this.allowedPositions.containsKey(new Pair<>(row, col))) {
             cells.clearEdges();
-            getCell(row, col).setAttribute(att, newValue);
 
+            Pair<String, String> oldValue = new Pair<>(att, getCell(row, col).getAttribute(att));
+            Pair<Pair<Integer, Integer>, Pair<String, String>> old = new Pair<>(new Pair<Integer, Integer>(row, col), oldValue);
+            plays.push(old);
+            getCell(row, col).setAttribute(att, newValue);
             runActionsForCell(row, col);
 
             for (int r = 0; r < height; r++) {
@@ -136,5 +142,25 @@ public class Game {
 
     public String getName() {
         return name;
+    }
+
+    public void undoPlay() {
+        if (plays.size() == 0) {
+            return;
+        }
+        Pair<Pair<Integer, Integer>, Pair<String, String>> lastPlay = plays.pop();
+        int row = lastPlay.getKey().getKey();
+        int col = lastPlay.getKey().getValue();
+        String att = lastPlay.getValue().getKey();
+        String value = lastPlay.getValue().getValue();
+        getCell(row, col).setAttribute(att, value);
+
+        runActionsForCell(row, col);
+
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                runActionsForCell(r, c);
+            }
+        }
     }
 }

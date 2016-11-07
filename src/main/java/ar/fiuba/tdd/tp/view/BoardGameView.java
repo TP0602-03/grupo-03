@@ -1,11 +1,14 @@
 package ar.fiuba.tdd.tp.view;
 
+import ar.fiuba.tdd.tp.Game;
+
 import java.awt.*;
 
 import javax.swing.*;
 
 public class BoardGameView extends JPanel {
 
+    private final Game game;
     //private board
     JPanel panel;
     JPanel cellContainer;
@@ -14,16 +17,9 @@ public class BoardGameView extends JPanel {
     GridBagLayout vgbl;
     OverlayLayout ol;
 
-    public BoardGameView() {
-
+    public BoardGameView(Game game) {
+        this.game = game;
         cellContainer = new JPanel();
-//        cellContainer.setBorder(BorderFactory.createDashedBorder(Color.black));
-//        cellContainer.addComponentListener(new ComponentAdapter() {
-//            public void componentResized(ComponentEvent evt) {
-//                Component c = (Component) evt.getSource();
-//                System.out.println("resized!");
-//            }
-//        });
         vertexContainer = new JPanel();
         panel = new JPanel();
         panel.setLayout(new BorderLayout());

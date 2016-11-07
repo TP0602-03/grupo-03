@@ -1,10 +1,7 @@
 package ar.fiuba.tdd.tp.view;
 
-import org.json.simple.parser.ParseException;
-
 import java.awt.*;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -17,15 +14,14 @@ public class CellView extends JPanel {
     private ImageManager imageGetter;
     private HashMap<String, String> contents = new HashMap<>();
 
-    public CellView(Set<Map.Entry<String, String>> contents, ImageManager imageGetter, String emptyImage) throws IOException, ParseException {
+    public CellView(Set<Map.Entry<String, String>> contents, ImageManager imageGetter, String emptyImage) throws
+            Exception {
 
         this.imageGetter = imageGetter;
         this.emptyImage = emptyImage;
         this.setContents(contents);
-
         generateLabels();
-        //this.revalidate();
-        //this.repaint();
+
     }
 
     public void setBorder() {
@@ -33,7 +29,6 @@ public class CellView extends JPanel {
     }
 
     public void setContents(Set<Map.Entry<String, String>> newContents) {
-        System.out.println("Called setContents");
         for (Map.Entry<String, String> content : newContents) {
             this.contents.put(content.getKey(), content.getValue());
         }
@@ -44,7 +39,6 @@ public class CellView extends JPanel {
     }
 
     public void generateLabels() {
-        System.out.println("Called generateLabels");
         this.removeAll();
         this.setLayout(new OverlayLayout(this));
         ImageIcon emptyLabel = this.imageGetter.getImage(emptyImage);

@@ -9,6 +9,7 @@ public class Main {
 
     private static class MainRun implements Runnable {
         private static final MainWindow window = new MainWindow();
+
         @Override
         public void run() {
             window.show();
