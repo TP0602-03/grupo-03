@@ -20,7 +20,7 @@ public class MainWindow {
     private BoardGameView boardGameView;
 
     public MainWindow() {
-        frame = new JFrame("Nikoli games");
+        frame = new JFrame("Nikoli Games");
         Dimension dimension = new Dimension(400, 400);
         frame.setMinimumSize(dimension);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
