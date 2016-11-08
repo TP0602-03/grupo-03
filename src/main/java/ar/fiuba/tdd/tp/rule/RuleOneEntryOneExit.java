@@ -27,6 +27,6 @@ public class RuleOneEntryOneExit extends Rule {
                 }
             }
         }
-        return edges == 2;
+        return (edges == 2) || (edges == 0);
     }
 }
