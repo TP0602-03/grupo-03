@@ -81,10 +81,10 @@ public class Game {
 
     public void playCell(int row, int col, String att, String newValue) {
         if (allowedPositions.containsKey(new Pair<>(row, col))) {
-
-
+            System.out.println("setting:" + att + " -> " + newValue);
             Pair<String, String> oldValue = new Pair<>(att, getCell(row, col).getAttribute(att));
-            Pair<Pair<Integer, Integer>, Pair<String, String>> old = new Pair<>(new Pair<Integer, Integer>(row, col), oldValue);
+            System.out.println("old value: " + att + " -> " + getCell(row, col).getAttribute(att));
+            Pair<Pair<Integer, Integer>, Pair<String, String>> old = new Pair<>(new Pair<>(row, col), oldValue);
             plays.push(old);
             runActions(row, col, att, newValue);
         } else {
@@ -158,6 +158,7 @@ public class Game {
         int col = lastPlay.getKey().getValue();
         String att = lastPlay.getValue().getKey();
         String value = lastPlay.getValue().getValue();
+
         runActions(row, col, att, value);
     }
 }
