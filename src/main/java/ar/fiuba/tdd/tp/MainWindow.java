@@ -107,20 +107,22 @@ public class MainWindow {
                     try {
                         MoveFactory factory = new MoveFactory(game.getPossibleValues(),game.getAllowedPositions());
                         JsonFileController controller = new JsonFileController(factory);
-                        controller.readFile(file.getName());
+                        controller.readFile(file.getPath());
                         Move move;
 
                         while (true) {
                             move = controller.getMove();
 
-                        if (move == null) {
-                            break;
+                            if (move == null) {
+                                break;
+                            }
+
+                            game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
+
                         }
-
-                        game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
-
-        }
+                        boardGameView.update();
                     } catch (Exception ex) {
+                        System.out.print(ex.toString());
                         showErrorDialog("Error: could not load game.");
                     }
                 }
