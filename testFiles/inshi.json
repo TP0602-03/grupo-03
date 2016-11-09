@@ -1,5 +1,5 @@
 {
-  "name": "inshi no heya",
+  "name": "Inshi No Heya",
   "size": {
     "width": 4,
     "height": 4
@@ -164,8 +164,9 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
               "attribute": "num",
+              "operator": "sum",
               "expected": 10
             }
           },
@@ -185,7 +186,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -206,7 +208,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -227,7 +230,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -248,7 +252,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -269,7 +274,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -290,7 +296,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -311,7 +318,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -337,7 +345,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckProduct",
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
               "attribute": "num",
               "expected": 6
             }
@@ -363,7 +372,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckProduct",
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
               "attribute": "num",
               "expected": 8
             }
@@ -389,7 +399,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckProduct",
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
               "attribute": "num",
               "expected": 4
             }
@@ -415,7 +426,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckProduct",
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
               "attribute": "num",
               "expected": 6
             }
@@ -441,7 +453,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckProduct",
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
               "attribute": "num",
               "expected": 12
             }
@@ -467,7 +480,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckProduct",
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
               "attribute": "num",
               "expected": 24
             }
@@ -486,70 +500,10 @@
     {
       "attribute": "num",
       "allowedPositions": [
-        [
-          0,
-          0
-        ],
-        [
-          0,
-          1
-        ],
-        [
-          0,
-          2
-        ],
-        [
-          0,
-          3
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          3,
-          0
-        ],
-        [
+        [0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [1, 2], [1, 3], [2, 0], [2, 1], [2, 2], [2, 3], [3, 0], [
           3,
           1
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          3,
-          3
-        ]
+        ], [3, 2], [3, 3]
       ],
       "allowedValues": [
         "1",

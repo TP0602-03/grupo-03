@@ -1,5 +1,8 @@
 package ar.fiuba.tdd.tp;
 
+import ar.fiuba.tdd.tp.controller.JsonFileController;
+import ar.fiuba.tdd.tp.move.Move;
+import ar.fiuba.tdd.tp.move.MoveFactory;
 import ar.fiuba.tdd.tp.parser.Parser;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.BoardViewCreator;
@@ -29,13 +32,16 @@ public class MainWindow {
         frame.add(gamePanel, BorderLayout.CENTER);
         JButton undoButton = new JButton("Undo");
         JButton loadButton = new JButton("Load...");
+        JButton solveFromFileButton = new JButton("Solve from file");
         loadButton.setFocusPainted(false);
         loadButton.addActionListener(new LoadGameActionListener());
         undoButton.setFocusPainted(false);
         undoButton.addActionListener(new UndoPlayActionListener());
+        solveFromFileButton.addActionListener(new SolveFromFileActionListener());
         JPanel auxPanel = new JPanel(new FlowLayout());
         auxPanel.add(loadButton);
         auxPanel.add(undoButton);
+        auxPanel.add(solveFromFileButton);
         frame.add(auxPanel, BorderLayout.SOUTH);
     }
 
@@ -43,10 +49,10 @@ public class MainWindow {
         frame.setVisible(true);
     }
 
-    private void showErrorDialog() {
+    private void showErrorDialog(String error) {
         JFrame frame = new JFrame();
         JOptionPane optionPane = new JOptionPane();
-        optionPane.setMessage("Error: could not load game.");
+        optionPane.setMessage(error);
         JDialog dialog = optionPane.createDialog(frame, "Error");
         dialog.setVisible(true);
     }
@@ -71,7 +77,7 @@ public class MainWindow {
                     frame.add(gamePanel, BorderLayout.CENTER);
                     frame.pack();
                 } catch (Exception ex) {
-                    showErrorDialog();
+                    showErrorDialog("Error: could not load game.");
                 }
             }
         }
@@ -84,6 +90,40 @@ public class MainWindow {
                 game.undoPlay();
 
                 boardGameView.update();
+            }
+        }
+    }
+
+    private class SolveFromFileActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            if (game != null) {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setAcceptAllFileFilterUsed(false);
+                fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+                int returnVal = fileChooser.showOpenDialog(frame);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    try {
+                        MoveFactory factory = new MoveFactory(game.getPossibleValues(),game.getAllowedPositions());
+                        JsonFileController controller = new JsonFileController(factory);
+                        controller.readFile(file.getName());
+                        Move move;
+
+                        while (true) {
+                            move = controller.getMove();
+
+                        if (move == null) {
+                            break;
+                        }
+
+                        game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
+
+        }
+                    } catch (Exception ex) {
+                        showErrorDialog("Error: could not load game.");
+                    }
+                }
             }
         }
     }
