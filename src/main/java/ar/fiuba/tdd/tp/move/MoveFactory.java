@@ -29,11 +29,11 @@ public class MoveFactory {
 
     private Boolean isAttributeEditable(String attribute, Pair<Integer, Integer> position) {
         //Now check if the attribute is editable and the value is valid
-        if(this.editableCells.containsKey(position)) {
+        if (this.editableCells.containsKey(position)) {
             ArrayList<String> editableAttributes = editableCells.get(position);
             return editableAttributes.contains(attribute);
         }
-        return null;
+        return false;
     }
 
     private Boolean isValuePossible(String attribute, String value) {

@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.controller.JsonFileController;
+import ar.fiuba.tdd.tp.move.InvalidMoveException;
 import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
 import ar.fiuba.tdd.tp.parser.Parser;
@@ -11,6 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -22,6 +25,22 @@ public class MainWindow {
     private Game game = null;
     private BoardGameView boardGameView;
 
+
+    private JPanel createPanel() {
+        JPanel auxPanel = new JPanel(new FlowLayout());
+        auxPanel.add(this.createButton("Load...",new LoadGameActionListener()));
+        auxPanel.add(this.createButton("Undo",new UndoPlayActionListener()));
+        auxPanel.add(this.createButton("Solve from file",new SolveFromFileActionListener()));
+        return auxPanel;
+    }
+
+    private JButton createButton(String name,ActionListener listener) {
+        JButton button = new JButton(name);
+        button.setFocusPainted(false);
+        button.addActionListener(listener);
+        return button;
+    }
+
     public MainWindow() {
         frame = new JFrame("Nikoli Games");
         Dimension dimension = new Dimension(400, 400);
@@ -30,19 +49,8 @@ public class MainWindow {
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
         frame.add(gamePanel, BorderLayout.CENTER);
-        JButton undoButton = new JButton("Undo");
-        JButton loadButton = new JButton("Load...");
-        JButton solveFromFileButton = new JButton("Solve from file");
-        loadButton.setFocusPainted(false);
-        loadButton.addActionListener(new LoadGameActionListener());
-        undoButton.setFocusPainted(false);
-        undoButton.addActionListener(new UndoPlayActionListener());
-        solveFromFileButton.addActionListener(new SolveFromFileActionListener());
-        JPanel auxPanel = new JPanel(new FlowLayout());
-        auxPanel.add(loadButton);
-        auxPanel.add(undoButton);
-        auxPanel.add(solveFromFileButton);
-        frame.add(auxPanel, BorderLayout.SOUTH);
+
+        frame.add(this.createPanel(), BorderLayout.SOUTH);
     }
 
     public void show() {
@@ -60,12 +68,8 @@ public class MainWindow {
     private class LoadGameActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
-            int returnVal = fileChooser.showOpenDialog(frame);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
+            File file = chooseFile(frame);
+            if (file != null) {
                 try {
                     Parser parser = new Parser(file.getAbsolutePath());
                     game = parser.getGame();
@@ -94,33 +98,47 @@ public class MainWindow {
         }
     }
 
+
+    private void playGame(Game game,File file) throws ParseException,IOException,
+            org.json.simple.parser.ParseException,InvalidMoveException {
+        MoveFactory factory = new MoveFactory(game.getPossibleValues(),game.getAllowedPositions());
+        JsonFileController controller = new JsonFileController(factory);
+        controller.readFile(file.getPath());
+        Move move;
+
+        while (true) {
+            move = controller.getMove();
+
+            if (move == null) {
+                break;
+            }
+
+            game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
+
+        }
+        boardGameView.update();
+    }
+
+    private File chooseFile(Frame frame) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+        int returnVal = fileChooser.showOpenDialog(frame);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            return file;
+        }
+        return null;
+    }
+
     private class SolveFromFileActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             if (game != null) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setAcceptAllFileFilterUsed(false);
-                fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
-                int returnVal = fileChooser.showOpenDialog(frame);
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File file = fileChooser.getSelectedFile();
+                File file = chooseFile(frame);
+                if (file != null) {
                     try {
-                        MoveFactory factory = new MoveFactory(game.getPossibleValues(),game.getAllowedPositions());
-                        JsonFileController controller = new JsonFileController(factory);
-                        controller.readFile(file.getPath());
-                        Move move;
-
-                        while (true) {
-                            move = controller.getMove();
-
-                            if (move == null) {
-                                break;
-                            }
-
-                            game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
-
-                        }
-                        boardGameView.update();
+                        playGame(game, file);
                     } catch (Exception ex) {
                         System.out.print(ex.toString());
                         showErrorDialog("Error: could not load game.");
