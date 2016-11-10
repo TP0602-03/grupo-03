@@ -8,7 +8,6 @@ public class KakuroTest {
 //        Parser parser = new Parser("gameFiles/kakuro.json");
 //        Game game = parser.getGame();
 
-
     }
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "kakuro",
+  "name": "Kakuro",
   "size": {
     "width": 4,
     "height": 4
@@ -112,7 +112,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 7
             }
@@ -146,7 +147,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 19
             }
@@ -176,7 +178,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 4
             }
@@ -206,8 +209,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
-              "attribute": "num",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "expected": 13
             }
           },
@@ -240,7 +243,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 7
             }
@@ -270,7 +274,8 @@
         "rules": [
           {
             "rule": {
-              "name": "RuleCheckSum",
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
               "attribute": "num",
               "expected": 10
             }
@@ -283,6 +288,25 @@
           }
         ]
       }
+    }
+  ],
+  "restrictions": [
+    {
+      "attribute": "num",
+      "allowedPositions": [
+        [1, 1], [1, 2], [2, 1], [2, 2], [2, 3], [3, 2], [3, 3]
+      ],
+      "allowedValues": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     }
   ]
 }

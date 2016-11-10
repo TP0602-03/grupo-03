@@ -2,16 +2,24 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONObject;
+
 import java.util.*;
 
 public class RuleGraphHasOneCycle extends Rule {
+
+    public RuleGraphHasOneCycle() {
+    }
+
+    public RuleGraphHasOneCycle(JSONObject ruleJson) {
+
+    }
 
     private Boolean checkVertices(List<GraphVertex> verticesWithEdges, List<GraphVertex> vertices) {
 
         for (GraphVertex vertex :
                 vertices) {
             int vertexDegree = vertex.getAdjacencyList().size();
-            vertex.print();
             if (vertexDegree != 0 && vertexDegree != 2) {
                 return false;
             }
@@ -22,14 +30,12 @@ public class RuleGraphHasOneCycle extends Rule {
         return true;
     }
 
-
     private Boolean checkStack(Stack<GraphVertex> stack, List<GraphVertex> verticesWithEdges) {
         List<GraphVertex> visited = new ArrayList<>();
         Map<GraphVertex, GraphVertex> parent = new HashMap<>();
         while (!stack.empty()) {
             GraphVertex current = stack.pop();
             visited.add(current);
-            current.print();
             List<GraphVertex> adjacent = current.getAdjacencyList();
             for (GraphVertex vertex :
                     adjacent) {
@@ -44,12 +50,11 @@ public class RuleGraphHasOneCycle extends Rule {
         return false;
     }
 
-
     @Override
     public boolean check(List<GraphVertex> vertices) {
         List<GraphVertex> verticesWithEdges = new ArrayList<>();
 
-        if (!this.checkVertices(verticesWithEdges, vertices)) {
+        if (!checkVertices(verticesWithEdges, vertices)) {
             return false;
         }
         if (verticesWithEdges.size() == 0) {
@@ -60,8 +65,7 @@ public class RuleGraphHasOneCycle extends Rule {
 
         stack.push(verticesWithEdges.get(0));
 
-        return this.checkStack(stack, verticesWithEdges);
-
+        return checkStack(stack, verticesWithEdges);
 
     }
 }

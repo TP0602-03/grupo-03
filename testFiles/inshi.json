@@ -1,29 +1,516 @@
 {
-  "plays": [
-    {"number": 1 , "position": [ 0 , 0 ],"attribute": "num","value": "3"},
-    {"number": 2 , "position": [ 1 , 0 ],"attribute": "num","value": "4"},
-    {"number": 3 , "position": [ 2 , 0 ],"attribute": "num","value": "1"},
-    {"number": 4 , "position": [ 3 , 0 ],"attribute": "num","value": "5"},
-    {"number": 5 , "position": [ 4 , 0 ],"attribute": "num","value": "2"},
-    {"number": 6 , "position": [ 0 , 1 ],"attribute": "num","value": "2"},
-    {"number": 7 , "position": [ 1 , 1 ],"attribute": "num","value": "1"},
-    {"number": 8 , "position": [ 2 , 1 ],"attribute": "num","value": "3"},
-    {"number": 9 , "position": [ 3 , 1 ],"attribute": "num","value": "4"},
-    {"number": 10 , "position": [ 4 , 1 ],"attribute": "num","value": "5"},
-    {"number": 11 , "position": [ 0 , 2 ],"attribute": "num","value": "5"},
-    {"number": 12 , "position": [ 1 , 2 ],"attribute": "num","value": "3"},
-    {"number": 13 , "position": [ 2 , 2 ],"attribute": "num","value": "2"},
-    {"number": 14 , "position": [ 3 , 2 ],"attribute": "num","value": "1"},
-    {"number": 15 , "position": [ 4 , 2 ],"attribute": "num","value": "4"},
-    {"number": 16 , "position": [ 0 , 3 ],"attribute": "num","value": "1"},
-    {"number": 17 , "position": [ 1 , 3 ],"attribute": "num","value": "5"},
-    {"number": 18 , "position": [ 2 , 3 ],"attribute": "num","value": "4"},
-    {"number": 19 , "position": [ 3 , 3 ],"attribute": "num","value": "2"},
-    {"number": 20 , "position": [ 4 , 3 ],"attribute": "num","value": "3"},
-    {"number": 21 , "position": [ 0 , 4 ],"attribute": "num","value": "4"},
-    {"number": 22 , "position": [ 1 , 4 ],"attribute": "num","value": "2"},
-    {"number": 23 , "position": [ 2 , 4 ],"attribute": "num","value": "5"},
-    {"number": 24 , "position": [ 3 , 4 ],"attribute": "num","value": "3"},
-    {"number": 25 , "position": [ 4 , 4 ],"attribute": "num","value": "1"}
+  "name": "Inshi No Heya",
+  "size": {
+    "width": 4,
+    "height": 4
+  },
+  "editables": [
+    {
+      "attribute": "num",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        ""
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "r": 0,
+      "c": 0,
+      "attributes": {
+        "small_first": 6,
+        "small_num": 6,
+        "regionRight": "true"
+      }
+    },
+    {
+      "r": 0,
+      "c": 1,
+      "attributes": {
+        "small_first": 8,
+        "small_num": 8,
+        "regionLeft": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 0,
+      "c": 2,
+      "attributes": {
+        "regionRight": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 0,
+      "c": 3,
+      "attributes": {
+        "small_first": 2,
+        "small_second": 4,
+        "small_num": 24,
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "attributes": {
+        "regionBottom": "true",
+        "regionRight": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "attributes": {
+        "small_first": 4,
+        "small_num": 4,
+        "regionBottom": "true",
+        "regionLeft": "true",
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 2,
+      "attributes": {
+        "regionBottom": "true",
+        "regionRight": "true",
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 1,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 0,
+      "attributes": {
+        "small_first": 6,
+        "small_num": 6,
+        "regionTop": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true",
+        "regionBottom": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "attributes": {
+        "regionTop": "true",
+        "regionBottom": "true",
+        "regionRight": "true"
+      }
+    },
+    {
+      "r": 2,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "attributes": {
+        "small_first": 1,
+        "small_second": 2,
+        "small_num": 12,
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 2,
+      "attributes": {
+        "regionRight": "true",
+        "regionTop": "true"
+      }
+    },
+    {
+      "r": 3,
+      "c": 3,
+      "attributes": {
+        "regionLeft": "true"
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "column",
+        "column": 0,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "attribute": "num",
+              "operator": "sum",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "column",
+        "column": 1,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "column",
+        "column": 2,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "column",
+        "column": 3,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 0,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 1,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 2,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 3,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 10
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 0,
+          "c_min": 0,
+          "r_max": 1,
+          "c_max": 0
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
+              "attribute": "num",
+              "expected": 6
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 0,
+          "c_min": 1,
+          "r_max": 0,
+          "c_max": 2
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
+              "attribute": "num",
+              "expected": 8
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 1,
+          "c_min": 1,
+          "r_max": 1,
+          "c_max": 2
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
+              "attribute": "num",
+              "expected": 4
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 2,
+          "c_min": 0,
+          "r_max": 2,
+          "c_max": 2
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
+              "attribute": "num",
+              "expected": 6
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 3,
+          "c_min": 0,
+          "r_max": 3,
+          "c_max": 2
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
+              "attribute": "num",
+              "expected": 12
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 0,
+          "c_min": 3,
+          "r_max": 3,
+          "c_max": 3
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "product",
+              "attribute": "num",
+              "expected": 24
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "restrictions": [
+    {
+      "attribute": "num",
+      "allowedPositions": [
+        [0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [1, 2], [1, 3], [2, 0], [2, 1], [2, 2], [2, 3], [3, 0], [
+          3,
+          1
+        ], [3, 2], [3, 3]
+      ],
+      "allowedValues": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    }
   ]
 }

@@ -12,28 +12,28 @@ public class ValidMove extends Move {
 
     public ValidMove(int newId, int newX, int newY, String newAttribute, String newValue) {
 
-        this.id = newId;
-        this.attribute = newAttribute;
-        this.value = newValue;
-        this.coordinateX = newX;
-        this.coordinateY = newY;
+        id = newId;
+        attribute = newAttribute;
+        value = newValue;
+        coordinateX = newX;
+        coordinateY = newY;
 
     }
 
     public String getAttribute() {
-        return this.attribute;
+        return attribute;
     }
 
     public int getX() {
-        return this.coordinateX;
+        return coordinateX;
     }
 
     public int getY() {
-        return this.coordinateY;
+        return coordinateY;
     }
 
     public String getValue() {
-        return this.value;
+        return value;
     }
 
     public Boolean isValid() {

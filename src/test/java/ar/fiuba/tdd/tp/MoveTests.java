@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp;
 import ar.fiuba.tdd.tp.move.InvalidMove;
 import ar.fiuba.tdd.tp.move.InvalidMoveException;
 import ar.fiuba.tdd.tp.move.ValidMove;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

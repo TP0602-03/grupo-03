@@ -2,35 +2,30 @@ package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.action.Action;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
-    private String path;
     private JSONObject jsonGame;
-    //private String gameName;
-    private int width;
-    private int height;
     private Game game;
 
-    public Parser(String filePath) throws ParseException, IOException, org.json.simple.parser.ParseException {
-        this.path = filePath;
+    public Parser(String filePath) throws Exception {
         JSONParser parser = new JSONParser();
-        this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(this.path), "UTF-8"));
-        //this.gameName = (String) this.jsonGame.get("name");
-        JSONObject size = (JSONObject) this.jsonGame.get("size");
-        width = ((Long) size.get("width")).intValue();
-        height = ((Long) size.get("height")).intValue();
+        this.jsonGame = (JSONObject) parser.parse(new InputStreamReader(new FileInputStream(filePath), "UTF-8"));
 
-        game = new Game(width, height);
+        JSONObject size = (JSONObject) this.jsonGame.get("size");
+        int width = ((Long) size.get("width")).intValue();
+        int height = ((Long) size.get("height")).intValue();
+
+        String gameName = (String) this.jsonGame.get("name");
+        game = new Game(gameName, width, height);
 
         GraphVertexParser gridParser = new GraphVertexParser();
         gridParser.loadGrid(game, this.jsonGame);
@@ -46,15 +41,23 @@ public class Parser {
     private void loadEditables() {
         JSONArray editables = (JSONArray) this.jsonGame.get("editables");
         for (Object obj : editables) {
+
             JSONObject attributeInfo = (JSONObject) obj;
+
             String attributeName = (String) attributeInfo.get("attribute");
+
             JSONArray attributeValues = (JSONArray) attributeInfo.get("values");
 
             JSONArray actions = (JSONArray) attributeInfo.get("actions");
+
             if (actions != null) {
+
                 loadActionsForAttribute(attributeName, attributeValues, actions);
+
             }
+
             game.addAllowedValues(this.parseJsonArrayToStringArray(attributeValues), attributeName);
+
         }
     }
 
@@ -82,7 +85,14 @@ public class Parser {
             stringArray.add(jsonObject.toString());
         }
 
+        RestrictionsParser restrictionsParser = new RestrictionsParser();
+
+        JSONArray jsonRestrictions = (JSONArray) jsonGame.get("restrictions");
+
+        restrictionsParser.loadCellRestrictions(game, jsonRestrictions);
+
         return stringArray;
+
     }
 
     public Game getGame() {

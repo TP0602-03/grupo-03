@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,12 +12,12 @@ import java.util.List;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class RuleDistinctElementsTest {
+public class RuleDistinctValuesTest {
     private Rule rule;
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleDistinctElements("att");
+        rule = new RuleDistinctValues("att");
     }
 
     @Test
