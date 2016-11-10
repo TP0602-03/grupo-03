@@ -32,7 +32,13 @@ public class RuleCheckOperationResult extends Rule {
 
         for (GraphVertex vertex :
                 vertices) {
-            if (vertex.getAttribute(attribute) != null) {
+            /*if (vertex.getAttribute(attribute) != null) {
+                Integer num = Integer.parseInt(vertex.getAttribute(attribute));
+                total = operation.calculate(total, num);
+            } else if (total >= expected) {
+                return false;
+            }*/
+            if (vertex.hasAttribute(attribute) && !Objects.equals(vertex.getAttribute(attribute), "")) {
                 Integer num = Integer.parseInt(vertex.getAttribute(attribute));
                 total = operation.calculate(total, num);
             } else if (total >= expected) {
