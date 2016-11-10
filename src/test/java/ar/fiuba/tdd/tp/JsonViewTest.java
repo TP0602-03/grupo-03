@@ -62,7 +62,7 @@ public class JsonViewTest {
 
 
         String newFile = "testFiles/jsonViewTestFileWon.json";
-        System.out.print(game.getAllowedPositions());
+
         MoveFactory factory = new MoveFactory(game.getPossibleValues(), game.getAllowedPositions());
 
 

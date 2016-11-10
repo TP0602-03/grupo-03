@@ -77,7 +77,7 @@ public class JsonFileView {
         positionArray.add(positionX);
         cell.put("position", positionArray);
 
-        //cell.put("attribute", attribute);
+        cell.put("attribute", attribute);
 
         cell.put("value", value);
 

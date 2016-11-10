@@ -7,6 +7,7 @@ import ar.fiuba.tdd.tp.move.MoveFactory;
 import ar.fiuba.tdd.tp.parser.Parser;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.BoardViewCreator;
+import ar.fiuba.tdd.tp.view.JsonFileView;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +31,7 @@ public class MainWindow {
         JPanel auxPanel = new JPanel(new FlowLayout());
         auxPanel.add(this.createButton("Load...",new LoadGameActionListener()));
         auxPanel.add(this.createButton("Undo",new UndoPlayActionListener()));
-        auxPanel.add(this.createButton("Solve from file",new SolveFromFileActionListener()));
+        //auxPanel.add(this.createButton("Solve from file",new SolveFromFileActionListener()));
         return auxPanel;
     }
 
@@ -105,6 +106,10 @@ public class MainWindow {
         JsonFileController controller = new JsonFileController(factory);
         controller.readFile(file.getPath());
         Move move;
+        JsonFileView view = new JsonFileView("testFiles/test.json");
+
+
+
 
         while (true) {
             move = controller.getMove();
@@ -112,10 +117,12 @@ public class MainWindow {
             if (move == null) {
                 break;
             }
-
+            view.add(move);
             game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
 
         }
+        view.add(game);
+        view.write();
         boardGameView.update();
     }
 
@@ -141,7 +148,7 @@ public class MainWindow {
                         playGame(game, file);
                     } catch (Exception ex) {
                         System.out.print(ex.toString());
-                        showErrorDialog("Error: could not load game.");
+                        showErrorDialog("Error: Invalid move's file");
                     }
                 }
             }
