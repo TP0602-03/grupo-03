@@ -73,11 +73,11 @@ public class JsonFileView {
         JSONObject cell = new JSONObject();
 
         JSONArray positionArray = new JSONArray();
-        positionArray.add(positionX);
         positionArray.add(positionY);
+        positionArray.add(positionX);
         cell.put("position", positionArray);
 
-        cell.put("attribute", attribute);
+        //cell.put("attribute", attribute);
 
         cell.put("value", value);
 
