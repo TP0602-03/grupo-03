@@ -24,10 +24,6 @@ public class RuleTwoDontShareAttributeValue extends Rule {
 
     @Override
     public boolean check(List<GraphVertex> vertices) {
-        System.out.println("v1: " + vertices.get(0).getAttribute("pos") + " : " + "lines -> " + vertices.get(0)
-                .getAttribute("lines"));
-        System.out.println("v2: " + vertices.get(1).getAttribute("pos") + " : " + "lines -> " + vertices.get(1)
-                .getAttribute("lines"));
         if (vertices.get(0).hasAttribute(attribute) && Objects.equals(vertices.get(0).getAttribute(attribute), value)) {
             if (vertices.get(1).hasAttribute(attribute) && Objects.equals(vertices.get(1).getAttribute(attribute), value)) {
                 return false;
