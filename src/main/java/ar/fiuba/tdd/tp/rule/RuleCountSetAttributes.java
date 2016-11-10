@@ -2,17 +2,32 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class RuleCountSetAttributes extends Rule {
 
-    private final List<String> attributes;
-    private final String attributeValue;
+    private List<String> attributes;
+    private String attributeValue;
 
     public RuleCountSetAttributes(List<String> attributes, String attributeValue) {
 
         this.attributes = attributes;
         this.attributeValue = attributeValue;
+    }
+
+    public RuleCountSetAttributes(JSONObject ruleJson) {
+        attributeValue = (String) ruleJson.get("attribute");
+        JSONArray attListJson = (JSONArray) ruleJson.get("attributes");
+        attributes = new ArrayList<>();
+        for (Object obj :
+                attListJson) {
+            String attribute = (String) obj;
+            attributes.add(attribute);
+        }
     }
 
     @Override

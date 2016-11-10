@@ -1,7 +1,9 @@
 package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.Coord;
+import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +19,7 @@ public class RuleAllVerticesHaveAttributeTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleAllVerticesHaveAttribute("att");
+        rule = new RuleAllVerticesHaveAttribute("att");
 
     }
 
@@ -27,7 +29,7 @@ public class RuleAllVerticesHaveAttributeTest {
         graph.addEdge(new Coord(0, 2), new Coord(1, 1));
         graph.addEdge(new Coord(1, 1), new Coord(1, 2));
         graph.addEdge(new Coord(1, 2), new Coord(0, 2));
-        List vertices = new ArrayList<>();
+        List<GraphVertex> vertices = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 graph.getVertex(i, j).setAttribute("att", "val");
@@ -43,7 +45,7 @@ public class RuleAllVerticesHaveAttributeTest {
         graph.addEdge(new Coord(0, 2), new Coord(1, 1));
         graph.addEdge(new Coord(1, 1), new Coord(1, 2));
         graph.addEdge(new Coord(1, 2), new Coord(0, 2));
-        List vertices = new ArrayList<>();
+        List<GraphVertex> vertices = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if ((i + j) % 2 == 0) {

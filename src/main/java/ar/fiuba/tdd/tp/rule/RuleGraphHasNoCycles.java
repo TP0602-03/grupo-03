@@ -2,9 +2,18 @@ package ar.fiuba.tdd.tp.rule;
 
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 
+import org.json.simple.JSONObject;
+
 import java.util.*;
 
 public class RuleGraphHasNoCycles extends Rule {
+
+    public RuleGraphHasNoCycles() {
+    }
+
+    public RuleGraphHasNoCycles(JSONObject ruleJson) {
+
+    }
 
     private Boolean checkAdjacent(List<GraphVertex> adjacent, List<GraphVertex> visited,
                                   Map<GraphVertex, GraphVertex> parent, Stack<GraphVertex> stack, GraphVertex current) {
@@ -20,7 +29,7 @@ public class RuleGraphHasNoCycles extends Rule {
         return true;
     }
 
-    private void fixStackEmpty(Stack<GraphVertex> stack,List<GraphVertex> vertices,List<GraphVertex> visited) {
+    private void fixStackEmpty(Stack<GraphVertex> stack, List<GraphVertex> vertices, List<GraphVertex> visited) {
 
         if (stack.empty()) {
             for (GraphVertex vertex :
@@ -48,11 +57,10 @@ public class RuleGraphHasNoCycles extends Rule {
 
             List<GraphVertex> adjacent = current.getAdjacencyList();
 
-            if (!this.checkAdjacent(adjacent, visited, parent, stack, current)) {
+            if (!checkAdjacent(adjacent, visited, parent, stack, current)) {
                 return false;
             }
-            this.fixStackEmpty(stack,vertices,visited);
-
+            fixStackEmpty(stack, vertices, visited);
 
         }
         return true;

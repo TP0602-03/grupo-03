@@ -1,10 +1,7 @@
 package ar.fiuba.tdd.tp.view;
 
-import org.json.simple.parser.ParseException;
-
 import java.awt.*;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,41 +10,51 @@ import javax.swing.*;
 
 public class CellView extends JPanel {
 
-    protected ImageManager imageGetter;
-    protected Color defaultBackground = Color.WHITE;
+    private final String emptyImage;
+    private ImageManager imageGetter;
     private HashMap<String, String> contents = new HashMap<>();
 
-    public CellView(Set<Map.Entry<String, String>> contents, int gridSize) throws IOException, ParseException {
+    public CellView(Set<Map.Entry<String, String>> contents, ImageManager imageGetter, String emptyImage) throws
+            Exception {
 
-        this.imageGetter = new ImageManager("gameFiles/images", gridSize);
-        this.setContents(contents);
-        this.setBorder(BorderFactory.createLineBorder(Color.black));
+        this.imageGetter = imageGetter;
+        this.emptyImage = emptyImage;
+        setContents(contents);
         generateLabels();
+
+    }
+
+    public void setBorder() {
+        setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     public void setContents(Set<Map.Entry<String, String>> newContents) {
         for (Map.Entry<String, String> content : newContents) {
-            this.contents.put(content.getKey(), content.getValue());
+            contents.put(content.getKey(), content.getValue());
         }
     }
 
     public void setHandlers(MouseListener mouseListener) {
-        this.addMouseListener(mouseListener);
+        addMouseListener(mouseListener);
     }
 
     public void generateLabels() {
-        this.removeAll();
-
-        this.setLayout(new OverlayLayout(this));
-        this.add(new JLabel(this.imageGetter.getEmptyImage()));
+        removeAll();
+        setLayout(new OverlayLayout(this));
+        ImageIcon emptyLabel = imageGetter.getImage(emptyImage);
+        JLabel label = new JLabel(emptyLabel);
+        add(label);
         for (String key : contents.keySet()) {
-            this.add(new JLabel(this.imageGetter.getImage(key, contents.get(key))));
+            String value = contents.get(key);
+            Icon image = imageGetter.getImage(key, value);
+            JLabel imageLabel = new JLabel(image);
+            add(imageLabel);
         }
-        this.revalidate();
-        this.repaint();
+
     }
 
     public void setContent(String key, String newValue) {
-        this.contents.put(key, newValue);
+        contents.put(key, newValue);
     }
+
 }

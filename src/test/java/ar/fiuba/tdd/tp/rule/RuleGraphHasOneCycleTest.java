@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.rule;
 import ar.fiuba.tdd.tp.graph.Coord;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class RuleGraphHasOneCycleTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleGraphHasOneCycle();
+        rule = new RuleGraphHasOneCycle();
 
     }
 
@@ -88,7 +89,6 @@ public class RuleGraphHasOneCycleTest {
         }
         assertFalse(rule.check(vertices));
     }
-
 
     @Test
     public void test6() throws Exception {

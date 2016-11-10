@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Region {
-    private List<Rule> rules = new ArrayList<Rule>();
+    private List<Rule> rules = new ArrayList<>();
     private List<GraphVertex> vertices = new ArrayList<>();
 
     public void addVertex(GraphVertex vertex) {
@@ -19,14 +19,9 @@ public class Region {
     }
 
     public boolean validate() {
-        boolean result = false;
-        // System.out.println("rules: " +  rules.size());
-        for (Rule rule :
-                rules) {
-//          System.out.println("rule: " + rule);
+        boolean result;
+        for (Rule rule : rules) {
             result = rule.check(vertices);
-
-            System.out.println("rule: " + rule.getClass() + " result: " + result);
             if (!result) {
                 return false;
             }

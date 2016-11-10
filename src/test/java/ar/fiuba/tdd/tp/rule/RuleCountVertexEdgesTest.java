@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.rule;
 import ar.fiuba.tdd.tp.graph.Coord;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class RuleCountVertexEdgesTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleCountVertexEdges("max_edges");
+        rule = new RuleCountVertexEdges("max_edges");
     }
 
     @Test
@@ -49,7 +50,6 @@ public class RuleCountVertexEdgesTest {
         vertices.add(graph.getVertex(0, 2));
         assertFalse(rule.check(vertices));
     }
-
 
     @Test
     public void test3() throws Exception {

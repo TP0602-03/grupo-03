@@ -1,5 +1,5 @@
 {
-  "name": "country road",
+  "name": "Country Road",
   "size": {
     "width": 3,
     "height": 3
@@ -299,6 +299,22 @@
           }
         ]
       }
+    }
+  ],
+  "restrictions": [
+    {
+      "attribute": "lines",
+      "allowedPositions": [
+        [0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]
+      ],
+      "allowedValues": [
+        "se",
+        "ne",
+        "nw",
+        "sw",
+        "ns",
+        "we"
+      ]
     }
   ]
 }

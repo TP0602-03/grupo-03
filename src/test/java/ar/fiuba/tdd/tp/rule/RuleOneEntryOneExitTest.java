@@ -3,6 +3,7 @@ package ar.fiuba.tdd.tp.rule;
 import ar.fiuba.tdd.tp.graph.Coord;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
 import ar.fiuba.tdd.tp.graph.GridGraph;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +22,7 @@ public class RuleOneEntryOneExitTest {
 
     @Before
     public void setUp() throws Exception {
-        this.rule = new RuleOneEntryOneExit();
+        rule = new RuleOneEntryOneExit();
     }
 
     @Test

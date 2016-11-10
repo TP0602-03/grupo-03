@@ -13,7 +13,7 @@ public class IconValue {
 
     public IconValue(Icon icon, String key, String value) {
         this.icon = icon;
-        this.keyValue = new Pair<>(key, value);
+        keyValue = new Pair<>(key, value);
     }
 
     public Icon getIcon() {

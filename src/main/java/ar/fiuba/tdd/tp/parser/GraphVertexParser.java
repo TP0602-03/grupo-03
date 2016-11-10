@@ -2,6 +2,7 @@ package ar.fiuba.tdd.tp.parser;
 
 import ar.fiuba.tdd.tp.Game;
 import ar.fiuba.tdd.tp.graph.GraphVertex;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -22,11 +23,11 @@ public class GraphVertexParser {
 
     private void loadAll(Game game, JSONArray verticesJson, String type) {
 
-        for (int i = 0; i < verticesJson.size(); i++) {
-            JSONObject vertex = (JSONObject) verticesJson.get(i);
-
-            int row = ((Long) vertex.get("r")).intValue();
-            int col = ((Long) vertex.get("c")).intValue();
+        for (Object vertexJson : verticesJson) {
+            JSONObject vertex = (JSONObject) vertexJson;
+            PositionParser parser = new PositionParser(vertex);
+            int row = parser.getRow();
+            int col = parser.getCol();
             JSONObject attributesJson = (JSONObject) vertex.get("attributes");
             loadAttributes(getGraphVertex(game, row, col, type), attributesJson);
         }
