@@ -31,23 +31,39 @@ public class JsonFileView {
         info.put("board", boardObject);
     }
 
+
+    private JSONObject aux(JSONObject cell,int row,int col,Map.Entry<String, String> key,String content ) {
+        if ( cell == null) {
+            cell = createJsonCell(row, col, key.getKey(), content);
+        } else {
+            updateJsonCell(cell,key.getKey(), content);
+        }
+        return cell;
+    }
+
+
     public void add(Game game) {
 
         ArrayList<JSONObject> cells = new ArrayList<>();
-
+        JSONObject cell = null;
         for (int col = 0; isLowerThan(game, col); col++) {
             for (int row = 0; row < game.getHeight(); row++) {
+                cell = null;
                 for (Map.Entry<String, String> key : game.getCellKeysValues(col, row)) {
                     String content;
                     try {
                         content = key.getValue();
-                        if (!Objects.equals(key.getKey(), "pos")) {
-                            cells.add(createJsonCell(row, col, key.getKey(), content));
+                        if (Objects.equals(key.getKey(), "pos")) {
+                            continue;
                         }
+                        cell = aux(cell,row,col,key,content);
+
                     } catch (Exception ex) {
                         //do nothing;
                     }
                 }
+                cells.add(cell);
+
 
             }
         }
@@ -68,18 +84,33 @@ public class JsonFileView {
         ((JSONArray) info.get("plays")).add(play);
     }
 
+    private void updateJsonCell(JSONObject cell,String attribute,String value) {
+
+        JSONArray values = (JSONArray) cell.get("attributes");
+        JSONObject atvalue = new JSONObject();
+
+        atvalue.put(attribute, value);
+
+        values.add(atvalue);
+        cell.put("attributes",values);
+
+    }
+
     private JSONObject createJsonCell(int positionX, int positionY, String attribute, String value) {
 
-        JSONObject cell = new JSONObject();
 
         JSONArray positionArray = new JSONArray();
         positionArray.add(positionY);
         positionArray.add(positionX);
-        cell.put("position", positionArray);
+        JSONObject atvalue = new JSONObject();
 
-        cell.put("attribute", attribute);
+        atvalue.put(attribute, value);
 
-        cell.put("value", value);
+        JSONArray array = new JSONArray();
+        array.add(atvalue);
+        JSONObject cell = new JSONObject();
+        cell.put("attributes",array);
+        cell.put("position",positionArray);
 
         return cell;
 

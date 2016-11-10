@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.tp;
 
 import ar.fiuba.tdd.tp.controller.JsonFileController;
+import ar.fiuba.tdd.tp.move.InvalidMove;
 import ar.fiuba.tdd.tp.move.InvalidMoveException;
 import ar.fiuba.tdd.tp.move.Move;
 import ar.fiuba.tdd.tp.move.MoveFactory;
@@ -118,8 +119,11 @@ public class MainWindow {
                 break;
             }
             view.add(move);
-            game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
-
+            try {
+                game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
+            } catch (InvalidMoveException ex) {
+                //do nothing
+            }
         }
         view.add(game);
         view.write();
@@ -147,7 +151,6 @@ public class MainWindow {
                     try {
                         playGame(game, file);
                     } catch (Exception ex) {
-                        System.out.print(ex.toString());
                         showErrorDialog("Error: Invalid move's file");
                     }
                 }
