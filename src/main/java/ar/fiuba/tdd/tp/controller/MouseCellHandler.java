@@ -1,8 +1,12 @@
 package ar.fiuba.tdd.tp.controller;
 
 import ar.fiuba.tdd.tp.Game;
+import ar.fiuba.tdd.tp.move.InvalidMoveException;
+import ar.fiuba.tdd.tp.move.Move;
+import ar.fiuba.tdd.tp.move.MoveFactory;
 import ar.fiuba.tdd.tp.view.BoardGameView;
 import ar.fiuba.tdd.tp.view.IconValue;
+import ar.fiuba.tdd.tp.view.JsonFileView;
 import ar.fiuba.tdd.tp.view.MainValuePicker;
 import javafx.util.Pair;
 
@@ -37,8 +41,17 @@ public class MouseCellHandler implements MouseListener {
         if (result != null) {
             Pair<String, String> newValue = (Pair<String, String>) result;
 
-            game.playCell(row, col, newValue.getKey(), newValue.getValue());
 
+
+            MoveFactory factory = new MoveFactory(game.getPossibleValues(),game.getAllowedPositions());
+
+            Move move;
+            move = factory.createMove(0, row, col, newValue.getKey(), newValue.getValue());
+            try {
+                game.playCell(move.getX(), move.getY(), move.getAttribute(), move.getValue());
+            } catch (InvalidMoveException ex) {
+                //do nothing
+            }
             board.update();
 
             //drawVertices();

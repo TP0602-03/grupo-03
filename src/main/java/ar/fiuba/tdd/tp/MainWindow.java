@@ -32,7 +32,7 @@ public class MainWindow {
         JPanel auxPanel = new JPanel(new FlowLayout());
         auxPanel.add(this.createButton("Load...",new LoadGameActionListener()));
         auxPanel.add(this.createButton("Undo",new UndoPlayActionListener()));
-        //auxPanel.add(this.createButton("Solve from file",new SolveFromFileActionListener()));
+        auxPanel.add(this.createButton("Solve from file",new SolveFromFileActionListener()));
         return auxPanel;
     }
 
@@ -120,7 +120,7 @@ public class MainWindow {
             }
             view.add(move);
             try {
-                game.playCell(move.getY(), move.getX(), move.getAttribute(), move.getValue());
+                game.playCell(move.getX(), move.getY(), move.getAttribute(), move.getValue());
             } catch (InvalidMoveException ex) {
                 //do nothing
             }

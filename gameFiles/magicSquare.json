@@ -1,0 +1,331 @@
+{
+  "name": "Sudoku",
+  "size": {
+    "width": 3,
+    "height": 3
+  },
+  "editables": [
+    {
+      "attribute": "num",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        ""
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "r": 0,
+      "c": 0,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 0,
+      "c": 1,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 0,
+      "c": 2,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 2,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 2,
+      "c": 0,
+      "attributes": {
+        "num": ""
+      }
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "attributes": {
+        "num": ""
+      }
+    },
+
+    {
+      "r": 2,
+      "c": 2,
+      "attributes": {
+        "num": ""
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "column",
+        "column": 0,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "column",
+        "column": 1,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "column",
+        "column": 2,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 0,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 1,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "row",
+        "row": 2,
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 0
+          },
+          {
+            "r": 1,
+            "c": 1
+          },
+          {
+            "r": 2,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 0
+          },
+          {
+            "r": 1,
+            "c": 1
+          },
+          {
+            "r": 0,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 15
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "rectangle",
+        "rectangle": {
+          "r_min": 0,
+          "c_min": 0,
+          "r_max": 2,
+          "c_max": 2
+        },
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleDistinctValues",
+              "attribute": "num"
+            }
+          }
+        ]
+      }
+    }],
+  "restrictions": [
+    {
+      "attribute": "num",
+      "allowedPositions": [
+        [0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1],[2,2]
+      ],
+      "allowedValues": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",""
+      ]
+    }
+  ]
+}
