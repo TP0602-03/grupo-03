@@ -1,0 +1,756 @@
+{
+  "name": "Custom Game",
+  "size": {
+    "width": 4,
+    "height": 4
+  },
+  "editables": [
+    {
+      "attribute": "lines",
+      "values": [
+        "se",
+        "ne",
+        "nw",
+        "sw",
+        "ns",
+        "we",
+        ""
+      ],
+      "actions": [
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomMiddle",
+            "dst": "middleRight"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "topMiddle",
+            "dst": "middleRight"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "topMiddle",
+            "dst": "middleLeft"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "bottomMiddle",
+            "dst": "middleLeft"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "topMiddle",
+            "dst": "bottomMiddle"
+          }
+        ],
+        [
+          {
+            "type": "add_edge",
+            "src": "middleLeft",
+            "dst": "middleRight"
+          }
+        ]
+      ]
+    },
+    {
+      "attribute": "num",
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        ""
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "r": 0,
+      "c": 0,
+      "attributes": {
+        "regionRight": "true",
+        "regionBottom": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 0,
+      "c": 1,
+      "attributes": {
+        "regionLeft": "true",
+        "regionRight": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 0,
+      "c": 2,
+      "attributes": {
+        "num": 1,
+        "regionLeft": "true",
+        "regionBottom": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 0,
+      "c": 3,
+      "attributes": {
+        "regionBottom": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 0,
+      "attributes": {
+        "regionTop": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 1,
+      "attributes": {
+        "regionRight": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 2,
+      "attributes": {
+        "regionBottom": "true",
+        "regionTop": "true",
+        "regionLeft": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 1,
+      "c": 3,
+      "attributes": {
+        "regionTop": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 2,
+      "c": 0,
+      "attributes": {
+        "regionBottom": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 2,
+      "c": 1,
+      "attributes": {
+        "regionBottom": "true",
+        "regionRight": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 2,
+      "c": 2,
+      "attributes": {
+        "regionTop": "true",
+        "regionRight": "true",
+        "regionLeft": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 2,
+      "c": 3,
+      "attributes": {
+        "regionBottom": "true",
+        "regionLeft": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 3,
+      "c": 0,
+      "attributes": {
+        "num": 2,
+        "regionTop": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 3,
+      "c": 1,
+      "attributes": {
+        "regionTop": "true",
+        "regionRight": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 3,
+      "c": 2,
+      "attributes": {
+        "regionLeft": "true",
+        "lines": ""
+      }
+    },
+    {
+      "r": 3,
+      "c": 3,
+      "attributes": {
+        "regionTop": "true",
+        "lines": ""
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "r": 0,
+            "c": 0
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "r": 0,
+            "c": 1
+          },
+          {
+            "r": 1,
+            "c": 0
+          },
+          {
+            "r": 1,
+            "c": 1
+          },
+          {
+            "r": 2,
+            "c": 0
+          },
+          {
+            "r": 2,
+            "c": 1
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "r": 0,
+            "c": 2
+          },
+          {
+            "r": 0,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 2
+          },
+          {
+            "r": 0,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTotalVertexWithAttributeEqual",
+              "attribute": "lines",
+              "value": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "r": 1,
+            "c": 2
+          },
+          {
+            "r": 1,
+            "c": 3
+          },
+          {
+            "r": 2,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "r": 2,
+            "c": 2
+          },
+          {
+            "r": 3,
+            "c": 2
+          },
+          {
+            "r": 3,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "edges",
+        "cells": [
+          {
+            "r": 3,
+            "c": 0
+          },
+          {
+            "r": 3,
+            "c": 1
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleOneEntryOneExit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 3,
+            "c": 0
+          },
+          {
+            "r": 3,
+            "c": 1
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTotalVertexWithAttributeEqual",
+              "attribute": "lines",
+              "value": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 0
+          }, {
+            "r": 0,
+            "c": 1
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 1
+          }, {
+            "r": 0,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 1,
+            "c": 1
+          }, {
+            "r": 1,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 1
+          }, {
+            "r": 2,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 2
+          }, {
+            "r": 2,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 3,
+            "c": 1
+          }, {
+            "r": 3,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 0
+          }, {
+            "r": 1,
+            "c": 0
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 2
+          }, {
+            "r": 1,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 0,
+            "c": 3
+          }, {
+            "r": 1,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 1,
+            "c": 2
+          }, {
+            "r": 2,
+            "c": 2
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 0
+          }, {
+            "r": 3,
+            "c": 0
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 1
+          }, {
+            "r": 3,
+            "c": 1
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "custom",
+        "cells": [
+          {
+            "r": 2,
+            "c": 3
+          }, {
+            "r": 3,
+            "c": 3
+          }
+        ],
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleTwoDontShareAttributeValue",
+              "attribute": "lines",
+              "value": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "region": {
+        "type": "all_edges",
+        "rules": [
+          {
+            "rule": {
+              "name": "RuleGraphHasOneCycle"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "restrictions": [
+    {
+      "attribute": "lines",
+      "allowedPositions": [
+        [0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [1, 2], [1, 3], [2, 0], [2, 1], [2, 2],
+        [2, 3], [3, 0], [3, 1], [3, 2], [3, 3]
+      ],
+      "allowedValues": [
+        "se",
+        "ne",
+        "nw",
+        "sw",
+        "ns",
+        "we"
+      ]
+    },
+    {
+      "attribute": "num",
+      "allowedPositions": [
+        [0, 0], [0, 1], [0, 3], [1, 0], [1, 1], [1, 2], [1, 3], [2, 0], [2, 1], [2, 2],
+        [2, 3], [3, 1], [3, 2], [3, 3]
+      ],
+      "allowedValues": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    }
+  ]
+}
