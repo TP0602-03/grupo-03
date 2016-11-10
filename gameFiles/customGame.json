@@ -95,7 +95,7 @@
       "r": 0,
       "c": 2,
       "attributes": {
-        "num": 1,
+        "secondUpRight": "1",
         "regionLeft": "true",
         "regionBottom": "true",
         "lines": ""
@@ -183,7 +183,7 @@
       "r": 3,
       "c": 0,
       "attributes": {
-        "num": 2,
+        "secondUpRight": "2",
         "regionTop": "true",
         "lines": ""
       }
@@ -309,6 +309,14 @@
               "attribute": "lines",
               "value": 1
             }
+          },
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 1
+            }
           }
         ]
       }
@@ -406,6 +414,14 @@
               "name": "RuleTotalVertexWithAttributeEqual",
               "attribute": "lines",
               "value": 2
+            }
+          },
+          {
+            "rule": {
+              "name": "RuleCheckOperationResult",
+              "operator": "sum",
+              "attribute": "num",
+              "expected": 2
             }
           }
         ]
