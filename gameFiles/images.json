@@ -45,6 +45,10 @@
     "attribute": "num",
     "values": [
       {
+        "value": "0",
+        "image": "_0"
+      },
+      {
         "value": "1",
         "image": "_1"
       },
