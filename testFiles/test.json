@@ -68,468 +68,306 @@
   "board": {
     "values": [
       {
+        "attributes": [
+          {
+            "small_first": "6"
+          },
+          {
+            "num": "3"
+          },
+          {
+            "small_num": "6"
+          },
+          {
+            "regionRight": "true"
+          }
+        ],
         "position": [
           0,
           0
-        ],
-        "attribute": "small_first",
-        "value": "6"
+        ]
       },
       {
-        "position": [
-          0,
-          0
+        "attributes": [
+          {
+            "small_first": "8"
+          },
+          {
+            "num": "4"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "small_num": "8"
+          },
+          {
+            "regionLeft": "true"
+          }
         ],
-        "attribute": "num",
-        "value": "3"
-      },
-      {
-        "position": [
-          0,
-          0
-        ],
-        "attribute": "small_num",
-        "value": "6"
-      },
-      {
-        "position": [
-          0,
-          0
-        ],
-        "attribute": "regionRight",
-        "value": "true"
-      },
-      {
         "position": [
           0,
           1
-        ],
-        "attribute": "small_first",
-        "value": "8"
+        ]
       },
       {
-        "position": [
-          0,
-          1
+        "attributes": [
+          {
+            "num": "2"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "regionRight": "true"
+          }
         ],
-        "attribute": "num",
-        "value": "4"
-      },
-      {
-        "position": [
-          0,
-          1
-        ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          0,
-          1
-        ],
-        "attribute": "small_num",
-        "value": "8"
-      },
-      {
-        "position": [
-          0,
-          1
-        ],
-        "attribute": "regionLeft",
-        "value": "true"
-      },
-      {
         "position": [
           0,
           2
-        ],
-        "attribute": "num",
-        "value": "2"
+        ]
       },
       {
-        "position": [
-          0,
-          2
+        "attributes": [
+          {
+            "small_first": "2"
+          },
+          {
+            "small_second": "4"
+          },
+          {
+            "num": "1"
+          },
+          {
+            "small_num": "24"
+          },
+          {
+            "regionLeft": "true"
+          }
         ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          0,
-          2
-        ],
-        "attribute": "regionRight",
-        "value": "true"
-      },
-      {
         "position": [
           0,
           3
-        ],
-        "attribute": "small_first",
-        "value": "2"
+        ]
       },
       {
-        "position": [
-          0,
-          3
+        "attributes": [
+          {
+            "num": "2"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "regionRight": "true"
+          }
         ],
-        "attribute": "small_second",
-        "value": "4"
-      },
-      {
-        "position": [
-          0,
-          3
-        ],
-        "attribute": "num",
-        "value": "1"
-      },
-      {
-        "position": [
-          0,
-          3
-        ],
-        "attribute": "small_num",
-        "value": "24"
-      },
-      {
-        "position": [
-          0,
-          3
-        ],
-        "attribute": "regionLeft",
-        "value": "true"
-      },
-      {
         "position": [
           1,
           0
-        ],
-        "attribute": "num",
-        "value": "2"
+        ]
       },
       {
-        "position": [
-          1,
-          0
+        "attributes": [
+          {
+            "small_first": "4"
+          },
+          {
+            "num": "1"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "small_num": "4"
+          },
+          {
+            "regionLeft": "true"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          1,
-          0
-        ],
-        "attribute": "regionRight",
-        "value": "true"
-      },
-      {
-        "position": [
-          1,
-          1
-        ],
-        "attribute": "small_first",
-        "value": "4"
-      },
-      {
         "position": [
           1,
           1
-        ],
-        "attribute": "num",
-        "value": "1"
+        ]
       },
       {
-        "position": [
-          1,
-          1
+        "attributes": [
+          {
+            "num": "4"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "regionRight": "true"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          1,
-          1
-        ],
-        "attribute": "small_num",
-        "value": "4"
-      },
-      {
-        "position": [
-          1,
-          1
-        ],
-        "attribute": "regionLeft",
-        "value": "true"
-      },
-      {
-        "position": [
-          1,
-          1
-        ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           1,
           2
-        ],
-        "attribute": "num",
-        "value": "4"
+        ]
       },
       {
-        "position": [
-          1,
-          2
+        "attributes": [
+          {
+            "num": "3"
+          },
+          {
+            "regionLeft": "true"
+          }
         ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          1,
-          2
-        ],
-        "attribute": "regionRight",
-        "value": "true"
-      },
-      {
-        "position": [
-          1,
-          2
-        ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           1,
           3
-        ],
-        "attribute": "num",
-        "value": "3"
+        ]
       },
       {
-        "position": [
-          1,
-          3
+        "attributes": [
+          {
+            "small_first": "6"
+          },
+          {
+            "num": "1"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "small_num": "6"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "regionLeft",
-        "value": "true"
-      },
-      {
-        "position": [
-          2,
-          0
-        ],
-        "attribute": "small_first",
-        "value": "6"
-      },
-      {
-        "position": [
-          2,
-          0
-        ],
-        "attribute": "num",
-        "value": "1"
-      },
-      {
         "position": [
           2,
           0
-        ],
-        "attribute": "regionBottom",
-        "value": "true"
+        ]
       },
       {
-        "position": [
-          2,
-          0
+        "attributes": [
+          {
+            "num": "2"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "small_num",
-        "value": "6"
-      },
-      {
-        "position": [
-          2,
-          0
-        ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           2,
           1
-        ],
-        "attribute": "num",
-        "value": "2"
+        ]
       },
       {
-        "position": [
-          2,
-          1
+        "attributes": [
+          {
+            "num": "3"
+          },
+          {
+            "regionBottom": "true"
+          },
+          {
+            "regionRight": "true"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          2,
-          1
-        ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           2,
           2
-        ],
-        "attribute": "num",
-        "value": "3"
+        ]
       },
       {
-        "position": [
-          2,
-          2
+        "attributes": [
+          {
+            "num": "4"
+          },
+          {
+            "regionLeft": "true"
+          }
         ],
-        "attribute": "regionBottom",
-        "value": "true"
-      },
-      {
-        "position": [
-          2,
-          2
-        ],
-        "attribute": "regionRight",
-        "value": "true"
-      },
-      {
-        "position": [
-          2,
-          2
-        ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           2,
           3
-        ],
-        "attribute": "num",
-        "value": "4"
+        ]
       },
       {
-        "position": [
-          2,
-          3
+        "attributes": [
+          {
+            "small_first": "1"
+          },
+          {
+            "small_second": "2"
+          },
+          {
+            "num": "4"
+          },
+          {
+            "small_num": "12"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "regionLeft",
-        "value": "true"
-      },
-      {
-        "position": [
-          3,
-          0
-        ],
-        "attribute": "small_first",
-        "value": "1"
-      },
-      {
-        "position": [
-          3,
-          0
-        ],
-        "attribute": "small_second",
-        "value": "2"
-      },
-      {
         "position": [
           3,
           0
-        ],
-        "attribute": "num",
-        "value": "4"
+        ]
       },
       {
-        "position": [
-          3,
-          0
+        "attributes": [
+          {
+            "num": "3"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "small_num",
-        "value": "12"
-      },
-      {
-        "position": [
-          3,
-          0
-        ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           3,
           1
-        ],
-        "attribute": "num",
-        "value": "3"
+        ]
       },
       {
-        "position": [
-          3,
-          1
+        "attributes": [
+          {
+            "num": "1"
+          },
+          {
+            "regionRight": "true"
+          },
+          {
+            "regionTop": "true"
+          }
         ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
-        "position": [
-          3,
-          2
-        ],
-        "attribute": "num",
-        "value": "1"
-      },
-      {
         "position": [
           3,
           2
-        ],
-        "attribute": "regionRight",
-        "value": "true"
+        ]
       },
       {
-        "position": [
-          3,
-          2
+        "attributes": [
+          {
+            "num": "2"
+          },
+          {
+            "regionLeft": "true"
+          }
         ],
-        "attribute": "regionTop",
-        "value": "true"
-      },
-      {
         "position": [
           3,
           3
-        ],
-        "attribute": "num",
-        "value": "2"
-      },
-      {
-        "position": [
-          3,
-          3
-        ],
-        "attribute": "regionLeft",
-        "value": "true"
+        ]
       }
     ],
     "status": "true"
